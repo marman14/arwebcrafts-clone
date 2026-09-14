@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('./playfair-display.css');
 
 /* ==========================================================================
-   GLOBAL TYPOGRAPHY ENHANCEMENT (Playfair Display & Cormorant Garamond)
-   100% Exact Matching to Brand Design & High-Contrast Serif Style
+   GLOBAL TYPOGRAPHY ENHANCEMENT: Playfair Display Serif Force Override
    ========================================================================== */
 
-* {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+:root {
+  --e-global-typography-primary-font-family: 'Playfair Display', Georgia, serif !important;
+  --e-global-typography-secondary-font-family: 'Playfair Display', Georgia, serif !important;
+  --e-global-typography-text-font-family: 'Playfair Display', Georgia, serif !important;
+  --e-global-typography-accent-font-family: 'Playfair Display', Georgia, serif !important;
 }
 
-body,
+*, *::before, *::after {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6,
 p, span, a, input, textarea, select, button,
 label, li, dt, dd, td, th, blockquote,
@@ -31,7 +38,7 @@ label, li, dt, dd, td, th, blockquote,
 .fluentform,
 .ff-el-form-control,
 .ff-btn {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
 }
 
 /* Retain Icon Fonts so icons and arrows display cleanly without square tofu glyphs */
