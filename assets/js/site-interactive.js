@@ -89,16 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mobile CTA Button if missing
-  if (menuContainer && !menuContainer.querySelector('.ar-mobile-nav-cta')) {
-    const cta = document.createElement('a');
-    cta.href = basePath + '/contact-us/';
-    cta.className = 'ar-mobile-nav-cta';
-    cta.innerText = 'Get a Free Quote →';
-    cta.addEventListener('click', () => setTimeout(closeMobileMenu, 150));
-    menuContainer.appendChild(cta);
-  }
-
   // 2. Animated Stats Counters
   const counters = document.querySelectorAll('.elementor-counter-number');
   if (counters.length > 0) {

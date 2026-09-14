@@ -229,56 +229,92 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
   transition: none !important;
 }
 
-/* Megamenu Desktop Behavior */
+/* ==========================================================================
+   Megamenu Desktop Behavior (Neat Floating Card Dropdown)
+   ========================================================================== */
 @media (min-width: 1025px) {
   .elementskit-dropdown-has {
-    position: relative;
+    position: relative !important;
   }
   .elementskit-dropdown-has .elementskit-megamenu-panel {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 780px !important;
-    max-width: 95vw;
-    background: #ffffff;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    border-radius: 12px;
-    padding: 24px 30px;
-    z-index: 99999;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    transform: translateY(12px) !important;
+    width: 720px !important;
+    max-width: calc(100vw - 40px) !important;
+    background: #ffffff !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14), 0 4px 15px rgba(15, 23, 42, 0.05) !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    border-radius: 16px !important;
+    padding: 24px 28px !important;
+    z-index: 999999 !important;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    pointer-events: none;
+    box-sizing: border-box !important;
   }
   .elementskit-dropdown-has:hover .elementskit-megamenu-panel,
   .elementskit-dropdown-has.ekit-menu-active .elementskit-megamenu-panel {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-    transform: translateX(-50%) translateY(4px);
+    transform: translateY(4px) !important;
+    pointer-events: auto !important;
+  }
+  /* Invisible hover bridge to prevent premature closing when moving mouse */
+  .elementskit-dropdown-has .elementskit-megamenu-panel::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 0;
+    right: 0;
+    height: 16px;
+  }
+  .elementskit-megamenu-panel .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .elementskit-megamenu-panel .elementor-col-50 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
   }
   .elementskit-megamenu-panel .elementor-heading-title {
-    font-size: 17px !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
     color: #0b132a !important;
-    border-bottom: 2px solid #3b82f6;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-    display: inline-block;
+    border-bottom: 2px solid #3b82f6 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 14px !important;
+    display: inline-block !important;
   }
   .elementskit-megamenu-panel .elementor-icon-box-title a {
-    font-size: 14px !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 14.5px !important;
     font-weight: 600 !important;
     color: #334155 !important;
-    transition: color 0.2s, transform 0.2s;
-    display: block;
-    padding: 6px 0;
+    transition: all 0.2s ease !important;
+    display: block !important;
+    padding: 7px 10px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
   }
   .elementskit-megamenu-panel .elementor-icon-box-title a:hover {
     color: #2563eb !important;
-    transform: translateX(4px);
+    background: #eff6ff !important;
+    transform: translateX(4px) !important;
   }
+}
+
+/* Ensure stray CTA element is completely removed/hidden everywhere */
+.ar-mobile-nav-cta {
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -584,22 +620,6 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
   /* Hide redundant desktop subheadings on mobile if needed */
   .elementor-hidden-mobile {
     display: none !important;
-  }
-
-  /* Mobile Drawer Bottom CTA button */
-  .ar-mobile-nav-cta {
-    display: block !important;
-    margin: 16px 16px 24px !important;
-    padding: 13px 20px !important;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-    color: #ffffff !important;
-    text-align: center !important;
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    border-radius: 10px !important;
-    text-decoration: none !important;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3) !important;
   }
 }
 
