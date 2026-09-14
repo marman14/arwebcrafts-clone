@@ -1,10 +1,9 @@
 {
-  "name": "arwebcrafts-clone",
+  "name": "arwebcrafts-official",
   "version": "1.0.0",
   "description": "100% exact high-performance clone of AR Webcrafts website",
   "scripts": {
-    "start": "npx serve . -l 3000",
-    "build": "echo 'Static build ready'"
+    "start": "npx serve . -l 3000"
   },
   "devDependencies": {
     "serve": "^14.2.4"
