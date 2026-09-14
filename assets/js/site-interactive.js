@@ -5,7 +5,26 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Drawer & Toggle
+  // Support both root domains (Vercel) and repository sub-paths (GitHub Pages)
+  const isGhPages = window.location.pathname.startsWith('/arwebcrafts-clone');
+  const basePath = isGhPages ? '/arwebcrafts-clone' : '';
+
+  if (isGhPages) {
+    document.querySelectorAll('a[href^="/"]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href.startsWith('/arwebcrafts-clone') && !href.startsWith('//')) {
+        a.setAttribute('href', basePath + href);
+      }
+    });
+    document.querySelectorAll('link[href^="/assets/"], script[src^="/assets/"], img[src^="/assets/"]').forEach(el => {
+      const attr = el.tagName === 'LINK' ? 'href' : 'src';
+      const val = el.getAttribute(attr);
+      if (val && val.startsWith('/assets/')) {
+        el.setAttribute(attr, basePath + val);
+      }
+    });
+  }
+
   const hamburgerBtn = document.querySelector('.elementskit-menu-hamburger');
   const menuContainer = document.querySelector('.elementskit-menu-container');
   const menuOverlay = document.querySelector('.ekit-nav-menu--overlay');
