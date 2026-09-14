@@ -227,3 +227,19 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Zero Blank Space Guarantee */
+.elementor-invisible,
+.elementor-hidden-desktop,
+.elementor-hidden-tablet,
+.elementor-hidden-mobile {
+  /* keep responsive classes as defined, but ensure invisible is never hidden */
+}
+.elementor-invisible {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.elementor-widget-wrap {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
