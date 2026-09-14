@@ -27,21 +27,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuOverlay = document.querySelector('.ekit-nav-menu--overlay');
   const closeBtn = document.querySelector('.elementskit-menu-close');
 
-  function openMobileMenu() {
+  function openMobileMenu(e) {
+    if (e) e.preventDefault();
     if (menuContainer) menuContainer.classList.add('elementskit-menu-open');
     if (menuOverlay) menuOverlay.classList.add('active');
+    document.body.classList.add('elementskit-menu-open-body');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeMobileMenu() {
+  function closeMobileMenu(e) {
+    if (e) e.preventDefault();
     if (menuContainer) menuContainer.classList.remove('elementskit-menu-open');
     if (menuOverlay) menuOverlay.classList.remove('active');
+    document.body.classList.remove('elementskit-menu-open-body');
     document.body.style.overflow = '';
   }
 
   if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
   if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
   if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+  // Close mobile menu on ESC key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuContainer && menuContainer.classList.contains('elementskit-menu-open')) {
+      closeMobileMenu();
+    }
+  });
 
   // Mobile Submenu Accordion Toggle
   const dropdownNavItems = document.querySelectorAll('.elementskit-dropdown-has');
@@ -52,11 +63,41 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
           e.preventDefault();
-          panel.classList.toggle('active');
+          e.stopPropagation();
+          const isCurrentlyActive = panel.classList.contains('active');
+          if (isCurrentlyActive) {
+            panel.classList.remove('active');
+            item.classList.remove('active');
+          } else {
+            panel.classList.add('active');
+            item.classList.add('active');
+          }
         }
       });
     }
   });
+
+  // Auto-close menu when tapping a destination page link (so it doesn't stay open on navigation)
+  document.querySelectorAll('.elementskit-navbar-nav a').forEach(a => {
+    // Only close if it is NOT the dropdown toggle itself
+    if (!a.classList.contains('ekit-menu-nav-link') || !a.closest('.elementskit-dropdown-has') || a.closest('.elementskit-megamenu-panel')) {
+      a.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          setTimeout(closeMobileMenu, 150);
+        }
+      });
+    }
+  });
+
+  // Mobile CTA Button if missing
+  if (menuContainer && !menuContainer.querySelector('.ar-mobile-nav-cta')) {
+    const cta = document.createElement('a');
+    cta.href = basePath + '/contact-us/';
+    cta.className = 'ar-mobile-nav-cta';
+    cta.innerText = 'Get a Free Quote →';
+    cta.addEventListener('click', () => setTimeout(closeMobileMenu, 150));
+    menuContainer.appendChild(cta);
+  }
 
   // 2. Animated Stats Counters
   const counters = document.querySelectorAll('.elementor-counter-number');
