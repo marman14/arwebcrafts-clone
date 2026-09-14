@@ -1,6 +1,150 @@
 /* ==========================================================================
-   AR Webcrafts Enhancement & Interactive Styling Bundle
+   AR Webcrafts Enhancement, 3D Motions & Animation Bundle (100% Polish)
    ========================================================================== */
+
+/* Zero Blank Space & Full Visibility Guarantee */
+.elementor-invisible,
+[data-settings*="animation"],
+.elementor-widget,
+.elementor-column,
+.elementor-section {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.elementor-widget-wrap {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Swiper Carousels & Testimonials Full Render */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  position: relative !important;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.elementor-image-carousel.swiper-wrapper {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  gap: 36px !important;
+  width: 100% !important;
+  padding: 20px 0 !important;
+}
+
+.elementor-image-carousel .swiper-slide {
+  width: auto !important;
+  max-width: 220px !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0.88;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+.elementor-image-carousel .swiper-slide:hover {
+  opacity: 1 !important;
+  transform: translateY(-4px) scale(1.05) !important;
+}
+
+.elementor-image-carousel .swiper-slide img {
+  max-height: 55px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Testimonial & Review Cards Slider */
+.ekit-main-swiper {
+  overflow: hidden !important;
+  position: relative !important;
+  padding: 15px 5px !important;
+}
+
+.ekit-main-swiper .swiper-wrapper {
+  display: flex !important;
+  gap: 24px !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  scroll-behavior: smooth !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;  /* IE */
+}
+.ekit-main-swiper .swiper-wrapper::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari */
+}
+
+.ekit-main-swiper .swiper-slide {
+  flex: 0 0 calc(33.333% - 16px) !important;
+  min-width: 300px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+.ekit-main-swiper .swiper-slide:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+@media (max-width: 960px) {
+  .ekit-main-swiper .swiper-slide {
+    flex: 0 0 calc(50% - 12px) !important;
+  }
+}
+@media (max-width: 640px) {
+  .ekit-main-swiper .swiper-slide {
+    flex: 0 0 100% !important;
+  }
+}
+
+/* Supercharged 3D Hover & Motion Effects */
+.elementor-widget-icon-box,
+.elementskit-info-box,
+.elementor-counter,
+.elementor-element-f8442c5,
+.elementor-element-05e9c3f,
+.elementor-button {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.elementor-widget-icon-box:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.elementor-counter:hover {
+  transform: scale(1.05) !important;
+}
+
+.elementor-button {
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+}
+
+.elementor-button:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Staggered Scroll Reveal Motion */
+.ar-reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ar-reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 
 /* Megamenu Desktop Behavior */
 @media (min-width: 1025px) {
@@ -130,7 +274,7 @@
   }
 }
 
-/* Toast Notification for Interactive Forms */
+/* Toast Notifications */
 #ar-toast-container {
   position: fixed;
   top: 24px;
@@ -226,20 +370,4 @@
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
-}
-
-/* Zero Blank Space Guarantee */
-.elementor-invisible,
-.elementor-hidden-desktop,
-.elementor-hidden-tablet,
-.elementor-hidden-mobile {
-  /* keep responsive classes as defined, but ensure invisible is never hidden */
-}
-.elementor-invisible {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-.elementor-widget-wrap {
-  opacity: 1 !important;
-  visibility: visible !important;
 }

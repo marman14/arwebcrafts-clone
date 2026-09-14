@@ -1,7 +1,5 @@
 /**
- * AR Webcrafts - Client-Side Interactive Engine
- * Controls Header Megamenu, Mobile Navigation Drawer, Form Interactivity,
- * Animated Counters, FAQ Accordions, and WhatsApp Live Chat.
+ * AR Webcrafts - Supercharged Client-Side Interactive & 3D Motion Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,15 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
         a.setAttribute('href', basePath + href);
       }
     });
-    document.querySelectorAll('link[href^="/assets/"], script[src^="/assets/"], img[src^="/assets/"]').forEach(el => {
-      const attr = el.tagName === 'LINK' ? 'href' : 'src';
-      const val = el.getAttribute(attr);
-      if (val && val.startsWith('/assets/')) {
-        el.setAttribute(attr, basePath + val);
-      }
-    });
   }
 
+  // Ensure elementor-invisible is never hidden
+  document.querySelectorAll('.elementor-invisible').forEach(el => {
+    el.classList.remove('elementor-invisible');
+  });
+
+  // 1. Mobile Menu Drawer & Toggle
   const hamburgerBtn = document.querySelector('.elementskit-menu-hamburger');
   const menuContainer = document.querySelector('.elementskit-menu-container');
   const menuOverlay = document.querySelector('.ekit-nav-menu--overlay');
@@ -90,19 +87,27 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(el);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.2 });
 
     counters.forEach(c => counterObserver.observe(c));
   }
 
-  // 3. FAQ Accordion Interaction
+  // 3. Native Slider & Testimonial Carousel Controller
+  initSliders();
+
+  // 4. Supercharged 3D Perspective Tilt on Cards
+  init3DTilt();
+
+  // 5. Scroll Reveal Motion
+  initScrollReveal();
+
+  // 6. FAQ Accordion Interaction
   const accordionTitles = document.querySelectorAll('.elementor-tab-title');
   accordionTitles.forEach(title => {
     title.addEventListener('click', () => {
       const content = title.nextElementSibling;
       const isActive = title.classList.contains('elementor-active');
 
-      // Close siblings if in standard elementor accordion
       const parent = title.closest('.elementor-accordion');
       if (parent) {
         parent.querySelectorAll('.elementor-tab-title').forEach(t => t.classList.remove('elementor-active'));
@@ -120,41 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Toast Notification Engine
-  function showToast(title, message, isError = false) {
-    let container = document.getElementById('ar-toast-container');
-    if (!container) {
-      container = document.createElement('div');
-      container.id = 'ar-toast-container';
-      document.body.appendChild(container);
-    }
-
-    const toast = document.createElement('div');
-    toast.className = `ar-toast ${isError ? 'ar-toast-error' : ''}`;
-    toast.innerHTML = `
-      <div class="ar-toast-icon">${isError ? '⚠️' : '✅'}</div>
-      <div class="ar-toast-content">
-        <div class="ar-toast-title">${title}</div>
-        <div class="ar-toast-message">${message}</div>
-      </div>
-    `;
-
-    container.appendChild(toast);
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(-10px)';
-      toast.style.transition = 'all 0.3s ease';
-      setTimeout(() => toast.remove(), 300);
-    }, 4500);
-  }
-
-  // 5. Interactive Form Handlers
+  // 7. Interactive Form Handlers
   const forms = document.querySelectorAll('form');
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Check required fields
       const inputs = form.querySelectorAll('input, textarea, select');
       let isValid = true;
       let firstEmpty = null;
@@ -175,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Submit feedback animation
       const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
       const originalText = submitBtn ? (submitBtn.innerText || submitBtn.value) : '';
 
@@ -197,14 +172,123 @@ document.addEventListener('DOMContentLoaded', () => {
           'Inquiry Received!',
           'Thank you for contacting AR Webcrafts. A senior technical consultant will review your request and get in touch within 24 hours.'
         );
-      }, 1000);
+      }, 900);
     });
   });
 
-  // 6. WhatsApp Live Chat Floating Widget
+  // 8. WhatsApp Live Chat Floating Widget
   initWhatsAppWidget();
 });
 
+// Slider & Carousel Controller
+function initSliders() {
+  const testimonialSwipers = document.querySelectorAll('.ekit-main-swiper');
+  testimonialSwipers.forEach(slider => {
+    const wrapper = slider.querySelector('.swiper-wrapper');
+    if (!wrapper) return;
+
+    // Hook up navigation arrows if available
+    const parent = slider.closest('.elementskit-testimonial-slider');
+    if (parent) {
+      const nextBtn = parent.querySelector('.elementskit-swiper-button-next, .slick-next, .next-arrow');
+      const prevBtn = parent.querySelector('.elementskit-swiper-button-prev, .slick-prev, .prev-arrow');
+
+      if (nextBtn) {
+        nextBtn.style.cursor = 'pointer';
+        nextBtn.addEventListener('click', () => {
+          wrapper.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+      }
+      if (prevBtn) {
+        prevBtn.style.cursor = 'pointer';
+        prevBtn.addEventListener('click', () => {
+          wrapper.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+      }
+    }
+
+    // Gentle auto-scroll every 5 seconds
+    setInterval(() => {
+      if (wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 10) {
+        wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        wrapper.scrollBy({ left: 340, behavior: 'smooth' });
+      }
+    }, 5500);
+  });
+}
+
+// 3D Perspective Tilt Effect on Cards
+function init3DTilt() {
+  const tiltCards = document.querySelectorAll('.elementor-widget-icon-box, .elementor-counter, .elementskit-info-box');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// Scroll Reveal Engine
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.elementor-top-section, .elementor-widget-heading, .elementor-widget-icon-box');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ar-reveal-active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => {
+      el.classList.add('ar-reveal-init');
+      revealObserver.observe(el);
+    });
+  }
+}
+
+// Toast Notifications
+function showToast(title, message, isError = false) {
+  let container = document.getElementById('ar-toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'ar-toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = `ar-toast ${isError ? 'ar-toast-error' : ''}`;
+  toast.innerHTML = `
+    <div class="ar-toast-icon">${isError ? '⚠️' : '✅'}</div>
+    <div class="ar-toast-content">
+      <div class="ar-toast-title">${title}</div>
+      <div class="ar-toast-message">${message}</div>
+    </div>
+  `;
+
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(-10px)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 4500);
+}
+
+// WhatsApp Live Chat Floating Widget
 function initWhatsAppWidget() {
   if (document.getElementById('ar-wa-widget')) return;
 
@@ -267,7 +351,5 @@ function initWhatsAppWidget() {
   }
 
   if (closeX) closeX.addEventListener('click', closePopup);
-
-  // Auto show popup after 4 seconds
   setTimeout(openPopup, 4000);
 }
