@@ -178,9 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 8. WhatsApp Live Chat Floating Widget
   initWhatsAppWidget();
+
+  // 9. Calendly Discovery Call Widget Guarantee
+  initCalendlyWidgets();
+
+  // 10. Ultra-Smooth 60fps Scrolling Optimizer
+  initSmoothScroll();
 });
 
-// Slider & Carousel Controller
+// Slider & Carousel Controller (Performance-Optimized)
 function initSliders() {
   const testimonialSwipers = document.querySelectorAll('.ekit-main-swiper');
   testimonialSwipers.forEach(slider => {
@@ -207,32 +213,53 @@ function initSliders() {
       }
     }
 
-    // Gentle auto-scroll every 5 seconds
+    // Auto-scroll ONLY when carousel is actually in viewport
+    let isVisible = false;
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+      }, { threshold: 0.1 });
+      observer.observe(slider);
+    } else {
+      isVisible = true;
+    }
+
     setInterval(() => {
+      if (!isVisible) return;
       if (wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 10) {
         wrapper.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
         wrapper.scrollBy({ left: 340, behavior: 'smooth' });
       }
-    }, 5500);
+    }, 6000);
   });
 }
 
-// 3D Perspective Tilt Effect on Cards
+// 3D Perspective Tilt Effect on Cards (Throttled with requestAnimationFrame & Passive Listeners)
 function init3DTilt() {
+  if (window.matchMedia('(hover: none)').matches) return;
+
   const tiltCards = document.querySelectorAll('.elementor-widget-icon-box, .elementor-counter, .elementskit-info-box');
   tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -5;
-      const rotateY = ((x - centerX) / centerX) * 5;
+    let ticking = false;
 
-      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
+    card.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+
+          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
 
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
@@ -240,24 +267,59 @@ function init3DTilt() {
   });
 }
 
-// Scroll Reveal Engine
+// Seamless Instant Section Display (Eliminates Scroll Stutter & Lag)
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.elementor-top-section, .elementor-widget-heading, .elementor-widget-icon-box');
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('ar-reveal-active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+  // All sections are immediately 100% visible and rendered to guarantee buttery 60fps scrolling
+  document.querySelectorAll('.ar-reveal-init').forEach(el => {
+    el.classList.remove('ar-reveal-init');
+    el.classList.add('ar-reveal-active');
+  });
+}
 
-    revealElements.forEach(el => {
-      el.classList.add('ar-reveal-init');
-      revealObserver.observe(el);
+// Calendly Meeting & Discovery Call Inline Widget Guarantee
+function initCalendlyWidgets() {
+  const widgets = document.querySelectorAll('.calendly-inline-widget');
+  widgets.forEach(widget => {
+    const url = widget.getAttribute('data-url');
+    if (!url) return;
+
+    // Check if an iframe already exists or if Calendly injected one
+    if (!widget.querySelector('iframe')) {
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.width = '100%';
+      iframe.height = '100%';
+      iframe.frameBorder = '0';
+      iframe.title = 'Schedule Discovery Call Now';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.minWidth = '320px';
+      iframe.style.minHeight = '700px';
+      iframe.style.border = 'none';
+      iframe.style.borderRadius = '16px';
+      iframe.loading = 'lazy';
+      widget.appendChild(iframe);
+    }
+  });
+}
+
+// Ultra-Smooth 60fps Native Scrolling Optimization
+function initSmoothScroll() {
+  // Smooth scroll handler for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId === '') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
-  }
+  });
 }
 
 // Toast Notifications

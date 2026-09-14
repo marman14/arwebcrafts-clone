@@ -213,15 +213,13 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
 }
 
-/* Staggered Scroll Reveal Motion */
-.ar-reveal-init {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Instant Clean Section Visibility (Zero Lag / No Stutter) */
+.ar-reveal-init,
 .ar-reveal-active {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
 }
 
 /* Megamenu Desktop Behavior */
@@ -445,7 +443,56 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
   transition: max-height 0.3s ease-out;
 }
 
-/* Smooth Scrolling */
+/* ==========================================================================
+   Smooth & Fast Scrolling / Section Transitions (No Lag, 60fps Native)
+   ========================================================================== */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 90px;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Eliminate section layout thrashing & stutter during scrolling */
+.elementor-top-section,
+.elementor-section,
+.elementor-column,
+.elementor-container,
+.elementor-widget-wrap {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   Calendly Meeting / Discovery Call Responsive Embed Container
+   ========================================================================== */
+.calendly-inline-widget {
+  position: relative !important;
+  min-width: 320px !important;
+  width: 100% !important;
+  height: 750px !important;
+  min-height: 700px !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 0 auto !important;
+}
+
+.calendly-inline-widget iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 700px !important;
+  min-width: 320px !important;
+  border: none !important;
+  border-radius: 16px !important;
+  display: block !important;
 }
