@@ -2,10 +2,25 @@
 @import url('./playfair-display.css');
 
 /* ==========================================================================
-   GLOBAL TYPOGRAPHY ENHANCEMENT: Playfair Display Serif Force Override
+   1. GLOBAL AGENCY TYPOGRAPHY & BRAND VARIABLES (Inspired by codeanddesigns.com)
+   Luxury Gold (#E5B45A) and Deep Matte Black (#111111)
    ========================================================================== */
 
 :root {
+  --tp-agency-black: #0e0e0e;
+  --tp-agency-dark: #111111;
+  --tp-agency-dark-2: #141414;
+  --tp-agency-card: #181818;
+  --tp-agency-card-hover: #202020;
+  --tp-agency-border: rgba(255, 255, 255, 0.08);
+  --tp-agency-border-gold: rgba(229, 180, 90, 0.35);
+  --tp-agency-gold: #E5B45A;
+  --tp-agency-gold-light: #F7D08A;
+  --tp-agency-gold-glow: rgba(229, 180, 90, 0.25);
+  --tp-agency-text-primary: #ffffff;
+  --tp-agency-text-secondary: #b5b5b5;
+  --tp-agency-text-muted: #888888;
+  
   --e-global-typography-primary-font-family: 'Playfair Display', Georgia, serif !important;
   --e-global-typography-secondary-font-family: 'Playfair Display', Georgia, serif !important;
   --e-global-typography-text-font-family: 'Playfair Display', Georgia, serif !important;
@@ -13,31 +28,6 @@
 }
 
 *, *::before, *::after {
-  font-family: 'Playfair Display', Georgia, serif !important;
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6,
-p, span, a, input, textarea, select, button,
-label, li, dt, dd, td, th, blockquote,
-.elementor-heading-title,
-.elementor-icon-box-title,
-.elementor-icon-box-description,
-.elementor-button,
-.elementor-button-text,
-.elementor-counter-title,
-.elementor-counter-number,
-.elementor-counter-number-prefix,
-.elementor-counter-number-suffix,
-.elementor-nav-menu,
-.elementor-nav-menu a,
-.elementskit-navbar-nav,
-.elementskit-navbar-nav a,
-.ekit-menu-nav-link,
-.elementor-widget-container,
-.fluentform,
-.ff-el-form-control,
-.ff-btn {
   font-family: 'Playfair Display', Georgia, serif !important;
 }
 
@@ -84,10 +74,9 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
 }
 
 /* ==========================================================================
-   AR Webcrafts Enhancement, 3D Motions & Animation Bundle (100% Polish)
+   2. ZERO BLANK SPACES & FULL VISIBILITY GUARANTEE ACROSS ALL PAGES
    ========================================================================== */
 
-/* Zero Blank Space & Full Visibility Guarantee */
 .elementor-invisible,
 [data-settings*="animation"],
 .elementor-widget,
@@ -102,647 +91,499 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
   visibility: visible !important;
 }
 
-/* Swiper Carousels & Testimonials Full Render */
-.swiper-wrapper {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  position: relative !important;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+/* Base Body Styling */
+html, body {
+  background-color: var(--tp-agency-dark) !important;
+  color: var(--tp-agency-text-primary) !important;
+  overflow-x: hidden !important;
+  scroll-behavior: smooth !important;
 }
 
-.elementor-image-carousel.swiper-wrapper {
-  display: flex !important;
-  justify-content: space-around !important;
+/* ==========================================================================
+   3. UNIFORM AGENCY LAYOUT & SPACING (All Sections on All Pages)
+   ========================================================================== */
+
+/* Dark Matte Sections */
+.elementor-section {
+  background-color: var(--tp-agency-dark) !important;
+  position: relative;
+}
+
+.elementor-section.elementor-top-section {
+  padding-top: 75px !important;
+  padding-bottom: 75px !important;
+}
+
+.elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 1400px !important;
+}
+
+/* Alternating dark section tone for modern contrast */
+.elementor-section.elementor-top-section:nth-of-type(even) {
+  background-color: var(--tp-agency-black) !important;
+}
+
+/* Subtle border dividers between major sections */
+.elementor-section.elementor-top-section {
+  border-bottom: 1px solid var(--tp-agency-border) !important;
+}
+
+/* ==========================================================================
+   4. AGENCY HEADINGS & SUBTITLE PILL BADGES (codeanddesigns.com style)
+   ========================================================================== */
+
+/* Main Page Titles & Section Headings */
+h1, .elementor-heading-title.elementor-size-xl, h1.elementor-heading-title {
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: clamp(36px, 4.8vw, 62px) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  margin-bottom: 20px !important;
+}
+
+h2, h2.elementor-heading-title {
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: clamp(26px, 3.4vw, 44px) !important;
+  font-weight: 700 !important;
+  line-height: 1.28 !important;
+  color: #ffffff !important;
+  margin-bottom: 18px !important;
+}
+
+h3, h3.elementor-heading-title {
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: clamp(20px, 2.2vw, 28px) !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: #ffffff !important;
+  margin-bottom: 14px !important;
+}
+
+h4, h4.elementor-heading-title {
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: clamp(17px, 1.8vw, 22px) !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  color: #f0f0f0 !important;
+}
+
+/* Subtitle Pill Badge (codeanddesigns.com .tp-section-subtitle) */
+h6, h6.elementor-heading-title,
+.elementor-widget-heading h6.elementor-heading-title,
+.tp-section-subtitle {
+  display: inline-flex !important;
   align-items: center !important;
-  gap: 36px !important;
+  gap: 8px !important;
+  padding: 6px 18px !important;
+  border-radius: 9999px !important;
+  background: rgba(229, 180, 90, 0.08) !important;
+  border: 1px solid rgba(229, 180, 90, 0.3) !important;
+  color: var(--tp-agency-gold) !important;
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 18px !important;
+}
+
+h6.elementor-heading-title::before,
+.tp-section-subtitle .tp-bullet-dot {
+  content: "" !important;
+  width: 7px !important;
+  height: 7px !important;
+  background-color: var(--tp-agency-gold) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 8px var(--tp-agency-gold) !important;
+  display: inline-block !important;
+}
+
+/* Body Text & Descriptions */
+p, .elementor-text-editor, .elementor-widget-text-editor {
+  color: var(--tp-agency-text-secondary) !important;
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: 15.5px !important;
+  line-height: 1.75 !important;
+}
+
+/* ==========================================================================
+   5. AGENCY CARDS, SERVICES, AND ICON BOXES UNIFORMLY STYLED
+   ========================================================================== */
+
+/* Modern Card Wrappers across all pages */
+.elementor-inner-section,
+.elementor-widget-icon-box .elementor-icon-box-wrapper,
+.elementor-widget-image-box .elementor-image-box-wrapper,
+.elementor-card,
+.elementskit-service-item,
+.elementskit-infobox {
+  background: var(--tp-agency-card) !important;
+  border: 1px solid var(--tp-agency-border) !important;
+  border-radius: 20px !important;
+  padding: 32px 28px !important;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.elementor-inner-section:hover,
+.elementor-widget-icon-box .elementor-icon-box-wrapper:hover,
+.elementor-widget-image-box .elementor-image-box-wrapper:hover,
+.elementor-card:hover,
+.elementskit-service-item:hover,
+.elementskit-infobox:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--tp-agency-gold) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 25px var(--tp-agency-gold-glow) !important;
+}
+
+/* Icon Box Icons - Luxury Gold */
+.elementor-icon-box-icon .elementor-icon,
+.elementskit-infobox-icon,
+.elementor-widget-icon .elementor-icon {
+  color: var(--tp-agency-gold) !important;
+  fill: var(--tp-agency-gold) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.elementor-widget-icon-box:hover .elementor-icon-box-icon .elementor-icon {
+  transform: scale(1.1) !important;
+}
+
+/* Icon Box Titles & Descriptions */
+.elementor-icon-box-title,
+.elementskit-info-box-title {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+.elementor-icon-box-description {
+  color: var(--tp-agency-text-secondary) !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* Service Bullet Lists */
+.elementor-icon-list-items .elementor-icon-list-item {
+  color: #cccccc !important;
+  margin-bottom: 10px !important;
+}
+
+.elementor-icon-list-icon i {
+  color: var(--tp-agency-gold) !important;
+}
+
+/* ==========================================================================
+   6. OWNER PICTURE & FEATURE IMAGES (High-End Agency Framing)
+   ========================================================================== */
+
+/* The Owner's Picture: WhatsApp-Image-2026-04-06-at-23.12.37.jpeg (img_8c6c7835.jpeg) */
+img[src*="img_8c6c7835"],
+img[data-src*="img_8c6c7835"] {
+  border-radius: 24px !important;
+  border: 2px solid var(--tp-agency-gold) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px var(--tp-agency-gold-glow) !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+  max-width: 480px !important;
   width: 100% !important;
-  padding: 20px 0 !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: cover !important;
 }
 
-.elementor-image-carousel .swiper-slide {
-  width: auto !important;
-  max-width: 220px !important;
-  flex: 0 0 auto !important;
-  display: flex !important;
+img[src*="img_8c6c7835"]:hover {
+  transform: scale(1.02) translateY(-4px) !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 45px rgba(229, 180, 90, 0.35) !important;
+}
+
+/* General Showcase Images across pages */
+.elementor-widget-image img {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease !important;
+}
+
+.elementor-widget-image img:hover {
+  transform: scale(1.02) !important;
+}
+
+/* ==========================================================================
+   7. LUXURY GOLD AGENCY BUTTONS (Matching codeanddesigns.com)
+   ========================================================================== */
+
+.elementor-button,
+.ff-btn-submit,
+button.elementor-button,
+a.elementor-button,
+.tp-btn-gold {
+  background: linear-gradient(135deg, #E5B45A 0%, #D4A043 100%) !important;
+  color: #111111 !important;
+  border-radius: 9999px !important;
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 14px 34px !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 20px var(--tp-agency-gold-glow) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  opacity: 0.88;
-  transition: transform 0.3s ease, opacity 0.3s ease !important;
+  gap: 10px !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  text-shadow: none !important;
 }
 
-.elementor-image-carousel .swiper-slide:hover {
-  opacity: 1 !important;
-  transform: translateY(-4px) scale(1.05) !important;
+.elementor-button:hover,
+.ff-btn-submit:hover,
+button.elementor-button:hover,
+a.elementor-button:hover,
+.tp-btn-gold:hover {
+  background: linear-gradient(135deg, #F7D08A 0%, #E5B45A 100%) !important;
+  color: #000000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(229, 180, 90, 0.45) !important;
 }
 
-.elementor-image-carousel .swiper-slide img {
-  max-height: 55px !important;
-  width: auto !important;
-  object-fit: contain !important;
+.elementor-button-text,
+.ff-btn-submit {
+  color: #111111 !important;
+  font-weight: 700 !important;
 }
 
-/* Testimonial & Review Cards Slider */
-.ekit-main-swiper {
-  overflow: hidden !important;
-  position: relative !important;
-  padding: 15px 5px !important;
+.elementor-button:hover .elementor-button-text {
+  color: #000000 !important;
 }
 
-.ekit-main-swiper .swiper-wrapper {
-  display: flex !important;
-  gap: 24px !important;
-  width: 100% !important;
-  overflow-x: auto !important;
-  scroll-behavior: smooth !important;
-  scrollbar-width: none !important; /* Firefox */
-  -ms-overflow-style: none !important;  /* IE */
-}
-.ekit-main-swiper .swiper-wrapper::-webkit-scrollbar {
-  display: none !important; /* Chrome/Safari */
-}
+/* ==========================================================================
+   8. STATS COUNTER BOXES (codeanddesigns.com PureCounter style)
+   ========================================================================== */
 
-.ekit-main-swiper .swiper-slide {
-  flex: 0 0 calc(33.333% - 16px) !important;
-  min-width: 300px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  background: #ffffff !important;
-  border-radius: 16px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
-}
-
-.ekit-main-swiper .swiper-slide:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
-}
-
-@media (max-width: 960px) {
-  .ekit-main-swiper .swiper-slide {
-    flex: 0 0 calc(50% - 12px) !important;
-  }
-}
-@media (max-width: 640px) {
-  .ekit-main-swiper .swiper-slide {
-    flex: 0 0 100% !important;
-  }
-}
-
-/* Supercharged 3D Hover & Motion Effects */
-.elementor-widget-icon-box,
-.elementskit-info-box,
-.elementor-counter,
-.elementor-element-f8442c5,
-.elementor-element-05e9c3f,
-.elementor-button {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  will-change: transform;
-}
-
-.elementor-widget-icon-box:hover {
-  transform: translateY(-6px) scale(1.015) !important;
-  box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.1) !important;
+.elementor-counter {
+  background: var(--tp-agency-card) !important;
+  border: 1px solid var(--tp-agency-border) !important;
+  border-radius: 18px !important;
+  padding: 26px 20px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
 }
 
 .elementor-counter:hover {
-  transform: scale(1.05) !important;
+  border-color: var(--tp-agency-gold) !important;
+  transform: translateY(-3px) !important;
 }
 
-.elementor-button {
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+.elementor-counter-number,
+.elementor-counter-number-prefix,
+.elementor-counter-number-suffix {
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: clamp(34px, 3.5vw, 46px) !important;
+  font-weight: 800 !important;
+  color: var(--tp-agency-gold) !important;
+  line-height: 1.1 !important;
 }
 
-.elementor-button:hover {
-  transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4) !important;
-}
-
-/* Instant Clean Section Visibility (Zero Lag / No Stutter) */
-.ar-reveal-init,
-.ar-reveal-active {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  transition: none !important;
+.elementor-counter-title {
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: var(--tp-agency-text-secondary) !important;
+  margin-top: 8px !important;
 }
 
 /* ==========================================================================
-   Megamenu Desktop Behavior (Neat Floating Card Dropdown)
+   9. FORMS & INPUTS (Dark Agency Glassmorphism)
    ========================================================================== */
+
+.fluentform,
+.fluentform_wrapper_7,
+.fluentform_wrapper_2,
+.fluentform_wrapper_5 {
+  background: var(--tp-agency-card) !important;
+  border: 1px solid var(--tp-agency-border) !important;
+  border-radius: 20px !important;
+  padding: 36px 30px !important;
+}
+
+.ff-el-form-control,
+.ff-el-form-control:focus,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  background: #0f0f0f !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: 14.5px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ff-el-form-control:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--tp-agency-gold) !important;
+  box-shadow: 0 0 12px var(--tp-agency-gold-glow) !important;
+  outline: none !important;
+}
+
+.ff-el-input--label label {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-bottom: 6px !important;
+}
+
+/* ==========================================================================
+   10. TESTIMONIALS & REVIEWS (Luxury Dark Card Style)
+   ========================================================================== */
+
+.elementskit-testimonial-slider,
+.elementor-testimonial-item,
+.elementskit-single-testimonial {
+  background: var(--tp-agency-card) !important;
+  border: 1px solid var(--tp-agency-border) !important;
+  border-radius: 20px !important;
+  padding: 32px !important;
+  transition: transform 0.3s ease, border-color 0.3s ease !important;
+}
+
+.elementskit-testimonial-slider:hover,
+.elementskit-single-testimonial:hover {
+  border-color: var(--tp-agency-border-gold) !important;
+  transform: translateY(-3px) !important;
+}
+
+.elementskit-commentor-bio {
+  color: #dddddd !important;
+  font-style: italic !important;
+  line-height: 1.7 !important;
+  font-size: 15px !important;
+}
+
+.elementskit-author-name {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}
+
+.elementskit-author-des {
+  color: var(--tp-agency-gold) !important;
+  font-size: 13px !important;
+}
+
+/* ==========================================================================
+   11. CONTINUOUS MARQUEE TICKER (Signature codeanddesigns.com feature)
+   ========================================================================== */
+
+.ar-marquee-strip {
+  background: #0d0d0d !important;
+  border-top: 1px solid var(--tp-agency-border) !important;
+  border-bottom: 1px solid var(--tp-agency-border) !important;
+  padding: 16px 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+}
+
+.ar-marquee-content {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  animation: arMarqueeScroll 28s linear infinite !important;
+}
+
+.ar-marquee-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 0 22px !important;
+  font-family: var(--e-global-typography-primary-font-family) !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #dddddd !important;
+}
+
+.ar-marquee-star {
+  color: var(--tp-agency-gold) !important;
+  font-size: 13px !important;
+}
+
+@keyframes arMarqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ar-marquee-strip:hover .ar-marquee-content {
+  animation-play-state: paused !important;
+}
+
+/* ==========================================================================
+   12. HEADER, NAVBAR & MEGAMENU (Sticky Transparent Blur)
+   ========================================================================== */
+
+.elementor-section.elementor-element-7ec6df1,
+.elementskit-menu-container {
+  background: rgba(17, 17, 17, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid var(--tp-agency-border) !important;
+}
+
+.ekit-menu-nav-link {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease !important;
+}
+
+.ekit-menu-nav-link:hover,
+.elementskit-navbar-nav li:hover > a {
+  color: var(--tp-agency-gold) !important;
+}
+
+/* Desktop Megamenu Card Dropdown */
 @media (min-width: 1025px) {
-  .elementskit-dropdown-has {
-    position: relative !important;
-  }
-  .elementskit-dropdown-has .elementskit-megamenu-panel {
-    display: none;
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    transform: translateY(12px) !important;
-    width: 720px !important;
-    max-width: calc(100vw - 40px) !important;
-    background: #ffffff !important;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14), 0 4px 15px rgba(15, 23, 42, 0.05) !important;
-    border: 1px solid rgba(226, 232, 240, 0.9) !important;
-    border-radius: 16px !important;
-    padding: 24px 28px !important;
-    z-index: 999999 !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    pointer-events: none;
-    box-sizing: border-box !important;
-  }
-  .elementskit-dropdown-has:hover .elementskit-megamenu-panel,
-  .elementskit-dropdown-has.ekit-menu-active .elementskit-megamenu-panel {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(4px) !important;
-    pointer-events: auto !important;
-  }
-  /* Invisible hover bridge to prevent premature closing when moving mouse */
-  .elementskit-dropdown-has .elementskit-megamenu-panel::before {
-    content: '';
-    position: absolute;
-    top: -16px;
-    left: 0;
-    right: 0;
-    height: 16px;
-  }
-  .elementskit-megamenu-panel .elementor-container {
-    display: flex !important;
-    flex-direction: row !important;
-    width: 100% !important;
-  }
-  .elementskit-megamenu-panel .elementor-col-50 {
-    width: 50% !important;
-    flex: 0 0 50% !important;
-    padding: 0 10px !important;
-    box-sizing: border-box !important;
-  }
-  .elementskit-megamenu-panel .elementor-heading-title {
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    color: #0b132a !important;
-    border-bottom: 2px solid #3b82f6 !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 14px !important;
-    display: inline-block !important;
-  }
-  .elementskit-megamenu-panel .elementor-icon-box-title a {
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 14.5px !important;
-    font-weight: 600 !important;
-    color: #334155 !important;
-    transition: all 0.2s ease !important;
-    display: block !important;
-    padding: 7px 10px !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-  }
-  .elementskit-megamenu-panel .elementor-icon-box-title a:hover {
-    color: #2563eb !important;
-    background: #eff6ff !important;
-    transform: translateX(4px) !important;
-  }
-}
-
-/* Ensure stray CTA element is completely removed/hidden everywhere */
-.ar-mobile-nav-cta {
-  display: none !important;
-}
-
-/* ==========================================================================
-   Mobile Off-Canvas Navigation Drawer & Accordion Megamenu (100% Polish)
-   ========================================================================== */
-@media (max-width: 1024px) {
-  /* Prevent background scrolling when menu is open */
-  body.elementskit-menu-open-body {
-    overflow: hidden !important;
-  }
-
-  /* Full Off-Canvas Mobile Drawer */
-  .elementskit-menu-container {
-    position: fixed !important;
-    top: 0 !important;
-    left: -100% !important;
-    width: 100% !important;
-    max-width: 380px !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    background: #ffffff !important;
-    z-index: 1000000 !important;
-    box-shadow: 12px 0 35px rgba(15, 23, 42, 0.25) !important;
-    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    box-sizing: border-box !important;
-  }
-
-  @media (max-width: 480px) {
-    .elementskit-menu-container {
-      max-width: 100% !important;
-      width: 100% !important;
-    }
-  }
-
-  .elementskit-menu-container.elementskit-menu-open {
-    left: 0 !important;
-  }
-
-  /* Full screen dark backdrop blur overlay */
-  .ekit-nav-menu--overlay {
-    display: none;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background: rgba(15, 23, 42, 0.65) !important;
-    backdrop-filter: blur(4px) !important;
-    -webkit-backdrop-filter: blur(4px) !important;
-    z-index: 999999 !important;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease !important;
-  }
-
-  .ekit-nav-menu--overlay.active {
-    display: block !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-
-  /* Drawer Top Identity / Header Bar with Title and Close (X) button */
-  .elementskit-nav-identity-panel {
-    order: -1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 16px 20px !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 20 !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-  }
-
-  .elementskit-nav-identity-panel::before {
-    content: 'AR Webcrafts';
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 20px !important;
-    font-weight: 800 !important;
-    color: #0b132a !important;
-    letter-spacing: -0.02em !important;
-    display: block;
-  }
-
-  .elementskit-menu-close {
-    background: #f1f5f9 !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 50% !important;
-    width: 38px !important;
-    height: 38px !important;
-    min-width: 38px !important;
-    min-height: 38px !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    color: #475569 !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
-  }
-
-  .elementskit-menu-close:hover,
-  .elementskit-menu-close:active {
-    background: #ef4444 !important;
-    color: #ffffff !important;
-    border-color: #ef4444 !important;
-    transform: rotate(90deg) !important;
-  }
-
-  /* Mobile Nav List */
-  .elementskit-navbar-nav {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    clear: both !important;
-    padding: 10px 16px 20px !important;
-    margin: 0 !important;
-    list-style: none !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .elementskit-navbar-nav > li {
-    display: block !important;
-    width: 100% !important;
-    border-bottom: 1px solid #f1f5f9 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* The 5 Main Links */
-  .elementskit-navbar-nav > li > a.ekit-menu-nav-link {
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 17px !important;
-    font-weight: 700 !important;
-    color: #0f172a !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 14px 10px !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease !important;
-    border-radius: 8px !important;
-    box-sizing: border-box !important;
-  }
-
-  .elementskit-navbar-nav > li > a.ekit-menu-nav-link:hover,
-  .elementskit-navbar-nav > li > a.ekit-menu-nav-link:active,
-  .elementskit-navbar-nav > li.active > a.ekit-menu-nav-link {
-    color: #2563eb !important;
-    background: #f8fafc !important;
-  }
-
-  /* Submenu dropdown chevron indicator */
-  .elementskit-submenu-indicator {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 28px !important;
-    height: 28px !important;
-    border-radius: 6px !important;
-    background: #f1f5f9 !important;
-    color: #2563eb !important;
-    font-size: 11px !important;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease !important;
-  }
-
-  .elementskit-dropdown-has.active .elementskit-submenu-indicator {
-    transform: rotate(180deg) !important;
-    background: #dbeafe !important;
-    color: #1d4ed8 !important;
-  }
-
-  /* The Megamenu Accordion Panel on Mobile */
   .elementskit-megamenu-panel {
-    display: none !important;
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-shadow: none !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 12px !important;
-    background: #f8fafc !important;
-    padding: 12px 14px 16px !important;
-    margin: 4px 0 14px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
+    background: #161616 !important;
+    border: 1px solid var(--tp-agency-border-gold) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important;
+    padding: 24px !important;
   }
-
-  .elementskit-megamenu-panel.active {
-    display: block !important;
-    animation: arMobileSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-  }
-
-  @keyframes arMobileSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Inside Mobile Megamenu Panel: Stack columns neatly */
-  .elementskit-megamenu-panel .elementor,
-  .elementskit-megamenu-panel .elementor-section,
-  .elementskit-megamenu-panel .elementor-container,
-  .elementskit-megamenu-panel .elementor-row,
-  .elementskit-megamenu-panel .elementor-column,
-  .elementskit-megamenu-panel .elementor-widget-wrap {
-    position: static !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    float: none !important;
-    display: block !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Subheadings inside accordion ("E-commerce", "LMS", etc.) */
-  .elementskit-megamenu-panel .elementor-heading-title {
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 13px !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.06em !important;
-    text-transform: uppercase !important;
-    color: #2563eb !important;
-    margin: 12px 4px 6px !important;
-    padding: 0 !important;
-    border: none !important;
-    display: block !important;
-  }
-
-  /* Individual Service Item Links inside Mobile Accordion */
-  .elementskit-megamenu-panel .elementor-widget-icon-box {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .elementskit-megamenu-panel .elementor-icon-box-wrapper {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .elementskit-megamenu-panel .elementor-icon-box-title {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 14px !important;
-  }
-
-  .elementskit-megamenu-panel .elementor-icon-box-title a {
-    display: flex !important;
-    align-items: center !important;
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 14.5px !important;
-    font-weight: 600 !important;
-    color: #1e293b !important;
-    padding: 10px 12px !important;
-    margin: 4px 0 !important;
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
+  
+  .elementskit-megamenu-panel a {
+    color: #cccccc !important;
     transition: all 0.2s ease !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
   }
-
-  .elementskit-megamenu-panel .elementor-icon-box-title a::before {
-    content: '•';
-    color: #3b82f6;
-    font-size: 16px;
-    margin-right: 8px;
-    line-height: 1;
-  }
-
-  .elementskit-megamenu-panel .elementor-icon-box-title a:hover,
-  .elementskit-megamenu-panel .elementor-icon-box-title a:active {
-    color: #2563eb !important;
-    background: #eff6ff !important;
-    border-color: #93c5fd !important;
+  
+  .elementskit-megamenu-panel a:hover {
+    color: var(--tp-agency-gold) !important;
     transform: translateX(4px) !important;
   }
-
-  /* Hide redundant desktop subheadings on mobile if needed */
-  .elementor-hidden-mobile {
-    display: none !important;
-  }
 }
 
-/* Toast Notifications */
-#ar-toast-container {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 1000000;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  pointer-events: none;
-}
-.ar-toast {
-  pointer-events: auto;
-  background: #ffffff;
-  color: #1e293b;
-  min-width: 320px;
-  max-width: 420px;
-  padding: 16px 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-left: 5px solid #10b981;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  animation: arSlideToast 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.ar-toast.ar-toast-error {
-  border-left-color: #ef4444;
-}
-.ar-toast-icon {
-  font-size: 20px;
-  color: #10b981;
-  flex-shrink: 0;
-}
-.ar-toast.ar-toast-error .ar-toast-icon {
-  color: #ef4444;
-}
-.ar-toast-title {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: #0f172a;
-}
-.ar-toast-message {
-  font-size: 13px;
-  color: #475569;
-  line-height: 1.4;
-}
-@keyframes arSlideToast {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
+/* Mobile Off-Canvas Navigation Drawer */
+@media (max-width: 1024px) {
+  .elementskit-menu-container.elementskit-menu-open {
+    background: #111111 !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8) !important;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Loading button spinner */
-.ar-btn-loading {
-  position: relative;
-  pointer-events: none;
-  opacity: 0.85;
-}
-.ar-btn-loading::after {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
-  border: 2px solid #ffffff;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: arSpin 0.6s linear infinite;
-  vertical-align: middle;
-}
-@keyframes arSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Accordion Smooth Transitions */
-.elementor-tab-title {
-  cursor: pointer;
-  user-select: none;
-}
-.elementor-tab-content {
-  transition: max-height 0.3s ease-out;
 }
 
 /* ==========================================================================
-   Smooth & Fast Scrolling / Section Transitions (No Lag, 60fps Native)
+   13. CALENDLY DISCOVERY EMBED CONTAINER
    ========================================================================== */
-html {
-  scroll-behavior: smooth !important;
-  scroll-padding-top: 90px;
-  -webkit-overflow-scrolling: touch;
-}
 
-body {
-  overflow-x: hidden;
-}
-
-/* Eliminate section layout thrashing & stutter during scrolling */
-.elementor-top-section,
-.elementor-section,
-.elementor-column,
-.elementor-container,
-.elementor-widget-wrap {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-
-/* ==========================================================================
-   Calendly Meeting / Discovery Call Responsive Embed Container
-   ========================================================================== */
 .calendly-inline-widget {
   position: relative !important;
   min-width: 320px !important;
@@ -750,9 +591,9 @@ body {
   height: 750px !important;
   min-height: 700px !important;
   background: #ffffff !important;
-  border-radius: 16px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+  border: 2px solid var(--tp-agency-border-gold) !important;
   overflow: hidden !important;
   display: block !important;
   visibility: visible !important;
@@ -766,893 +607,53 @@ body {
   min-height: 700px !important;
   min-width: 320px !important;
   border: none !important;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
   display: block !important;
 }
 
-
 /* ==========================================================================
-   CODE & DESIGNS INSPIRED MODERN AGENCY DESIGN SYSTEM
-   High-End Typography, Clean Spacing, Luxury Gold & Dark Theme
+   14. HIGH-CONTRAST AGENCY FOOTER ACROSS ALL PAGES
    ========================================================================== */
 
-:root {
-  --tp-agency-black: #0e0e0e;
-  --tp-agency-dark: #141414;
-  --tp-agency-card: #1a1a1a;
-  --tp-agency-card-hover: #222222;
-  --tp-agency-border: rgba(255, 255, 255, 0.08);
-  --tp-agency-border-gold: rgba(229, 180, 90, 0.35);
-  --tp-agency-gold: #E5B45A;
-  --tp-agency-gold-light: #F5D28E;
-  --tp-agency-gold-glow: rgba(229, 180, 90, 0.2);
-  --tp-agency-text-primary: #ffffff;
-  --tp-agency-text-secondary: #b5b5b5;
-  --tp-agency-text-muted: #888888;
-  --tp-agency-font: 'Playfair Display', Georgia, serif;
+.elementor-element-33a98256,
+.elementor-element-ac3f73a,
+.elementor-location-footer {
+  background-color: var(--tp-agency-black) !important;
+  border-top: 1px solid var(--tp-agency-border) !important;
 }
 
-/* Global Section Spacing & Rhythm */
-.ar-agency-section {
-  padding: 100px 0;
-  position: relative;
-  background-color: var(--tp-agency-dark);
-  color: var(--tp-agency-text-primary);
-  overflow: hidden;
-}
-
-.ar-agency-section-alt {
-  background-color: var(--tp-agency-black);
-}
-
-.ar-container-1400 {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Subtitle Pill Badge (Exact codeanddesigns.com agency style) */
-.tp-section-subtitle-wrap {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.tp-section-subtitle {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 18px;
-  background: rgba(229, 180, 90, 0.08);
-  border: 1px solid rgba(229, 180, 90, 0.25);
-  border-radius: 9999px;
-  color: var(--tp-agency-gold);
-  font-family: var(--tp-agency-font);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.tp-bullet-dot {
-  width: 7px;
-  height: 7px;
-  background-color: var(--tp-agency-gold);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--tp-agency-gold);
-  display: inline-block;
-}
-
-/* Agency Headlines */
-.tp-hero-headline {
-  font-family: var(--tp-agency-font) !important;
-  font-size: clamp(38px, 5.2vw, 68px) !important;
+.elementor-element-33a98256 h5,
+.elementor-element-ac3f73a h5 {
+  color: var(--tp-agency-gold) !important;
   font-weight: 700 !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.02em !important;
-  color: #ffffff !important;
-  margin-bottom: 24px !important;
 }
 
-.tp-section-heading {
-  font-family: var(--tp-agency-font) !important;
-  font-size: clamp(28px, 3.8vw, 48px) !important;
-  font-weight: 700 !important;
-  line-height: 1.25 !important;
-  color: #ffffff !important;
-  margin-bottom: 20px !important;
+.elementor-element-33a98256 a,
+.elementor-element-ac3f73a a {
+  color: #cccccc !important;
+  transition: color 0.2s ease !important;
 }
 
-.tp-hero-gold-text {
-  background: linear-gradient(135deg, #ffffff 10%, #E5B45A 60%, #F5D28E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.tp-hero-subtext,
-.tp-section-lead {
-  font-family: var(--tp-agency-font) !important;
-  font-size: clamp(16px, 1.3vw, 19px) !important;
-  line-height: 1.75 !important;
-  color: var(--tp-agency-text-secondary) !important;
-  max-width: 760px;
-  margin-bottom: 36px !important;
-}
-
-/* Luxury Agency Buttons */
-.ar-btn-group {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.tp-btn-primary,
-.tp-btn-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: linear-gradient(135deg, #E5B45A 0%, #D4A043 100%);
-  color: #121212 !important;
-  font-family: var(--tp-agency-font) !important;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 9999px;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 4px 20px var(--tp-agency-gold-glow);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.tp-btn-primary:hover,
-.tp-btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(229, 180, 90, 0.4);
-  background: linear-gradient(135deg, #F5D28E 0%, #E5B45A 100%);
-  color: #000000 !important;
-}
-
-.tp-btn-secondary,
-.tp-btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff !important;
-  font-family: var(--tp-agency-font) !important;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: 9999px;
-  text-decoration: none;
-  border: 1px solid var(--tp-agency-border);
-  transition: all 0.3s ease;
-}
-
-.tp-btn-secondary:hover,
-.tp-btn-outline:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  color: #ffffff !important;
-}
-
-.tp-btn-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.tp-btn-primary:hover .tp-btn-circle {
-  transform: translateX(3px) translateY(-3px);
-}
-
-/* Trust Bar */
-.ar-trust-bar {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding-top: 20px;
-  border-top: 1px solid var(--tp-agency-border);
-}
-
-.ar-trust-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ar-trust-item img {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-}
-
-.ar-trust-pill {
-  font-size: 13px;
-  color: var(--tp-agency-text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Hero Right Floating Card (codeanddesigns.com hero style) */
-.ar-hero-badge-card {
-  background: rgba(26, 26, 26, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--tp-agency-border-gold);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.ar-hero-badge-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--tp-agency-gold);
-}
-
-.ar-badge-client-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.ar-badge-avatar {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  border: 2px solid var(--tp-agency-gold);
-  object-fit: cover;
-}
-
-.ar-badge-client-info h5 {
-  font-family: var(--tp-agency-font) !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin: 0 !important;
-}
-
-.ar-badge-client-info span {
-  font-size: 13px;
-  color: var(--tp-agency-gold);
-}
-
-.ar-badge-quote {
-  font-family: var(--tp-agency-font) !important;
-  font-size: 14px !important;
-  line-height: 1.65 !important;
-  color: var(--tp-agency-text-secondary) !important;
-  margin-bottom: 18px !important;
-  font-style: italic;
-}
-
-.ar-badge-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--tp-agency-gold);
-  text-decoration: none;
-  transition: gap 0.2s ease;
-}
-
-.ar-badge-link:hover {
-  gap: 10px;
-  color: #ffffff;
+.elementor-element-33a98256 a:hover,
+.elementor-element-ac3f73a a:hover {
+  color: var(--tp-agency-gold) !important;
 }
 
 /* ==========================================================================
-   Continuous Marquee Ticker (tp-text-slide-area)
+   15. FULL RESPONSIVE OPTIMIZATION
    ========================================================================== */
-.ar-marquee-strip {
-  background: #111111;
-  border-top: 1px solid var(--tp-agency-border);
-  border-bottom: 1px solid var(--tp-agency-border);
-  padding: 18px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  z-index: 2;
-}
-
-.ar-marquee-content {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  animation: arMarqueeScroll 28s linear infinite;
-}
-
-.ar-marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  padding: 0 24px;
-  font-family: var(--tp-agency-font);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #e0e0e0;
-}
-
-.ar-marquee-star {
-  color: var(--tp-agency-gold);
-  font-size: 14px;
-}
-
-@keyframes arMarqueeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.ar-marquee-strip:hover .ar-marquee-content {
-  animation-play-state: paused;
-}
-
-/* ==========================================================================
-   The Problem & Value Split (Who We Are + Stats)
-   ========================================================================== */
-.ar-split-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.ar-plugin-trap-card {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 20px;
-  padding: 36px;
-  position: relative;
-}
-
-.ar-card-title {
-  font-family: var(--tp-agency-font) !important;
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin-bottom: 24px !important;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ar-trap-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 28px 0;
-}
-
-.ar-trap-list li {
-  font-family: var(--tp-agency-font);
-  font-size: 15px;
-  line-height: 1.65;
-  color: #cccccc;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.ar-roi-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--tp-agency-border-gold);
-  border-radius: 14px;
-  padding: 20px;
-}
-
-.ar-roi-item {
-  padding: 10px 0;
-  font-size: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--tp-agency-text-secondary);
-}
-
-.ar-roi-item:last-child {
-  border-bottom: none;
-}
-
-.ar-roi-val {
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.ar-roi-val.highlight-gold {
-  color: var(--tp-agency-gold);
-  font-size: 16px;
-}
-
-/* Stats Counter Grid (4 Boxes) */
-.ar-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.ar-stat-box {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 16px;
-  padding: 24px 20px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.ar-stat-box:hover {
-  transform: translateY(-3px);
-  border-color: var(--tp-agency-border-gold);
-}
-
-.ar-stat-box-icon {
-  width: 38px;
-  height: 38px;
-  margin-bottom: 14px;
-}
-
-.ar-stat-number {
-  font-family: var(--tp-agency-font);
-  font-size: clamp(32px, 3vw, 42px);
-  font-weight: 800;
-  color: var(--tp-agency-gold);
-  line-height: 1.1;
-  margin-bottom: 8px;
-}
-
-.ar-stat-label {
-  font-family: var(--tp-agency-font);
-  font-size: 14px;
-  color: var(--tp-agency-text-secondary);
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* ==========================================================================
-   Numbered Services Area (01. - 05.) (tp-service-area style)
-   ========================================================================== */
-.ar-services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.ar-service-row {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 20px;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 32px;
-  align-items: start;
-  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  position: relative;
-}
-
-.ar-service-row:hover {
-  transform: translateY(-4px);
-  border-color: var(--tp-agency-gold);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-}
-
-.ar-service-num {
-  font-family: var(--tp-agency-font);
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--tp-agency-gold);
-  opacity: 0.85;
-}
-
-.ar-service-body h3 {
-  font-family: var(--tp-agency-font) !important;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin-bottom: 12px !important;
-}
-
-.ar-service-lead {
-  font-size: 15px;
-  color: var(--tp-agency-gold-light);
-  margin-bottom: 14px;
-  font-weight: 600;
-}
-
-.ar-service-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
-}
-
-.ar-service-features li {
-  font-size: 14.5px;
-  color: #cccccc;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ar-service-features li::before {
-  content: "✓";
-  color: var(--tp-agency-gold);
-  font-weight: bold;
-}
-
-.ar-service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.ar-service-tags span {
-  font-size: 12px;
-  padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9999px;
-  color: #bbbbbb;
-}
-
-.ar-service-action {
-  align-self: center;
-}
-
-.ar-service-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 9999px;
-  color: #ffffff !important;
-  font-family: var(--tp-agency-font);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.ar-service-link-btn:hover {
-  background: var(--tp-agency-gold);
-  border-color: var(--tp-agency-gold);
-  color: #000000 !important;
-  transform: translateX(4px);
-}
-
-/* ==========================================================================
-   Target Market / No-Man's Land Cards
-   ========================================================================== */
-.ar-target-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 40px;
-}
-
-.ar-target-card {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 20px;
-  padding: 36px;
-  transition: border-color 0.3s ease;
-}
-
-.ar-target-card.highlight {
-  border-color: var(--tp-agency-border-gold);
-  background: linear-gradient(180deg, rgba(229, 180, 90, 0.06) 0%, var(--tp-agency-card) 100%);
-}
-
-/* ==========================================================================
-   Featured Work Showcase (WebinarIgnition)
-   ========================================================================== */
-.ar-case-showcase {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border-gold);
-  border-radius: 24px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-}
-
-.ar-case-content {
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.ar-case-tag {
-  font-size: 13px;
-  color: var(--tp-agency-gold);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.ar-case-image {
-  background: #000;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ar-case-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.ar-case-showcase:hover .ar-case-image img {
-  transform: scale(1.04);
-}
-
-/* ==========================================================================
-   5-Step Onboarding Process (tp-work-area style)
-   ========================================================================== */
-.ar-process-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 56px;
-  align-items: start;
-}
-
-.ar-process-sticky {
-  position: sticky;
-  top: 120px;
-}
-
-.ar-steps-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.ar-step-item {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 18px;
-  padding: 30px;
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  transition: all 0.3s ease;
-}
-
-.ar-step-item:hover {
-  border-color: var(--tp-agency-gold);
-  transform: translateX(6px);
-}
-
-.ar-step-badge {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  background: rgba(229, 180, 90, 0.1);
-  border: 1px solid var(--tp-agency-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--tp-agency-gold);
-  font-weight: 800;
-  font-size: 16px;
-}
-
-.ar-step-content h4 {
-  font-family: var(--tp-agency-font) !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin-bottom: 6px !important;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.ar-step-time {
-  font-size: 13px;
-  color: var(--tp-agency-gold);
-  font-weight: 600;
-}
-
-.ar-step-content p {
-  font-size: 14.5px;
-  color: var(--tp-agency-text-secondary);
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* Embedded Form Box */
-.ar-lead-form-box {
-  margin-top: 40px;
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 20px;
-  padding: 36px;
-}
-
-/* ==========================================================================
-   Testimonials Grid (tp-testimonial-area style)
-   ========================================================================== */
-.ar-reviews-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.ar-clutch-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 9999px;
-  padding: 8px 22px;
-  margin-top: 16px;
-}
-
-.ar-clutch-badge .stars {
-  color: #EF2B10;
-  font-size: 14px;
-}
-
-.ar-testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
-}
-
-.ar-testi-card {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border);
-  border-radius: 20px;
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.ar-testi-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--tp-agency-border-gold);
-}
-
-.ar-testi-text {
-  font-family: var(--tp-agency-font);
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: #dddddd;
-  margin-bottom: 24px;
-  font-style: italic;
-}
-
-.ar-testi-author {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.ar-testi-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(229, 180, 90, 0.15);
-  border: 1px solid var(--tp-agency-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--tp-agency-gold);
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.ar-testi-info h5 {
-  font-family: var(--tp-agency-font) !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin: 0 !important;
-}
-
-.ar-testi-info span {
-  font-size: 13px;
-  color: var(--tp-agency-text-muted);
-}
-
-/* ==========================================================================
-   Discovery Calendar Container (#appointmant)
-   ========================================================================== */
-.ar-calendar-wrap {
-  background: var(--tp-agency-card);
-  border: 1px solid var(--tp-agency-border-gold);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
-
-/* ==========================================================================
-   Responsive Breakpoints
-   ========================================================================== */
-@media (max-width: 1200px) {
-  .ar-service-row {
-    grid-template-columns: 60px 1fr;
-  }
-  .ar-service-action {
-    grid-column: 2;
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 992px) {
-  .ar-split-grid,
-  .ar-process-grid,
-  .ar-target-grid,
-  .ar-case-showcase {
-    grid-template-columns: 1fr;
-  }
-  
-  .ar-process-sticky {
-    position: static;
-  }
-  
-  .ar-agency-section {
-    padding: 70px 0;
-  }
-}
 
 @media (max-width: 768px) {
-  .ar-service-row {
-    grid-template-columns: 1fr;
-    padding: 24px;
-    gap: 16px;
+  .elementor-section.elementor-top-section {
+    padding-top: 45px !important;
+    padding-bottom: 45px !important;
   }
   
-  .ar-stats-grid {
-    grid-template-columns: 1fr;
+  .elementor-inner-section {
+    padding: 22px 18px !important;
   }
   
-  .ar-calendar-wrap {
-    padding: 20px;
-  }
-  
-  .ar-step-item {
-    padding: 20px;
-    gap: 16px;
-  }
-  
-  .ar-case-content {
-    padding: 28px;
+  .calendly-inline-widget {
+    height: 650px !important;
   }
 }
-

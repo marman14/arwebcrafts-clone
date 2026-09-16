@@ -217,6 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 10. Ultra-Smooth 60fps Scrolling Optimizer
   initSmoothScroll();
+
+  // 11. Signature Agency Continuous Marquee Ribbon
+  initAgencyMarquee();
 });
 
 // Slider & Carousel Controller (Performance-Optimized)
@@ -447,4 +450,35 @@ function initWhatsAppWidget() {
 
   if (closeX) closeX.addEventListener('click', closePopup);
   setTimeout(openPopup, 4000);
+}
+
+// 11. Agency Continuous Marquee Ribbon (Inspired by codeanddesigns.com)
+function initAgencyMarquee() {
+  if (document.querySelector('.ar-marquee-strip')) return;
+
+  // Find the hero / first section
+  const heroSection = document.querySelector('.elementor-section-wrap > .elementor-top-section, main > section, .elementor-top-section');
+  if (!heroSection) return;
+
+  const marquee = document.createElement('div');
+  marquee.className = 'ar-marquee-strip';
+  marquee.setAttribute('aria-hidden', 'true');
+  marquee.innerHTML = `
+    <div class="ar-marquee-content">
+      <div class="ar-marquee-item"><span>WORDPRESS &amp; WOOCOMMERCE EXPERTS</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>HIGH-CONVERTING DESIGN</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>CUSTOM PLUGIN ARCHITECTURE</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>SPEED OPTIMIZATION &amp; 99+ GTMETRIX</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>HEADLESS CMS &amp; MODERN UI/UX</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>FULL-STACK WEB DEVELOPMENT</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>WORDPRESS &amp; WOOCOMMERCE EXPERTS</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>HIGH-CONVERTING DESIGN</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>CUSTOM PLUGIN ARCHITECTURE</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>SPEED OPTIMIZATION &amp; 99+ GTMETRIX</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>HEADLESS CMS &amp; MODERN UI/UX</span><span class="ar-marquee-star">✦</span></div>
+      <div class="ar-marquee-item"><span>FULL-STACK WEB DEVELOPMENT</span><span class="ar-marquee-star">✦</span></div>
+    </div>
+  `;
+
+  heroSection.parentNode.insertBefore(marquee, heroSection.nextSibling);
 }
