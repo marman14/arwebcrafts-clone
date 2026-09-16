@@ -90,15 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. Animated Stats Counters
-  const counters = document.querySelectorAll('.elementor-counter-number');
+  const counters = document.querySelectorAll('.elementor-counter-number, .purecounter, [data-purecounter-end]');
   if (counters.length > 0) {
     const counterObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseInt(el.getAttribute('data-to-value') || el.innerText, 10);
-          const from = parseInt(el.getAttribute('data-from-value') || '0', 10);
+          const target = parseInt(el.getAttribute('data-purecounter-end') || el.getAttribute('data-to-value') || el.innerText.replace(/\D/g, ''), 10);
+          const from = parseInt(el.getAttribute('data-purecounter-start') || el.getAttribute('data-from-value') || '0', 10);
           const duration = parseInt(el.getAttribute('data-duration') || '1500', 10);
+          const hasPercent = el.innerText.includes('%') || (el.getAttribute('data-purecounter-end') === '99');
+          const suffix = hasPercent ? '%' : '+';
           let startTime = null;
 
           function animateCounter(currentTime) {
@@ -106,11 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const progress = Math.min((currentTime - startTime) / duration, 1);
             const easeProgress = 1 - Math.pow(1 - progress, 3);
             const currentVal = Math.floor(easeProgress * (target - from) + from);
-            el.innerText = currentVal;
+            el.innerText = currentVal + suffix;
             if (progress < 1) {
               requestAnimationFrame(animateCounter);
             } else {
-              el.innerText = target;
+              el.innerText = target + suffix;
             }
           }
 
