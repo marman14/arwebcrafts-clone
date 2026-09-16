@@ -1,497 +1,505 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('./playfair-display.css');
-
 /* ==========================================================================
-   1. GLOBAL AGENCY TYPOGRAPHY & BRAND VARIABLES (Inspired by codeanddesigns.com)
-   Luxury Gold (#E5B45A) and Deep Matte Black (#111111)
+   AR WEBCRAFTS - LIGHT LUXURY EDITORIAL AGENCY STYLESHEET
+   Design Reference: codeanddesigns.com
+   Typography: Cormorant Garamond & Playfair Display Luxury Editorial Serif
+   Color Palette (Strict Reference to Attached User Images):
+     - Background Theme: Clean, soft, premium light off-white / warm cream (#F7F4EE / #EFE8DF)
+     - Primary Accent / Button: Rich metallic bronze / terracotta gold (#9E4E28)
+     - Text & Dark Elements: Deep navy / dark charcoal (#11161D / #1E2633)
    ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
-  --tp-agency-black: #0e0e0e;
-  --tp-agency-dark: #111111;
-  --tp-agency-dark-2: #141414;
-  --tp-agency-card: #181818;
-  --tp-agency-card-hover: #202020;
-  --tp-agency-border: rgba(255, 255, 255, 0.08);
-  --tp-agency-border-gold: rgba(229, 180, 90, 0.35);
-  --tp-agency-gold: #E5B45A;
-  --tp-agency-gold-light: #F7D08A;
-  --tp-agency-gold-glow: rgba(229, 180, 90, 0.25);
-  --tp-agency-text-primary: #ffffff;
-  --tp-agency-text-secondary: #b5b5b5;
-  --tp-agency-text-muted: #888888;
+  /* Editorial Color Palette */
+  --tp-agency-bg: #F7F4EE;
+  --tp-agency-bg-alt: #EFE8DF;
+  --tp-agency-surface: #FFFFFF;
+  --tp-agency-surface-warm: #FAF7F2;
+  --tp-agency-border: rgba(17, 22, 29, 0.09);
+  --tp-agency-border-hover: rgba(158, 78, 40, 0.38);
+  --tp-agency-border-bronze: rgba(158, 78, 40, 0.25);
   
-  --e-global-typography-primary-font-family: 'Playfair Display', Georgia, serif !important;
-  --e-global-typography-secondary-font-family: 'Playfair Display', Georgia, serif !important;
-  --e-global-typography-text-font-family: 'Playfair Display', Georgia, serif !important;
-  --e-global-typography-accent-font-family: 'Playfair Display', Georgia, serif !important;
+  /* Text & Dark Elements (Deep Navy / Dark Charcoal) */
+  --tp-agency-navy: #11161D;
+  --tp-agency-navy-soft: #161D26;
+  --tp-agency-text-primary: #11161D;
+  --tp-agency-text-body: #1E2633;
+  --tp-agency-text-muted: #576475;
+  --tp-agency-text-light: #F7F4EE;
+  
+  /* Primary Accent (Rich Metallic Bronze / Terracotta Gold from reference image) */
+  --tp-agency-bronze: #9E4E28;
+  --tp-agency-bronze-hover: #833D1C;
+  --tp-agency-bronze-light: rgba(158, 78, 40, 0.09);
+  --tp-agency-bronze-glow: rgba(158, 78, 40, 0.25);
+  --tp-agency-bronze-gradient: linear-gradient(135deg, #A85329 0%, #8D411D 100%);
+  
+  /* Typography */
+  --tp-agency-font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --e-global-typography-primary-font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --e-global-typography-secondary-font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --e-global-typography-text-font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --e-global-typography-accent-font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
 }
 
+/* ==========================================================================
+   1. STRICT GLOBAL EDITORIAL SERIF ENFORCEMENT (100% OF ELEMENTS)
+   ========================================================================== */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input, button, select, textarea,
 *, *::before, *::after {
-  font-family: 'Playfair Display', Georgia, serif !important;
+  font-family: var(--tp-agency-font-family) !important;
 }
 
-/* Retain Icon Fonts so icons and arrows display cleanly without square tofu glyphs */
-i[class*="fa-"],
-i[class*="eicon-"],
-i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
-.fa, .fas, .far, .fab, .fal, .fad,
-.eicon, [class^="eicon-"], [class*=" eicon-"],
-[class^="fa-"], [class*=" fa-"],
-.dashicons {
-  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "FontAwesome", "eicons", sans-serif !important;
-}
-
-.fab,
-[class*="fa-whatsapp"],
-[class*="fa-linkedin"],
-[class*="fa-twitter"],
-[class*="fa-facebook"],
-[class*="fa-youtube"],
-[class*="fa-instagram"] {
-  font-family: "Font Awesome 5 Brands" !important;
-}
-
-.fas,
-[class*="fa-check"],
-[class*="fa-arrow"],
-[class*="fa-chevron"],
-[class*="fa-star"],
-[class*="fa-angle"] {
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 900 !important;
-}
-
-.eicon,
-[class^="eicon-"],
-[class*=" eicon-"] {
-  font-family: "eicons" !important;
-}
-
-.elementskit-menu-hamburger,
-.elementskit-menu-close {
-  font-family: "ElementsKit", "eicons", sans-serif !important;
-}
-
-/* ==========================================================================
-   2. ZERO BLANK SPACES & FULL VISIBILITY GUARANTEE ACROSS ALL PAGES
-   ========================================================================== */
-
-.elementor-invisible,
-[data-settings*="animation"],
-.elementor-widget,
-.elementor-column,
-.elementor-section {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.elementor-widget-wrap {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Base Body Styling */
-html, body {
-  background-color: var(--tp-agency-dark) !important;
-  color: var(--tp-agency-text-primary) !important;
-  overflow-x: hidden !important;
+/* Base Body & Background */
+html {
+  background-color: var(--tp-agency-bg) !important;
+  color: var(--tp-agency-text-body) !important;
   scroll-behavior: smooth !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+body {
+  background-color: var(--tp-agency-bg) !important;
+  color: var(--tp-agency-text-body) !important;
+  line-height: 1.65 !important;
+  font-size: 17.5px !important;
+  overflow-x: hidden !important;
+}
+
+/* Guarantee visibility of all Elementor elements */
+.elementor-invisible {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+[data-elementor-type="wp-page"],
+.elementor-section-wrap,
+main, article, .site-main {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Clean background overlay */
+.elementor-background-overlay {
+  background-color: transparent !important;
+  opacity: 0.04 !important;
 }
 
 /* ==========================================================================
-   3. UNIFORM AGENCY LAYOUT & SPACING (All Sections on All Pages)
+   2. UNIFORM AGENCY SECTION LAYOUT & SPACING (All Sections on All 64 Pages)
    ========================================================================== */
 
-/* Dark Matte Sections */
-.elementor-section {
-  background-color: var(--tp-agency-dark) !important;
-  position: relative;
-}
-
 .elementor-section.elementor-top-section {
-  padding-top: 75px !important;
-  padding-bottom: 75px !important;
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+  background-color: var(--tp-agency-bg) !important;
+  position: relative !important;
+  transition: background-color 0.3s ease !important;
 }
 
-.elementor-section.elementor-section-boxed > .elementor-container {
-  max-width: 1400px !important;
+/* Alternating subtle section tone */
+.elementor-section.elementor-top-section:nth-of-type(even):not([data-id="33a98256"]):not(.ar-dark-section) {
+  background-color: var(--tp-agency-bg-alt) !important;
 }
 
-/* Alternating dark section tone for modern contrast */
-.elementor-section.elementor-top-section:nth-of-type(even) {
-  background-color: var(--tp-agency-black) !important;
+/* Transparent nested elements to allow clean background inheritance */
+.elementor-inner-section,
+.elementor-column-wrap,
+.elementor-widget-wrap {
+  background: transparent !important;
 }
 
-/* Subtle border dividers between major sections */
-.elementor-section.elementor-top-section {
-  border-bottom: 1px solid var(--tp-agency-border) !important;
+/* Container constraints */
+.elementor-container {
+  max-width: 1360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
 
 /* ==========================================================================
-   4. AGENCY HEADINGS & SUBTITLE PILL BADGES (codeanddesigns.com style)
+   3. AGENCY HEADINGS, TYPOGRAPHY & PILL BADGES (codeanddesigns.com style)
    ========================================================================== */
 
-/* Main Page Titles & Section Headings */
-h1, .elementor-heading-title.elementor-size-xl, h1.elementor-heading-title {
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: clamp(36px, 4.8vw, 62px) !important;
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title,
+.eael-dual-header .title {
+  color: var(--tp-agency-text-primary) !important;
   font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
   line-height: 1.2 !important;
-  letter-spacing: -0.02em !important;
-  color: #ffffff !important;
-  margin-bottom: 20px !important;
-}
-
-h2, h2.elementor-heading-title {
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: clamp(26px, 3.4vw, 44px) !important;
-  font-weight: 700 !important;
-  line-height: 1.28 !important;
-  color: #ffffff !important;
   margin-bottom: 18px !important;
 }
 
-h3, h3.elementor-heading-title {
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: clamp(20px, 2.2vw, 28px) !important;
+h1, .elementor-widget-heading h1.elementor-heading-title {
+  font-size: clamp(38px, 5.2vw, 68px) !important;
+  line-height: 1.15 !important;
   font-weight: 700 !important;
-  line-height: 1.35 !important;
-  color: #ffffff !important;
-  margin-bottom: 14px !important;
 }
 
-h4, h4.elementor-heading-title {
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: clamp(17px, 1.8vw, 22px) !important;
+h2, .elementor-widget-heading h2.elementor-heading-title {
+  font-size: clamp(28px, 3.8vw, 48px) !important;
+  line-height: 1.22 !important;
+}
+
+h3, .elementor-widget-heading h3.elementor-heading-title {
+  font-size: clamp(22px, 2.5vw, 32px) !important;
+  line-height: 1.3 !important;
+}
+
+p, .elementor-text-editor, .elementor-widget-text-editor {
+  color: var(--tp-agency-text-body) !important;
+  font-size: 18px !important;
+  line-height: 1.7 !important;
+  font-weight: 400 !important;
+}
+
+/* Rich Metallic Bronze Highlight Elements */
+.tp-hero-gold-text,
+.ar-bronze-accent,
+.eael-dual-header .lead,
+.elementor-heading-title span,
+.elementor-widget-heading span.highlight,
+.elementor-text-editor strong {
+  color: var(--tp-agency-bronze) !important;
   font-weight: 600 !important;
-  line-height: 1.5 !important;
-  color: #f0f0f0 !important;
 }
 
-/* Subtitle Pill Badge (codeanddesigns.com .tp-section-subtitle) */
-h6, h6.elementor-heading-title,
-.elementor-widget-heading h6.elementor-heading-title,
-.tp-section-subtitle {
+/* Subtitle Pill Badge (codeanddesigns.com signature) */
+.tp-section-subtitle,
+.elementor-widget-heading .elementor-heading-title.subtitle,
+.elementskit-section-subtitle,
+.eael-dual-header .sub-title {
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
-  padding: 6px 18px !important;
-  border-radius: 9999px !important;
-  background: rgba(229, 180, 90, 0.08) !important;
-  border: 1px solid rgba(229, 180, 90, 0.3) !important;
-  color: var(--tp-agency-gold) !important;
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
+  background: var(--tp-agency-bronze-light) !important;
+  border: 1px solid var(--tp-agency-border-bronze) !important;
+  color: var(--tp-agency-bronze) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
-  margin-bottom: 18px !important;
+  padding: 6px 18px !important;
+  border-radius: 999px !important;
+  margin-bottom: 20px !important;
 }
 
-h6.elementor-heading-title::before,
-.tp-section-subtitle .tp-bullet-dot {
+.tp-section-subtitle::before,
+.tp-bullet-dot {
   content: "" !important;
+  display: inline-block !important;
   width: 7px !important;
   height: 7px !important;
-  background-color: var(--tp-agency-gold) !important;
+  background-color: var(--tp-agency-bronze) !important;
   border-radius: 50% !important;
-  box-shadow: 0 0 8px var(--tp-agency-gold) !important;
-  display: inline-block !important;
+  box-shadow: 0 0 8px var(--tp-agency-bronze) !important;
+  animation: arBulletPulse 2s infinite ease-in-out !important;
 }
 
-/* Body Text & Descriptions */
-p, .elementor-text-editor, .elementor-widget-text-editor {
-  color: var(--tp-agency-text-secondary) !important;
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: 15.5px !important;
-  line-height: 1.75 !important;
+@keyframes arBulletPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.4); opacity: 1; }
 }
 
 /* ==========================================================================
-   5. AGENCY CARDS, SERVICES, AND ICON BOXES UNIFORMLY STYLED
+   4. AGENCY CARDS, SERVICES & ICON BOXES (Crisp Light Luxury Surfaces)
    ========================================================================== */
 
-/* Modern Card Wrappers across all pages */
-.elementor-inner-section,
-.elementor-widget-icon-box .elementor-icon-box-wrapper,
-.elementor-widget-image-box .elementor-image-box-wrapper,
+.elementor-widget-icon-box,
+.elementskit-info-box,
+.elementor-widget-image-box,
 .elementor-card,
-.elementskit-service-item,
-.elementskit-infobox {
-  background: var(--tp-agency-card) !important;
+.elementor-testimonial-wrapper,
+.tp-service-item,
+.tp-about-item,
+.elementskit-testimonial {
+  background: var(--tp-agency-surface) !important;
   border: 1px solid var(--tp-agency-border) !important;
-  border-radius: 20px !important;
-  padding: 32px 28px !important;
+  border-radius: 18px !important;
+  padding: 34px 28px !important;
+  box-shadow: 0 4px 20px rgba(17, 22, 29, 0.04) !important;
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-.elementor-inner-section:hover,
-.elementor-widget-icon-box .elementor-icon-box-wrapper:hover,
-.elementor-widget-image-box .elementor-image-box-wrapper:hover,
+.elementor-widget-icon-box:hover,
+.elementskit-info-box:hover,
+.elementor-widget-image-box:hover,
 .elementor-card:hover,
-.elementskit-service-item:hover,
-.elementskit-infobox:hover {
-  transform: translateY(-4px) !important;
-  border-color: var(--tp-agency-gold) !important;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 25px var(--tp-agency-gold-glow) !important;
+.tp-service-item:hover,
+.elementskit-testimonial:hover {
+  transform: translateY(-6px) !important;
+  border-color: var(--tp-agency-border-hover) !important;
+  box-shadow: 0 16px 36px var(--tp-agency-bronze-glow) !important;
 }
 
-/* Icon Box Icons - Luxury Gold */
-.elementor-icon-box-icon .elementor-icon,
-.elementskit-infobox-icon,
-.elementor-widget-icon .elementor-icon {
-  color: var(--tp-agency-gold) !important;
-  fill: var(--tp-agency-gold) !important;
+/* Card Icons */
+.elementor-icon,
+.elementskit-info-box-icon,
+.elementor-icon-list-icon i,
+.elementor-icon-list-icon svg {
+  color: var(--tp-agency-bronze) !important;
+  fill: var(--tp-agency-bronze) !important;
   transition: transform 0.3s ease !important;
 }
 
-.elementor-widget-icon-box:hover .elementor-icon-box-icon .elementor-icon {
+.elementor-widget-icon-box:hover .elementor-icon,
+.elementskit-info-box:hover .elementskit-info-box-icon {
   transform: scale(1.1) !important;
 }
 
-/* Icon Box Titles & Descriptions */
 .elementor-icon-box-title,
-.elementskit-info-box-title {
-  color: #ffffff !important;
-  font-size: 20px !important;
+.elementskit-info-box-title,
+.elementor-image-box-title {
+  color: var(--tp-agency-text-primary) !important;
+  font-size: 22px !important;
   font-weight: 700 !important;
+  margin-top: 14px !important;
   margin-bottom: 12px !important;
 }
 
-.elementor-icon-box-description {
-  color: var(--tp-agency-text-secondary) !important;
-  font-size: 14.5px !important;
+.elementor-icon-box-description,
+.elementskit-info-box-description,
+.elementor-image-box-description,
+.elementor-icon-list-text {
+  color: var(--tp-agency-text-body) !important;
+  font-size: 16.5px !important;
   line-height: 1.65 !important;
 }
 
-/* Service Bullet Lists */
-.elementor-icon-list-items .elementor-icon-list-item {
-  color: #cccccc !important;
-  margin-bottom: 10px !important;
-}
-
-.elementor-icon-list-icon i {
-  color: var(--tp-agency-gold) !important;
+/* Numbered Service Rows (01, 02, etc.) */
+.ar-service-num,
+.tp-service-number {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: var(--tp-agency-bronze) !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 12px !important;
+  display: block !important;
 }
 
 /* ==========================================================================
-   6. OWNER PICTURE & FEATURE IMAGES (High-End Agency Framing)
+   5. OWNER PICTURE & FEATURE IMAGES (Luxury Agency Framing)
    ========================================================================== */
 
-/* The Owner's Picture: WhatsApp-Image-2026-04-06-at-23.12.37.jpeg (img_8c6c7835.jpeg) */
+/* Owner portrait img_8c6c7835.jpeg in section data-id="b0b7fed" */
+[data-id="b0b7fed"] img,
 img[src*="img_8c6c7835"],
-img[data-src*="img_8c6c7835"] {
-  border-radius: 24px !important;
-  border: 2px solid var(--tp-agency-gold) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px var(--tp-agency-gold-glow) !important;
-  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
-  max-width: 480px !important;
-  width: 100% !important;
+img[src*="WhatsApp-Image-2026-04-06"] {
+  border: 2.5px solid var(--tp-agency-bronze) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 40px rgba(158, 78, 40, 0.22) !important;
+  max-width: 100% !important;
   height: auto !important;
   display: block !important;
   object-fit: cover !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
 }
 
+[data-id="b0b7fed"] img:hover,
 img[src*="img_8c6c7835"]:hover {
-  transform: scale(1.02) translateY(-4px) !important;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 45px rgba(229, 180, 90, 0.35) !important;
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 24px 50px rgba(158, 78, 40, 0.32) !important;
 }
 
-/* General Showcase Images across pages */
+/* Generic Image Framing */
 .elementor-widget-image img {
-  border-radius: 16px !important;
+  border-radius: 14px !important;
+  max-width: 100% !important;
+  height: auto !important;
   transition: transform 0.3s ease !important;
 }
 
-.elementor-widget-image img:hover {
-  transform: scale(1.02) !important;
-}
-
 /* ==========================================================================
-   7. LUXURY GOLD AGENCY BUTTONS (Matching codeanddesigns.com)
+   6. RICH METALLIC BRONZE AGENCY BUTTONS (Matching Consultation Reference)
    ========================================================================== */
 
 .elementor-button,
-.ff-btn-submit,
+.elementor-button-link,
 button.elementor-button,
 a.elementor-button,
-.tp-btn-gold {
-  background: linear-gradient(135deg, #E5B45A 0%, #D4A043 100%) !important;
-  color: #111111 !important;
-  border-radius: 9999px !important;
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  padding: 14px 34px !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 4px 20px var(--tp-agency-gold-glow) !important;
-  text-decoration: none !important;
+.tp-btn,
+.ar-agency-btn,
+.elementskit-button,
+input[type="submit"],
+button[type="submit"] {
+  background: var(--tp-agency-bronze-gradient) !important;
+  color: #FFFFFF !important;
+  font-family: var(--tp-agency-font-family) !important;
+  font-size: 16.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 16px 36px !important;
+  box-shadow: 0 8px 22px rgba(158, 78, 40, 0.28) !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  cursor: pointer !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 10px !important;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-  text-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.elementor-button span,
+.elementor-button-text,
+.elementor-button-icon {
+  color: #FFFFFF !important;
 }
 
 .elementor-button:hover,
-.ff-btn-submit:hover,
+.elementor-button-link:hover,
 button.elementor-button:hover,
 a.elementor-button:hover,
-.tp-btn-gold:hover {
-  background: linear-gradient(135deg, #F7D08A 0%, #E5B45A 100%) !important;
-  color: #000000 !important;
+.tp-btn:hover,
+.ar-agency-btn:hover,
+.elementskit-button:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background: var(--tp-agency-bronze-hover) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 30px rgba(158, 78, 40, 0.4) !important;
+}
+
+/* Secondary Button Style */
+.elementor-button.ar-btn-secondary,
+a.tp-btn-secondary {
+  background: transparent !important;
+  color: var(--tp-agency-navy) !important;
+  border: 1.8px solid var(--tp-agency-navy) !important;
+  box-shadow: none !important;
+}
+
+.elementor-button.ar-btn-secondary:hover,
+a.tp-btn-secondary:hover {
+  background: var(--tp-agency-navy) !important;
+  color: #FFFFFF !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 30px rgba(229, 180, 90, 0.45) !important;
-}
-
-.elementor-button-text,
-.ff-btn-submit {
-  color: #111111 !important;
-  font-weight: 700 !important;
-}
-
-.elementor-button:hover .elementor-button-text {
-  color: #000000 !important;
 }
 
 /* ==========================================================================
-   8. STATS COUNTER BOXES (codeanddesigns.com PureCounter style)
+   7. STATS COUNTER BOXES (PureCounter Luxury Style)
    ========================================================================== */
 
+.elementor-widget-counter,
 .elementor-counter {
-  background: var(--tp-agency-card) !important;
+  background: var(--tp-agency-surface) !important;
   border: 1px solid var(--tp-agency-border) !important;
-  border-radius: 18px !important;
-  padding: 26px 20px !important;
+  border-radius: 16px !important;
+  padding: 30px 22px !important;
   text-align: center !important;
+  box-shadow: 0 4px 18px rgba(17, 22, 29, 0.04) !important;
   transition: all 0.3s ease !important;
 }
 
 .elementor-counter:hover {
-  border-color: var(--tp-agency-gold) !important;
-  transform: translateY(-3px) !important;
+  transform: translateY(-4px) !important;
+  border-color: var(--tp-agency-border-hover) !important;
+  box-shadow: 0 14px 32px var(--tp-agency-bronze-glow) !important;
 }
 
-.elementor-counter-number,
-.elementor-counter-number-prefix,
-.elementor-counter-number-suffix {
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: clamp(34px, 3.5vw, 46px) !important;
-  font-weight: 800 !important;
-  color: var(--tp-agency-gold) !important;
-  line-height: 1.1 !important;
+.elementor-counter-number-wrapper {
+  color: var(--tp-agency-bronze) !important;
+  font-size: clamp(36px, 4vw, 54px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+  margin-bottom: 8px !important;
 }
 
 .elementor-counter-title {
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: 14.5px !important;
+  color: var(--tp-agency-text-primary) !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
-  color: var(--tp-agency-text-secondary) !important;
-  margin-top: 8px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
 }
 
 /* ==========================================================================
-   9. FORMS & INPUTS (Dark Agency Glassmorphism)
+   8. FORMS & INPUTS (Crisp Light Luxury Style)
    ========================================================================== */
 
-.fluentform,
-.fluentform_wrapper_7,
-.fluentform_wrapper_2,
-.fluentform_wrapper_5 {
-  background: var(--tp-agency-card) !important;
+form.fluent_form,
+form.wpcf7-form,
+.elementor-form {
+  background: var(--tp-agency-surface) !important;
   border: 1px solid var(--tp-agency-border) !important;
   border-radius: 20px !important;
-  padding: 36px 30px !important;
+  padding: 36px !important;
+  box-shadow: 0 8px 30px rgba(17, 22, 29, 0.05) !important;
 }
 
-.ff-el-form-control,
-.ff-el-form-control:focus,
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-select,
-textarea {
-  background: #0f0f0f !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  color: #ffffff !important;
-  border-radius: 10px !important;
-  padding: 12px 16px !important;
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: 14.5px !important;
-  transition: all 0.3s ease !important;
-}
-
-.ff-el-form-control:focus,
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--tp-agency-gold) !important;
-  box-shadow: 0 0 12px var(--tp-agency-gold-glow) !important;
+input[type="url"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  width: 100% !important;
+  background: var(--tp-agency-surface-warm) !important;
+  border: 1.5px solid rgba(17, 22, 29, 0.12) !important;
+  color: var(--tp-agency-text-primary) !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  font-size: 16px !important;
+  transition: all 0.25s ease !important;
   outline: none !important;
 }
 
-.ff-el-input--label label {
-  color: #ffffff !important;
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--tp-agency-bronze) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(158, 78, 40, 0.16) !important;
+}
+
+label {
+  color: var(--tp-agency-text-primary) !important;
   font-weight: 600 !important;
-  font-size: 14px !important;
-  margin-bottom: 6px !important;
-}
-
-/* ==========================================================================
-   10. TESTIMONIALS & REVIEWS (Luxury Dark Card Style)
-   ========================================================================== */
-
-.elementskit-testimonial-slider,
-.elementor-testimonial-item,
-.elementskit-single-testimonial {
-  background: var(--tp-agency-card) !important;
-  border: 1px solid var(--tp-agency-border) !important;
-  border-radius: 20px !important;
-  padding: 32px !important;
-  transition: transform 0.3s ease, border-color 0.3s ease !important;
-}
-
-.elementskit-testimonial-slider:hover,
-.elementskit-single-testimonial:hover {
-  border-color: var(--tp-agency-border-gold) !important;
-  transform: translateY(-3px) !important;
-}
-
-.elementskit-commentor-bio {
-  color: #dddddd !important;
-  font-style: italic !important;
-  line-height: 1.7 !important;
   font-size: 15px !important;
-}
-
-.elementskit-author-name {
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
-}
-
-.elementskit-author-des {
-  color: var(--tp-agency-gold) !important;
-  font-size: 13px !important;
+  margin-bottom: 6px !important;
+  display: block !important;
 }
 
 /* ==========================================================================
-   11. CONTINUOUS MARQUEE TICKER (Signature codeanddesigns.com feature)
+   9. CONTINUOUS MARQUEE TICKER (High-Contrast Deep Navy Ribbon)
    ========================================================================== */
 
 .ar-marquee-strip {
-  background: #0d0d0d !important;
-  border-top: 1px solid var(--tp-agency-border) !important;
-  border-bottom: 1px solid var(--tp-agency-border) !important;
-  padding: 16px 0 !important;
+  background: var(--tp-agency-navy) !important;
+  border-top: 1px solid rgba(158, 78, 40, 0.35) !important;
+  border-bottom: 1px solid rgba(158, 78, 40, 0.35) !important;
+  padding: 18px 0 !important;
   overflow: hidden !important;
   white-space: nowrap !important;
   position: relative !important;
-  z-index: 2 !important;
+  z-index: 5 !important;
   width: 100% !important;
+  box-shadow: 0 6px 20px rgba(17, 22, 29, 0.15) !important;
 }
 
 .ar-marquee-content {
@@ -505,18 +513,18 @@ textarea:focus {
   display: inline-flex !important;
   align-items: center !important;
   gap: 16px !important;
-  padding: 0 22px !important;
-  font-family: var(--e-global-typography-primary-font-family) !important;
-  font-size: 14.5px !important;
+  padding: 0 24px !important;
+  font-family: var(--tp-agency-font-family) !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: #dddddd !important;
+  color: #FFFFFF !important;
 }
 
 .ar-marquee-star {
-  color: var(--tp-agency-gold) !important;
-  font-size: 13px !important;
+  color: var(--tp-agency-bronze) !important;
+  font-size: 14px !important;
 }
 
 @keyframes arMarqueeScroll {
@@ -529,131 +537,394 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   12. HEADER, NAVBAR & MEGAMENU (Sticky Transparent Blur)
+   10. HEADER, NAVBAR & MEGAMENU (Frosted Cream Blur)
    ========================================================================== */
 
 .elementor-section.elementor-element-7ec6df1,
 .elementskit-menu-container {
-  background: rgba(17, 17, 17, 0.95) !important;
+  background: rgba(247, 244, 238, 0.94) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(17, 22, 29, 0.08) !important;
+}
+
+.elementskit-navbar-nav li a {
+  color: var(--tp-agency-text-primary) !important;
+  font-size: 16.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  transition: color 0.2s ease !important;
+}
+
+.elementskit-navbar-nav li a:hover,
+.elementskit-navbar-nav li.active > a {
+  color: var(--tp-agency-bronze) !important;
+}
+
+/* Megamenu dropdown box */
+.elementskit-megamenu-panel {
+  background: #FFFFFF !important;
+  border: 1px solid var(--tp-agency-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 18px 40px rgba(17, 22, 29, 0.12) !important;
+  padding: 24px !important;
+}
+
+.elementskit-megamenu-panel a {
+  color: var(--tp-agency-text-body) !important;
+}
+
+.elementskit-megamenu-panel a:hover {
+  color: var(--tp-agency-bronze) !important;
+}
+
+/* Top Announcement bar */
+.elementor-section[data-id="011475a"] {
+  background: var(--tp-agency-navy) !important;
+  color: #FFFFFF !important;
+  padding: 8px 0 !important;
+}
+
+.elementor-section[data-id="011475a"] a,
+.elementor-section[data-id="011475a"] span {
+  color: #FFFFFF !important;
+  font-size: 14px !important;
+}
+
+/* ==========================================================================
+   11. CALENDLY DISCOVERY CALL EMBED CONTAINER
+   ========================================================================== */
+
+#appointmant,
+.calendly-inline-widget {
+  background: var(--tp-agency-surface) !important;
+  border: 1.5px solid var(--tp-agency-border-bronze) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 36px rgba(17, 22, 29, 0.06) !important;
+  overflow: hidden !important;
+  min-height: 700px !important;
+}
+
+/* ==========================================================================
+   12. HIGH-CONTRAST DARK NAVY FOOTER (Sharp Editorial Contrast)
+   ========================================================================== */
+
+.elementor-section[data-id="33a98256"],
+footer,
+.ar-footer-area {
+  background: var(--tp-agency-navy) !important;
+  color: var(--tp-agency-text-light) !important;
+  border-top: 1px solid rgba(158, 78, 40, 0.25) !important;
+  padding-top: 75px !important;
+  padding-bottom: 50px !important;
+}
+
+.elementor-section[data-id="33a98256"] h1,
+.elementor-section[data-id="33a98256"] h2,
+.elementor-section[data-id="33a98256"] h3,
+.elementor-section[data-id="33a98256"] h4,
+.elementor-section[data-id="33a98256"] .elementor-heading-title,
+footer h1, footer h2, footer h3, footer h4 {
+  color: #FFFFFF !important;
+}
+
+.elementor-section[data-id="33a98256"] p,
+.elementor-section[data-id="33a98256"] .elementor-text-editor,
+footer p {
+  color: #D4D9E2 !important;
+}
+
+.elementor-section[data-id="33a98256"] a,
+footer a {
+  color: #D4D9E2 !important;
+  transition: color 0.2s ease !important;
+}
+
+.elementor-section[data-id="33a98256"] a:hover,
+footer a:hover {
+  color: var(--tp-agency-bronze) !important;
+}
+
+/* ==========================================================================
+   13. FAQ ACCORDION
+   ========================================================================== */
+
+.elementor-accordion .elementor-accordion-item {
+  border: 1px solid var(--tp-agency-border) !important;
+  background: var(--tp-agency-surface) !important;
+  border-radius: 12px !important;
+  margin-bottom: 12px !important;
+  overflow: hidden !important;
+}
+
+.elementor-accordion .elementor-tab-title {
+  color: var(--tp-agency-text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  padding: 18px 22px !important;
+  background: var(--tp-agency-surface) !important;
+}
+
+.elementor-accordion .elementor-tab-title.elementor-active {
+  color: var(--tp-agency-bronze) !important;
   border-bottom: 1px solid var(--tp-agency-border) !important;
 }
 
-.ekit-menu-nav-link {
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  transition: color 0.2s ease !important;
+.elementor-accordion .elementor-tab-content {
+  padding: 20px 22px !important;
+  color: var(--tp-agency-text-body) !important;
 }
 
-.ekit-menu-nav-link:hover,
-.elementskit-navbar-nav li:hover > a {
-  color: var(--tp-agency-gold) !important;
+/* ==========================================================================
+   14. WHATSAPP FLOATING LIVE CHAT WIDGET
+   ========================================================================== */
+
+#ar-wa-widget {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 999999;
+  font-family: var(--tp-agency-font-family) !important;
 }
 
-/* Desktop Megamenu Card Dropdown */
-@media (min-width: 1025px) {
-  .elementskit-megamenu-panel {
-    background: #161616 !important;
-    border: 1px solid var(--tp-agency-border-gold) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important;
-    padding: 24px !important;
-  }
-  
-  .elementskit-megamenu-panel a {
-    color: #cccccc !important;
-    transition: all 0.2s ease !important;
-  }
-  
-  .elementskit-megamenu-panel a:hover {
-    color: var(--tp-agency-gold) !important;
-    transform: translateX(4px) !important;
-  }
+#ar-wa-fab {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Mobile Off-Canvas Navigation Drawer */
+#ar-wa-fab:hover {
+  transform: scale(1.08);
+}
+
+#ar-wa-fab img {
+  width: 32px;
+  height: 32px;
+}
+
+#ar-wa-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--tp-agency-bronze);
+  color: #FFFFFF;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+}
+
+#ar-wa-popup {
+  position: absolute;
+  bottom: 72px;
+  right: 0;
+  width: 330px;
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 16px 44px rgba(17, 22, 29, 0.16);
+  border: 1px solid var(--tp-agency-border);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  animation: arSlideUp 0.3s ease;
+}
+
+#ar-wa-popup.ar-visible {
+  display: flex;
+}
+
+@keyframes arSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ar-wa-header {
+  background: var(--tp-agency-navy);
+  color: #FFFFFF;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ar-wa-avatar img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.ar-wa-info {
+  flex: 1;
+}
+
+.ar-wa-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.ar-wa-status {
+  font-size: 12px;
+  color: #A0AEC0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ar-wa-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #25D366;
+}
+
+.ar-wa-x {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ar-wa-body {
+  padding: 16px;
+  background: var(--tp-agency-surface-warm);
+}
+
+.ar-wa-bubble {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--tp-agency-text-primary);
+  box-shadow: 0 2px 8px rgba(17, 22, 29, 0.05);
+}
+
+.ar-wa-time {
+  font-size: 11px;
+  color: var(--tp-agency-text-muted);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.ar-wa-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--tp-agency-bronze-gradient);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 13px;
+  text-decoration: none !important;
+  transition: background 0.2s ease;
+}
+
+.ar-wa-cta:hover {
+  background: var(--tp-agency-bronze-hover);
+}
+
+.ar-wa-cta img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   15. TOAST NOTIFICATIONS
+   ========================================================================== */
+
+#ar-toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ar-toast {
+  background: #FFFFFF;
+  border-left: 4px solid var(--tp-agency-bronze);
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 30px rgba(17, 22, 29, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 380px;
+  animation: arToastIn 0.3s ease;
+}
+
+.ar-toast-error {
+  border-left-color: #ef4444;
+}
+
+.ar-toast-icon {
+  font-size: 20px;
+}
+
+.ar-toast-title {
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--tp-agency-text-primary);
+}
+
+.ar-toast-message {
+  font-size: 13.5px;
+  color: var(--tp-agency-text-muted);
+}
+
+@keyframes arToastIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   16. RESPONSIVE MOBILE NAVIGATION DRAWER
+   ========================================================================== */
+
 @media (max-width: 1024px) {
+  .elementskit-menu-container {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 320px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    background: var(--tp-agency-bg) !important;
+    border-left: 1px solid var(--tp-agency-border) !important;
+    box-shadow: -10px 0 30px rgba(17, 22, 29, 0.15) !important;
+    padding: 30px 20px !important;
+    transition: right 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    z-index: 99999 !important;
+    overflow-y: auto !important;
+  }
+
   .elementskit-menu-container.elementskit-menu-open {
-    background: #111111 !important;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8) !important;
+    right: 0 !important;
   }
-}
 
-/* ==========================================================================
-   13. CALENDLY DISCOVERY EMBED CONTAINER
-   ========================================================================== */
-
-.calendly-inline-widget {
-  position: relative !important;
-  min-width: 320px !important;
-  width: 100% !important;
-  height: 750px !important;
-  min-height: 700px !important;
-  background: #ffffff !important;
-  border-radius: 20px !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
-  border: 2px solid var(--tp-agency-border-gold) !important;
-  overflow: hidden !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  margin: 0 auto !important;
-}
-
-.calendly-inline-widget iframe {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 700px !important;
-  min-width: 320px !important;
-  border: none !important;
-  border-radius: 20px !important;
-  display: block !important;
-}
-
-/* ==========================================================================
-   14. HIGH-CONTRAST AGENCY FOOTER ACROSS ALL PAGES
-   ========================================================================== */
-
-.elementor-element-33a98256,
-.elementor-element-ac3f73a,
-.elementor-location-footer {
-  background-color: var(--tp-agency-black) !important;
-  border-top: 1px solid var(--tp-agency-border) !important;
-}
-
-.elementor-element-33a98256 h5,
-.elementor-element-ac3f73a h5 {
-  color: var(--tp-agency-gold) !important;
-  font-weight: 700 !important;
-}
-
-.elementor-element-33a98256 a,
-.elementor-element-ac3f73a a {
-  color: #cccccc !important;
-  transition: color 0.2s ease !important;
-}
-
-.elementor-element-33a98256 a:hover,
-.elementor-element-ac3f73a a:hover {
-  color: var(--tp-agency-gold) !important;
-}
-
-/* ==========================================================================
-   15. FULL RESPONSIVE OPTIMIZATION
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  .elementor-section.elementor-top-section {
-    padding-top: 45px !important;
-    padding-bottom: 45px !important;
+  .elementskit-navbar-nav {
+    flex-direction: column !important;
+    gap: 16px !important;
   }
-  
-  .elementor-inner-section {
-    padding: 22px 18px !important;
-  }
-  
-  .calendly-inline-widget {
-    height: 650px !important;
+
+  .elementskit-navbar-nav li a {
+    font-size: 20px !important;
   }
 }
