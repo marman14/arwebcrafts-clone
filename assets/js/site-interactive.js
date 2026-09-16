@@ -47,10 +47,38 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
   if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
 
+  // Modern Agency Drawer Toggle
+  const arToggle = document.getElementById('arMobileToggle');
+  const arDrawer = document.getElementById('arMobileDrawer');
+  const arOverlay = document.getElementById('arDrawerOverlay');
+  const arClose = document.getElementById('arDrawerClose');
+
+  if (arToggle && arDrawer && arOverlay) {
+    function openArDrawer() {
+      arDrawer.classList.add('active');
+      arOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeArDrawer() {
+      arDrawer.classList.remove('active');
+      arOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    arToggle.addEventListener('click', openArDrawer);
+    if (arClose) arClose.addEventListener('click', closeArDrawer);
+    arOverlay.addEventListener('click', closeArDrawer);
+    document.querySelectorAll('.ar-drawer-nav a').forEach(a => a.addEventListener('click', closeArDrawer));
+  }
+
   // Close mobile menu on ESC key press
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menuContainer && menuContainer.classList.contains('elementskit-menu-open')) {
-      closeMobileMenu();
+    if (e.key === 'Escape') {
+      if (menuContainer && menuContainer.classList.contains('elementskit-menu-open')) closeMobileMenu();
+      if (arDrawer && arDrawer.classList.contains('active')) {
+        arDrawer.classList.remove('active');
+        if (arOverlay) arOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     }
   });
 
@@ -154,6 +182,20 @@ document.addEventListener('DOMContentLoaded', () => {
         title.classList.add('elementor-active');
         content.classList.add('elementor-active');
         content.style.display = 'block';
+      }
+    });
+  });
+
+  // Modern Agency FAQ Accordion
+  document.querySelectorAll('.ar-faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.ar-faq-item');
+      if (item) {
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.ar-faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) {
+          item.classList.add('active');
+        }
       }
     });
   });
