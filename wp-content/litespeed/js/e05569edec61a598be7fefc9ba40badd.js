@@ -1,0 +1,3 @@
+(function($){"use strict";function toggleActiveClass(){const listOptions=Array.from(document.querySelectorAll(".wil-expanding-flex-cards-options"));listOptions.forEach((option)=>{const listItem=option.querySelectorAll(".wil-expanding-flex-card-option");listItem.forEach((item)=>{item.addEventListener("click",function(){listItem.forEach(function(item){item.classList.remove("active")});this.classList.add("active")})})})}
+window.addEventListener('load',toggleActiveClass)})(jQuery)
+;

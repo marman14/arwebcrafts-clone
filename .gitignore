@@ -1,5 +1,4 @@
-node_modules
 .vercel
-*.py
+node_modules
 *.log
-VMM LANDSCAPING/
+*.bak

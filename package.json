@@ -1,11 +1,12 @@
 {
-  "name": "arwebcrafts-official",
+  "name": "arwebcrafts-clone",
   "version": "1.0.0",
-  "description": "100% exact high-performance clone of AR Webcrafts website",
+  "description": "Complete clone of arwebcrafts.com with all content, pages, SEO, 3D animations and motions",
   "scripts": {
-    "start": "npx serve . -l 3000"
+    "start": "npx serve . -p 3000",
+    "serve": "python server.py 3000"
   },
-  "devDependencies": {
-    "serve": "^14.2.4"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
