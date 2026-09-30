@@ -10,17 +10,17 @@
 - **White Label Partnership**: Serving digital agencies across the US, UK, Europe, and Australia as their behind-the-scenes engineering force with NDA protection and fixed-price guarantees.
 - **Dedicated Development Resources / Developer**: Elite full-stack WordPress and PHP/React developers assigned on dedicated monthly basis with 24/7 technical support.
 
-## Key Projects & Case Studies
+## Key Projects & Case Studies (Interactive Portfolios & Architecture Reviews)
 
-- **Best-One Mobile Phones**: High-velocity WooCommerce electronics retail store with faceted search and instant checkout.
-- **AAA Food Handler**: State-accredited eLearning LMS training portal with automated certification and group licensing.
-- **All Academic Helpers**: Academic consultation and mentorship web application with end-to-end encryption and 24/7 support.
-- **Scrap Buyer UAE**: B2B industrial commodities valuation portal with real-time WhatsApp integration and local SEO dominance.
-- **Sanjrani Metal Scrap Bahrain**: Bilingual (Arabic/English) enterprise asset recovery web portal.
-- **InterCarrier Logistics Australia**: Nationwide freight forwarding and parcel dispatch booking system.
-- **CF7 WOW Styler**: Official WordPress.org live visual contact form styler with 10k+ active installations and 5.0 rating.
-- **WebinarIgnition**: Full-featured live and automated webinar funnel engine competing with GoToWebinar and Demio.
-- **5 Stars Rating Funnel**: Smart customer sentiment and review routing system for Google, Yelp, and Facebook.
+- **Best-One Mobile Phones**: High-velocity WooCommerce electronics retail store with faceted search and instant checkout. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/best-one-mobile-phones/)
+- **AAA Food Handler**: State-accredited eLearning LMS training portal with automated certification and group licensing. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/aaa-food-handler/)
+- **All Academic Helpers**: Academic consultation and mentorship web application with end-to-end encryption and 24/7 support. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/academic-helpers/)
+- **Scrap Buyer UAE**: B2B industrial commodities valuation portal with real-time WhatsApp integration and local SEO dominance. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/scrap-trading-uae/)
+- **Sanjrani Metal Scrap Bahrain**: Bilingual (Arabic/English) enterprise asset recovery web portal. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/sanjrani-metals-bahrain/)
+- **InterCarrier Logistics Australia**: Nationwide freight forwarding and parcel dispatch booking system. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/intercarrier-logistics/)
+- **CF7 WOW Styler**: Official WordPress.org live visual contact form styler with 10k+ active installations and 5.0 rating. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/cf7-custom-styler/)
+- **WebinarIgnition**: Full-featured live and automated webinar funnel engine competing with GoToWebinar and Demio. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/webinar-ignition/)
+- **5 Stars Rating Funnel**: Smart customer sentiment and review routing system for Google, Yelp, and Facebook. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/five-star-funnel/)
 
 ## Company Information
 
