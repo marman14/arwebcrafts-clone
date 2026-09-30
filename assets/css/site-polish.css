@@ -1,0 +1,245 @@
+/* ==========================================================================
+   AR WEBCRAFTS CRITICAL UI POLISH ENGINE (v4.0)
+   1. Zero Overlap & Natural Line-Height for Headings & Dual Headers
+   2. Absolute Text Readability & Contrast on Dark/Light Surfaces
+   3. Strict Authentic Color Theme (#011B39, #BE8C33, #FAF7F2, #FFFFFF)
+   4. 100% Mobile Fluid Responsiveness & Zero Overflow
+   ========================================================================== */
+
+/* 1. ZERO TEXT OVERLAPPING & HEALTHY LINE-HEIGHT */
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title,
+.eael-dual-header .title,
+.eael-dual-header .title span,
+.eael-dch-title,
+.eael-dch-title-text,
+.ekit-heading--title {
+    line-height: 1.28 !important;
+    letter-spacing: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+/* Specific banner headings that previously had 1px line-height */
+.elementor-element-41a498d8 .elementor-heading-title,
+.elementor-element-5c2b997c .elementor-heading-title,
+.elementor-element-1f75eb0 .elementor-heading-title,
+.elementor-element-6f15fc1 .elementor-heading-title,
+.elementor-element-4fa72011 .elementor-heading-title,
+.elementor-element-5e770de7 .elementor-heading-title {
+    line-height: 1.28 !important;
+    word-spacing: normal !important;
+    letter-spacing: 0.5px !important;
+    display: block !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    max-width: 100% !important;
+}
+
+/* 2. TEXT READABILITY & CONTRAST (ZERO DARK TEXT ON DARK BLUE) */
+.elementor-element-5c2b997c,
+.elementor-element-33a98256,
+.elementor-element-ac3f73a,
+.elementor-element-7a84f5d8,
+.elementor-element-3394e518,
+.elementor-element-73857ed,
+.elementor-61,
+footer,
+.site-footer,
+.header-before-bdiv,
+.footer-dark-bg,
+[style*="#011b39"],
+[style*="#011B39"],
+[style*="rgb(1, 27, 57)"],
+[style*="#00112c"],
+[data-settings*="#011b39"],
+[data-settings*="#011B39"] {
+    color: #FFFFFF !important;
+}
+
+/* Headings inside dark blue containers */
+.elementor-element-5c2b997c h1,
+.elementor-element-5c2b997c h2,
+.elementor-element-5c2b997c h3,
+.elementor-element-5c2b997c .elementor-heading-title,
+.elementor-element-7a84f5d8 .elementor-heading-title,
+.elementor-element-3394e518 .elementor-heading-title,
+.elementor-element-73857ed .elementor-heading-title,
+.elementor-61 .elementor-heading-title,
+.elementor-61 .elementor-heading-title a,
+.elementor-61 h2, .elementor-61 h3, .elementor-61 h4, .elementor-61 h5, .elementor-61 h6 {
+    color: #FFFFFF !important;
+}
+
+/* Footer links, items, and contact info */
+.elementor-61 .elementor-icon-list-item a,
+.elementor-61 .elementor-icon-list-item .elementor-icon-list-text,
+.elementor-61 p,
+.elementor-61 b,
+.elementor-61 strong,
+.elementor-61 .elementor-heading-title div {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.elementor-61 a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.25s ease !important;
+}
+
+.elementor-61 a:hover,
+.elementor-61 .elementor-icon-list-item a:hover .elementor-icon-list-text,
+.elementor-61 .elementor-heading-title a:hover {
+    color: #BE8C33 !important;
+}
+
+/* Subtitles / breadcrumbs on dark banners */
+.elementor-element-5c2b997c .elementor-widget-text-editor p,
+.elementor-element-7a84f5d8 .elementor-widget-text-editor p,
+.elementor-element-3394e518 .elementor-widget-text-editor p,
+.elementor-element-73857ed .elementor-widget-text-editor p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Form inputs on dark backgrounds */
+.elementor-61 .ff-el-form-control,
+.elementor-61 input[type="email"],
+.elementor-61 input[type="text"] {
+    background-color: #FFFFFF !important;
+    color: #011B39 !important;
+    border: 1px solid rgba(190, 140, 51, 0.3) !important;
+}
+
+.elementor-61 .ff-el-form-control::placeholder {
+    color: #718096 !important;
+}
+
+/* High contrast on light surfaces */
+body, p, li, .elementor-text-editor {
+    color: #2D3748;
+}
+
+/* 3. STRICT ORIGINAL COLOR THEME CONSISTENCY */
+:root {
+    --e-global-color-primary: #011B39 !important;
+    --e-global-color-secondary: #011B39 !important;
+    --e-global-color-d49ac81: #BE8C33 !important;
+    --e-global-color-332724a: #BE8C33 !important;
+    --e-global-color-044b931: #011B39 !important;
+    --e-global-color-ea9ff08: #FAF7F2 !important;
+    --e-global-color-4afce5e: #2D3748 !important;
+    --e-global-color-a978ca2: #011B39 !important;
+}
+
+body {
+    background-color: #FAF7F2;
+    color: #2D3748;
+}
+
+/* Accent buttons */
+.elementor-button,
+.elementskit-btn,
+.ff-btn-submit,
+.btn-primary {
+    background-color: #BE8C33 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #BE8C33 !important;
+    font-weight: 600 !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.elementor-button:hover,
+.elementskit-btn:hover,
+.ff-btn-submit:hover,
+.btn-primary:hover {
+    background-color: #A67825 !important;
+    color: #FFFFFF !important;
+    border-color: #A67825 !important;
+}
+
+/* 4. FULL MOBILE RESPONSIVENESS & OVERFLOW PREVENTION */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    position: relative !important;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box !important;
+}
+
+img, video, iframe, svg, canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+@media (max-width: 1024px) {
+    .elementor-section-boxed .elementor-container,
+    .e-con-boxed .e-con-inner {
+        max-width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Responsive Headings on Mobile */
+    h1, .elementor-heading-title.elementor-size-default {
+        font-size: clamp(22px, 5.8vw, 32px) !important;
+        line-height: 1.25 !important;
+        letter-spacing: normal !important;
+        word-spacing: normal !important;
+    }
+
+    h2, .eael-dual-header .title {
+        font-size: clamp(20px, 5vw, 26px) !important;
+        line-height: 1.25 !important;
+    }
+
+    h3 {
+        font-size: clamp(18px, 4.2vw, 22px) !important;
+        line-height: 1.25 !important;
+    }
+
+    h4, h5, h6 {
+        font-size: clamp(15px, 3.8vw, 18px) !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Container Spacing & Overflow Fix */
+    .elementor-section-boxed .elementor-container,
+    .e-con-boxed .e-con-inner {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .elementor-widget,
+    .elementor-column,
+    .elementor-section {
+        max-width: 100% !important;
+    }
+
+    /* Forms */
+    .fluentform,
+    .frm-fluent-form,
+    .ff-t-container,
+    .ff-column-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex-direction: column !important;
+    }
+
+    .ff-t-cell {
+        flex-basis: 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .ff-el-form-control,
+    input, textarea, select {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
