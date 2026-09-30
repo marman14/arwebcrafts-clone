@@ -272,3 +272,31 @@ img, video, iframe, svg, canvas {
         width: 100% !important;
     }
 }
+
+/* ==========================================================================
+   MODERN IMAGE FIT & ADJUSTMENT POLISH
+   ========================================================================== */
+img[src*="/wp-content/uploads/modern/"] {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 12px;
+    box-shadow: 0 16px 36px rgba(1, 27, 57, 0.22);
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img[src*="/wp-content/uploads/modern/"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 42px rgba(1, 27, 57, 0.3);
+}
+
+.ar-card-thumb-wrap img,
+img.ar-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 10px;
+}

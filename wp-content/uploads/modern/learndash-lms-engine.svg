@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="800" height="533">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020d1c"/>
+      <stop offset="50%" stop-color="#011B39"/>
+      <stop offset="100%" stop-color="#082245"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D184"/>
+      <stop offset="50%" stop-color="#BE8C33"/>
+      <stop offset="100%" stop-color="#8a6114"/>
+    </linearGradient>
+    <pattern id="grid-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#BE8C33" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="svg-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="533" rx="16" fill="url(#bg-grad)"/>
+  <rect width="800" height="533" rx="16" fill="url(#grid-pattern)"/>
+  <circle cx="400" cy="266.5" r="210" fill="#BE8C33" fill-opacity="0.07" filter="url(#svg-glow)"/>
+
+  
+  <g transform="translate(44, 34)">
+    <rect width="250" height="32" rx="16" fill="#031b38" stroke="#BE8C33" stroke-width="1.2"/>
+    <circle cx="18" cy="16" r="5" fill="#BE8C33"/>
+    <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">LEARNDASH & LMS ARCHITECTURE</text>
+  </g>
+
+  
+  <g transform="translate(560, 34)">
+    <rect width="196" height="32" rx="16" fill="#07244a" stroke="#255a9b" stroke-width="1"/>
+    <text x="18" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600" fill="#93c5fd">SCORM / xAPI &#x2022; Gamified Learning</text>
+  </g>
+
+  
+  <g transform="translate(44, 90)">
+    <rect width="712" height="390" rx="14" fill="#041427" stroke="#1d487c" stroke-width="1.5"/>
+    <rect width="712" height="42" rx="14" fill="#030e1d"/>
+    <circle cx="22" cy="21" r="5" fill="#f87171"/>
+    <circle cx="38" cy="21" r="5" fill="#fbbf24"/>
+    <circle cx="54" cy="21" r="5" fill="#34d399"/>
+    <text x="76" y="26" font-family="monospace" font-size="12" fill="#94a3b8">lms-campus.arwebcrafts.com/curriculum</text>
+
+    <!-- Course Builder Panel (Left) -->
+    <g transform="translate(36, 60)">
+      <rect width="380" height="300" rx="10" fill="#020c1a" stroke="#255a9b" stroke-width="1"/>
+      <rect width="380" height="36" rx="10" fill="#092244"/>
+      <text x="18" y="23" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Interactive Course Builder</text>
+      <rect x="290" y="8" width="76" height="20" rx="4" fill="#BE8C33"/>
+      <text x="298" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#011B39">PUBLISHED</text>
+
+      <!-- Module 1 -->
+      <g transform="translate(18, 50)">
+        <rect width="344" height="48" rx="6" fill="#071e3d"/>
+        <text x="14" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#F2D184">Module 1: Advanced Full-Stack Architecture</text>
+        <text x="14" y="38" font-family="sans-serif" font-size="10" fill="#94a3b8">4 Lessons &#x2022; 2 Interactive Quizzes &#x2022; 100% Passed</text>
+        <circle cx="320" cy="24" r="8" fill="#4ade80"/>
+        <text x="316" y="28" font-family="sans-serif" font-size="11" font-weight="800" fill="#011B39">&#x2713;</text>
+      </g>
+
+      <!-- Module 2 -->
+      <g transform="translate(18, 110)">
+        <rect width="344" height="48" rx="6" fill="#071e3d"/>
+        <text x="14" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Module 2: Custom WordPress Hook Engine</text>
+        <text x="14" y="38" font-family="sans-serif" font-size="10" fill="#94a3b8">6 Lessons &#x2022; Proctored Code Assessment</text>
+        <rect x="270" y="14" width="60" height="20" rx="4" fill="#034e35"/>
+        <text x="278" y="28" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">ACTIVE</text>
+      </g>
+
+      <!-- Module 3 -->
+      <g transform="translate(18, 170)">
+        <rect width="344" height="48" rx="6" fill="#071e3d"/>
+        <text x="14" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Module 3: Database &amp; Transient Caching</text>
+        <text x="14" y="38" font-family="sans-serif" font-size="10" fill="#94a3b8">3 Lessons &#x2022; Final Certification Exam</text>
+        <rect x="270" y="14" width="60" height="20" rx="4" fill="#334155"/>
+        <text x="278" y="28" font-family="sans-serif" font-size="10" font-weight="600" fill="#cbd5e1">LOCKED</text>
+      </g>
+
+      <!-- Student Progress Bar -->
+      <g transform="translate(18, 236)">
+        <text x="0" y="14" font-family="sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Student Overall Completion</text>
+        <text x="310" y="14" font-family="sans-serif" font-size="11" font-weight="700" fill="#4ade80">78%</text>
+        <rect y="24" width="344" height="8" rx="4" fill="#1e293b"/>
+        <rect y="24" width="268" height="8" rx="4" fill="#4ade80"/>
+      </g>
+    </g>
+
+    <!-- Digital Certificate Verification Panel (Right) -->
+    <g transform="translate(436, 60)">
+      <rect width="240" height="300" rx="10" fill="#020c1a" stroke="#BE8C33" stroke-width="1.2"/>
+      <rect width="240" height="36" rx="10" fill="#0d2c54"/>
+      <text x="16" y="23" font-family="sans-serif" font-size="11" font-weight="700" fill="#F2D184">VERIFIED CERTIFICATION</text>
+
+      <rect x="20" y="52" width="200" height="130" rx="6" fill="#051a36" stroke="#BE8C33" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="120" cy="85" r="18" fill="#BE8C33" fill-opacity="0.2"/>
+      <path d="M120 73 L124 81 L133 82 L126 89 L128 98 L120 93 L112 98 L114 89 L107 82 L116 81 Z" fill="#BE8C33"/>
+      <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Certificate of Excellence</text>
+      <text x="120" y="136" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#F2D184">Cryptographically Verified</text>
+      <text x="120" y="152" text-anchor="middle" font-family="monospace" font-size="8" fill="#94a3b8">ID: AR-CERT-8849-VERIFIED</text>
+
+      <!-- Share Button -->
+      <rect x="20" y="200" width="200" height="34" rx="6" fill="#0a66c2"/>
+      <text x="120" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Share to LinkedIn &#x2197;</text>
+
+      <!-- Verification Badge -->
+      <g transform="translate(20, 248)">
+        <rect width="200" height="38" rx="6" fill="#072040"/>
+        <circle cx="16" cy="19" r="6" fill="#4ade80"/>
+        <text x="30" y="16" font-family="sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">Public Verification Portal</text>
+        <text x="30" y="29" font-family="sans-serif" font-size="8" fill="#34d399">100% Tamper-Proof Record</text>
+      </g>
+    </g>
+  </g>
+</svg>

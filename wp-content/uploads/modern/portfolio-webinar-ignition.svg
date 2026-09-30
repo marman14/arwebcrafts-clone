@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020d1c"/>
+      <stop offset="50%" stop-color="#011B39"/>
+      <stop offset="100%" stop-color="#082245"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D184"/>
+      <stop offset="50%" stop-color="#BE8C33"/>
+      <stop offset="100%" stop-color="#8a6114"/>
+    </linearGradient>
+    <pattern id="grid-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#BE8C33" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="svg-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" rx="16" fill="url(#bg-grad)"/>
+  <rect width="600" height="400" rx="16" fill="url(#grid-pattern)"/>
+  <circle cx="300" cy="200" r="210" fill="#BE8C33" fill-opacity="0.07" filter="url(#svg-glow)"/>
+
+  
+  <g transform="translate(44, 34)">
+    <rect width="160" height="32" rx="16" fill="#031b38" stroke="#BE8C33" stroke-width="1.2"/>
+    <circle cx="18" cy="16" r="5" fill="#BE8C33"/>
+    <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">WEBINAR ENGINE</text>
+  </g>
+
+  
+  <g transform="translate(360, 34)">
+    <rect width="196" height="32" rx="16" fill="#07244a" stroke="#255a9b" stroke-width="1"/>
+    <text x="18" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600" fill="#93c5fd">Live Streaming & Funnels</text>
+  </g>
+
+  
+  <g transform="translate(30, 80)">
+    <rect width="540" height="290" rx="12" fill="#041427" stroke="#BE8C33" stroke-width="1.5"/>
+    <rect width="540" height="34" rx="12" fill="#030e1d"/>
+    <circle cx="18" cy="17" r="4.5" fill="#f87171"/>
+    <circle cx="32" cy="17" r="4.5" fill="#fbbf24"/>
+    <circle cx="46" cy="17" r="4.5" fill="#34d399"/>
+    <text x="65" y="21" font-family="sans-serif" font-size="11" font-weight="700" fill="#F2D184">WebinarIgnition &#x2014; Interactive Live Suite</text>
+
+    <!-- Main Stream Player (Left) -->
+    <g transform="translate(18, 48)">
+      <rect width="320" height="215" rx="8" fill="#000000" stroke="#1d487c" stroke-width="1"/>
+      <!-- Video Frame Center -->
+      <circle cx="160" cy="95" r="26" fill="#BE8C33" fill-opacity="0.9"/>
+      <polygon points="154,82 172,95 154,108" fill="#011B39"/>
+      <text x="160" y="140" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">LIVE BROADCAST: High-Ticket Scaling</text>
+      <!-- Live Indicator -->
+      <rect x="14" y="14" width="56" height="20" rx="4" fill="#dc2626"/>
+      <circle cx="24" cy="24" r="3" fill="#FFFFFF"/>
+      <text x="32" y="28" font-family="sans-serif" font-size="9" font-weight="800" fill="#FFFFFF">LIVE</text>
+      <!-- Viewer Count -->
+      <rect x="230" y="14" width="76" height="20" rx="4" fill="#1e293b"/>
+      <text x="238" y="28" font-family="sans-serif" font-size="9" font-weight="600" fill="#cbd5e1">&#x1F441; 2,410 viewers</text>
+      <!-- Bottom Control Bar -->
+      <rect y="180" width="320" height="35" rx="0" fill="#0a192f"/>
+      <text x="16" y="202" font-family="sans-serif" font-size="10" fill="#4ade80">&#x26A1; 0 Buffer Latency | 1080p 60fps</text>
+    </g>
+
+    <!-- Live Chat & CTA Sidebar (Right) -->
+    <g transform="translate(352, 48)">
+      <rect width="170" height="215" rx="8" fill="#020b18" stroke="#BE8C33" stroke-width="1"/>
+      <rect width="170" height="28" rx="8" fill="#072040"/>
+      <text x="12" y="18" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Live Attendee Chat</text>
+      
+      <g transform="translate(10, 38)">
+        <text x="0" y="12" font-family="sans-serif" font-size="9" font-weight="700" fill="#F2D184">Sarah M.:</text>
+        <text x="0" y="24" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">The custom plugin saved us!</text>
+      </g>
+      <g transform="translate(10, 72)">
+        <text x="0" y="12" font-family="sans-serif" font-size="9" font-weight="700" fill="#38bdf8">David K.:</text>
+        <text x="0" y="24" font-family="sans-serif" font-size="8.5" fill="#cbd5e1">Incredible checkout speed!</text>
+      </g>
+      
+      <!-- Instant In-Stream CTA Button -->
+      <rect x="10" y="160" width="150" height="42" rx="6" fill="#BE8C33"/>
+      <text x="85" y="178" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="800" fill="#011B39">CLAIM SPECIAL OFFER</text>
+      <text x="85" y="192" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#011B39">Expires in 08:34</text>
+    </g>
+  </g>
+</svg>

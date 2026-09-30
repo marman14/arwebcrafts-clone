@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020d1c"/>
+      <stop offset="50%" stop-color="#011B39"/>
+      <stop offset="100%" stop-color="#082245"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D184"/>
+      <stop offset="50%" stop-color="#BE8C33"/>
+      <stop offset="100%" stop-color="#8a6114"/>
+    </linearGradient>
+    <pattern id="grid-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#BE8C33" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="svg-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" rx="16" fill="url(#bg-grad)"/>
+  <rect width="600" height="400" rx="16" fill="url(#grid-pattern)"/>
+  <circle cx="300" cy="200" r="210" fill="#BE8C33" fill-opacity="0.07" filter="url(#svg-glow)"/>
+
+  
+  <g transform="translate(44, 34)">
+    <rect width="170" height="32" rx="16" fill="#031b38" stroke="#BE8C33" stroke-width="1.2"/>
+    <circle cx="18" cy="16" r="5" fill="#BE8C33"/>
+    <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">WORDPRESS PLUGIN</text>
+  </g>
+
+  
+  <g transform="translate(360, 34)">
+    <rect width="196" height="32" rx="16" fill="#07244a" stroke="#255a9b" stroke-width="1"/>
+    <text x="18" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600" fill="#93c5fd">Visual Form Customizer</text>
+  </g>
+
+  
+  <g transform="translate(30, 80)">
+    <rect width="540" height="290" rx="12" fill="#041427" stroke="#BE8C33" stroke-width="1.5"/>
+    <rect width="540" height="34" rx="12" fill="#030e1d"/>
+    <circle cx="18" cy="17" r="4.5" fill="#f87171"/>
+    <circle cx="32" cy="17" r="4.5" fill="#fbbf24"/>
+    <circle cx="46" cy="17" r="4.5" fill="#34d399"/>
+    <text x="65" y="21" font-family="sans-serif" font-size="11" font-weight="700" fill="#F2D184">CF7 WOW Styler &#x2014; Live Visual Editor</text>
+
+    <!-- Left Controls Panel -->
+    <g transform="translate(18, 50)">
+      <rect width="180" height="215" rx="8" fill="#020b18" stroke="#1e3a5f" stroke-width="1"/>
+      <text x="14" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Style Controls</text>
+      <text x="14" y="52" font-family="sans-serif" font-size="10" fill="#94a3b8">Primary Color</text>
+      <rect x="14" y="60" width="150" height="22" rx="4" fill="#BE8C33"/>
+      <text x="14" y="104" font-family="sans-serif" font-size="10" fill="#94a3b8">Border Radius: 8px</text>
+      <rect x="14" y="112" width="150" height="6" rx="3" fill="#1e293b"/>
+      <rect x="14" y="112" width="90" height="6" rx="3" fill="#F2D184"/>
+      <text x="14" y="142" font-family="sans-serif" font-size="10" fill="#94a3b8">Typography: Inter Bold</text>
+      <rect x="14" y="165" width="150" height="28" rx="4" fill="#064e3b"/>
+      <text x="89" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#34d399">&#x2713; LIVE APPLIED</text>
+    </g>
+
+    <!-- Right Live Form Preview -->
+    <g transform="translate(216, 50)">
+      <rect width="305" height="215" rx="8" fill="#010a17" stroke="#BE8C33" stroke-width="1.2"/>
+      <text x="18" y="26" font-family="sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Get in Touch With Us</text>
+      <!-- Form Input 1 -->
+      <rect x="18" y="42" width="268" height="34" rx="6" fill="#081e3a" stroke="#1c477d" stroke-width="1"/>
+      <text x="30" y="63" font-family="sans-serif" font-size="10" fill="#94a3b8">Your Name</text>
+      <!-- Form Input 2 -->
+      <rect x="18" y="86" width="268" height="34" rx="6" fill="#081e3a" stroke="#1c477d" stroke-width="1"/>
+      <text x="30" y="107" font-family="sans-serif" font-size="10" fill="#94a3b8">Your Email Address</text>
+      <!-- Form Input 3 (Textarea) -->
+      <rect x="18" y="130" width="268" height="38" rx="6" fill="#081e3a" stroke="#1c477d" stroke-width="1"/>
+      <text x="30" y="152" font-family="sans-serif" font-size="10" fill="#94a3b8">Project Details...</text>
+      <!-- Styled Submit Button -->
+      <rect x="18" y="178" width="268" height="28" rx="6" fill="#BE8C33"/>
+      <text x="152" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="800" fill="#011B39">SUBMIT INQUIRY &rarr;</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="800" height="533">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020d1c"/>
+      <stop offset="50%" stop-color="#011B39"/>
+      <stop offset="100%" stop-color="#082245"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D184"/>
+      <stop offset="50%" stop-color="#BE8C33"/>
+      <stop offset="100%" stop-color="#8a6114"/>
+    </linearGradient>
+    <pattern id="grid-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#BE8C33" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="svg-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="533" rx="16" fill="url(#bg-grad)"/>
+  <rect width="800" height="533" rx="16" fill="url(#grid-pattern)"/>
+  <circle cx="400" cy="266.5" r="210" fill="#BE8C33" fill-opacity="0.07" filter="url(#svg-glow)"/>
+
+  
+  <g transform="translate(44, 34)">
+    <rect width="260" height="32" rx="16" fill="#031b38" stroke="#BE8C33" stroke-width="1.2"/>
+    <circle cx="18" cy="16" r="5" fill="#BE8C33"/>
+    <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">FREE PROJECT CONSULTATION</text>
+  </g>
+
+  
+  <g transform="translate(560, 34)">
+    <rect width="196" height="32" rx="16" fill="#07244a" stroke="#255a9b" stroke-width="1"/>
+    <text x="18" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600" fill="#93c5fd">Senior Architecture Team</text>
+  </g>
+
+  
+  <g transform="translate(44, 90)">
+    <rect width="712" height="390" rx="14" fill="#041427" stroke="#BE8C33" stroke-width="1.5"/>
+    <rect width="712" height="42" rx="14" fill="#030e1d"/>
+    <circle cx="22" cy="21" r="5" fill="#f87171"/>
+    <circle cx="38" cy="21" r="5" fill="#fbbf24"/>
+    <circle cx="54" cy="21" r="5" fill="#34d399"/>
+    <text x="76" y="26" font-family="monospace" font-size="12" fill="#94a3b8">proposal-engine.arwebcrafts.com/estimate</text>
+
+    <g transform="translate(36, 65)">
+      <rect width="640" height="295" rx="10" fill="#020b18" stroke="#1d487c" stroke-width="1"/>
+      <text x="24" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Transparent Scope, Timeline &amp; Cost Blueprint</text>
+      <text x="24" y="52" font-family="sans-serif" font-size="11" fill="#94a3b8">No vague hourly billing. Fixed milestones with commercial delivery SLA.</text>
+      
+      <g transform="translate(24, 75)">
+        <rect width="180" height="110" rx="8" fill="#071e3d"/>
+        <text x="16" y="28" font-family="sans-serif" font-size="12" font-weight="700" fill="#F2D184">1. Discovery Call</text>
+        <text x="16" y="48" font-family="sans-serif" font-size="10" fill="#cbd5e1">Analyze requirements &amp; tech bottlenecks</text>
+        <text x="16" y="80" font-family="sans-serif" font-size="10" font-weight="700" fill="#4ade80">&#x2713; FREE 30-MIN SESSION</text>
+      </g>
+
+      <g transform="translate(230, 75)">
+        <rect width="180" height="110" rx="8" fill="#071e3d"/>
+        <text x="16" y="28" font-family="sans-serif" font-size="12" font-weight="700" fill="#F2D184">2. Architecture Plan</text>
+        <text x="16" y="48" font-family="sans-serif" font-size="10" fill="#cbd5e1">Detailed database &amp; plugin specification</text>
+        <text x="16" y="80" font-family="sans-serif" font-size="10" font-weight="700" fill="#38bdf8">&#x2713; FIXED-PRICE SCOPE</text>
+      </g>
+
+      <g transform="translate(436, 75)">
+        <rect width="180" height="110" rx="8" fill="#071e3d"/>
+        <text x="16" y="28" font-family="sans-serif" font-size="12" font-weight="700" fill="#F2D184">3. Agile Sprints</text>
+        <text x="16" y="48" font-family="sans-serif" font-size="10" fill="#cbd5e1">Rapid execution with live staging reviews</text>
+        <text x="16" y="80" font-family="sans-serif" font-size="10" font-weight="700" fill="#BE8C33">&#x2713; 100% IP OWNERSHIP</text>
+      </g>
+
+      <!-- Bottom Trust Ribbon -->
+      <g transform="translate(24, 215)">
+        <rect width="592" height="55" rx="6" fill="#0b2447" stroke="#BE8C33" stroke-width="1"/>
+        <text x="20" y="32" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">&#x1F91D; Direct Senior Engineer Access</text>
+        <text x="240" y="32" font-family="sans-serif" font-size="11" font-weight="700" fill="#F2D184">&#x26A1; Same-Day NDA Available</text>
+        <text x="440" y="32" font-family="sans-serif" font-size="11" font-weight="700" fill="#4ade80">&#x1F6E1; 100% Satisfaction</text>
+      </g>
+    </g>
+  </g>
+</svg>
