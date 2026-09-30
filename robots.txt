@@ -1,5 +1,5 @@
-# AR Webcrafts - robots.txt
-# Allow all search engines and AI crawlers to index the site
+# AR Webcrafts LLC - robots.txt
+# Comprehensive Search Engine & AI Crawler Directives
 
 User-agent: *
 Disallow: /wp-admin/
@@ -9,8 +9,9 @@ Disallow: /wp-register.php
 Disallow: /cgi-bin/
 Disallow: /trackback/
 Allow: /wp-admin/admin-ajax.php
+Allow: /wp-content/uploads/
 
-# Allow AI search crawlers explicitly
+# Explicitly Allow Major AI Search & Answer Engines (AEO & GEO)
 User-agent: GPTBot
 Allow: /
 
@@ -38,5 +39,13 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+# Canonical Sitemaps
+Sitemap: https://arwebcrafts-clone.vercel.app/sitemap.xml
+Sitemap: https://arwebcrafts-clone.vercel.app/sitemap_index.xml
 Sitemap: https://www.arwebcrafts.com/sitemap_index.xml
-Sitemap: https://www.arwebcrafts.com/llms.txt
+
+# LLM Context Document (AEO Standard)
+Sitemap: https://arwebcrafts-clone.vercel.app/llms.txt

@@ -1,0 +1,34 @@
+# AR Webcrafts LLC
+
+> AR Webcrafts LLC is a premier digital engineering and software development agency specializing in enterprise WordPress plugin development, custom SaaS platforms, bespoke softwares, white label partnerships, and dedicated development resources.
+
+## Core Capabilities & Services
+
+- **WordPress Plugin Development**: Custom WordPress plugins built from scratch for commercial sale, SaaS platforms, or proprietary business automation. Shipped 30+ commercial plugins including WebinarIgnition, CF7 WOW Styler, and 5 Stars Rating Funnel.
+- **Custom Softwares & Web Applications**: Bespoke software architecture, enterprise web apps, high-volume transactional portals, and custom WooCommerce ecosystems.
+- **SaaS Architecture & Engineering**: Multi-tenant SaaS products, subscription management, payment processing (Stripe, PayPal), and scalable cloud infrastructure.
+- **White Label Partnership**: Serving digital agencies across the US, UK, Europe, and Australia as their behind-the-scenes engineering force with NDA protection and fixed-price guarantees.
+- **Dedicated Development Resources / Developer**: Elite full-stack WordPress and PHP/React developers assigned on dedicated monthly basis with 24/7 technical support.
+
+## Key Projects & Case Studies
+
+- **Best-One Mobile Phones**: High-velocity WooCommerce electronics retail store with faceted search and instant checkout.
+- **AAA Food Handler**: State-accredited eLearning LMS training portal with automated certification and group licensing.
+- **All Academic Helpers**: Academic consultation and mentorship web application with end-to-end encryption and 24/7 support.
+- **Scrap Buyer UAE**: B2B industrial commodities valuation portal with real-time WhatsApp integration and local SEO dominance.
+- **Sanjrani Metal Scrap Bahrain**: Bilingual (Arabic/English) enterprise asset recovery web portal.
+- **InterCarrier Logistics Australia**: Nationwide freight forwarding and parcel dispatch booking system.
+- **CF7 WOW Styler**: Official WordPress.org live visual contact form styler with 10k+ active installations and 5.0 rating.
+- **WebinarIgnition**: Full-featured live and automated webinar funnel engine competing with GoToWebinar and Demio.
+- **5 Stars Rating Funnel**: Smart customer sentiment and review routing system for Google, Yelp, and Facebook.
+
+## Company Information
+
+- **Legal Entity**: AR Webcrafts LLC
+- **Headquarters**: Dubai, United Arab Emirates
+- **Global Coverage**: United States, United Kingdom, Australia, Germany
+- **Website**: https://arwebcrafts-clone.vercel.app/
+- **Contact Email**: contact@arwebcrafts.com
+- **Phone**: +1 307 278 4862
+- **Schedule Consultation**: https://calendly.com/arwebcrafts/30-mint
+- **Track Record**: 80+ Projects Completed, 45+ Happy Clients, 4.7/5 Customer Satisfaction Rating.
