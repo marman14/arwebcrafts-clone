@@ -368,7 +368,7 @@ img.lazyload, img.lazyloaded, img[data-src] {
 /* 6. Gold Stats Counter Ribbon (Exact Match to User Reference Screenshot) */
 .elementor-element.elementor-element-5d61ecc {
     background-color: #BE8C33 !important;
-    padding: 22px 0 !important;
+    padding: 24px 0 !important;
     position: relative !important;
     box-sizing: border-box !important;
     width: 100% !important;
@@ -419,6 +419,18 @@ img.lazyload, img.lazyloaded, img[data-src] {
     }
     .elementor-element.elementor-element-dc6708a::after {
         display: none !important;
+    }
+}
+
+/* Tablet adjustments (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .elementor-element.elementor-element-5d61ecc {
+        padding: 20px 0 !important;
+    }
+    .elementor-element.elementor-element-f881503::after,
+    .elementor-element.elementor-element-6d18a61::after,
+    .elementor-element.elementor-element-49fcbaf::after {
+        height: 55px !important;
     }
 }
 
