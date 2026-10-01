@@ -45,7 +45,6 @@ Allow: /
 # Canonical Sitemaps
 Sitemap: https://arwebcrafts-clone.vercel.app/sitemap.xml
 Sitemap: https://arwebcrafts-clone.vercel.app/sitemap_index.xml
-Sitemap: https://www.arwebcrafts.com/sitemap_index.xml
 
 # LLM Context Document (AEO Standard)
 Sitemap: https://arwebcrafts-clone.vercel.app/llms.txt
