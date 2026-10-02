@@ -22,16 +22,6 @@
       "source": "/home/",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/case-studies",
-      "destination": "/products/",
-      "permanent": true
-    },
-    {
-      "source": "/case-studies/",
-      "destination": "/products/",
-      "permanent": true
     }
   ],
   "headers": [
