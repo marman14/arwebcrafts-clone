@@ -107,6 +107,34 @@
       });
     }
 
+    // Check for query parameters passed from offer page (e.g. ?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly))
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramAmount = parseFloat(urlParams.get('amount'));
+    const paramService = urlParams.get('service');
+    const paramPlan = urlParams.get('plan');
+    if (!isNaN(paramAmount) && paramAmount > 0) {
+      const planName = paramService || (paramPlan ? paramPlan.replace(/[_-]/g, ' ') : 'Custom Client Milestone');
+      const invoiceRef = (paramPlan ? 'OFFER-' + paramPlan.toUpperCase() : 'INV-OFFER');
+      
+      serviceItems.forEach((i) => i.classList.remove('active'));
+      const customItem = Array.from(serviceItems).find(i => i.querySelector('input[value="custom-invoice"]'));
+      if (customItem) {
+        customItem.classList.add('active');
+        const customRadio = customItem.querySelector('input[type="radio"]');
+        if (customRadio) customRadio.checked = true;
+      }
+      if (customAmountBox) customAmountBox.classList.add('show');
+      if (customAmountInput) customAmountInput.value = paramAmount;
+      if (customInvoiceInput) customInvoiceInput.value = invoiceRef;
+
+      currentService = {
+        id: paramPlan || 'custom-plan',
+        name: planName,
+        amount: paramAmount,
+        invoiceRef: invoiceRef
+      };
+    }
+
     // Set initial display
     updateSummaryDisplay();
   }

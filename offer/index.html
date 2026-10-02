@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Trade Contractor Websites &middot; Live in 24 Hours &middot; $99/mo | AR Webcrafts LLC</title>
+  <meta name="description" content="Custom websites for trade contractors. Roofing, plumbing, HVAC, tree service, landscaping, concrete. Live in 24 hours. $99 a month. No setup fee.">
+  <link rel="canonical" href="https://arwebcrafts-clone.vercel.app/offer/">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Your Website Live in 24 Hours &middot; $99 a Month | AR Webcrafts">
+  <meta property="og:description" content="Custom high-converting websites for trade contractors. Zero upfront fee, live in 24 hours, unlimited edits.">
+  <meta property="og:url" content="https://arwebcrafts-clone.vercel.app/offer/">
+  <meta property="og:image" content="https://arwebcrafts-clone.vercel.app/wp-content/uploads/2024/05/ev-landscape-mockup.png">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="/wp-content/uploads/2023/05/cropped-file-1-32x32.png" sizes="32x32">
+  <link rel="icon" href="/wp-content/uploads/2023/05/cropped-file-1-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/wp-content/uploads/2023/05/cropped-file-1-180x180.png">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Franklin:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap">
+
+  <style>
+  /* Layout: a stacked work order. Full width bands split by hairline rules,
+     each band opened by a mono field label, one safety orange accent for action. */
+  :root{
+    --paper:#EDEFEA;
+    --panel:#FBFCF9;
+    --ink:#0E1B2A;
+    --muted:#4F5C66;
+    --rule:#C8CDC2;
+    --accent:#DE520B;
+    --accent-ink:#FFFFFF;
+    --good:#1C6E46;
+    --display:"Archivo Black","Arial Black",Impact,sans-serif;
+    --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+    --mono:"Roboto Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    color-scheme:light;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0C1116; --panel:#141B22; --ink:#E7EBE3; --muted:#95A1AA;
+      --rule:#28313A; --accent:#F26A19; --accent-ink:#0C1116; --good:#4FBF87;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0C1116; --panel:#141B22; --ink:#E7EBE3; --muted:#95A1AA;
+    --rule:#28313A; --accent:#F26A19; --accent-ink:#0C1116; --good:#4FBF87;
+    color-scheme:dark;
+  }
+
+  *, *::before, *::after{box-sizing:border-box}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);font-family:var(--body);
+    font-size:17px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;height:auto}
+  [hidden]{display:none!important}
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+  .narrow{max-width:700px}
+
+  h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;letter-spacing:-.015em;margin:0;line-height:1.05}
+  h1{font-size:clamp(2.1rem,7.2vw,4rem);text-transform:uppercase}
+  h2{font-size:clamp(1.55rem,4.4vw,2.35rem);text-transform:uppercase}
+  h3{font-size:1.02rem;font-family:var(--body);font-weight:700;line-height:1.35;letter-spacing:0}
+  p{margin:0}
+  a{color:inherit}
+
+  .label{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  }
+  .label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+  .band{border-top:1px solid var(--rule);position:relative;transition:opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)}
+  .band>.wrap{padding-block:clamp(44px,7vw,76px)}
+  .band.tint{background:var(--panel)}
+
+  header{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:var(--paper);border-bottom:1px solid var(--rule);
+    backdrop-filter:blur(8px);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px}
+  .mark{font-family:var(--display);font-size:1.02rem;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
+  .mark span{color:var(--accent)}
+  .bar .tagline{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right}
+
+  /* ---------- hero ---------- */
+  .hero>.wrap{padding-block:clamp(34px,6vw,58px) clamp(30px,5vw,46px)}
+  .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  .hero h1 .hl{color:var(--accent)}
+  .lede{font-size:clamp(1.04rem,2.6vw,1.22rem);color:var(--muted);max-width:60ch;margin-top:20px}
+  .lede strong{color:var(--ink);font-weight:600}
+
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-top:30px}
+  .btn{
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--body);font-weight:700;font-size:1rem;padding:15px 28px;border-radius:2px;
+    text-decoration:none;border:1.5px solid var(--accent);min-height:58px;text-align:center;
+    transition:transform .2s cubic-bezier(0.16, 1, 0.3, 1),background .2s ease,box-shadow .2s ease;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 4px 14px rgba(222,82,11,0.22)}
+  .btn-primary:hover{transform:translateY(-2px);background:#ce4705;box-shadow:0 8px 22px rgba(222,82,11,0.32)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+  .btn .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;font-weight:400;opacity:.85;text-transform:uppercase}
+  a.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  /* quiet secondary link: the free demo stays findable, not competing */
+  .quiet{
+    font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--muted);
+    text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;
+    transition:color .15s ease;
+  }
+  .quiet:hover{color:var(--accent)}
+
+  .stamps{
+    display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;padding:0;
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  }
+  .stamps li{list-style:none;display:flex;align-items:center;gap:7px}
+  .stamps li::before{content:"";width:6px;height:6px;background:var(--good);flex:none;border-radius:1px}
+
+  /* ---------- credentials ---------- */
+  .stats{
+    display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    margin:0;padding:0;list-style:none;border-left:1px solid var(--rule);
+  }
+  .stats li{
+    padding:20px 22px;border-right:1px solid var(--rule);min-width:0;
+    transition:background .2s ease,transform .2s ease;
+  }
+  .stats li:hover{background:rgba(222,82,11,0.03)}
+  .stats b{display:block;font-family:var(--display);font-size:clamp(1.7rem,5vw,2.3rem);line-height:1;
+    font-weight:400;font-variant-numeric:tabular-nums}
+  .stats span{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-top:9px;line-height:1.6}
+
+  /* ---------- video ---------- */
+  .video{
+    aspect-ratio:16/9;max-width:100%;width:100%;border:1px solid var(--rule);background:var(--panel);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;
+    position:relative;overflow:hidden;cursor:pointer;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .2s ease;
+  }
+  .video:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(14,27,42,0.08);border-color:var(--accent)}
+  .video .play{
+    width:66px;height:66px;border-radius:50%;background:var(--accent);display:grid;place-items:center;flex:none;
+    box-shadow:0 6px 20px rgba(222,82,11,0.35);transition:transform .2s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .2s ease;
+  }
+  .video:hover .play{transform:scale(1.08);box-shadow:0 8px 26px rgba(222,82,11,0.5)}
+  .video .play::after{content:"";width:0;height:0;margin-left:5px;
+    border-left:19px solid var(--accent-ink);border-top:12px solid transparent;border-bottom:12px solid transparent}
+  .video p{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);max-width:34ch}
+  .cap{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:14px;line-height:1.8}
+
+  /* ---------- work / proof ---------- */
+  .work{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .shot{
+    min-width:0;perspective:1000px;
+    transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .shot .frame{
+    aspect-ratio:4/3;max-width:100%;border:1px solid var(--rule);background:var(--panel);
+    display:grid;place-items:center;overflow:hidden;position:relative;
+    box-shadow:0 4px 16px rgba(14,27,42,0.05);transition:transform .3s ease,box-shadow .3s ease,border-color .2s ease;
+  }
+  .shot:hover .frame{
+    transform:translateY(-4px);box-shadow:0 16px 36px rgba(14,27,42,0.12);border-color:var(--accent);
+  }
+  .shot .frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .shot:hover .frame img{transform:scale(1.02)}
+  .shot .frame .ph{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;padding:18px}
+  .shot .meta{display:flex;justify-content:space-between;gap:12px;margin-top:12px;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .shot .meta b{color:var(--ink);font-weight:600}
+
+  /* ---------- includes ---------- */
+  .includes{display:grid;gap:0;margin:0;padding:0;list-style:none}
+  .includes li{display:grid;grid-template-columns:auto 1fr;gap:16px;padding-block:18px;border-bottom:1px solid var(--rule);min-width:0;transition:background .15s ease}
+  .includes li:hover{background:rgba(222,82,11,0.02)}
+  .includes.first li:first-child{border-top:1px solid var(--rule)}
+  .includes .tick{font-family:var(--mono);font-size:.78rem;color:var(--accent);padding-top:4px;flex:none;font-weight:600;font-variant-numeric:tabular-nums}
+  .includes .txt{min-width:0}
+  .includes .txt span{display:block;color:var(--muted);font-size:.94rem;margin-top:3px}
+  .free{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--good);color:var(--panel);padding:2px 7px;margin-left:8px;vertical-align:2px;border-radius:2px}
+
+  .more{border-bottom:1px solid var(--rule)}
+  .more>summary{
+    cursor:pointer;list-style:none;padding-block:18px;
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+    display:flex;align-items:center;gap:10px;user-select:none;
+  }
+  .more>summary::-webkit-details-marker{display:none}
+  .more>summary::after{content:"+";font-weight:600;font-size:1.1rem;margin-left:auto}
+  .more[open]>summary::after{content:"\2212"}
+  .more[open]>summary{border-bottom:1px solid var(--rule)}
+  .more .includes li:last-child{border-bottom:0}
+
+  /* ---------- steps ---------- */
+  .steps{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:0;padding:0;list-style:none}
+  .steps li{
+    border-top:3px solid var(--accent);padding-top:18px;min-width:0;
+    transition:transform .2s ease;
+  }
+  .steps li:hover{transform:translateY(-2px)}
+  .steps .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:9px;font-weight:600}
+  .steps p{color:var(--muted);font-size:.95rem;margin-top:6px}
+
+  /* ---------- price ---------- */
+  .price-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));align-items:start}
+  .card{
+    background:var(--panel);border:1px solid var(--rule);padding:32px 26px;min-width:0;position:relative;
+    transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .25s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(14,27,42,0.08)}
+  .card.lead{border:2px solid var(--accent);box-shadow:0 8px 24px rgba(222,82,11,0.12)}
+  .card .flag{position:absolute;top:-1px;right:-1px;background:var(--accent);color:var(--accent-ink);
+    font-family:var(--mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;font-weight:600}
+  .card.alt .flag{background:var(--good);color:var(--panel)}
+  .card .plan{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);max-width:18ch}
+  .amount{display:flex;align-items:baseline;gap:8px;margin-top:14px;font-variant-numeric:tabular-nums}
+  .amount b{font-family:var(--display);font-size:clamp(2.6rem,9vw,3.4rem);line-height:.9;font-weight:400}
+  .amount i{font-style:normal;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .billed{
+    margin-top:14px;padding:12px 14px;background:var(--paper);border-left:3px solid var(--accent);
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;line-height:1.7;color:var(--ink);
+  }
+  .card .terms{margin:0;padding:16px 0 0;list-style:none;display:grid;gap:10px}
+  .card .terms li{position:relative;padding-left:18px;font-size:.93rem;color:var(--muted);line-height:1.55}
+  .card .terms li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--accent);border-radius:1px}
+  .card .btn{width:100%;margin-top:24px}
+
+  /* ---------- no upfront fee callout ---------- */
+  .nofee{
+    border:1px solid var(--rule);border-left:5px solid var(--good);background:var(--panel);
+    padding:22px 24px;margin-top:28px;display:grid;gap:8px;
+  }
+  .nofee b{font-family:var(--display);font-size:1.15rem;text-transform:uppercase;letter-spacing:-.01em}
+  .nofee p{color:var(--muted);font-size:.96rem}
+
+  /* ---------- add ons ---------- */
+  .ladder{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));margin:0;padding:0;list-style:none}
+  .ladder li{
+    background:var(--panel);border:1px solid var(--rule);padding:24px;min-width:0;
+    display:flex;flex-direction:column;gap:8px;transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .ladder li:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(14,27,42,0.06);border-color:var(--accent)}
+  .ladder .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .ladder p{color:var(--muted);font-size:.93rem}
+  .vlink{
+    margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  }
+  .vlink::before{content:"";width:0;height:0;border-left:9px solid var(--accent);
+    border-top:6px solid transparent;border-bottom:6px solid transparent;flex:none}
+  .vlink:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- form ---------- */
+  .form{display:grid;gap:16px;max-width:560px}
+  .field{display:grid;gap:6px;min-width:0}
+  .field label{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .field .opt{text-transform:none;letter-spacing:0;opacity:.75;font-weight:400}
+  .field input,.field select{
+    font-family:var(--body);font-size:1rem;color:var(--ink);background:var(--panel);
+    border:1px solid var(--rule);border-radius:2px;padding:14px;width:100%;min-height:52px;
+    transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .field input:focus,.field select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 2px rgba(222,82,11,0.2)}
+  .two{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  @media (max-width:540px){.two{grid-template-columns:1fr}}
+  .form-done{border:2px solid var(--good);padding:26px;background:var(--panel);border-radius:2px;box-shadow:0 8px 24px rgba(28,110,70,0.12)}
+  .form-done b{display:block;font-family:var(--display);text-transform:uppercase;margin-bottom:8px;color:var(--good);font-size:1.4rem}
+  .fineprint{font-family:var(--mono);font-size:.7rem;line-height:1.8;letter-spacing:.03em;color:var(--muted)}
+
+  .flow{display:grid;gap:16px;margin:26px 0 0;padding:0;list-style:none;counter-reset:f}
+  .flow li{position:relative;padding-left:36px;min-width:0;font-size:.97rem;color:var(--muted);line-height:1.6}
+  .flow li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:3px;font-family:var(--mono);font-size:.7rem;color:var(--accent-ink);
+    background:var(--accent);width:22px;height:22px;display:grid;place-items:center;border-radius:2px}
+  .flow b{color:var(--ink);margin-right:4px}
+
+  /* ---------- faq ---------- */
+  .faq{display:grid;gap:0;border-top:1px solid var(--rule)}
+  .faq details{border-bottom:1px solid var(--rule);padding-block:16px;transition:background .15s ease}
+  .faq details:hover{background:rgba(222,82,11,0.015)}
+  .faq summary{cursor:pointer;font-weight:700;font-size:1rem;list-style:none;display:flex;gap:14px;align-items:flex-start;min-width:0;user-select:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before{content:"+";font-family:var(--mono);color:var(--accent);flex:none;font-weight:600;font-size:1.1rem}
+  .faq details[open] summary::before{content:"\2212"}
+  .faq details p{color:var(--muted);font-size:.96rem;margin-top:10px;padding-left:28px}
+
+  /* ---------- close ---------- */
+  .close-band{background:var(--ink);color:var(--paper);border-top:1px solid var(--rule)}
+  .close-band h2{color:var(--paper)}
+  .close-band .lede{color:var(--paper);opacity:.85}
+  .close-band .btn-ghost{color:var(--paper);border-color:var(--paper)}
+  .close-band .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+  .signature{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;line-height:1.9;margin-top:28px;opacity:.88}
+  .signature a{color:var(--paper);text-decoration:underline;text-underline-offset:3px}
+
+  footer{border-top:1px solid var(--rule);background:var(--paper)}
+  footer>.wrap{padding-block:34px 112px}
+  footer .cols{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:flex-end}
+  footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- mobile action bar ---------- */
+  .dock{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--panel);
+    border-top:1px solid var(--rule);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));
+    display:none;gap:10px;box-shadow:0 -4px 20px rgba(14,27,42,0.1);
+  }
+  .dock .btn{min-height:54px;padding:11px 10px;font-size:.96rem;border-width:1.5px}
+  .dock .btn-primary{flex:2}
+  .dock .btn-ghost{flex:1}
+  @media (max-width:760px){.dock{display:flex}}
+
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after{transition:none!important;animation:none!important}
+  }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="mark">AR WebCrafts<span>.</span></div>
+    <div class="tagline">Websites for<br>trade contractors</div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Roofing &middot; Plumbing &middot; HVAC &middot; Tree service &middot; Landscaping &middot; Concrete &middot; Epoxy</p>
+    <h1>Your website<br>live in <span class="hl">24 hours.</span><br><span data-price>99</span> a month.</h1>
+    <p class="lede">Most web shops want three or four thousand dollars before they start. <strong>We want 99, and nothing else.</strong> No setup fee, no build fee, no deposit. Every service you sell, every town you cover, your photos, your reviews, your license number, in English and in Spanish.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now<span class="sub"><span data-price>99</span> a month</span></a>
+      <a class="quiet" href="#demo">or have us build you a free demo first</a>
+    </div>
+
+    <ul class="stamps">
+      <li>No setup fee, nothing upfront</li>
+      <li>Cancel any time</li>
+      <li>Unlimited edits, no hourly bill</li>
+      <li>Spanish version included</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CREDENTIALS ================= -->
+<section class="band">
+  <div class="wrap">
+    <ul class="stats">
+      <li><b>8</b><span>Years building<br>for the web</span></li>
+      <li><b>30+</b><span>Commercial products<br>shipped</span></li>
+      <li><b>6</b><span>Senior developers,<br>no juniors</span></li>
+      <li><b>100+</b><span>Websites<br>delivered</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= MAIN VSL ================= -->
+<section class="band tint">
+  <div class="wrap">
+    <p class="label">Watch this first &middot; 3 minutes</p>
+
+    <div class="video" id="vslVideo" tabindex="0" role="button" aria-label="Founder video explanation">
+      <div class="play" aria-hidden="true"></div>
+      <p>Arman, founder &middot; What you get, what it costs, and how 24 hours actually works.</p>
+    </div>
+
+    <p class="cap">Arman, founder. What you get, what it costs,<br>and how 24 hours actually works.</p>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="band">
+  <div class="wrap">
+    <p class="label">Recent work</p>
+    <div class="narrow" style="margin-bottom:28px">
+      <h2>This is what <span data-price>99</span> a month looks like.</h2>
+      <p class="lede">Three sites we built for contractors. Same build, same price, same 24 hours.</p>
+    </div>
+
+    <div class="work">
+      <div class="shot">
+        <div class="frame">
+          <img src="/offer/work-roofing.svg" alt="Apex Roofing & Exteriors website built by AR Webcrafts">
+        </div>
+        <p class="meta"><b>Roofing</b><span>Live in 22 hours</span></p>
+      </div>
+      <div class="shot">
+        <div class="frame">
+          <img src="/offer/work-plumbing.svg" alt="FlowGuard Plumbing website built by AR Webcrafts">
+        </div>
+        <p class="meta"><b>Plumbing</b><span>Live in 24 hours</span></p>
+      </div>
+      <div class="shot">
+        <div class="frame">
+          <img src="/offer/work-tree-service.svg" alt="TimberCraft Tree Care website built by AR Webcrafts">
+        </div>
+        <p class="meta"><b>Tree service</b><span>Live in 19 hours</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT YOU GET ================= -->
+<section class="band tint">
+  <div class="wrap">
+    <p class="label">What the <span data-price>99</span> covers</p>
+    <div class="narrow">
+      <h2>Not a template with your name dropped in.</h2>
+      <p class="lede">A full site built around the work you actually sell and the towns you actually drive to. Everything below is included in the <span data-price>99</span>. There is no bigger package hiding behind this one and nothing on this list costs extra.</p>
+    </div>
+
+    <ul class="includes first" style="margin-top:32px">
+      <li><span class="tick">01</span><div class="txt"><h3>A page for every service you sell</h3><span>Re roofs, repairs, gutters, emergency tarping, maintenance. Each one its own page with its own photos, so each one can be found on its own.</span></div></li>
+      <li><span class="tick">02</span><div class="txt"><h3>A page for every town you cover</h3><span>Someone searching your trade plus their town lands on a page about their town, not a list of thirty cities. This is the part that puts you in front of the neighbour instead of the next county.</span></div></li>
+      <li><span class="tick">03</span><div class="txt"><h3>Estimate request form that emails you the moment it is filled</h3><span>Job type, address, and their number ready to tap. Straight to your inbox, and your office's inbox too if you have one. Whoever calls back first usually gets the job.</span></div></li>
+      <li><span class="tick">04</span><div class="txt"><h3>A Spanish version of the whole site<span class="free">Included</span></h3><span>Translated properly, not machine dumped. If you work anywhere in California, Texas, Arizona, Nevada or Florida, this one thing pays for the month on its own.</span></div></li>
+    </ul>
+
+    <details class="more">
+      <summary>And the other eight things</summary>
+      <ul class="includes">
+        <li><span class="tick">05</span><div class="txt"><h3>Quote and estimate sheet with your details on it</h3><span>Your logo, your license number, your terms, your payment details. So what you hand a customer looks like the standard of work you do.</span></div></li>
+        <li><span class="tick">06</span><div class="txt"><h3>Your job photos, laid out properly</h3><span>Galleries by service. Before and after side by side where you have both. Send us what is already on your phone and we do the rest.</span></div></li>
+        <li><span class="tick">07</span><div class="txt"><h3>Your Google reviews on the site</h3><span>Pulled straight from your Google Business Profile, so the page keeps itself current as new reviews come in. Nothing for you to copy over.</span></div></li>
+        <li><span class="tick">08</span><div class="txt"><h3>Built for a phone before anything else</h3><span>Phone, tablet, laptop, all handled. Most of your visitors are standing in a driveway holding a phone, so that is the screen we design for first. Call button always visible.</span></div></li>
+        <li><span class="tick">09</span><div class="txt"><h3>Your license number where your state requires it</h3><span>California, Arizona, Nevada and others require your license number on advertising. We put it where it belongs, on every page, so your website is not the thing that earns you a letter.</span></div></li>
+        <li><span class="tick">10</span><div class="txt"><h3>Hosting, SSL, daily backups, spam protection</h3><span>All in. Nothing else to buy, no second bill, no separate login to remember. If it breaks at 2am it is our problem, not yours.</span></div></li>
+        <li><span class="tick">11</span><div class="txt"><h3>Unlimited edits, for as long as you stay</h3><span>New number, new service, new crew photos, price change, new truck, seasonal offer. Text us and it is done. Small things go up the same day, anything bigger inside two business days. No hourly rate, no ticket queue, no change request form.</span></div></li>
+        <li><span class="tick">12</span><div class="txt"><h3>The domain is yours, and it stays yours</h3><span>We register and manage it as part of the <span data-price>99</span> so there is nothing for you to renew or forget. If you ever leave, we transfer it to you at no charge and you keep it. That is in writing at checkout.</span></div></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="band">
+  <div class="wrap">
+    <p class="label">How 24 hours works</p>
+    <ol class="steps">
+      <li><span class="n">Step 01</span><h3>Pay the first <span data-price>99</span></h3><p>Card, Apple Pay or Google Pay. One minute. No call to book, no pitch to sit through, nobody phoning you tomorrow.</p></li>
+      <li><span class="n">Step 02</span><h3>One form, five minutes</h3><p>Straight after payment you land on a short form. Services, towns, phone, license number, hours, and your photos. All on your phone.</p></li>
+      <li><span class="n">Step 03</span><h3>Live in 24 hours</h3><p>We send you the link to check. The 24 hours starts when your form and photos land, not when you pay. Everything after that is free to change.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PRICE ================= -->
+<section class="band tint">
+  <div class="wrap">
+    <p class="label">Price</p>
+    <div class="narrow" style="margin-bottom:30px">
+      <h2>One price. Pay monthly or pay for the year.</h2>
+    </div>
+    <div class="price-grid">
+
+      <div class="card lead">
+        <div class="flag">Most start here</div>
+        <p class="plan">Monthly</p>
+        <p class="amount"><b data-price>99</b><i>a month</i></p>
+        <p class="billed"><span data-price>99</span> today, then <span data-price>99</span> a month. Your site stays live for as long as the subscription is active. Cancel any time, yourself, online.</p>
+        <ul class="terms">
+          <li>No setup fee and no build fee</li>
+          <li>No contract and no minimum term</li>
+          <li>Unlimited edits for as long as you stay</li>
+          <li>Cancel and the site comes down, the domain stays yours</li>
+        </ul>
+        <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now<span class="sub"><span data-price>99</span> today</span></a>
+      </div>
+
+      <div class="card alt">
+        <div class="flag">Save <span data-price>389</span></div>
+        <p class="plan">Yearly</p>
+        <p class="amount"><b data-price>799</b><i>for the year</i></p>
+        <p class="billed"><span data-price>799</span> today, which covers twelve months. Works out to under <span data-price>67</span> a month. Your site stays live for as long as the subscription is active.</p>
+        <ul class="terms">
+          <li><span data-price>389</span> cheaper than paying monthly</li>
+          <li>No setup fee and no build fee</li>
+          <li>Nothing else to think about for a year</li>
+          <li>Everything on the list above</li>
+        </ul>
+        <a class="btn btn-ghost" href="/checkout/?plan=contractor_yearly&amount=799&service=Trade+Contractor+Website+(Yearly)">Pay yearly and save<span class="sub"><span data-price>799</span> today</span></a>
+      </div>
+
+    </div>
+
+    <div class="nofee">
+      <b>Nothing upfront, and nothing hidden.</b>
+      <p>No setup fee. No development fee. No deposit, no design fee, no hosting bill arriving separately in three months. The number on the card above is the only number you will ever pay us for the website.</p>
+      <p>In return, this is a service and not a one off build. We carry the cost of building it, so the site runs for as long as you are subscribed, the same way your truck insurance covers you for as long as you pay it. Stop paying and the site comes down. The domain is a separate thing and that stays yours whatever happens.</p>
+    </div>
+
+    <p class="cap">Prices in US dollars. Edits are never charged for, on either plan.</p>
+  </div>
+</section>
+
+<!-- ================= ADD ONS ================= -->
+<section class="band">
+  <div class="wrap">
+    <div class="narrow">
+      <p class="label">Once the site is up</p>
+      <h2>The site is the front door. These are what fill it.</h2>
+      <p class="lede">Six things we do beyond the website. Most owners add one a few months in, once they can see where the jobs are coming from. There is a short video on each one, and what it costs depends on your market and your call volume, so that part is a conversation.</p>
+    </div>
+
+    <ul class="ladder" style="margin-top:32px">
+
+      <li>
+        <span class="k">Add on 01</span>
+        <h3>Google Business Profile management</h3>
+        <p>Posts, photos, services, questions answered, categories fixed. The map pack is where most of your calls actually come from, and most contractors have never touched theirs.</p>
+      </li>
+
+      <li>
+        <span class="k">Add on 02</span>
+        <h3>Reviews and reputation</h3>
+        <p>Every finished job asked for a review automatically, by text and email. Bad ones answered the same day instead of sitting there for a year scaring people off.</p>
+      </li>
+
+      <li>
+        <span class="k">Add on 03</span>
+        <h3>Missed call text back</h3>
+        <p>You cannot answer from a roof. Every missed call gets a text within seconds asking what they need, so they stop dialling down the list of your competitors.</p>
+      </li>
+
+      <li>
+        <span class="k">Add on 04</span>
+        <h3>AI receptionist, round the clock</h3>
+        <p>Answers the phone, asks the right questions, quotes a window and books straight into your calendar. Nights, Sundays, while you are under a house. It does not take a day off.</p>
+      </li>
+
+      <li>
+        <span class="k">Add on 05</span>
+        <h3>Database reactivation</h3>
+        <p>Your old customer list worked properly, by text and email. Usually the cheapest jobs you will ever book, because those people already know you and already paid you once.</p>
+      </li>
+
+      <li>
+        <span class="k">Add on 06</span>
+        <h3>Google and Meta ads</h3>
+        <p>Only once the site converts and the phone gets answered. Paying for clicks before that is buying leads you are going to drop, which is how most contractors decide ads do not work.</p>
+      </li>
+
+    </ul>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener">Book a 15 minute call<span class="sub">to price any of these</span></a>
+    </div>
+    <p class="cap">We only quote these on a call, because the right answer<br>depends on your market, your call volume and what you already have.</p>
+  </div>
+</section>
+
+<!-- ================= DEMO ================= -->
+<section class="band tint" id="demo">
+  <div class="wrap">
+    <div class="narrow">
+      <p class="label">Not ready to pay yet</p>
+      <h2>Then let me build you one for free.</h2>
+      <p class="lede">A few details and we build a real demo of your site, with your name, your trade and your town on it. It costs you nothing and there is no card involved.</p>
+
+      <ol class="flow">
+        <li><b>You fill the form below.</b> Seven boxes, under a minute.</li>
+        <li><b>We get in touch to confirm.</b> Call, text, WhatsApp or email, whichever you pick below. Two or three quick questions so we build the right thing.</li>
+        <li><b>You say go, and we start.</b> We do not build anything until you have replied and told us to. We are a real team of six, not a robot churning out demos, so we only build for people who actually want one.</li>
+        <li><b>We text you the link.</b> Usually two business days after you give us the go ahead. Look at it on your own time.</li>
+        <li><b>If you like it, ten minutes on the phone</b> and it goes live for <span data-price>99</span> a month. If you do not, reply STOP and that is the end of it.</li>
+      </ol>
+    </div>
+
+    <form class="form" id="demoForm" style="margin-top:30px" novalidate>
+      <div class="two">
+        <div class="field">
+          <label for="d_name">Your name</label>
+          <input id="d_name" name="name" type="text" autocomplete="name" required placeholder="John Smith">
+        </div>
+        <div class="field">
+          <label for="d_phone">Mobile number</label>
+          <input id="d_phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(307) 000-0000">
+        </div>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="d_email">Email</label>
+          <input id="d_email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="john@mybusiness.com">
+        </div>
+        <div class="field">
+          <label for="d_biz">Business name</label>
+          <input id="d_biz" name="business" type="text" autocomplete="organization" required placeholder="Smith & Sons Roofing">
+        </div>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="d_trade">Trade</label>
+          <select id="d_trade" name="trade">
+            <option>Roofing</option><option>Plumbing</option><option>HVAC</option>
+            <option>Tree service</option><option>Landscaping</option><option>Concrete</option>
+            <option>Epoxy flooring</option><option>Electrical</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="d_city">Main city you serve</label>
+          <input id="d_city" name="city" type="text" required placeholder="Dallas, TX">
+        </div>
+      </div>
+      <div class="field">
+        <label for="d_contact">Best way to reach you to confirm</label>
+        <select id="d_contact" name="contact_method">
+          <option>Text message</option>
+          <option>Phone call</option>
+          <option>WhatsApp</option>
+          <option>Email</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="d_ref">Your current website, or a site you like the look of <span class="opt">(optional)</span></label>
+        <input id="d_ref" name="reference" type="text" inputmode="url" placeholder="paste a link, or leave it blank">
+      </div>
+      <button class="btn btn-primary" type="submit" id="submitDemoBtn" style="justify-self:start">Request my free demo<span class="sub">no card, nothing to cancel</span></button>
+      <p class="fineprint">No photos needed. We pull what we need from your Google listing and swap in your own pictures later if you want the site. We confirm with you before we build anything, so nobody gets a demo they did not ask for. Reply STOP at any time and we stop. Message and data rates may apply. We do not sell or share your number.</p>
+    </form>
+
+    <div class="form-done" id="demoDone" hidden>
+      <b>Got it.</b>
+      <p>We will reach out the way you asked, usually within one business day, to confirm a couple of details. Once you tell us to go, we start building. Nothing happens until you say so.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="band">
+  <div class="wrap narrow">
+    <p class="label">Straight answers</p>
+    <div class="faq">
+      <details open>
+        <summary>What exactly gets charged today?</summary>
+        <p><span data-price>99</span> if you pay monthly, or <span data-price>799</span> if you pay for the year. That is it. No setup fee, no development fee, no deposit, no design fee. You can see and cancel the subscription yourself from a link in your receipt.</p>
+      </details>
+      <details>
+        <summary>Really no setup fee? Everyone else charges one.</summary>
+        <p>Really none. Most shops charge two to five thousand to build and then hand you the keys. We would rather charge nothing to build and keep you for two years, because that only works if the site actually brings you work. If it does not, you cancel and we have lost, which is the right way round.</p>
+      </details>
+      <details>
+        <summary>Is 24 hours real?</summary>
+        <p>Yes, and here is the honest version of it. The clock starts when your form and your photos reach us, not when you pay. Send everything at 4pm and you are looking at your site the next afternoon. Send three photos and no service area and we will be chasing you, and that is the part that turns 24 hours into a week for some people.</p>
+      </details>
+      <details>
+        <summary>Can I cancel whenever I want?</summary>
+        <p>Yes. No contract, no minimum, no notice period. There is a link in your receipt that takes you to your own billing page and you cancel it there yourself. No email to write and no phone call to sit through.</p>
+      </details>
+      <details>
+        <summary>What happens to my site if I cancel?</summary>
+        <p>It comes down. This is a service, not a one off build, which is the whole reason there is no setup fee. We carry the cost of building the site and we earn it back over time, so the site runs while you are subscribed and stops when you stop. Same as Squarespace or Shopify, except we do the work instead of you.</p>
+        <p>Your domain is different. That stays yours, we transfer it over at no charge, and nobody can point it anywhere without you. And if you ever want to own the site outright and move it somewhere else, say so and we will quote you a price to buy it.</p>
+      </details>
+      <details>
+        <summary>Whose domain is it?</summary>
+        <p>Yours. We register it and manage it as part of the <span data-price>99</span> so there is nothing for you to renew, nothing to forget and no second bill. If you ever leave, we transfer it to you at no charge and you keep it. That is written into what you agree to at checkout, not something you have to take my word for.</p>
+      </details>
+      <details>
+        <summary>What if I do not like what you build?</summary>
+        <p>Unlimited changes, as many rounds as it takes. If it is still not right, cancel and we refund the month. You keep the domain either way.</p>
+      </details>
+      <details>
+        <summary>How fast do edits actually happen?</summary>
+        <p>Small things the same day. A new phone number, a price change, swapping photos, adding a service. Anything bigger, like a new page or a seasonal offer with its own landing page, inside two business days. You text or email, we do it, no form to fill in and no hourly bill.</p>
+      </details>
+      <details>
+        <summary>I already have a website. Is that a problem?</summary>
+        <p>No, it is usually easier. We rebuild it and move everything across, same price, and nothing goes dark in between. Wix, GoDaddy, Squarespace, WordPress, an old one nobody has the login for any more. We have moved all of those.</p>
+      </details>
+      <details>
+        <summary>How do I know the site is bringing in work?</summary>
+        <p>Ask for call tracking when you sign up and we put a tracked number on the site. Then once a month you get one page showing calls, form fills and which pages they came from. It is free on both plans, and it is the only way either of us can tell whether this is worth the money.</p>
+      </details>
+      <details>
+        <summary>Who actually builds it?</summary>
+        <p>A team of six developers, all senior. We are based in Pakistan and we work US hours, so when you text during your day somebody answers the same day. You deal with Arman for everything, not a support queue.</p>
+      </details>
+      <details>
+        <summary>Will you keep calling me?</summary>
+        <p>No. If you buy, we build. If you ask for the free demo, we contact you once to confirm and once with the link, and that is it. Reply STOP and you never hear from us again.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSE ================= -->
+<section class="band close-band">
+  <div class="wrap narrow">
+    <h2><span data-price>99</span> a month. Live tomorrow.</h2>
+    <p class="lede">No setup fee, no build fee, nothing upfront, and cancel whenever you want. Or <span data-price>799</span> for the year if you would rather not think about it again.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now<span class="sub"><span data-price>99</span> a month</span></a>
+      <a class="btn btn-ghost" href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener">Book a call instead<span class="sub">15 minutes</span></a>
+    </div>
+    <p class="signature">
+      Arman, AR WebCrafts LLC<br>
+      Text or call <a href="tel:+13072784862">(307) 278-4862</a><br>
+      <a href="mailto:contact@arwebcrafts.com">contact@arwebcrafts.com</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <p class="fineprint">
+        AR WebCrafts LLC &middot; Websites for trade contractors<br>
+        <a href="/privacy-policy/">Privacy policy</a> &nbsp;&middot;&nbsp; <a href="/terms/">Terms of service</a> &nbsp;&middot;&nbsp; <a href="/terms/">Messaging terms</a>
+      </p>
+      <p class="fineprint">
+        If you reached this page from a text message: reply STOP to opt out,<br>
+        HELP for help. Message and data rates may apply.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now &middot; <span data-price>99</span> a month</a>
+  <a class="btn btn-ghost" href="#demo">Free demo</a>
+</div>
+
+<script>
+// Functional Demo Form Submission & 3D Interactive Polish
+(function(){
+  'use strict';
+  
+  // 1. Form Validation and Async Submission
+  var f = document.getElementById('demoForm');
+  var done = document.getElementById('demoDone');
+  var submitBtn = document.getElementById('submitDemoBtn');
+
+  if(f && done){
+    f.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var missing = [];
+      ['d_name','d_phone','d_email','d_biz','d_city'].forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && !el.value.trim()){
+          missing.push(el);
+          el.style.borderColor = '#DE520B';
+        } else if(el) {
+          el.style.borderColor = '';
+        }
+      });
+
+      if(missing.length){
+        missing[0].focus();
+        if(missing[0].reportValidity) missing[0].reportValidity();
+        return;
+      }
+
+      var data = {};
+      new FormData(f).forEach(function(v,k){ data[k] = v; });
+
+      // Visual submission state
+      if(submitBtn){
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.75';
+        submitBtn.innerHTML = 'Sending Request...<span class="sub">Saving your details</span>';
+      }
+
+      try {
+        var res = await fetch('/api/submit-demo/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if(!res.ok) {
+          console.warn('[Demo Form] Response status:', res.status);
+        }
+      } catch(err) {
+        console.warn('[Demo Form] Notice:', err.message);
+      }
+
+      f.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  }
+
+  // 2. Interactive Video Action Preview
+  var vsl = document.getElementById('vslVideo');
+  if(vsl){
+    vsl.addEventListener('click', function(){
+      window.open('https://calendly.com/arwebcrafts/30-mint', '_blank');
+    });
+  }
+
+  // 3. Subtle 3D Tilt Effect on Desktop Cards
+  if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+    var tiltElements = document.querySelectorAll('.card, .shot .frame, .ladder li');
+    tiltElements.forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+        var deltaX = (x - centerX) / centerX;
+        var deltaY = (y - centerY) / centerY;
+        var rotateX = deltaY * -3;
+        var rotateY = deltaX * 3;
+        card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transform = '';
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

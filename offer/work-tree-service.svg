@@ -1,0 +1,147 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <linearGradient id="tGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A1813"/>
+      <stop offset="60%" stop-color="#122B22"/>
+      <stop offset="100%" stop-color="#0E211A"/>
+    </linearGradient>
+    <linearGradient id="tGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#166534"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+    <linearGradient id="tAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DE520B"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <filter id="tShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Window Frame -->
+  <rect width="1200" height="900" fill="#E2E5E8"/>
+  
+  <!-- Browser Header / Chrome -->
+  <rect width="1200" height="48" fill="#D2D6DC"/>
+  <circle cx="28" cy="24" r="6.5" fill="#EF4444"/>
+  <circle cx="48" cy="24" r="6.5" fill="#F59E0B"/>
+  <circle cx="68" cy="24" r="6.5" fill="#10B981"/>
+  
+  <!-- Address Bar -->
+  <rect x="180" y="10" width="840" height="28" rx="6" fill="#FFFFFF"/>
+  <path d="M200 24 A4 4 0 0 1 208 24 M204 20 L204 22 M200 22 L208 22 L208 26 L200 26 Z" stroke="#10B981" stroke-width="1.8" fill="none"/>
+  <text x="216" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#1F2937">https://timbercrafttreeservice.com</text>
+  <rect x="980" y="16" width="28" height="16" rx="3" fill="#E5E7EB"/>
+  <text x="987" y="28" font-family="sans-serif" font-size="11" fill="#6B7280">En</text>
+
+  <!-- Website Content Area -->
+  <rect y="48" width="1200" height="852" fill="url(#tGrad)"/>
+
+  <!-- Top Announcement Bar -->
+  <rect y="48" width="1200" height="36" fill="#14532D"/>
+  <text x="40" y="71" font-family="'Roboto Mono', monospace" font-size="12" font-weight="600" fill="#FFFFFF" letter-spacing="1">ðŸŒ² 24/7 STORM DISPATCH &#183; FULLY INSURED ($2M LIABILITY) &#183; ISA CERTIFIED ARBORIST</text>
+  <text x="1000" y="71" font-family="'Roboto Mono', monospace" font-size="12" font-weight="700" fill="#FFFFFF">CALL: (307) 278-4862</text>
+
+  <!-- Navbar -->
+  <rect y="84" width="1200" height="74" fill="#0A1813" fill-opacity="0.95"/>
+  <line x1="0" y1="158" x2="1200" y2="158" stroke="#1E3E32" stroke-width="1"/>
+  
+  <!-- Logo -->
+  <text x="60" y="130" font-family="'Archivo Black', Impact, sans-serif" font-size="24" fill="#FFFFFF" letter-spacing="-0.5">TIMBER<tspan fill="#4ADE80">CRAFT</tspan> <tspan fill="#DE520B">TREE CARE</tspan></text>
+  <text x="60" y="146" font-family="sans-serif" font-size="10" font-weight="700" fill="#86EFAC" letter-spacing="2">CRANE REMOVALS &amp; PRECISION TRIMMING</text>
+
+  <!-- Nav Links -->
+  <text x="480" y="128" font-family="sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Tree Removal</text>
+  <text x="610" y="128" font-family="sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Stump Grinding</text>
+  <text x="750" y="128" font-family="sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Storm Clean</text>
+  <text x="870" y="128" font-family="sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Service Towns</text>
+
+  <!-- Navbar CTA -->
+  <rect x="1010" y="102" width="150" height="40" rx="3" fill="url(#tAccent)"/>
+  <text x="1030" y="127" font-family="sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Free Quote</text>
+
+  <!-- Hero Content -->
+  <!-- Trust Badge -->
+  <g transform="translate(60, 205)">
+    <rect width="340" height="32" rx="4" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+    <circle cx="16" cy="16" r="5" fill="#34D399"/>
+    <text x="32" y="21" font-family="'Roboto Mono', monospace" font-size="11" font-weight="600" fill="#A7F3D0" letter-spacing="0.5">ZERO PROPERTY DAMAGE RECORD &#183; 10+ YRS</text>
+  </g>
+
+  <!-- Main Headline -->
+  <text x="60" y="300" font-family="'Archivo Black', Impact, sans-serif" font-size="52" fill="#FFFFFF" letter-spacing="-1">EXPERT TREE REMOVAL.</text>
+  <text x="60" y="358" font-family="'Archivo Black', Impact, sans-serif" font-size="52" fill="#4ADE80" letter-spacing="-1">SAFE, CLEAN &amp; INSURED.</text>
+
+  <text x="60" y="415" font-family="sans-serif" font-size="18" fill="#94A3B8" font-weight="400">Dangerous tree removal near powerlines and roofs. Crane-assisted precision cuts and thorough yard cleanup.</text>
+
+  <!-- Primary CTAs -->
+  <rect x="60" y="455" width="220" height="56" rx="4" fill="#DE520B" filter="url(#tShadow)"/>
+  <text x="96" y="490" font-family="sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Call (307) 278-4862</text>
+
+  <rect x="296" y="455" width="210" height="56" rx="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="325" y="490" font-family="sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Get Same-Day Estimate</text>
+
+  <!-- Review Proof Pills -->
+  <g transform="translate(60, 545)">
+    <text x="0" y="20" font-size="18" fill="#FBBF24">â˜…â˜…â˜…â˜…â˜…</text>
+    <text x="90" y="19" font-family="sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">5.0 Star Rated</text>
+    <text x="185" y="19" font-family="sans-serif" font-size="14" fill="#94A3B8">&#183; 120+ Google Reviews &#183; Free Woodchips Included</text>
+  </g>
+
+  <!-- Right Visual / Feature Cards Mockup -->
+  <g transform="translate(680, 195)">
+    <!-- Main Feature Box -->
+    <rect width="460" height="420" rx="8" fill="#0D221A" stroke="#1E3E32" stroke-width="1.5" filter="url(#tShadow)"/>
+    
+    <!-- Header of card -->
+    <rect width="460" height="60" rx="8" fill="#133328"/>
+    <text x="24" y="36" font-family="'Archivo Black', Impact, sans-serif" font-size="16" fill="#FFFFFF">INSTANT TREE REMOVAL ESTIMATE</text>
+    <rect x="360" y="18" width="76" height="24" rx="12" fill="#22C55E"/>
+    <text x="375" y="34" font-family="sans-serif" font-size="11" font-weight="700" fill="#0A1813">Online</text>
+
+    <!-- Form Elements preview -->
+    <text x="24" y="96" font-family="sans-serif" font-size="12" font-weight="600" fill="#94A3B8">SERVICE REQUIRED</text>
+    <rect x="24" y="106" width="412" height="42" rx="4" fill="#0A1813" stroke="#1E3E32"/>
+    <text x="40" y="132" font-family="sans-serif" font-size="14" fill="#FFFFFF">Hazardous Large Tree Removal + Stump Grind</text>
+
+    <text x="24" y="180" font-family="sans-serif" font-size="12" font-weight="600" fill="#94A3B8">APPROXIMATE TREE HEIGHT &amp; SPECIES</text>
+    <rect x="24" y="190" width="412" height="42" rx="4" fill="#0A1813" stroke="#1E3E32"/>
+    <text x="40" y="216" font-family="sans-serif" font-size="14" fill="#FFFFFF">40-60 ft &#183; Live Oak Overhanging House</text>
+
+    <text x="24" y="264" font-family="sans-serif" font-size="12" font-weight="600" fill="#94A3B8">YOUR PHONE NUMBER</text>
+    <rect x="24" y="274" width="412" height="42" rx="4" fill="#0A1813" stroke="#1E3E32"/>
+    <text x="40" y="300" font-family="sans-serif" font-size="14" fill="#64748B">(512) 000-0000</text>
+
+    <rect x="24" y="340" width="412" height="50" rx="4" fill="#DE520B"/>
+    <text x="136" y="371" font-family="sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Request Tree Quote Now â†’</text>
+  </g>
+
+  <!-- 3 Service Feature Pills at bottom -->
+  <g transform="translate(60, 680)">
+    <rect width="320" height="150" rx="6" fill="#0D221A" stroke="#1E3E32" stroke-width="1"/>
+    <rect x="20" y="20" width="36" height="36" rx="4" fill="#22C55E"/>
+    <text x="29" y="44" font-size="20" fill="#FFFFFF">ðŸª“</text>
+    <text x="70" y="43" font-family="'Archivo Black', Impact, sans-serif" font-size="16" fill="#FFFFFF">Crane Tree Removals</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="13" fill="#94A3B8">Safe lifting over structures. Zero impact on lawns, flowerbeds and fences.</text>
+    <text x="20" y="132" font-family="'Roboto Mono', monospace" font-size="11" font-weight="600" fill="#4ADE80">LEARN MORE â†’</text>
+  </g>
+
+  <g transform="translate(420, 680)">
+    <rect width="320" height="150" rx="6" fill="#0D221A" stroke="#1E3E32" stroke-width="1"/>
+    <rect x="20" y="20" width="36" height="36" rx="4" fill="#22C55E"/>
+    <text x="29" y="44" font-size="20" fill="#FFFFFF">ðŸªµ</text>
+    <text x="70" y="43" font-family="'Archivo Black', Impact, sans-serif" font-size="16" fill="#FFFFFF">Stump Grinding</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="13" fill="#94A3B8">Grind 12 inches below grade. Backfilled and ready for fresh sod or planting.</text>
+    <text x="20" y="132" font-family="'Roboto Mono', monospace" font-size="11" font-weight="600" fill="#4ADE80">LEARN MORE â†’</text>
+  </g>
+
+  <g transform="translate(780, 680)">
+    <rect width="360" height="150" rx="6" fill="#0D221A" stroke="#1E3E32" stroke-width="1"/>
+    <rect x="20" y="20" width="36" height="36" rx="4" fill="#DE520B"/>
+    <text x="29" y="44" font-size="20" fill="#FFFFFF">ðŸŒªï¸</text>
+    <text x="70" y="43" font-family="'Archivo Black', Impact, sans-serif" font-size="16" fill="#FFFFFF">Storm Damage Clearing</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="13" fill="#94A3B8">Rapid response for downed trees on power lines, driveways and roofs.</text>
+    <text x="20" y="132" font-family="'Roboto Mono', monospace" font-size="11" font-weight="600" fill="#DE520B">LEARN MORE â†’</text>
+  </g>
+</svg>
+
