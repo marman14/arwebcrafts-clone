@@ -29,7 +29,7 @@
 
     // Fetch Stripe configuration from backend serverless API
     try {
-      const res = await fetch('/api/config');
+      const res = await fetch('/api/config/');
       if (res.ok) {
         const config = await res.json();
         if (config && config.publishableKey) {
@@ -245,7 +245,7 @@
       try {
         if (activePaymentMethod === 'hosted' || !cardElement) {
           // Stripe Hosted Checkout Flow
-          const response = await fetch('/api/create-checkout-session', {
+          const response = await fetch('/api/create-checkout-session/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -264,7 +264,7 @@
           }
         } else {
           // Embedded Elements Flow
-          const intentResponse = await fetch('/api/create-payment-intent', {
+          const intentResponse = await fetch('/api/create-payment-intent/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
