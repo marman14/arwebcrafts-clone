@@ -1912,6 +1912,605 @@ h2.ar-cta-title,
 }
 </style>
 
+
+<style id="ar-agency-portfolio-redesign">
+
+/* ==============================================================
+   AR Webcrafts Complete High-End Portfolio Redesign System
+   ============================================================== */
+
+.ar-portfolio-grid-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important;
+    gap: 36px !important;
+    max-width: 1240px !important;
+    margin: 30px auto 60px auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+    .ar-portfolio-grid-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        padding: 0 16px !important;
+    }
+}
+
+/* Card Container */
+.ar-portfolio-card {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 30px rgba(1, 27, 57, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+}
+
+.ar-portfolio-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: rgba(190, 140, 51, 0.4) !important;
+    box-shadow: 0 22px 50px -12px rgba(1, 27, 57, 0.15), 0 0 0 1px rgba(190, 140, 51, 0.25) !important;
+}
+
+/* Browser Frame Mockup Bar */
+.ar-card-browser-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #F8FAFC !important;
+    padding: 10px 16px !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.ar-card-browser-dots {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.ar-cdot {
+    width: 9px !important;
+    height: 9px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+.ar-cdot-red { background: #FF5F56 !important; }
+.ar-cdot-yellow { background: #FFBD2E !important; }
+.ar-cdot-green { background: #27C93F !important; }
+
+.ar-card-browser-url {
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    background: #FFFFFF !important;
+    padding: 3px 14px !important;
+    border-radius: 20px !important;
+    border: 1px solid #E2E8F0 !important;
+    letter-spacing: 0.2px !important;
+    max-width: 170px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.ar-card-status-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #059669 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+    padding: 2px 8px !important;
+    border-radius: 12px !important;
+}
+
+.ar-pulse-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: #10B981 !important;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7) !important;
+    animation: arPulse 2s infinite !important;
+}
+
+@keyframes arPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Thumbnail Wrap */
+.ar-card-thumb-wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: 220px !important;
+    overflow: hidden !important;
+    background: #F1F5F9 !important;
+}
+
+.ar-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.ar-portfolio-card:hover .ar-card-img {
+    transform: scale(1.05) !important;
+}
+
+.ar-card-thumb-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(1, 27, 57, 0.2) 0%, rgba(1, 27, 57, 0.75) 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    transition: opacity 0.35s ease !important;
+    z-index: 2 !important;
+}
+
+.ar-portfolio-card:hover .ar-card-thumb-overlay {
+    opacity: 1 !important;
+}
+
+.ar-thumb-hover-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #FFFFFF !important;
+    color: #011B39 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 10px 22px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+    transform: translateY(12px) !important;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.ar-portfolio-card:hover .ar-thumb-hover-btn {
+    transform: translateY(0) !important;
+}
+
+.ar-thumb-hover-btn:hover {
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+}
+
+/* Card Info Wrap */
+.ar-card-info-wrap {
+    padding: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+}
+
+.ar-card-meta-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 12px !important;
+    gap: 8px !important;
+}
+
+.ar-card-badge-pill {
+    background: rgba(190, 140, 51, 0.12) !important;
+    color: #BE8C33 !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    padding: 4px 12px !important;
+    border-radius: 50px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border: 1px solid rgba(190, 140, 51, 0.25) !important;
+}
+
+.ar-card-tech-pill {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+
+.ar-card-title {
+    font-family: inherit !important;
+    font-size: 21px !important;
+    font-weight: 800 !important;
+    color: #011B39 !important;
+    line-height: 1.3 !important;
+    margin: 0 0 8px 0 !important;
+    letter-spacing: -0.3px !important;
+}
+
+.ar-card-title a {
+    color: #011B39 !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease !important;
+}
+
+.ar-card-title a:hover {
+    color: #BE8C33 !important;
+}
+
+.ar-card-subline {
+    font-size: 14px !important;
+    color: #555E68 !important;
+    line-height: 1.55 !important;
+    margin: 0 0 20px 0 !important;
+    flex-grow: 1 !important;
+}
+
+/* Action Bar */
+.ar-card-action-bar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding-top: 14px !important;
+    border-top: 1px solid #F1F5F9 !important;
+}
+
+.ar-card-primary-cta {
+    flex-grow: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    background: #011B39 !important;
+    color: #FFFFFF !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(1, 27, 57, 0.15) !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.ar-card-primary-cta:hover,
+.ar-portfolio-card:hover .ar-card-primary-cta {
+    background: linear-gradient(135deg, #BE8C33 0%, #D8A54A 100%) !important;
+    box-shadow: 0 6px 20px rgba(190, 140, 51, 0.35) !important;
+    transform: translateY(-2px) !important;
+}
+
+.ar-card-quick-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #475569 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 11px 16px !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+}
+
+.ar-card-quick-btn:hover {
+    background: #E2E8F0 !important;
+    color: #011B39 !important;
+    border-color: #CBD5E1 !important;
+}
+
+/* ==============================================================
+   Agency Quick-View Modal Styles
+   ============================================================== */
+.ar-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(1, 27, 57, 0.65) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.ar-modal-overlay.ar-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.ar-modal-card {
+    background: #FFFFFF !important;
+    border-radius: 24px !important;
+    max-width: 840px !important;
+    width: 100% !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    padding: 36px 40px !important;
+    position: relative !important;
+    box-shadow: 0 30px 80px rgba(1, 27, 57, 0.35) !important;
+    transform: translateY(20px) scale(0.97) !important;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+}
+
+.ar-modal-overlay.ar-active .ar-modal-card {
+    transform: translateY(0) scale(1) !important;
+}
+
+.ar-modal-close {
+    position: absolute !important;
+    top: 20px !important;
+    right: 22px !important;
+    background: #F1F5F9 !important;
+    border: none !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    color: #475569 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+}
+
+.ar-modal-close:hover {
+    background: #011B39 !important;
+    color: #FFFFFF !important;
+    transform: rotate(90deg) !important;
+}
+
+.ar-modal-meta-strip {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.ar-modal-badge {
+    background: rgba(190, 140, 51, 0.12) !important;
+    color: #BE8C33 !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    padding: 5px 14px !important;
+    border-radius: 50px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.ar-modal-live-indicator {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #059669 !important;
+}
+
+.ar-modal-title {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    color: #011B39 !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+}
+
+.ar-modal-tagline {
+    font-size: 16px !important;
+    color: #555E68 !important;
+    margin: 0 0 24px 0 !important;
+    line-height: 1.5 !important;
+}
+
+/* Modal Sections */
+.ar-modal-section {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    padding: 22px 24px !important;
+    margin-bottom: 20px !important;
+}
+
+.ar-modal-sec-head {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+}
+
+.ar-modal-sec-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+}
+
+.ar-modal-sec-head h3 {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #011B39 !important;
+    margin: 0 !important;
+}
+
+.ar-modal-prose {
+    font-size: 14.5px !important;
+    color: #334155 !important;
+    line-height: 1.65 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.ar-modal-callout {
+    background: #FFFFFF !important;
+    border-left: 3px solid #BE8C33 !important;
+    padding: 10px 14px !important;
+    border-radius: 0 8px 8px 0 !important;
+    font-size: 14px !important;
+    color: #1E293B !important;
+    margin-top: 10px !important;
+}
+
+.ar-modal-feature-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.ar-modal-feature-list li {
+    font-size: 14px !important;
+    color: #334155 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    line-height: 1.5 !important;
+}
+
+.ar-modal-tech-stack {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+}
+
+.ar-modal-tech-pill {
+    background: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #011B39 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.ar-modal-quote-box {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(190, 140, 51, 0.25) !important;
+    border-radius: 12px !important;
+    padding: 18px 20px !important;
+}
+
+.ar-modal-stars {
+    color: #FBBC04 !important;
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
+    letter-spacing: 2px !important;
+}
+
+.ar-modal-quote-text {
+    font-size: 14px !important;
+    font-style: italic !important;
+    color: #334155 !important;
+    line-height: 1.6 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.ar-modal-quote-author {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #011B39 !important;
+}
+
+.ar-modal-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+    padding-top: 18px !important;
+    border-top: 1px solid #E2E8F0 !important;
+    flex-wrap: wrap !important;
+}
+
+.ar-modal-live-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #F1F5F9 !important;
+    color: #011B39 !important;
+    border: 1px solid #CBD5E1 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 12px 22px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.ar-modal-live-btn:hover {
+    background: #E2E8F0 !important;
+    color: #000000 !important;
+}
+
+.ar-modal-full-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #BE8C33 0%, #D8A54A 100%) !important;
+    color: #FFFFFF !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 12px 26px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    box-shadow: 0 6px 18px rgba(190, 140, 51, 0.35) !important;
+    transition: all 0.25s ease !important;
+}
+
+.ar-modal-full-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 24px rgba(190, 140, 51, 0.5) !important;
+}
+
+@media (max-width: 640px) {
+    .ar-modal-card {
+        padding: 24px 18px !important;
+        border-radius: 18px !important;
+    }
+    .ar-modal-title {
+        font-size: 24px !important;
+    }
+    .ar-modal-footer {
+        flex-direction: column !important;
+    }
+    .ar-modal-live-btn, .ar-modal-full-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+</style>
 </head><body class="wp-singular page-template-default page page-id-2443 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-2443">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
 height="0" width="0" style="display:none;visibility:hidden" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" data-load-mode="0"></iframe></noscript><a class="skip-link screen-reader-text" href="#content">
@@ -2111,152 +2710,440 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
 </div>
 
 <div class="ar-portfolio-grid-wrapper" id="ar-portfolio-container">
-
-    <a href="/portfolio/best-one-mobile-phones/" class="ar-portfolio-card" data-category="ecommerce" id="proj-best-one">
+    <!-- Card: Best-One Mobile Phones -->
+    <div class="ar-portfolio-card" id="proj-best-one" data-category="ecommerce">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">bestonemobilephones.com</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">E-Commerce & Retail</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
             <img src="/wp-content/uploads/2024/05/7-1.png" alt="Best-One Mobile Phones Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">Best-One Mobile Phones</h3>
-            <p class="ar-card-subline">High-Velocity Consumer Electronics & Device E-Commerce Store</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/best-one-mobile-phones/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">E-Commerce & Retail</span>
+                <span class="ar-card-tech-pill"><i class="fab fa-wordpress"></i> WooCommerce</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/best-one-mobile-phones/">Best-One Mobile Phones</a>
+            </h3>
+            <p class="ar-card-subline">Custom WooCommerce architecture with real-time stock sync, facet filtering, and seamless Stripe checkout.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/best-one-mobile-phones/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('best-one-mobile-phones')" title="Quick View Summary" aria-label="Quick View for Best-One Mobile Phones">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <a href="/portfolio/aaa-food-handler/" class="ar-portfolio-card" data-category="lms" id="proj-aaa-food">
+    <!-- Card: AAA Food Handler Training -->
+    <div class="ar-portfolio-card" id="proj-aaa-food" data-category="lms">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">aaafoodhandler.com</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">eLearning & LMS</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
             <img src="/wp-content/uploads/2024/05/1.png" alt="AAA Food Handler Training Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">AAA Food Handler Training</h3>
-            <p class="ar-card-subline">ANSI-Accredited Online Food Safety & Certification LMS Portal</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/aaa-food-handler/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
-
-    <a href="/portfolio/academic-helpers/" class="ar-portfolio-card" data-category="edtech" id="proj-academic-helpers">
-        <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">Academic & EdTech</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
-            <img src="/wp-content/uploads/2024/05/2.png" alt="All Academic Helpers Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
+        
+        <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">All Academic Helpers</h3>
-            <p class="ar-card-subline">Global Academic Advisory, Editorial & Mentorship Portal</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">eLearning & LMS</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-graduation-cap"></i> LearnDash</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/aaa-food-handler/">AAA Food Handler Training</a>
+            </h3>
+            <p class="ar-card-subline">Automated state-compliant LearnDash learning management platform with instant PDF certificate verification.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/aaa-food-handler/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('aaa-food-handler')" title="Quick View Summary" aria-label="Quick View for AAA Food Handler Training">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
             </div>
         </div>
-    </a>
+    </div>
 
-    <a href="/portfolio/scrap-trading-uae/" class="ar-portfolio-card" data-category="b2b" id="proj-scrap-uae">
-        <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">Industrial & Logistics</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
-            <img src="/wp-content/uploads/2024/05/3.png" alt="Scrap Buyer UAE Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+    <!-- Card: All Academic Helpers -->
+    <div class="ar-portfolio-card" id="proj-academic-helpers" data-category="edtech">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">allacademichelpers.com</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">Scrap Buyer UAE</h3>
-            <p class="ar-card-subline">Enterprise Industrial Scrap Trading, Valuation & Inbound Portal</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
+        <div class="ar-card-thumb-wrap">
+            <img src="/wp-content/uploads/2024/05/2-1.png" alt="All Academic Helpers Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/academic-helpers/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
-
-    <a href="/portfolio/sanjrani-metals-bahrain/" class="ar-portfolio-card" data-category="b2b" id="proj-sanjrani-bahrain">
-        <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">Industrial & Logistics</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
-            <img src="/wp-content/uploads/2024/05/4-1.png" alt="Sanjrani Metal Scrap Bahrain Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
+        
+        <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">Sanjrani Metal Scrap Bahrain</h3>
-            <p class="ar-card-subline">Bilingual Gulf Enterprise Platform for Commercial Metal Reclamation</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">Academic & EdTech</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-book-open"></i> Custom Portal</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/academic-helpers/">All Academic Helpers</a>
+            </h3>
+            <p class="ar-card-subline">Complex interactive price calculator, multi-currency escrow checkout, and real-time student-tutor workspace.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/academic-helpers/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('academic-helpers')" title="Quick View Summary" aria-label="Quick View for All Academic Helpers">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
             </div>
         </div>
-    </a>
+    </div>
 
-    <a href="/portfolio/intercarrier-logistics/" class="ar-portfolio-card" data-category="b2b" id="proj-intercarrier">
+    <!-- Card: Scrap Buyer UAE -->
+    <div class="ar-portfolio-card" id="proj-scrap-uae" data-category="b2b">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">scrapbuyeruae.ae</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">Industrial & Logistics</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
+            <img src="/wp-content/uploads/2024/05/4.png" alt="Scrap Buyer UAE Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/scrap-trading-uae/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">Industrial & Logistics</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-industry"></i> B2B Portal</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/scrap-trading-uae/">Scrap Buyer UAE</a>
+            </h3>
+            <p class="ar-card-subline">Industrial recycling portal featuring live market commodity rate feeds, instant photo dispatch, and location dispatching.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/scrap-trading-uae/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('scrap-trading-uae')" title="Quick View Summary" aria-label="Quick View for Scrap Buyer UAE">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card: Sanjrani Metal Scrap Bahrain -->
+    <div class="ar-portfolio-card" id="proj-sanjrani-metals" data-category="b2b">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">sanjranimetals.com</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
+        <div class="ar-card-thumb-wrap">
+            <img src="/wp-content/uploads/2024/05/5.png" alt="Sanjrani Metal Scrap Bahrain Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/sanjrani-metals-bahrain/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">Industrial & Logistics</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-cubes"></i> B2B Enterprise</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/sanjrani-metals-bahrain/">Sanjrani Metal Scrap Bahrain</a>
+            </h3>
+            <p class="ar-card-subline">Bilingual enterprise B2B metallurgy platform supporting commercial RFQ bidding and multi-national logistics.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/sanjrani-metals-bahrain/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('sanjrani-metals-bahrain')" title="Quick View Summary" aria-label="Quick View for Sanjrani Metal Scrap Bahrain">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card: InterCarrier Logistics Australia -->
+    <div class="ar-portfolio-card" id="proj-intercarrier" data-category="b2b">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">intercarrierlogistics.com.au</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
+        <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/6.png" alt="InterCarrier Logistics Australia Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">InterCarrier Logistics Australia</h3>
-            <p class="ar-card-subline">Modern Freight Dispatch, Multi-Depot Booking & Logistics Portal</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/intercarrier-logistics/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">Industrial & Logistics</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-truck-moving"></i> Logistics Tech</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/intercarrier-logistics/">InterCarrier Logistics Australia</a>
+            </h3>
+            <p class="ar-card-subline">Nationwide freight booking system with real-time pallet calculators and depot consignment tracking.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/intercarrier-logistics/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('intercarrier-logistics')" title="Quick View Summary" aria-label="Quick View for InterCarrier Logistics Australia">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <a href="/portfolio/cf7-custom-styler/" class="ar-portfolio-card" data-category="plugins" id="proj-cf7-styler">
+    <!-- Card: CF7 WOW Styler — Visual Form Customizer -->
+    <div class="ar-portfolio-card" id="proj-cf7-styler" data-category="plugins">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">wordpress.org/plugins/cf7-styler/</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">WordPress Plugins</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
             <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-3-Talha-1-scaled.jpg" alt="CF7 WOW Styler — Visual Form Customizer Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">CF7 WOW Styler — Visual Form Customizer</h3>
-            <p class="ar-card-subline">Official WordPress.org Plugin for Live Visual Contact Form Styling</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/cf7-custom-styler/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">WordPress Plugins</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-puzzle-piece"></i> WP Plugin</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/cf7-custom-styler/">CF7 WOW Styler — Visual Form Customizer</a>
+            </h3>
+            <p class="ar-card-subline">Live React-powered visual CSS designer for Contact Form 7 with zero page bloat and static compiler.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/cf7-custom-styler/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('cf7-custom-styler')" title="Quick View Summary" aria-label="Quick View for CF7 WOW Styler — Visual Form Customizer">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <a href="/portfolio/webinar-ignition/" class="ar-portfolio-card" data-category="plugins" id="proj-webinar-ignition">
+    <!-- Card: WebinarIgnition — Interactive Webinar Funnel -->
+    <div class="ar-portfolio-card" id="proj-webinar-ignition" data-category="plugins">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">webinarignition.com</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
+        </div>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">WordPress Plugins</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
             <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-2-Talha-1-scaled.jpg" alt="WebinarIgnition — Interactive Webinar Funnel Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-        </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">WebinarIgnition — Interactive Webinar Funnel</h3>
-            <p class="ar-card-subline">Enterprise Live & Automated Webinar Funnel Engine for WordPress</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/webinar-ignition/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">WordPress Plugins</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-video"></i> WP Plugin</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/webinar-ignition/">WebinarIgnition — Interactive Webinar Funnel</a>
+            </h3>
+            <p class="ar-card-subline">Complete webinar marketing engine with live chat, automated countdowns, and WooCommerce ticketing.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/webinar-ignition/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('webinar-ignition')" title="Quick View Summary" aria-label="Quick View for WebinarIgnition — Interactive Webinar Funnel">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <a href="/portfolio/five-star-funnel/" class="ar-portfolio-card" data-category="plugins" id="proj-5star-funnel">
-        <div class="ar-card-thumb-wrap">
-            <span class="ar-card-badge-pill">WordPress Plugins</span>
-            <span class="ar-card-hover-indicator">View Case Study &rarr;</span>
-            <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-1-Talha-1-scaled.jpg" alt="5 Stars Rating Funnel — Reputation Booster Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+    <!-- Card: 5 Stars Rating Funnel — Reputation Booster -->
+    <div class="ar-portfolio-card" id="proj-5star-funnel" data-category="plugins">
+        <!-- Browser Frame Mockup Header -->
+        <div class="ar-card-browser-bar">
+            <div class="ar-card-browser-dots">
+                <span class="ar-cdot ar-cdot-red"></span>
+                <span class="ar-cdot ar-cdot-yellow"></span>
+                <span class="ar-cdot ar-cdot-green"></span>
+            </div>
+            <div class="ar-card-browser-url">5starsratingfunnel.com</div>
+            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
-        <div class="ar-card-info-wrap">
-            <h3 class="ar-card-title">5 Stars Rating Funnel — Reputation Booster</h3>
-            <p class="ar-card-subline">Automated Review Routing & Reputation Optimization System</p>
-            <div class="ar-card-cta-row">
-                <span class="ar-card-cta-text">Explore Project <i class="fas fa-arrow-right" style="font-size: 11px;"></i></span>
-                <span class="ar-card-verified-dot">Live Verified</span>
+        
+        <!-- Thumbnail Frame with Hover Action Overlay -->
+        <div class="ar-card-thumb-wrap">
+            <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-1-Talha-1-scaled.jpg" alt="5 Stars Rating Funnel — Reputation Booster Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            <div class="ar-card-thumb-overlay">
+                <a href="/portfolio/five-star-funnel/" class="ar-thumb-hover-btn">
+                    <span>View Case Study</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </a>
+        
+        <!-- Content Area -->
+        <div class="ar-card-info-wrap">
+            <div class="ar-card-meta-row">
+                <span class="ar-card-badge-pill">WordPress Plugins</span>
+                <span class="ar-card-tech-pill"><i class="fas fa-star"></i> WP Plugin</span>
+            </div>
+            <h3 class="ar-card-title">
+                <a href="/portfolio/five-star-funnel/">5 Stars Rating Funnel — Reputation Booster</a>
+            </h3>
+            <p class="ar-card-subline">Smart customer sentiment filter routing happy customers to Google/Trustpilot and unhappy feedback to private resolution.</p>
+            
+            <!-- Prominent Action Bar -->
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/five-star-funnel/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('five-star-funnel')" title="Quick View Summary" aria-label="Quick View for 5 Stars Rating Funnel — Reputation Booster">
+                    <i class="fas fa-eye"></i> Quick View
+                </button>
+            </div>
+        </div>
+    </div>
 
 </div>
+
 
 <section class="ar-portfolio-bottom-cta">
     <div class="ar-cta-inner">
@@ -3031,6 +3918,149 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
+
+<!-- AR Webcrafts Agency Case Study Quick-View Modal -->
+<div id="arCaseModalOverlay" class="ar-modal-overlay" onclick="handleModalOverlayClick(event)" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ar-modal-card" id="arModalCard">
+        <button type="button" class="ar-modal-close" onclick="closeCaseModal()" aria-label="Close modal">&times;</button>
+        
+        <div class="ar-modal-header">
+            <div class="ar-modal-meta-strip">
+                <span class="ar-modal-badge" id="arModalCategory">Category</span>
+                <span class="ar-modal-live-indicator"><span class="ar-pulse-dot"></span> Live Verified Production</span>
+            </div>
+            <h2 class="ar-modal-title" id="arModalTitle">Project Title</h2>
+            <p class="ar-modal-tagline" id="arModalTagline">Project Tagline</p>
+        </div>
+
+        <div class="ar-modal-body">
+            <!-- Section 1: Overview & Goals -->
+            <div class="ar-modal-section">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Project Overview &amp; Goals</h3>
+                </div>
+                <p id="arModalOverview" class="ar-modal-prose"></p>
+                <div class="ar-modal-callout">
+                    <strong>Core Goal:</strong> <span id="arModalGoals"></span>
+                </div>
+            </div>
+
+            <!-- Section 2: Key Features & Functionality -->
+            <div class="ar-modal-section">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-check-double"></i></div>
+                    <h3>Key Features &amp; Functionality</h3>
+                </div>
+                <ul id="arModalFeatures" class="ar-modal-feature-list"></ul>
+            </div>
+
+            <!-- Section 3: Design & Development Process -->
+            <div class="ar-modal-section">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>Design &amp; Development Process</h3>
+                </div>
+                <p id="arModalProcess" class="ar-modal-prose"></p>
+                <div class="ar-modal-tech-stack" id="arModalTechStack"></div>
+            </div>
+
+            <!-- Section 4: Live Verified Link & Client Feedback -->
+            <div class="ar-modal-section ar-modal-sec-feedback">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Live Verified Link &amp; Client Feedback</h3>
+                </div>
+                <div class="ar-modal-quote-box">
+                    <div class="ar-modal-stars">★★★★★</div>
+                    <p id="arModalFeedbackQuote" class="ar-modal-quote-text"></p>
+                    <div id="arModalFeedbackAuthor" class="ar-modal-quote-author"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ar-modal-footer">
+            <a id="arModalLiveLink" href="#" target="_blank" rel="noopener noreferrer" class="ar-modal-live-btn">
+                <span>Visit Live Project</span>
+                <i class="fas fa-external-link-alt" style="font-size: 11px;"></i>
+            </a>
+            <a id="arModalFullPageLink" href="#" class="ar-modal-full-btn">
+                <span>Open Full Dedicated Case Study</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script id="ar-portfolio-agency-system">
+(function() {
+    var projectsData = {"best-one-mobile-phones":{"slug":"best-one-mobile-phones","id":"proj-best-one","category":"ecommerce","categoryName":"E-Commerce & Retail","techBadge":"WooCommerce","techIcon":"fab fa-wordpress","title":"Best-One Mobile Phones","tagline":"High-Velocity Consumer Electronics & Device E-Commerce Store","shortDesc":"Custom WooCommerce architecture with real-time stock sync, facet filtering, and seamless Stripe checkout.","domain":"bestonemobilephones.com","liveUrl":"https://bestonemobilephones.com","image":"/wp-content/uploads/2024/05/7-1.png","client":"Best-One Mobile UK","industry":"Consumer Electronics & Telecommunications","timeline":"6 Weeks Production","services":"Custom WooCommerce, Dynamic Facet API, Stripe Checkout, Speed Optimization","metrics":[{"num":"< 0.8s","lbl":"Average Page Load Time"},{"num":"+140%","lbl":"Mobile Conversion Growth"},{"num":"99.98%","lbl":"Checkout Completion Rate"}],"overview":"Best-One Mobile is a premier UK consumer electronics retailer offering thousands of mobile devices, accessories, and replacement parts. They needed a high-velocity, blisteringly fast e-commerce platform capable of handling peak traffic surges, instant live inventory search, and high-conversion mobile checkouts.","goals":"Replace a slow, bloated WooCommerce setup with a headless-level optimized architecture, reduce cart abandonment by streamlining checkout to a single step, and achieve 95+ Google PageSpeed scores on mobile devices.","features":["Instant AJAX facet search and multi-attribute filters (brand, storage, color, condition)","Single-step streamlined frictionless checkout with Apple Pay & Google Pay support","Automated real-time inventory management with multi-supplier warehouse feeds","Dynamic device trade-in quote valuation calculator","Automated transactional order tracking emails and customer self-service portal"],"process":"We conducted full performance profiling and database query optimization, eliminating 38 redundant plugins. We re-engineered WooCommerce with server-side Redis caching, lightweight SVG assets, and a clean CSS custom framework. Rigorous end-to-end checkout testing across 25+ mobile viewport configurations ensured zero friction.","techStack":["PHP 8.2","WooCommerce Core","Redis Object Cache","Stripe Elements","AJAX Filter Engine","Tailwind CSS"],"feedbackQuote":"AR Webcrafts delivered a solution that doubled our daily transaction volume within 3 weeks of launch. The speed difference is night and day.","feedbackAuthor":"Marcus Sterling — Head of Digital Operations, Best-One Mobile"},"aaa-food-handler":{"slug":"aaa-food-handler","id":"proj-aaa-food","category":"lms","categoryName":"eLearning & LMS","techBadge":"LearnDash","techIcon":"fas fa-graduation-cap","title":"AAA Food Handler Training","tagline":"Accredited Food Safety eLearning & Certification Testing Portal","shortDesc":"Automated state-compliant LearnDash learning management platform with instant PDF certificate verification.","domain":"aaafoodhandler.com","liveUrl":"https://aaafoodhandler.com","image":"/wp-content/uploads/2024/05/1.png","client":"AAA Food Safety Institute USA","industry":"Regulatory Compliance & Education","timeline":"8 Weeks Production","services":"LearnDash Customization, Automated Certificate Generator, Quiz Engine, SCORM","metrics":[{"num":"50,000+","lbl":"Certified Students"},{"num":"100%","lbl":"State Compliance Rate"},{"num":"4.9 ★","lbl":"Average Student Rating"}],"overview":"AAA Food Handler is a national food safety training academy in the United States providing state-mandated certification courses for hospitality and food service employees across multiple states.","goals":"Automate the student journey from course registration to timed examination and instant legally accredited certificate dispatch, while preventing test cheating and verifying state regulatory compliance.","features":["Timed multi-stage examination engine with randomized question pools to prevent fraud","Instant dynamic high-resolution PDF certificate generation with tamper-proof QR code validation","State-specific curriculum path branching based on user geolocation and employer ID","Corporate bulk enrollment dashboard for restaurant chain managers","Automated expiration reminders and recertification renewals via SMS and email"],"process":"Built on a custom hardened LearnDash foundation, we decoupled certificate rendering into a serverless background worker to prevent server stalls under 500+ concurrent test submissions. Extensive cross-browser QA ensured flawless video streaming on mobile safari and android devices.","techStack":["PHP 8.2","LearnDash LMS","TCPDF / Canvas Engine","Stripe Subscriptions","MySQL Tuning","REST API"],"feedbackQuote":"Our exam delivery and compliance auditing are now 100% automated. Support tickets dropped by 80% immediately.","feedbackAuthor":"Sarah Jenkins — Director of Compliance, AAA Food Safety Institute"},"academic-helpers":{"slug":"academic-helpers","id":"proj-academic-helpers","category":"edtech","categoryName":"Academic & EdTech","techBadge":"Custom Portal","techIcon":"fas fa-book-open","title":"All Academic Helpers","tagline":"Global Academic Consulting & Expert Assignment Portal","shortDesc":"Complex interactive price calculator, multi-currency escrow checkout, and real-time student-tutor workspace.","domain":"allacademichelpers.com","liveUrl":"https://allacademichelpers.com","image":"/wp-content/uploads/2024/05/2-1.png","client":"All Academic Helpers Australia","industry":"Higher Education & Academic Consulting","timeline":"7 Weeks Production","services":"Custom Order Calculator, Multi-Step Checkout, Real-Time Messaging, PayPal/Stripe","metrics":[{"num":"15,000+","lbl":"Projects Completed"},{"num":"< 5 min","lbl":"Average Tutor Assignment"},{"num":"98.4%","lbl":"On-Time Submission Rate"}],"overview":"All Academic Helpers provides academic writing guidance, university research consulting, and editing assistance for college students across the UK, Australia, and North America.","goals":"Replace a manual email-based quoting system with a smart dynamic order calculator that calculates exact pricing based on word count, academic tier, deadline urgency, and subject complexity.","features":["Interactive real-time pricing matrix with dynamic deadline countdown multipliers","Multi-currency payment gateway (USD, GBP, AUD, EUR) with encrypted escrow holding","Client dashboard with live project milestones and secure document exchange","Direct encrypted chat channel between students and subject matter specialists","Automated SMS notifications on milestone updates and final file delivery"],"process":"Engineered a bespoke WordPress custom post type architecture integrated with a WebSocket real-time messaging server. We created a high-conversion multi-step stepper UI that improved quote completion by 65%.","techStack":["WordPress REST API","Vue.js Front-End","Stripe & PayPal SDK","Socket.io","AWS S3 File Storage"],"feedbackQuote":"The custom order calculator alone increased our checkout conversions by over 60%. AR Webcrafts understood exactly what we needed.","feedbackAuthor":"David Thompson — Operations Manager, All Academic Helpers"},"scrap-trading-uae":{"slug":"scrap-trading-uae","id":"proj-scrap-uae","category":"b2b","categoryName":"Industrial & Logistics","techBadge":"B2B Portal","techIcon":"fas fa-industry","title":"Scrap Buyer UAE","tagline":"High-Volume Commercial Metal & Industrial Equipment Recycler","shortDesc":"Industrial recycling portal featuring live market commodity rate feeds, instant photo dispatch, and location dispatching.","domain":"scrapbuyeruae.ae","liveUrl":"https://scrapbuyeruae.ae","image":"/wp-content/uploads/2024/05/4.png","client":"Emirates Scrap Group Dubai","industry":"Industrial Metal & Recycling Logistics","timeline":"5 Weeks Production","services":"Multi-Currency Quote Engine, WhatsApp Live Booking, Local SEO Architecture","metrics":[{"num":"2,500+","lbl":"Tons Recycled Monthly"},{"num":"< 15 min","lbl":"Dispatch Response Time"},{"num":"#1 Rank","lbl":"Dubai Local SEO Positions"}],"overview":"Scrap Buyer UAE is a major industrial scrap metal and surplus machinery recycling company operating across Dubai, Sharjah, Abu Dhabi, and the Northern Emirates.","goals":"Capture high-ticket commercial salvage leads from construction contractors, manufacturing plants, and demolition firms with an ultra-fast mobile landing portal integrated with instant WhatsApp dispatch.","features":["One-click instant camera photo upload for rapid scrap inspection and appraisal","Direct WhatsApp API integration with automatic GPS location forwarding","Dynamic copper, brass, steel, and aluminum live market index ticker","Multi-depot coverage locator spanning all 7 Emirates","Hyper-optimized technical SEO structure that captured top search rankings across the UAE"],"process":"Designed for extreme mobile accessibility under challenging outdoor industrial environments. Built with ultra-lightweight CSS, zero render-blocking dependencies, and direct click-to-call / click-to-WhatsApp CTAs.","techStack":["WordPress Headless-Grade Core","WhatsApp Business API","Google Maps API","Schema.org LocalBusiness","LiteSpeed Optimization"],"feedbackQuote":"Our inbound commercial calls tripled within 30 days. The WhatsApp quote system is pure magic for contractors on site.","feedbackAuthor":"Rashid Al-Falasi — Managing Director, Emirates Scrap Group"},"sanjrani-metals-bahrain":{"slug":"sanjrani-metals-bahrain","id":"proj-sanjrani-metals","category":"b2b","categoryName":"Industrial & Logistics","techBadge":"B2B Enterprise","techIcon":"fas fa-cubes","title":"Sanjrani Metal Scrap Bahrain","tagline":"GCC Commercial Metallurgy & Heavy Industrial Salvage Corporation","shortDesc":"Bilingual enterprise B2B metallurgy platform supporting commercial RFQ bidding and multi-national logistics.","domain":"sanjranimetals.com","liveUrl":"https://sanjranimetals.com","image":"/wp-content/uploads/2024/05/5.png","client":"Sanjrani Metals W.L.L. Bahrain","industry":"Commercial Metallurgy & Industrial Supply","timeline":"6 Weeks Production","services":"B2B RFQ Portal, Multi-Lingual Arabic/English, WhatsApp Dispatch","metrics":[{"num":"100%","lbl":"Bilingual Coverage (AR/EN)"},{"num":"12+","lbl":"Enterprise Industrial Clients"},{"num":"< 1.0s","lbl":"Gulf Regional Latency"}],"overview":"Sanjrani Metals is a licensed commercial metal salvage, dismantling, and export corporation serving major industrial conglomerates and shipyards across Bahrain and the Gulf Cooperation Council (GCC).","goals":"Deliver a prestigious corporate identity and interactive Request-for-Quote (RFQ) procurement portal supporting both Arabic and English corporate procurement directors.","features":["Complete bidirectional bilingual layout (Arabic RTL & English LTR) with seamless switching","Enterprise RFQ document upload supporting engineering blueprints and bill-of-materials","Material purity specifications showcase (Copper millberry, aluminum alloy, industrial heavy melt)","GCC customs and maritime export certification compliance documentation portal","Industrial client self-service scheduling for on-site weighing and heavy vehicle dispatch"],"process":"We developed an intuitive RTL layout using modern CSS logical properties and integrated a secure procurement bidding module. Regional CDN nodes in Bahrain and UAE ensured sub-second response times.","techStack":["WordPress Multilingual","RTL Engine","Enterprise RFQ Engine","Cloudflare GCC Edge","HTML5/CSS3"],"feedbackQuote":"The level of professionalism in design and bilingual execution gave us immediate credibility with government and multinational clients.","feedbackAuthor":"Tariq Sanjrani — CEO, Sanjrani Metals W.L.L."},"intercarrier-logistics":{"slug":"intercarrier-logistics","id":"proj-intercarrier","category":"b2b","categoryName":"Industrial & Logistics","techBadge":"Logistics Tech","techIcon":"fas fa-truck-moving","title":"InterCarrier Logistics Australia","tagline":"Modern Freight Dispatch, Multi-Depot Booking & Logistics Portal","shortDesc":"Nationwide freight booking system with real-time pallet calculators and depot consignment tracking.","domain":"intercarrierlogistics.com.au","liveUrl":"https://intercarrierlogistics.com.au","image":"/wp-content/uploads/2024/05/6.png","client":"InterCarrier Logistics Pty Ltd Australia","industry":"Freight Logistics & Supply Chain","timeline":"8 Weeks Production","services":"Interstate Freight Rate Calculator, Depot Booking Engine, Consignment Tracking","metrics":[{"num":"40+","lbl":"Australian Depots Connected"},{"num":"10,000+","lbl":"Monthly Pallets Dispatched"},{"num":"99.9%","lbl":"Tracking System Uptime"}],"overview":"InterCarrier Logistics is an interstate freight carrier providing road transport, warehousing, and container logistics between Sydney, Melbourne, Brisbane, Adelaide, and Perth.","goals":"Automate quote estimations for pallet freight, provide live consignment tracking, and streamline bookings for wholesale commercial shippers.","features":["Interactive interstate freight calculator factoring weight, cubic dimensions, and tail-lift requirements","Real-time consignment tracking portal integrated with depot warehouse barcode scanners","Multi-depot route planner with transit time estimates across all Australian states","B2B corporate account portal with automated PDF billing and monthly volume discounts","Driver proof-of-delivery (POD) digital signature capture system"],"process":"We designed a modular microservices architecture connecting their internal warehouse management database with a high-performance WordPress front-end via authenticated REST API webhooks.","techStack":["WordPress API","Node.js Microservice","PostgreSQL","Google Distance Matrix API","Redis Cache"],"feedbackQuote":"Our customer support team used to spend 4 hours a day answering where is my pallet. Now our customers track everything online in seconds.","feedbackAuthor":"Bradley Cooper — Head of Fleet Operations, InterCarrier Logistics"},"cf7-custom-styler":{"slug":"cf7-custom-styler","id":"proj-cf7-styler","category":"plugins","categoryName":"WordPress Plugins","techBadge":"WP Plugin","techIcon":"fas fa-puzzle-piece","title":"CF7 WOW Styler — Visual Form Customizer","tagline":"Official WordPress.org Plugin for Live Visual Contact Form Styling","shortDesc":"Live React-powered visual CSS designer for Contact Form 7 with zero page bloat and static compiler.","domain":"wordpress.org/plugins/cf7-styler/","liveUrl":"https://wordpress.org/plugins/cf7-styler/","image":"/wp-content/uploads/2024/05/Image-on-Tab-Mobile-3-Talha-1-scaled.jpg","client":"AR Webcrafts Product Lab / Global WP Community","industry":"WordPress Plugins & Developer Tools","timeline":"7 Weeks Development","services":"WordPress Plugin API, React.js Visual Styler, Static CSS Compiler, WordPress.org Deployment","metrics":[{"num":"10,000+","lbl":"Active Installations"},{"num":"5.0 ★","lbl":"Average User Rating"},{"num":"100%","lbl":"Gutenberg Compatible"}],"overview":"Contact Form 7 powers millions of websites worldwide but lacks any visual design interface. We built CF7 WOW Styler to provide WordPress creators with a live visual styling studio inside the Customizer.","goals":"Eliminate the need for writing custom CSS for Contact Form 7 while ensuring zero performance impact on live websites.","features":["Live real-time visual customizer preview for form field styling, padding, colors, and borders","Conditional asset loading: CSS is compiled to static files and loaded ONLY when a form is present","20+ pre-designed modern templates for instant 1-click professional styling","Advanced typography controls with selective Google Fonts subset loading","Seamless support for Elementor, Divi, Gutenberg, and classic WordPress themes"],"process":"Built with React.js on top of the WordPress Customizer API. The styling engine compiles user choices into clean, minified static CSS files cached in the uploads directory, ensuring zero database overhead during page rendering.","techStack":["PHP 8.2","React.js","WordPress Plugin API","CSS Compiler","Settings API","WordPress.org SVN"],"feedbackQuote":"Rated 5 stars by thousands of agencies worldwide. Finally a plugin that makes Contact Form 7 beautiful without bloating page speed.","feedbackAuthor":"Verified Community Review — WordPress.org Plugin Repository"},"webinar-ignition":{"slug":"webinar-ignition","id":"proj-webinar-ignition","category":"plugins","categoryName":"WordPress Plugins","techBadge":"WP Plugin","techIcon":"fas fa-video","title":"WebinarIgnition — Interactive Webinar Funnel","tagline":"Enterprise Live & Automated Webinar Funnel Engine for WordPress","shortDesc":"Complete webinar marketing engine with live chat, automated countdowns, and WooCommerce ticketing.","domain":"webinarignition.com","liveUrl":"https://webinarignition.com","image":"/wp-content/uploads/2024/05/Image-on-Tab-Mobile-2-Talha-1-scaled.jpg","client":"WebinarIgnition Global","industry":"Marketing Automation & Video Funnels","timeline":"10 Weeks Engineering","services":"Live & Automated Webinar Engine, WooCommerce Ticketing, CRM Webhooks, Real-Time Chat","metrics":[{"num":"2,500,000+","lbl":"Webinar Attendees Hosted"},{"num":"300%","lbl":"Conversion Increase Over Zoom"},{"num":"99.99%","lbl":"Stream Delivery Reliability"}],"overview":"WebinarIgnition is one of the premier webinar marketing and sales funnel platforms built natively for WordPress, empowering marketers and course creators to host live, automated, and hybrid webinars on their own domains.","goals":"Enable business owners to escape restrictive third-party SaaS monthly fees by running high-conversion webinar funnels on their own infrastructure with complete lead ownership.","features":["Interactive live and automated evergreen webinar broadcast rooms with zero stream delay","Real-time simulated chat, time-released CTA buy buttons, and live attendee polling","Direct WooCommerce integration for paid webinar ticket sales and member pass validation","Seamless CRM integration with ActiveCampaign, HubSpot, Mailchimp, and Zapier","Comprehensive conversion analytics tracking attendance drop-off and sales revenue per attendee"],"process":"Engineered with WebRTC streaming support and synchronized WebSocket chat. We rebuilt the registration and thank-you funnel pages with high-speed caching and mobile-first responsive video players.","techStack":["PHP 8.2","WebRTC Video Stream","WebSocket Chat Server","WooCommerce Integration","REST Webhooks API"],"feedbackQuote":"WebinarIgnition gave us complete ownership of our audience and tripled our product sales on webinar day. A true enterprise masterpiece.","feedbackAuthor":"Alex Morgan — Founder, SaaS Growth Accelerator"},"five-star-funnel":{"slug":"five-star-funnel","id":"proj-5star-funnel","category":"plugins","categoryName":"WordPress Plugins","techBadge":"WP Plugin","techIcon":"fas fa-star","title":"5 Stars Rating Funnel — Reputation Booster","tagline":"Automated Review Routing & Reputation Optimization System","shortDesc":"Smart customer sentiment filter routing happy customers to Google/Trustpilot and unhappy feedback to private resolution.","domain":"5starsratingfunnel.com","liveUrl":"https://5starsratingfunnel.com","image":"/wp-content/uploads/2024/05/Image-on-Tab-Mobile-1-Talha-1-scaled.jpg","client":"Reputation Labs USA","industry":"Customer Feedback & Review Routing","timeline":"6 Weeks Production","services":"Smart Sentiment Filter, Review Routing Logic, Google/Trustpilot API, Email Automation","metrics":[{"num":"4.9 ★","lbl":"Client Average Rating"},{"num":"+320%","lbl":"5-Star Reviews Generated"},{"num":"85%","lbl":"Negative Feedback Intercepted"}],"overview":"5 Stars Rating Funnel is an automated reputation management system engineered for service businesses, medical clinics, and e-commerce stores wanting to systematically capture authentic 5-star customer reviews.","goals":"Maximize 5-star public ratings on Google, Trustpilot, and Facebook while intelligently intercepting critical feedback into private customer support tickets before it reaches public forums.","features":["Smart sentiment branching: 5-star raters are guided to public review platforms with 1 click","Negative ratings (1-3 stars) trigger an empathetic private feedback form routed directly to management","Automated review request follow-up sequences via SMS and email with dynamic personalized tokens","Live review showcase widget embedding verified 5-star Google reviews on client landing pages","Detailed analytics dashboard reporting sentiment breakdown and team performance metrics"],"process":"Developed as a lightweight WordPress plugin and standalone embeddable widget. Integrated with Google My Business API and Trustpilot webhook endpoints for automated review synchronization.","techStack":["PHP 8.2","Google My Business API","Trustpilot API","Twilio SMS Gateway","WordPress Plugin API"],"feedbackQuote":"Our Google rating jumped from 4.1 to 4.9 stars in less than two months. The intelligent routing protected our business while attracting dozens of positive reviews.","feedbackAuthor":"Dr. Gregory Vance — Medical Director, Premier Health Centers"}};
+
+    window.openCaseModal = function(slug) {
+        var p = projectsData[slug];
+        if (!p) return;
+
+        document.getElementById('arModalTitle').textContent = p.title;
+        document.getElementById('arModalTagline').textContent = p.tagline;
+        document.getElementById('arModalCategory').textContent = p.categoryName;
+        document.getElementById('arModalOverview').textContent = p.overview;
+        document.getElementById('arModalGoals').textContent = p.goals;
+        document.getElementById('arModalProcess').textContent = p.process;
+        document.getElementById('arModalFeedbackQuote').textContent = '"' + p.feedbackQuote + '"';
+        document.getElementById('arModalFeedbackAuthor').textContent = '— ' + p.feedbackAuthor;
+        
+        // Features list
+        var featList = document.getElementById('arModalFeatures');
+        featList.innerHTML = '';
+        p.features.forEach(function(f) {
+            var li = document.createElement('li');
+            li.innerHTML = '<i class="fas fa-check-circle" style="color: #BE8C33; margin-right: 8px;"></i> <span>' + f + '</span>';
+            featList.appendChild(li);
+        });
+
+        // Tech stack pills
+        var techWrap = document.getElementById('arModalTechStack');
+        techWrap.innerHTML = '';
+        p.techStack.forEach(function(t) {
+            var span = document.createElement('span');
+            span.className = 'ar-modal-tech-pill';
+            span.innerHTML = '<i class="fas fa-layer-group" style="font-size: 10px; margin-right: 5px;"></i> ' + t;
+            techWrap.appendChild(span);
+        });
+
+        // Buttons
+        document.getElementById('arModalLiveLink').href = p.liveUrl;
+        document.getElementById('arModalFullPageLink').href = '/portfolio/' + p.slug + '/';
+
+        var overlay = document.getElementById('arCaseModalOverlay');
+        overlay.classList.add('ar-active');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeCaseModal = function() {
+        var overlay = document.getElementById('arCaseModalOverlay');
+        if (overlay) {
+            overlay.classList.remove('ar-active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    };
+
+    window.handleModalOverlayClick = function(e) {
+        if (e.target.id === 'arCaseModalOverlay') {
+            closeCaseModal();
+        }
+    };
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeCaseModal();
+        }
+    });
+})();
+</script>
 
 </body></html>
 <!-- Page optimized by LiteSpeed Cache @2026-09-21 14:02:22 -->
