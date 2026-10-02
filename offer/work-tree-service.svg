@@ -10,8 +10,8 @@
       <stop offset="100%" stop-color="#15803D"/>
     </linearGradient>
     <linearGradient id="tAccent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#DE520B"/>
-      <stop offset="100%" stop-color="#EA580C"/>
+      <stop offset="0%" stop-color="#BE8C33"/>
+      <stop offset="100%" stop-color="#D4A346"/>
     </linearGradient>
     <filter id="tShadow" x="-5%" y="-5%" width="110%" height="110%">
       <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.3"/>
@@ -47,7 +47,7 @@
   <line x1="0" y1="158" x2="1200" y2="158" stroke="#1E3E32" stroke-width="1"/>
   
   <!-- Logo -->
-  <text x="60" y="130" font-family="'Archivo Black', Impact, sans-serif" font-size="24" fill="#FFFFFF" letter-spacing="-0.5">TIMBER<tspan fill="#4ADE80">CRAFT</tspan> <tspan fill="#DE520B">TREE CARE</tspan></text>
+  <text x="60" y="130" font-family="'Archivo Black', Impact, sans-serif" font-size="24" fill="#FFFFFF" letter-spacing="-0.5">TIMBER<tspan fill="#4ADE80">CRAFT</tspan> <tspan fill="#BE8C33">TREE CARE</tspan></text>
   <text x="60" y="146" font-family="sans-serif" font-size="10" font-weight="700" fill="#86EFAC" letter-spacing="2">CRANE REMOVALS &amp; PRECISION TRIMMING</text>
 
   <!-- Nav Links -->
@@ -75,7 +75,7 @@
   <text x="60" y="415" font-family="sans-serif" font-size="18" fill="#94A3B8" font-weight="400">Dangerous tree removal near powerlines and roofs. Crane-assisted precision cuts and thorough yard cleanup.</text>
 
   <!-- Primary CTAs -->
-  <rect x="60" y="455" width="220" height="56" rx="4" fill="#DE520B" filter="url(#tShadow)"/>
+  <rect x="60" y="455" width="220" height="56" rx="4" fill="#BE8C33" filter="url(#tShadow)"/>
   <text x="96" y="490" font-family="sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Call (307) 278-4862</text>
 
   <rect x="296" y="455" width="210" height="56" rx="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
@@ -112,7 +112,7 @@
     <rect x="24" y="274" width="412" height="42" rx="4" fill="#0A1813" stroke="#1E3E32"/>
     <text x="40" y="300" font-family="sans-serif" font-size="14" fill="#64748B">(512) 000-0000</text>
 
-    <rect x="24" y="340" width="412" height="50" rx="4" fill="#DE520B"/>
+    <rect x="24" y="340" width="412" height="50" rx="4" fill="#BE8C33"/>
     <text x="136" y="371" font-family="sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Request Tree Quote Now â†’</text>
   </g>
 
@@ -137,11 +137,12 @@
 
   <g transform="translate(780, 680)">
     <rect width="360" height="150" rx="6" fill="#0D221A" stroke="#1E3E32" stroke-width="1"/>
-    <rect x="20" y="20" width="36" height="36" rx="4" fill="#DE520B"/>
+    <rect x="20" y="20" width="36" height="36" rx="4" fill="#BE8C33"/>
     <text x="29" y="44" font-size="20" fill="#FFFFFF">ðŸŒªï¸</text>
     <text x="70" y="43" font-family="'Archivo Black', Impact, sans-serif" font-size="16" fill="#FFFFFF">Storm Damage Clearing</text>
     <text x="20" y="85" font-family="sans-serif" font-size="13" fill="#94A3B8">Rapid response for downed trees on power lines, driveways and roofs.</text>
-    <text x="20" y="132" font-family="'Roboto Mono', monospace" font-size="11" font-weight="600" fill="#DE520B">LEARN MORE â†’</text>
+    <text x="20" y="132" font-family="'Roboto Mono', monospace" font-size="11" font-weight="600" fill="#BE8C33">LEARN MORE â†’</text>
   </g>
 </svg>
+
 
