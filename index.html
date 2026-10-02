@@ -624,14 +624,20 @@ img.lazyload, img.lazyloaded, img[data-src] {
     }
 }
 
-/* 8. Home Page Review Video - Guaranteed Display & Aspect Ratio */
+/* 8. Home Page Review Video - Exact Real AR Webcrafts Aspect Ratio & Container Match */
+.elementor-element.elementor-element-ef8b508 > .e-con-inner {
+    align-items: center !important;
+}
 .elementor-element.elementor-element-788845f .elementor-wrapper {
     position: relative !important;
     width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    border-radius: 12px !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    --video-aspect-ratio: 1 !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 16px !important;
     overflow: hidden !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1) !important;
     background: #000000 !important;
 }
 .elementor-element.elementor-element-788845f video,
@@ -639,8 +645,9 @@ img.lazyload, img.lazyloaded, img[data-src] {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    object-position: center center !important;
     display: block !important;
-    border-radius: 12px !important;
+    border-radius: 16px !important;
 }
 
 /* 9. Complete Footer Readability, Contrast & Full Visibility */
