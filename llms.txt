@@ -12,7 +12,7 @@
 
 ## Key Projects & Case Studies (Interactive Portfolios & Architecture Reviews)
 
-- **Best-One Mobile Phones**: High-velocity WooCommerce electronics retail store with faceted search and instant checkout. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/best-one-mobile-phones/)
+- **E V Landscape**: High-velocity WooCommerce electronics retail store with faceted search and instant checkout. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/ev-landscape/)
 - **AAA Food Handler**: State-accredited eLearning LMS training portal with automated certification and group licensing. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/aaa-food-handler/)
 - **All Academic Helpers**: Academic consultation and mentorship web application with end-to-end encryption and 24/7 support. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/academic-helpers/)
 - **Scrap Buyer UAE**: B2B industrial commodities valuation portal with real-time WhatsApp integration and local SEO dominance. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/scrap-trading-uae/)
