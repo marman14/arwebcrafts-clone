@@ -709,3 +709,198 @@
     padding: 0 !important;
   }
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS ENHANCEMENTS (Added 2026-10-02)
+   Ensures 100% mobile-friendly checkout across all screen sizes
+   ========================================================================== */
+
+/* Global overflow prevention */
+html, body {
+  overflow-x: hidden;
+}
+
+.ar-checkout-wrapper {
+  overflow-x: hidden;
+}
+
+/* Tablet & mobile: stack checkout grid */
+@media (max-width: 991px) {
+  .ar-checkout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .ar-summary-card {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 600px) {
+  .ar-checkout-wrapper {
+    padding: 16px 14px 80px !important;
+  }
+
+  .ar-trust-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .ar-trust-item {
+    font-size: 12px !important;
+  }
+
+  .ar-checkout-hero h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+  }
+
+  .ar-checkout-hero p {
+    font-size: 14px !important;
+  }
+
+  .ar-form-row.two-col {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .ar-card {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .ar-card-title {
+    font-size: 17px !important;
+  }
+
+  .ar-summary-card {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .ar-summary-header h3 {
+    font-size: 16px !important;
+  }
+
+  .ar-total-amount {
+    font-size: 22px !important;
+  }
+
+  .ar-summary-row {
+    font-size: 13px !important;
+  }
+
+  .ar-method-toggle {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  .ar-method-btn {
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+  }
+
+  .ar-btn-pay {
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+    border-radius: 10px !important;
+  }
+
+  .ar-service-item {
+    padding: 12px 14px !important;
+  }
+
+  .ar-service-name {
+    font-size: 13.5px !important;
+  }
+
+  .ar-service-price {
+    font-size: 14px !important;
+    white-space: normal !important;
+    text-align: right !important;
+  }
+
+  .ar-service-header {
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 6px !important;
+  }
+
+  .ar-card-icons {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: center !important;
+  }
+
+  .ar-encryption-note {
+    font-size: 11px !important;
+  }
+
+  /* Receipt page mobile */
+  .ar-receipt-card {
+    padding: 24px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .ar-receipt-title {
+    font-size: 22px !important;
+  }
+
+  .ar-receipt-subtitle {
+    font-size: 14px !important;
+  }
+
+  .ar-receipt-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .ar-btn-secondary,
+  .ar-btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 13px 16px !important;
+    border-radius: 8px !important;
+  }
+
+  .ar-receipt-table td {
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .ar-status-icon {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  .ar-status-icon svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* Extra small */
+@media (max-width: 400px) {
+  .ar-checkout-hero h1 {
+    font-size: 1.35rem !important;
+  }
+
+  .ar-badge {
+    font-size: 11px !important;
+    padding: 5px 12px !important;
+  }
+
+  .ar-form-group label {
+    font-size: 12px !important;
+  }
+
+  .ar-input, .ar-textarea, .ar-select {
+    font-size: 15px !important; /* Prevents iOS auto-zoom */
+    padding: 11px 12px !important;
+  }
+}
