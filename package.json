@@ -4,9 +4,13 @@
   "description": "Complete clone of arwebcrafts.com with all content, pages, SEO, 3D animations and motions",
   "scripts": {
     "start": "npx serve . -p 3000",
-    "serve": "python server.py 3000"
+    "serve": "python server.py 3000",
+    "dev": "vercel dev"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "stripe": "^23.0.0"
+  }
 }

@@ -11,7 +11,79 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(DIRECTORY), **kwargs)
 
+    def handle_api(self, method):
+        import subprocess, json
+        url_path = self.path.split("?")[0].split("#")[0].strip("/")
+        api_name = url_path.split("/")[-1]
+        js_file = DIRECTORY / "api" / f"{api_name}.js"
+        
+        body_data = b""
+        content_length = int(self.headers.get('Content-Length', 0))
+        if content_length > 0:
+            body_data = self.rfile.read(content_length)
+
+        if js_file.exists():
+            runner_script = f"""
+            const handler = require('./api/{api_name}.js');
+            let body = {{}};
+            try {{ body = JSON.parse(process.argv[1]); }} catch(e) {{}}
+            const req = {{
+                method: '{method}',
+                headers: {{ host: '{self.headers.get("Host", "localhost:3000")}' }},
+                body: body
+            }};
+            const res = {{
+                setHeader: () => {{}},
+                status: (code) => ({{
+                    json: (data) => console.log(JSON.stringify({{ status: code, data }})),
+                    send: (data) => console.log(JSON.stringify({{ status: code, data }}))
+                }}),
+                json: (data) => console.log(JSON.stringify({{ status: 200, data }}))
+            }};
+            handler(req, res).catch(err => console.log(JSON.stringify({{ status: 500, data: {{ error: err.message }} }})));
+            """
+            try:
+                proc = subprocess.run(
+                    ["node", "-e", runner_script, body_data.decode('utf-8', 'ignore') or "{}"],
+                    cwd=str(DIRECTORY),
+                    capture_output=True,
+                    text=True,
+                    timeout=10
+                )
+                output = proc.stdout.strip()
+                if output:
+                    res_obj = json.loads(output)
+                    self.send_response(res_obj.get("status", 200))
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Access-Control-Allow-Origin', '*')
+                    self.end_headers()
+                    self.wfile.write(json.dumps(res_obj.get("data", {})).encode('utf-8'))
+                    return
+            except Exception as e:
+                pass
+        
+        self.send_response(404)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(b'{"error":"API handler not found"}')
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+        self.end_headers()
+
+    def do_POST(self):
+        if self.path.startswith('/api/'):
+            return self.handle_api('POST')
+        self.send_response(405)
+        self.end_headers()
+
     def do_GET(self):
+        if self.path.startswith('/api/'):
+            return self.handle_api('GET')
         # Handle trailing slash or clean urls
         url_path = self.path.split("?")[0].split("#")[0]
         local_file = DIRECTORY / url_path.lstrip("/")

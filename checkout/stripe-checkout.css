@@ -1,0 +1,711 @@
+/* ==========================================================================
+   AR Webcrafts LLC - Stripe Payment Gateway & Checkout Stylesheet
+   Theme-matched: Navy (#011B39), Gold (#BE8C33), Clean White & Off-white
+   ========================================================================== */
+
+:root {
+  --ar-navy: #011B39;
+  --ar-navy-dark: #001124;
+  --ar-navy-light: #062b57;
+  --ar-gold: #BE8C33;
+  --ar-gold-hover: #a07324;
+  --ar-gold-light: #FAF5EB;
+  --ar-gold-border: rgba(190, 140, 51, 0.35);
+  --ar-text-primary: #1E293B;
+  --ar-text-secondary: #475569;
+  --ar-text-muted: #64748B;
+  --ar-border: #E2E8F0;
+  --ar-card-bg: #FFFFFF;
+  --ar-page-bg: #F8FAFC;
+  --ar-success: #10B981;
+  --ar-danger: #EF4444;
+  --ar-font-heading: 'Nunito Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ar-font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base Wrapper */
+.ar-checkout-wrapper {
+  font-family: var(--ar-font-body);
+  color: var(--ar-text-primary);
+  background: var(--ar-page-bg);
+  padding: 40px 20px 80px;
+  min-height: 80vh;
+}
+
+.ar-checkout-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Trust Header Bar */
+.ar-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--ar-border);
+  border-radius: 12px;
+  padding: 14px 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(1, 27, 57, 0.04);
+}
+
+.ar-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ar-navy);
+}
+
+.ar-trust-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ar-gold);
+  flex-shrink: 0;
+}
+
+/* Page Hero Section */
+.ar-checkout-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.ar-checkout-hero .ar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ar-gold-light);
+  color: var(--ar-gold-hover);
+  border: 1px solid var(--ar-gold-border);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+}
+
+.ar-checkout-hero h1 {
+  font-family: var(--ar-font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--ar-navy);
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.ar-checkout-hero p {
+  font-size: 16px;
+  color: var(--ar-text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Checkout Two-Column Grid */
+.ar-checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .ar-checkout-grid {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 36px;
+  }
+}
+
+/* Card Sections */
+.ar-card {
+  background: var(--ar-card-bg);
+  border: 1px solid var(--ar-border);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(1, 27, 57, 0.05);
+  margin-bottom: 24px;
+}
+
+.ar-card-title {
+  font-family: var(--ar-font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ar-navy);
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ar-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--ar-navy);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ar-card-subtitle {
+  font-size: 14px;
+  color: var(--ar-text-muted);
+  margin: 0 0 20px;
+}
+
+/* Services / Milestone Selection Options */
+.ar-service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ar-service-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 18px;
+  border: 1.5px solid var(--ar-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #FFFFFF;
+}
+
+.ar-service-item:hover {
+  border-color: var(--ar-gold);
+  background: var(--ar-gold-light);
+  transform: translateY(-1px);
+}
+
+.ar-service-item.active {
+  border-color: var(--ar-gold);
+  background: var(--ar-gold-light);
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15);
+}
+
+.ar-service-radio {
+  margin-right: 14px;
+  margin-top: 4px;
+  cursor: pointer;
+  accent-color: var(--ar-gold);
+  width: 18px;
+  height: 18px;
+}
+
+.ar-service-details {
+  flex: 1;
+}
+
+.ar-service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ar-service-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ar-navy);
+}
+
+.ar-service-price {
+  font-family: var(--ar-font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ar-gold-hover);
+  white-space: nowrap;
+}
+
+.ar-service-desc {
+  font-size: 13px;
+  color: var(--ar-text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Custom Invoice Field */
+.ar-custom-amount-box {
+  margin-top: 14px;
+  padding: 14px;
+  background: #FFFFFF;
+  border: 1px dashed var(--ar-gold-border);
+  border-radius: 8px;
+  display: none;
+}
+
+.ar-custom-amount-box.show {
+  display: block;
+}
+
+/* Form Groups & Inputs */
+.ar-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 600px) {
+  .ar-form-row.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ar-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.ar-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ar-navy);
+  margin-bottom: 6px;
+}
+
+.ar-form-group label span.req {
+  color: var(--ar-danger);
+  margin-left: 3px;
+}
+
+.ar-input, .ar-textarea, .ar-select {
+  font-family: var(--ar-font-body);
+  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--ar-border);
+  border-radius: 8px;
+  color: var(--ar-text-primary);
+  background: #FFFFFF;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.ar-input:focus, .ar-textarea:focus, .ar-select:focus {
+  border-color: var(--ar-gold);
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15);
+}
+
+.ar-input-currency {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ar-input-currency span.currency-prefix {
+  position: absolute;
+  left: 14px;
+  font-weight: 600;
+  color: var(--ar-text-muted);
+}
+
+.ar-input-currency input {
+  padding-left: 28px;
+  width: 100%;
+}
+
+/* Right Summary Sidebar */
+.ar-summary-card {
+  position: sticky;
+  top: 100px;
+  background: #FFFFFF;
+  border: 1px solid var(--ar-border);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(1, 27, 57, 0.08);
+}
+
+.ar-summary-header {
+  border-bottom: 1px solid var(--ar-border);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ar-summary-header h3 {
+  font-family: var(--ar-font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ar-navy);
+  margin: 0;
+}
+
+.ar-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ECFDF5;
+  color: #065F46;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid #A7F3D0;
+}
+
+.ar-live-pill-dot {
+  width: 6px;
+  height: 6px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: arPulse 2s infinite;
+}
+
+@keyframes arPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.ar-summary-items {
+  margin-bottom: 20px;
+}
+
+.ar-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--ar-text-secondary);
+  padding: 8px 0;
+}
+
+.ar-summary-row.total-row {
+  border-top: 2px dashed var(--ar-border);
+  margin-top: 12px;
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ar-navy);
+}
+
+.ar-total-amount {
+  font-family: var(--ar-font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--ar-gold-hover);
+}
+
+/* Payment Method Selection Tabs */
+.ar-payment-methods {
+  margin: 20px 0;
+}
+
+.ar-method-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--ar-page-bg);
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.ar-method-btn {
+  padding: 10px 8px;
+  border: none;
+  background: transparent;
+  color: var(--ar-text-secondary);
+  font-family: var(--ar-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ar-method-btn.active {
+  background: #FFFFFF;
+  color: var(--ar-navy);
+  box-shadow: 0 2px 6px rgba(1, 27, 57, 0.08);
+}
+
+/* Stripe Elements Embedded Card Input */
+.ar-elements-box {
+  display: none;
+  background: #F8FAFC;
+  border: 1px solid var(--ar-border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.ar-elements-box.show {
+  display: block;
+}
+
+#card-element {
+  background: #FFFFFF;
+  padding: 12px 14px;
+  border: 1px solid var(--ar-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+#card-errors {
+  color: var(--ar-danger);
+  font-size: 13px;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
+/* Main Checkout Button */
+.ar-btn-pay {
+  width: 100%;
+  background: linear-gradient(135deg, #BE8C33 0%, #D4A34B 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-family: var(--ar-font-body);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(190, 140, 51, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ar-btn-pay:hover {
+  background: linear-gradient(135deg, #A87B2C 0%, #BE8C33 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(190, 140, 51, 0.45);
+}
+
+.ar-btn-pay:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ar-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: arSpin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes arSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Supported Payment Badges */
+.ar-security-footer {
+  margin-top: 22px;
+  text-align: center;
+  border-top: 1px solid var(--ar-border);
+  padding-top: 18px;
+}
+
+.ar-card-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.ar-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  background: #F1F5F9;
+  border: 1px solid var(--ar-border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ar-navy);
+}
+
+.ar-encryption-note {
+  font-size: 12px;
+  color: var(--ar-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Receipt / Confirmation Specific Styling */
+.ar-receipt-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--ar-border);
+  border-radius: 20px;
+  padding: 44px 36px;
+  box-shadow: 0 10px 35px rgba(1, 27, 57, 0.08);
+  text-align: center;
+}
+
+.ar-status-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ar-status-icon.success {
+  background: #ECFDF5;
+  color: #10B981;
+  border: 3px solid #A7F3D0;
+}
+
+.ar-status-icon.failed {
+  background: #FEF2F2;
+  color: #EF4444;
+  border: 3px solid #FECACA;
+}
+
+.ar-status-icon svg {
+  width: 44px;
+  height: 44px;
+}
+
+.ar-receipt-title {
+  font-family: var(--ar-font-heading);
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--ar-navy);
+  margin: 0 0 10px;
+}
+
+.ar-receipt-subtitle {
+  font-size: 16px;
+  color: var(--ar-text-secondary);
+  margin: 0 0 32px;
+  line-height: 1.5;
+}
+
+.ar-receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: 32px;
+  background: var(--ar-page-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ar-border);
+}
+
+.ar-receipt-table tr {
+  border-bottom: 1px solid var(--ar-border);
+}
+
+.ar-receipt-table tr:last-child {
+  border-bottom: none;
+}
+
+.ar-receipt-table td {
+  padding: 14px 20px;
+  font-size: 14px;
+}
+
+.ar-receipt-table td.label {
+  font-weight: 600;
+  color: var(--ar-navy);
+  width: 40%;
+}
+
+.ar-receipt-table td.value {
+  color: var(--ar-text-secondary);
+  font-weight: 500;
+}
+
+.ar-receipt-table td.value strong {
+  color: var(--ar-gold-hover);
+  font-size: 16px;
+}
+
+.ar-receipt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.ar-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: var(--ar-navy);
+  border: 1.5px solid var(--ar-navy);
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ar-btn-secondary:hover {
+  background: var(--ar-navy);
+  color: #FFFFFF;
+}
+
+.ar-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ar-navy);
+  color: #FFFFFF;
+  border: 1.5px solid var(--ar-navy);
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ar-btn-primary:hover {
+  background: var(--ar-gold);
+  border-color: var(--ar-gold);
+}
+
+/* Print Only Styles */
+@media print {
+  .site-header, .site-footer, .ekit-template-content-footer, .ar-receipt-actions, .ar-trust-bar {
+    display: none !important;
+  }
+  .ar-checkout-wrapper {
+    background: #FFFFFF !important;
+    padding: 0 !important;
+  }
+  .ar-receipt-card {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
