@@ -2176,449 +2176,461 @@ h2.ar-cta-title,
     color: #011B39 !important;
 }
 
+</style>
 
+<style id="ar-portfolio-variations-css">
 /* ============================================================
-   PORTFOLIO CARD LAYOUT VARIATIONS (4 designs)
-   Strict Zero-Touch: Only applied to .ar-portfolio-card
+   AR WEBCRAFTS - PORTFOLIO CARD FORMAT VARIATIONS
    ============================================================ */
-
-/* Remove any leftover empty meta rows */
-.ar-card-meta-row:empty { display: none; }
-
-/* --- BASE: Remove browser bar gap since we removed it from HTML --- */
-.ar-card-thumb-wrap {
-    border-radius: 14px;
-    overflow: hidden;
-    margin-bottom: 0;
+.ar-portfolio-grid-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+    max-width: 1280px !important;
+    margin: 20px auto 50px auto !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
 }
 
-/* Consistent image height for all */
-.ar-card-img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    display: block;
-    border-radius: 14px;
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-.ar-portfolio-card:hover .ar-card-img {
-    transform: scale(1.04);
-    filter: brightness(0.96);
+@media (max-width: 1100px) {
+    .ar-portfolio-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+    }
 }
 
-/* Info wrap base */
-.ar-card-info-wrap {
-    padding: 20px 22px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
+@media (max-width: 720px) {
+    .ar-portfolio-grid-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        padding: 0 16px !important;
+    }
 }
 
-/* Category badge - single pill */
-.ar-card-badge-pill {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    padding: 4px 12px;
-    border-radius: 30px;
-    background: rgba(190, 140, 51, 0.1);
-    color: #BE8C33;
-    border: 1px solid rgba(190, 140, 51, 0.25);
-    width: fit-content;
-}
-
-/* Title */
-.ar-card-title {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.35;
-    color: #011B39;
-}
-.ar-card-title a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.25s ease;
-}
-.ar-card-title a:hover { color: #BE8C33; }
-
-/* Subline */
-.ar-card-subline {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: #5a6c7e;
-    margin: 0;
-    flex: 1;
-}
-
-/* Action bar: 2 buttons side by side */
-.ar-card-action-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 6px;
-}
-
-/* Primary CTA */
-.ar-card-primary-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: #011B39;
-    color: #FAF7F2 !important;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
-    white-space: nowrap;
-    flex: 1;
-    justify-content: center;
-}
-.ar-card-primary-cta:hover {
-    background: #BE8C33;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(190, 140, 51, 0.35);
-}
-
-/* Quick View button */
-.ar-card-quick-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: transparent;
-    color: #011B39;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 50px;
-    border: 1.5px solid rgba(1, 27, 57, 0.18);
-    cursor: pointer;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-}
-.ar-card-quick-btn:hover {
-    border-color: #BE8C33;
-    color: #BE8C33;
-    background: rgba(190, 140, 51, 0.06);
-}
-
-/* ==== VARIATION A: Clean Modern Card (image top, info below) ==== */
-.ar-card-v-a {
-    border-radius: 20px !important;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-.ar-card-v-a .ar-card-thumb-wrap {
-    border-radius: 0;
-    margin: 0;
-}
-.ar-card-v-a .ar-card-img {
-    border-radius: 0;
-    height: 240px;
-}
-.ar-card-v-a .ar-card-info-wrap {
-    padding: 22px 24px 20px;
-    background: #ffffff;
-}
-.ar-card-v-a .ar-card-primary-cta {
-    background: #011B39;
-    flex: 1;
-}
-.ar-card-v-a:hover {
-    box-shadow: 0 20px 50px -10px rgba(1,27,57,0.16), 0 8px 24px rgba(190,140,51,0.12) !important;
-}
-
-/* ==== VARIATION B: Gold Accent Left Border Card ==== */
-.ar-card-v-b {
-    border-radius: 18px !important;
-    border-left: 4px solid #BE8C33 !important;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-.ar-card-v-b .ar-card-thumb-wrap {
-    border-radius: 0;
-    margin: 0;
-    position: relative;
-}
-.ar-card-v-b .ar-card-img {
-    border-radius: 0;
-    height: 235px;
-}
-.ar-card-v-b .ar-card-info-wrap {
-    padding: 20px 22px 18px;
-    background: #FDFCFA;
-}
-.ar-card-v-b .ar-card-badge-pill {
-    background: rgba(190, 140, 51, 0.15);
-    color: #a07228;
-    border-color: rgba(190, 140, 51, 0.3);
-}
-.ar-card-v-b .ar-card-primary-cta {
-    background: #BE8C33;
-    flex: 1;
-}
-.ar-card-v-b .ar-card-primary-cta:hover {
-    background: #011B39;
-    box-shadow: 0 6px 20px rgba(1, 27, 57, 0.25);
-}
-.ar-card-v-b .ar-card-quick-btn {
-    border-color: rgba(190,140,51,0.4);
-    color: #BE8C33;
-}
-.ar-card-v-b .ar-card-quick-btn:hover {
-    background: rgba(190,140,51,0.1);
-    border-color: #BE8C33;
-}
-.ar-card-v-b:hover {
-    box-shadow: 0 20px 48px -8px rgba(190, 140, 51, 0.2), 0 6px 18px rgba(1,27,57,0.08) !important;
-}
-
-/* ==== VARIATION C: Dark Image Overlay Card ==== */
-.ar-card-v-c {
-    border-radius: 20px !important;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-.ar-card-v-c .ar-card-thumb-wrap {
-    border-radius: 0;
-    margin: 0;
-    position: relative;
-}
-.ar-card-v-c .ar-card-img {
-    border-radius: 0;
-    height: 238px;
-    filter: brightness(0.88);
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-.ar-card-v-c:hover .ar-card-img {
-    filter: brightness(0.95);
-    transform: scale(1.04);
-}
-.ar-card-v-c .ar-card-info-wrap {
-    padding: 20px 22px 18px;
-    background: #F8F9FA;
-    border-top: 3px solid #011B39;
-}
-.ar-card-v-c .ar-card-badge-pill {
-    background: #011B39;
-    color: #FAF7F2;
-    border-color: transparent;
-}
-.ar-card-v-c .ar-card-title {
-    font-size: 17px;
-}
-.ar-card-v-c .ar-card-primary-cta {
-    background: #011B39;
-    flex: 1;
-}
-.ar-card-v-c:hover {
-    border-color: rgba(1, 27, 57, 0.4) !important;
-    box-shadow: 0 22px 52px -8px rgba(1, 27, 57, 0.2) !important;
-}
-
-/* ==== VARIATION D: Minimal Flat Card with Underline Title ==== */
-.ar-card-v-d {
-    border-radius: 18px !important;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    background: #FAFAFA !important;
-}
-.ar-card-v-d .ar-card-thumb-wrap {
-    border-radius: 14px;
-    margin: 14px 14px 0;
-    overflow: hidden;
-}
-.ar-card-v-d .ar-card-img {
-    border-radius: 14px;
-    height: 225px;
-}
-.ar-card-v-d .ar-card-info-wrap {
-    padding: 18px 20px 18px;
-}
-.ar-card-v-d .ar-card-badge-pill {
-    background: transparent;
-    color: #BE8C33;
-    border-color: rgba(190, 140, 51, 0.35);
-    font-size: 10.5px;
-}
-.ar-card-v-d .ar-card-title {
-    font-size: 17.5px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(190, 140, 51, 0.2);
-}
-.ar-card-v-d .ar-card-primary-cta {
-    background: transparent;
-    color: #011B39 !important;
-    border: 2px solid #011B39;
-    flex: 1;
-}
-.ar-card-v-d .ar-card-primary-cta:hover {
-    background: #011B39;
-    color: #FAF7F2 !important;
-    box-shadow: 0 6px 20px rgba(1, 27, 57, 0.2);
-}
-.ar-card-v-d .ar-card-quick-btn {
-    border-color: rgba(190, 140, 51, 0.4);
-    color: #BE8C33;
-}
-.ar-card-v-d:hover {
-    background: #fff !important;
-    box-shadow: 0 18px 42px -8px rgba(190,140,51,0.15), 0 4px 14px rgba(0,0,0,0.05) !important;
-}
-
-/* Hover overlay button on thumbnail */
-.ar-card-thumb-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(1, 27, 57, 0.62);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    border-radius: inherit;
-}
-.ar-card-thumb-wrap:hover .ar-card-thumb-overlay { opacity: 1; }
-.ar-thumb-hover-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #BE8C33;
-    color: #ffffff !important;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.25s ease, transform 0.25s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-}
-.ar-thumb-hover-btn:hover {
-    background: #FAF7F2;
-    color: #011B39 !important;
-    transform: scale(1.04);
-}
-.ar-card-thumb-wrap { position: relative; }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .ar-card-action-bar { flex-direction: column; }
-    .ar-card-primary-cta, .ar-card-quick-btn { width: 100%; justify-content: center; }
-}
-
-
-/* ====================================================
-   CRITICAL FIX: New card structure overrides
-   The old base .ar-portfolio-card has padding:24px !important
-   which breaks our new flush-image layout.
-   These rules fix it for all 4 variations.
-   ==================================================== */
-
-/* Reset base card padding for all new variation cards */
-.ar-card-v-a,
-.ar-card-v-b,
-.ar-card-v-c,
-.ar-card-v-d {
-    padding: 0 !important;
+/* Base Card Setup */
+.ar-portfolio-card {
     display: flex !important;
     flex-direction: column !important;
+    justify-content: space-between !important;
     height: 100% !important;
-}
-
-/* Variation D has inner padding around the image */
-.ar-card-v-d {
-    padding: 0 !important;
-}
-
-/* Ensure thumb wrap fills the card top properly */
-.ar-card-v-a .ar-card-thumb-wrap,
-.ar-card-v-b .ar-card-thumb-wrap,
-.ar-card-v-c .ar-card-thumb-wrap {
-    border-radius: 0 !important;
     margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
 }
 
-/* Info wrap gets the padding instead */
-.ar-card-v-a .ar-card-info-wrap,
-.ar-card-v-b .ar-card-info-wrap,
-.ar-card-v-c .ar-card-info-wrap {
-    padding: 20px 22px 18px !important;
-    flex: 1 !important;
+/* Format Option Badges (top banner on each card) */
+.ar-format-badge {
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    text-align: center !important;
     display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-}
-
-/* Variation D: image has padding inside card */
-.ar-card-v-d .ar-card-thumb-wrap {
-    margin: 14px 14px 0 !important;
-    border-radius: 14px !important;
-    overflow: hidden !important;
-}
-
-.ar-card-v-d .ar-card-info-wrap {
-    padding: 16px 18px 18px !important;
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-}
-
-/* Push action bar to bottom */
-.ar-card-action-bar {
-    margin-top: auto !important;
-    padding-top: 14px !important;
-    display: flex !important;
-    gap: 10px !important;
     align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    user-select: none !important;
+    flex-shrink: 0 !important;
 }
 
-/* Make image cover the full width */
-.ar-card-v-a .ar-card-img,
-.ar-card-v-b .ar-card-img,
-.ar-card-v-c .ar-card-img {
-    width: 100% !important;
-    height: 230px !important;
-    object-fit: cover !important;
-    border-radius: 0 !important;
-    display: block !important;
-}
-
-.ar-card-v-d .ar-card-img {
-    width: 100% !important;
-    height: 220px !important;
-    object-fit: cover !important;
-    border-radius: 14px !important;
-    display: block !important;
-}
-
-/* Fix top corners of card to match radius */
-.ar-card-v-a .ar-card-thumb-wrap,
-.ar-card-v-b .ar-card-thumb-wrap,
-.ar-card-v-c .ar-card-thumb-wrap {
-    border-radius: 20px 20px 0 0 !important;
-    overflow: hidden !important;
-}
-
-.ar-card-v-b .ar-card-thumb-wrap {
-    border-radius: 14px 14px 0 0 !important;
-}
-
-/* Hover overlay must be relative to thumb-wrap */
+/* Shared Thumbnail Elements */
 .ar-card-thumb-wrap {
     position: relative !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
 }
 
+.ar-card-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.ar-portfolio-card:hover .ar-card-img {
+    transform: scale(1.05) !important;
+}
+
+.ar-card-thumb-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(1, 27, 57, 0.65) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 2 !important;
+}
+
+.ar-portfolio-card:hover .ar-card-thumb-overlay {
+    opacity: 1 !important;
+}
+
+.ar-thumb-hover-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 10px 22px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    transition: transform 0.25s ease, background 0.25s ease !important;
+}
+
+.ar-thumb-hover-btn:hover {
+    background: #FFFFFF !important;
+    color: #011B39 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Shared Info & Content Wrap */
+.ar-card-info-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    box-sizing: border-box !important;
+}
+
+.ar-card-title {
+    margin: 0 0 10px 0 !important;
+    line-height: 1.35 !important;
+}
+
+.ar-card-title a {
+    text-decoration: none !important;
+    transition: color 0.25s ease !important;
+}
+
+.ar-card-subline {
+    margin: 0 0 20px 0 !important;
+    line-height: 1.6 !important;
+    flex: 1 !important;
+}
+
+/* Action Bar & Buttons */
+.ar-card-action-bar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: auto !important;
+}
+
+.ar-card-primary-cta {
+    flex: 1 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+    transition: all 0.25s ease !important;
+}
+
+.ar-card-quick-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: all 0.25s ease !important;
+}
+
+/* ============================================================
+   VARIATION 1: MODERN MINIMAL (Cards 1, 2, 3)
+   Clean, sleek, borderless thumbnail, high contrast
+   ============================================================ */
+.ar-format-1 {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px rgba(1, 27, 57, 0.05) !important;
+    overflow: hidden !important;
+}
+
+.ar-format-1:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 42px rgba(1, 27, 57, 0.12) !important;
+    border-color: #CBD5E1 !important;
+}
+
+.ar-format-badge-1 {
+    background: #F1F5F9 !important;
+    color: #475569 !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+}
+
+.ar-format-1 .ar-card-thumb-wrap {
+    height: 235px !important;
+    background: #F8FAFC !important;
+    padding: 16px 20px !important;
+    border-bottom: 1px solid #EEF2F6 !important;
+}
+
+.ar-format-1 .ar-card-img {
+    filter: drop-shadow(0 6px 14px rgba(1, 27, 57, 0.07)) !important;
+}
+
+.ar-format-1 .ar-card-info-wrap {
+    padding: 24px 24px 22px 24px !important;
+    background: #FFFFFF !important;
+}
+
+.ar-format-1 .ar-card-title {
+    font-size: 19px !important;
+    font-weight: 700 !important;
+}
+
+.ar-format-1 .ar-card-title a {
+    color: #011B39 !important;
+}
+
+.ar-format-1 .ar-card-title a:hover {
+    color: #BE8C33 !important;
+}
+
+.ar-format-1 .ar-card-subline {
+    font-size: 13.5px !important;
+    color: #64748B !important;
+}
+
+.ar-format-1 .ar-card-primary-cta {
+    background: #011B39 !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 11px 16px !important;
+    border-radius: 50px !important;
+}
+
+.ar-format-1 .ar-card-primary-cta:hover {
+    background: #BE8C33 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(190, 140, 51, 0.35) !important;
+}
+
+.ar-format-1 .ar-card-quick-btn {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    color: #475569 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 10px 16px !important;
+    border-radius: 50px !important;
+}
+
+.ar-format-1 .ar-card-quick-btn:hover {
+    border-color: #011B39 !important;
+    color: #011B39 !important;
+    background: #F8FAFC !important;
+}
+
+/* ============================================================
+   VARIATION 2: EXECUTIVE GOLD (Cards 4, 5, 6)
+   Top Gold Accent stripe, warm ambient glow, rich gold CTA
+   ============================================================ */
+.ar-format-2 {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(190, 140, 51, 0.28) !important;
+    border-top: 4px solid #BE8C33 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 6px 24px rgba(190, 140, 51, 0.08) !important;
+    overflow: hidden !important;
+}
+
+.ar-format-2:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 22px 48px rgba(190, 140, 51, 0.22) !important;
+    border-color: #BE8C33 !important;
+}
+
+.ar-format-badge-2 {
+    background: rgba(190, 140, 51, 0.12) !important;
+    color: #9B6E1E !important;
+    border-bottom: 1px solid rgba(190, 140, 51, 0.22) !important;
+}
+
+.ar-format-2 .ar-card-thumb-wrap {
+    height: 235px !important;
+    background: linear-gradient(135deg, #FAF7F2 0%, #FFFFFF 100%) !important;
+    padding: 16px 20px !important;
+    border-bottom: 1px solid rgba(190, 140, 51, 0.16) !important;
+}
+
+.ar-format-2 .ar-card-img {
+    filter: drop-shadow(0 6px 14px rgba(190, 140, 51, 0.16)) !important;
+}
+
+.ar-format-2 .ar-card-info-wrap {
+    padding: 24px 24px 22px 24px !important;
+    background: #FFFFFF !important;
+}
+
+.ar-format-2 .ar-card-title {
+    font-size: 19px !important;
+    font-weight: 700 !important;
+}
+
+.ar-format-2 .ar-card-title a {
+    color: #011B39 !important;
+}
+
+.ar-format-2 .ar-card-title a:hover {
+    color: #BE8C33 !important;
+}
+
+.ar-format-2 .ar-card-subline {
+    font-size: 13.5px !important;
+    color: #556270 !important;
+}
+
+.ar-format-2 .ar-card-primary-cta {
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 11px 16px !important;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 14px rgba(190, 140, 51, 0.35) !important;
+}
+
+.ar-format-2 .ar-card-primary-cta:hover {
+    background: #011B39 !important;
+    box-shadow: 0 6px 20px rgba(1, 27, 57, 0.35) !important;
+    transform: translateY(-2px) !important;
+}
+
+.ar-format-2 .ar-card-quick-btn {
+    background: rgba(190, 140, 51, 0.08) !important;
+    border: 1.5px solid rgba(190, 140, 51, 0.45) !important;
+    color: #9B6E1E !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 10px 16px !important;
+    border-radius: 50px !important;
+}
+
+.ar-format-2 .ar-card-quick-btn:hover {
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+    border-color: #BE8C33 !important;
+}
+
+/* ============================================================
+   VARIATION 3: INSET CANVAS / TECH SHOWCASE (Cards 7, 8, 9)
+   Floating framed mockup box, squircle modern buttons, dashed divider
+   ============================================================ */
+.ar-format-3 {
+    background: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07) !important;
+    overflow: hidden !important;
+}
+
+.ar-format-3:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.16) !important;
+    border-color: #0F172A !important;
+}
+
+.ar-format-badge-3 {
+    background: #0F172A !important;
+    color: #F8FAFC !important;
+}
+
+.ar-format-3 .ar-card-thumb-wrap {
+    margin: 16px 16px 0 16px !important;
+    width: calc(100% - 32px) !important;
+    height: 215px !important;
+    border-radius: 14px !important;
+    background: #F1F5F9 !important;
+    border: 1px solid #E2E8F0 !important;
+    padding: 14px !important;
+}
+
+.ar-format-3 .ar-card-img {
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)) !important;
+}
+
+.ar-format-3 .ar-card-info-wrap {
+    padding: 20px 22px 22px 22px !important;
+    background: #FFFFFF !important;
+}
+
+.ar-format-3 .ar-card-title {
+    font-size: 18.5px !important;
+    font-weight: 800 !important;
+}
+
+.ar-format-3 .ar-card-title a {
+    color: #0F172A !important;
+}
+
+.ar-format-3 .ar-card-title a:hover {
+    color: #BE8C33 !important;
+}
+
+.ar-format-3 .ar-card-subline {
+    font-size: 13.5px !important;
+    color: #475569 !important;
+}
+
+.ar-format-3 .ar-card-action-bar {
+    padding-top: 14px !important;
+    border-top: 1px dashed #E2E8F0 !important;
+}
+
+.ar-format-3 .ar-card-primary-cta {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 11px 16px !important;
+    border-radius: 10px !important;
+}
+
+.ar-format-3 .ar-card-primary-cta:hover {
+    background: #BE8C33 !important;
+    box-shadow: 0 6px 18px rgba(190, 140, 51, 0.35) !important;
+    transform: translateY(-2px) !important;
+}
+
+.ar-format-3 .ar-card-quick-btn {
+    background: #F8FAFC !important;
+    border: 1.5px solid #CBD5E1 !important;
+    color: #0F172A !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+}
+
+.ar-format-3 .ar-card-quick-btn:hover {
+    background: #E2E8F0 !important;
+    color: #0F172A !important;
+}
 </style>
+
 </head><body class="wp-singular page-template-default page page-id-2443 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-2443">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
 height="0" width="0" style="display:none;visibility:hidden" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" data-load-mode="0"></iframe></noscript><a class="skip-link screen-reader-text" href="#content">
@@ -2819,12 +2831,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
 
 <div class="ar-portfolio-grid-wrapper" id="ar-portfolio-container">
     <!-- Card: E V Landscape -->
-    <div class="ar-portfolio-card ar-card-v-a" id="proj-ev-landscape" data-category="architecture">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">ev-landscape.vercel.app</div>
-            <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-status-pill" style="text-decoration: none;" title="Open Live Site: ev-landscape.vercel.app"><span class="ar-pulse-dot"></span> Live</a>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-1" id="proj-ev-landscape" data-category="architecture">
+        <div class="ar-format-badge ar-format-badge-1"><i class="fas fa-layer-group"></i> FORMAT OPTION 1 &bull; MODERN MINIMAL</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.png" alt="E V Landscape Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -2838,10 +2846,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">Landscape &amp; Construction</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/ev-landscape/">E V Landscape — CSLB Contractor</a>
             </h3>
@@ -2861,12 +2865,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: AAA Food Handler Training -->
-    <div class="ar-portfolio-card ar-card-v-b" id="proj-aaa-food" data-category="lms">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">aaafoodhandler.com</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-1" id="proj-aaa-food" data-category="lms">
+        <div class="ar-format-badge ar-format-badge-1"><i class="fas fa-layer-group"></i> FORMAT OPTION 1 &bull; MODERN MINIMAL</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/1.png" alt="AAA Food Handler Training Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -2880,10 +2880,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">eLearning & LMS</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/aaa-food-handler/">AAA Food Handler Training</a>
             </h3>
@@ -2903,12 +2899,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: All Academic Helpers -->
-    <div class="ar-portfolio-card ar-card-v-c" id="proj-academic-helpers" data-category="edtech">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">allacademichelpers.com</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-1" id="proj-academic-helpers" data-category="edtech">
+        <div class="ar-format-badge ar-format-badge-1"><i class="fas fa-layer-group"></i> FORMAT OPTION 1 &bull; MODERN MINIMAL</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/2-1.png" alt="All Academic Helpers Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -2922,10 +2914,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">Academic & EdTech</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/academic-helpers/">All Academic Helpers</a>
             </h3>
@@ -2945,12 +2933,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: Scrap Buyer UAE -->
-    <div class="ar-portfolio-card ar-card-v-d" id="proj-scrap-uae" data-category="b2b">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">scrapbuyeruae.ae</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-2" id="proj-scrap-uae" data-category="b2b">
+        <div class="ar-format-badge ar-format-badge-2"><i class="fas fa-crown"></i> FORMAT OPTION 2 &bull; EXECUTIVE GOLD</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/4.png" alt="Scrap Buyer UAE Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -2964,10 +2948,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">Industrial & Logistics</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/scrap-trading-uae/">Scrap Buyer UAE</a>
             </h3>
@@ -2987,12 +2967,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: Sanjrani Metal Scrap Bahrain -->
-    <div class="ar-portfolio-card ar-card-v-a" id="proj-sanjrani-metals" data-category="b2b">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">sanjranimetals.com</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-2" id="proj-sanjrani-metals" data-category="b2b">
+        <div class="ar-format-badge ar-format-badge-2"><i class="fas fa-crown"></i> FORMAT OPTION 2 &bull; EXECUTIVE GOLD</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/5.png" alt="Sanjrani Metal Scrap Bahrain Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -3006,10 +2982,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">Industrial & Logistics</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/sanjrani-metals-bahrain/">Sanjrani Metal Scrap Bahrain</a>
             </h3>
@@ -3029,12 +3001,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: InterCarrier Logistics Australia -->
-    <div class="ar-portfolio-card ar-card-v-b" id="proj-intercarrier" data-category="b2b">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">intercarrierlogistics.com.au</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-2" id="proj-intercarrier" data-category="b2b">
+        <div class="ar-format-badge ar-format-badge-2"><i class="fas fa-crown"></i> FORMAT OPTION 2 &bull; EXECUTIVE GOLD</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/6.png" alt="InterCarrier Logistics Australia Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -3048,10 +3016,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">Industrial & Logistics</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/intercarrier-logistics/">InterCarrier Logistics Australia</a>
             </h3>
@@ -3071,12 +3035,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: CF7 WOW Styler — Visual Form Customizer -->
-    <div class="ar-portfolio-card ar-card-v-c" id="proj-cf7-styler" data-category="plugins">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">wordpress.org/plugins/cf7-styler/</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-3" id="proj-cf7-styler" data-category="plugins">
+        <div class="ar-format-badge ar-format-badge-3"><i class="fas fa-laptop-code"></i> FORMAT OPTION 3 &bull; INSET CANVAS</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-3-Talha-1-scaled.jpg" alt="CF7 WOW Styler — Visual Form Customizer Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -3090,10 +3050,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">WordPress Plugins</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/cf7-custom-styler/">CF7 WOW Styler — Visual Form Customizer</a>
             </h3>
@@ -3113,12 +3069,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: WebinarIgnition — Interactive Webinar Funnel -->
-    <div class="ar-portfolio-card ar-card-v-d" id="proj-webinar-ignition" data-category="plugins">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">webinarignition.com</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-3" id="proj-webinar-ignition" data-category="plugins">
+        <div class="ar-format-badge ar-format-badge-3"><i class="fas fa-laptop-code"></i> FORMAT OPTION 3 &bull; INSET CANVAS</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-2-Talha-1-scaled.jpg" alt="WebinarIgnition — Interactive Webinar Funnel Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -3132,10 +3084,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">WordPress Plugins</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/webinar-ignition/">WebinarIgnition — Interactive Webinar Funnel</a>
             </h3>
@@ -3155,12 +3103,8 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: 5 Stars Rating Funnel — Reputation Booster -->
-    <div class="ar-portfolio-card ar-card-v-a" id="proj-5star-funnel" data-category="plugins">
-        <!-- Browser Frame Mockup Header -->
-<div class="ar-card-browser-url">5starsratingfunnel.com</div>
-            <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
-        </div>
-        
+    <div class="ar-portfolio-card ar-format-3" id="proj-5star-funnel" data-category="plugins">
+        <div class="ar-format-badge ar-format-badge-3"><i class="fas fa-laptop-code"></i> FORMAT OPTION 3 &bull; INSET CANVAS</div>
         <!-- Thumbnail Frame with Hover Action Overlay -->
         <div class="ar-card-thumb-wrap">
             <img src="/wp-content/uploads/2024/05/Image-on-Tab-Mobile-1-Talha-1-scaled.jpg" alt="5 Stars Rating Funnel — Reputation Booster Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
@@ -3174,10 +3118,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         
         <!-- Content Area -->
         <div class="ar-card-info-wrap">
-            <div class="ar-card-meta-row">
-                <span class="ar-card-badge-pill">WordPress Plugins</span>
-                
-            </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/five-star-funnel/">5 Stars Rating Funnel — Reputation Booster</a>
             </h3>
