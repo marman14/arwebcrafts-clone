@@ -74,23 +74,27 @@
     hamburger.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
       if (menuContainer.classList.contains('active') || document.body.classList.contains('ar-menu-open')) {
         closeMenu();
       } else {
         openMenu();
       }
-    });
+    }, true);
 
     closeBtn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
       closeMenu();
-    });
+    }, true);
 
     overlay.addEventListener('click', function (e) {
       e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
       closeMenu();
-    });
+    }, true);
 
     // Close when clicking normal navigation links
     var links = menuContainer.querySelectorAll('.elementskit-navbar-nav a:not(.elementskit-dropdown-has > a)');
