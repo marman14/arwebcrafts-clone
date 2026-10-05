@@ -42,6 +42,52 @@ html, body {
   padding-bottom: 8px !important;
 }
 
+/* Reviews Section Clean Background & Overlap Prevention (Zero Glitches) */
+.elementor-element-78966f9 > .elementor-background-overlay,
+.elementor-section[data-id="78966f9"] > .elementor-background-overlay,
+.elementor-widget-elementskit-testimonial .elementor-background-overlay,
+.ar-google-reviews-section::before,
+.ar-google-reviews-section::after {
+  background-image: none !important;
+  background: none !important;
+}
+.elementor-element-78966f9 > .elementor-background-overlay {
+  display: none !important;
+}
+
+/* Verified Clutch Card & Badge Styles */
+.ar-clutch-verified {
+  font-size: 11px;
+  font-weight: 600;
+  color: #17313b;
+  background: #f0f4f7;
+  padding: 2px 7px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.ar-clutch-verified svg {
+  width: 11px;
+  height: 11px;
+  fill: #ff492c;
+}
+.ar-clutch-source {
+  font-weight: 600;
+  color: #17313b;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ar-clutch-source::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ff492c;
+}
+
 
 /* ============================================================
    SECTION 2 — GLOBAL MOBILE TYPOGRAPHY & BUTTON FIXES
