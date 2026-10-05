@@ -21,10 +21,33 @@ html, body {
   box-sizing: border-box !important;
 }
 
-img, video, iframe, embed, object {
+img, video, embed, object {
   max-width: 100% !important;
   height: auto;
 }
+
+iframe {
+  max-width: 100% !important;
+}
+
+/* ============================================================
+   CALENDLY INLINE WIDGET & BOOKING SLOTS FULL HEIGHT
+   ============================================================ */
+.calendly-inline-widget,
+.calendly-inline-widget iframe,
+.elementor-widget-html .calendly-inline-widget,
+.elementor-widget-html .calendly-inline-widget iframe,
+#appointmant .calendly-inline-widget,
+#appointmant iframe {
+  width: 100% !important;
+  min-width: 320px !important;
+  min-height: 700px !important;
+  height: 750px !important;
+  display: block !important;
+  border: none !important;
+  box-sizing: border-box !important;
+}
+
 
 /* Reviews Section Clean Background & Overlap Prevention (Zero Glitches) */
 .elementor-element-78966f9 > .elementor-background-overlay,
@@ -557,3 +580,329 @@ img, video, iframe, embed, object {
     width: 100% !important;
   }
 }
+
+/* ============================================================
+   6. MOBILE HEADER & HAMBURGER MENU DRAWER (STRICT FIX)
+   ============================================================ */
+@media (max-width: 1024px) {
+  /* 1. Header Container: Single clean flex row */
+  .elementor-element-7ec6df1 > .elementor-container,
+  .ekit-template-content-header .elementor-section:not(.elementor-element-011475a) > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Logo Column: Left aligned, proper size */
+  .elementor-element-7ec6df1 .elementor-column.elementor-element-b2cfcaf,
+  .ekit-template-content-header .elementor-column:has(.elementor-widget-image) {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    max-width: 65% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .elementor-element-7ec6df1 .elementor-element-69491ab,
+  .ekit-template-content-header .elementor-widget-image {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .elementor-element-7ec6df1 .elementor-element-69491ab img,
+  .ekit-template-content-header .elementor-widget-image img {
+    max-width: 175px !important;
+    width: 175px !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Nav Menu Column: Right aligned next to logo */
+  .elementor-element-7ec6df1 .elementor-column.elementor-element-59ce085,
+  .ekit-template-content-header .elementor-column:has(.elementor-widget-ekit-nav-menu) {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Hide Desktop CTA in header on mobile */
+  .elementor-element-7ec6df1 .elementor-column.elementor-element-f74cd7b {
+    display: none !important;
+  }
+
+  /* Hamburger Toggle Button: Sharp, modern, touch-friendly */
+  button.elementskit-menu-hamburger.elementskit-menu-toggler {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #011B39 !important;
+    border: 1.5px solid #BE8C33 !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(1, 27, 57, 0.2) !important;
+    transition: background 0.2s ease, border-color 0.2s ease !important;
+    box-sizing: border-box !important;
+    z-index: 100 !important;
+  }
+
+  button.elementskit-menu-hamburger.elementskit-menu-toggler:hover,
+  button.elementskit-menu-hamburger.elementskit-menu-toggler:active {
+    background: #BE8C33 !important;
+    border-color: #BE8C33 !important;
+  }
+
+  button.elementskit-menu-hamburger.elementskit-menu-toggler .elementskit-menu-hamburger-icon {
+    display: block !important;
+    width: 22px !important;
+    height: 2.5px !important;
+    background-color: #FFFFFF !important;
+    border-radius: 2px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: all 0.25s ease !important;
+  }
+
+  /* Offcanvas Drawer: Solid background, right side slide-out */
+  .elementskit-menu-container.elementskit-menu-offcanvas-elements {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: 0 !important;
+    width: min(340px, 86vw) !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    background: #FFFFFF !important;
+    box-shadow: -10px 0 35px rgba(1, 27, 57, 0.25) !important;
+    transform: translateX(110%) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-left: 2px solid #BE8C33 !important;
+    visibility: hidden !important;
+  }
+
+  .elementskit-menu-container.elementskit-menu-offcanvas-elements.active,
+  body.ar-menu-open .elementskit-menu-container.elementskit-menu-offcanvas-elements {
+    transform: translateX(0) !important;
+    left: auto !important;
+    visibility: visible !important;
+  }
+
+  /* Drawer Top Identity / Header Bar */
+  .elementskit-menu-container .elementskit-nav-identity-panel {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 20px !important;
+    background: #011B39 !important;
+    border-bottom: 2px solid #BE8C33 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 20 !important;
+    order: -1 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .elementskit-nav-identity-panel .ar-drawer-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    text-transform: none !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Close Button (X) */
+  button.elementskit-menu-close.elementskit-menu-toggler {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    color: #FFFFFF !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+  }
+
+  button.elementskit-menu-close.elementskit-menu-toggler:hover,
+  button.elementskit-menu-close.elementskit-menu-toggler:active {
+    background: #BE8C33 !important;
+    border-color: #BE8C33 !important;
+    transform: rotate(90deg) !important;
+  }
+
+  /* Navigation Links List */
+  .elementskit-menu-container .elementskit-navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 12px 0 0 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    flex-grow: 1 !important;
+  }
+
+  .elementskit-menu-container .elementskit-navbar-nav > li {
+    width: 100% !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .elementskit-menu-container .elementskit-navbar-nav > li > a.ekit-menu-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 22px !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #011B39 !important;
+    text-decoration: none !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
+  }
+
+  .elementskit-menu-container .elementskit-navbar-nav > li > a.ekit-menu-nav-link:hover,
+  .elementskit-menu-container .elementskit-navbar-nav > li > a.ekit-menu-nav-link:active {
+    background: #F8FAFC !important;
+    color: #BE8C33 !important;
+  }
+
+  .elementskit-menu-container .elementskit-submenu-indicator {
+    color: #94A3B8 !important;
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+    cursor: pointer !important;
+  }
+
+  /* Megamenu Panel Dropdown inside Drawer */
+  .elementskit-menu-container .elementskit-megamenu-panel {
+    display: none !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #F8FAFC !important;
+    padding: 10px 16px 14px 20px !important;
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .elementskit-menu-container .elementskit-dropdown-open > .elementskit-megamenu-panel,
+  .elementskit-menu-container li.open > .elementskit-megamenu-panel {
+    display: block !important;
+  }
+
+  .elementskit-menu-container .elementskit-megamenu-panel h2.elementor-icon-box-title a {
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    padding: 8px 6px !important;
+    display: block !important;
+    text-decoration: none !important;
+  }
+
+  .elementskit-menu-container .elementskit-megamenu-panel h2.elementor-heading-title {
+    font-size: 11.5px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: #BE8C33 !important;
+    font-weight: 700 !important;
+    margin-top: 10px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Backdrop Overlay */
+  .elementskit-menu-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(1, 27, 57, 0.65) !important;
+    backdrop-filter: blur(4px) !important;
+    z-index: 999990 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .elementskit-menu-overlay.active,
+  body.ar-menu-open .elementskit-menu-overlay {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Lock body scroll when menu is active */
+  body.ar-menu-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  /* Drawer Bottom Consultation Button */
+  .ar-drawer-cta-wrapper {
+    margin: 20px 20px 28px 20px !important;
+    padding-top: 14px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ar-drawer-cta-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 13px 20px !important;
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(190, 140, 51, 0.3) !important;
+    transition: background 0.2s ease !important;
+  }
+
+  .ar-drawer-cta-btn:hover {
+    background: #a07324 !important;
+    color: #FFFFFF !important;
+  }
+}
+
