@@ -2176,6 +2176,345 @@ h2.ar-cta-title,
     color: #011B39 !important;
 }
 
+
+/* ============================================================
+   PORTFOLIO CARD LAYOUT VARIATIONS (4 designs)
+   Strict Zero-Touch: Only applied to .ar-portfolio-card
+   ============================================================ */
+
+/* Remove any leftover empty meta rows */
+.ar-card-meta-row:empty { display: none; }
+
+/* --- BASE: Remove browser bar gap since we removed it from HTML --- */
+.ar-card-thumb-wrap {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+/* Consistent image height for all */
+.ar-card-img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+.ar-portfolio-card:hover .ar-card-img {
+    transform: scale(1.04);
+    filter: brightness(0.96);
+}
+
+/* Info wrap base */
+.ar-card-info-wrap {
+    padding: 20px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+/* Category badge - single pill */
+.ar-card-badge-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    padding: 4px 12px;
+    border-radius: 30px;
+    background: rgba(190, 140, 51, 0.1);
+    color: #BE8C33;
+    border: 1px solid rgba(190, 140, 51, 0.25);
+    width: fit-content;
+}
+
+/* Title */
+.ar-card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #011B39;
+}
+.ar-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+.ar-card-title a:hover { color: #BE8C33; }
+
+/* Subline */
+.ar-card-subline {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #5a6c7e;
+    margin: 0;
+    flex: 1;
+}
+
+/* Action bar: 2 buttons side by side */
+.ar-card-action-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+/* Primary CTA */
+.ar-card-primary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #011B39;
+    color: #FAF7F2 !important;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    flex: 1;
+    justify-content: center;
+}
+.ar-card-primary-cta:hover {
+    background: #BE8C33;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(190, 140, 51, 0.35);
+}
+
+/* Quick View button */
+.ar-card-quick-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: #011B39;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(1, 27, 57, 0.18);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+.ar-card-quick-btn:hover {
+    border-color: #BE8C33;
+    color: #BE8C33;
+    background: rgba(190, 140, 51, 0.06);
+}
+
+/* ==== VARIATION A: Clean Modern Card (image top, info below) ==== */
+.ar-card-v-a {
+    border-radius: 20px !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.ar-card-v-a .ar-card-thumb-wrap {
+    border-radius: 0;
+    margin: 0;
+}
+.ar-card-v-a .ar-card-img {
+    border-radius: 0;
+    height: 240px;
+}
+.ar-card-v-a .ar-card-info-wrap {
+    padding: 22px 24px 20px;
+    background: #ffffff;
+}
+.ar-card-v-a .ar-card-primary-cta {
+    background: #011B39;
+    flex: 1;
+}
+.ar-card-v-a:hover {
+    box-shadow: 0 20px 50px -10px rgba(1,27,57,0.16), 0 8px 24px rgba(190,140,51,0.12) !important;
+}
+
+/* ==== VARIATION B: Gold Accent Left Border Card ==== */
+.ar-card-v-b {
+    border-radius: 18px !important;
+    border-left: 4px solid #BE8C33 !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.ar-card-v-b .ar-card-thumb-wrap {
+    border-radius: 0;
+    margin: 0;
+    position: relative;
+}
+.ar-card-v-b .ar-card-img {
+    border-radius: 0;
+    height: 235px;
+}
+.ar-card-v-b .ar-card-info-wrap {
+    padding: 20px 22px 18px;
+    background: #FDFCFA;
+}
+.ar-card-v-b .ar-card-badge-pill {
+    background: rgba(190, 140, 51, 0.15);
+    color: #a07228;
+    border-color: rgba(190, 140, 51, 0.3);
+}
+.ar-card-v-b .ar-card-primary-cta {
+    background: #BE8C33;
+    flex: 1;
+}
+.ar-card-v-b .ar-card-primary-cta:hover {
+    background: #011B39;
+    box-shadow: 0 6px 20px rgba(1, 27, 57, 0.25);
+}
+.ar-card-v-b .ar-card-quick-btn {
+    border-color: rgba(190,140,51,0.4);
+    color: #BE8C33;
+}
+.ar-card-v-b .ar-card-quick-btn:hover {
+    background: rgba(190,140,51,0.1);
+    border-color: #BE8C33;
+}
+.ar-card-v-b:hover {
+    box-shadow: 0 20px 48px -8px rgba(190, 140, 51, 0.2), 0 6px 18px rgba(1,27,57,0.08) !important;
+}
+
+/* ==== VARIATION C: Dark Image Overlay Card ==== */
+.ar-card-v-c {
+    border-radius: 20px !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.ar-card-v-c .ar-card-thumb-wrap {
+    border-radius: 0;
+    margin: 0;
+    position: relative;
+}
+.ar-card-v-c .ar-card-img {
+    border-radius: 0;
+    height: 238px;
+    filter: brightness(0.88);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+.ar-card-v-c:hover .ar-card-img {
+    filter: brightness(0.95);
+    transform: scale(1.04);
+}
+.ar-card-v-c .ar-card-info-wrap {
+    padding: 20px 22px 18px;
+    background: #F8F9FA;
+    border-top: 3px solid #011B39;
+}
+.ar-card-v-c .ar-card-badge-pill {
+    background: #011B39;
+    color: #FAF7F2;
+    border-color: transparent;
+}
+.ar-card-v-c .ar-card-title {
+    font-size: 17px;
+}
+.ar-card-v-c .ar-card-primary-cta {
+    background: #011B39;
+    flex: 1;
+}
+.ar-card-v-c:hover {
+    border-color: rgba(1, 27, 57, 0.4) !important;
+    box-shadow: 0 22px 52px -8px rgba(1, 27, 57, 0.2) !important;
+}
+
+/* ==== VARIATION D: Minimal Flat Card with Underline Title ==== */
+.ar-card-v-d {
+    border-radius: 18px !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #FAFAFA !important;
+}
+.ar-card-v-d .ar-card-thumb-wrap {
+    border-radius: 14px;
+    margin: 14px 14px 0;
+    overflow: hidden;
+}
+.ar-card-v-d .ar-card-img {
+    border-radius: 14px;
+    height: 225px;
+}
+.ar-card-v-d .ar-card-info-wrap {
+    padding: 18px 20px 18px;
+}
+.ar-card-v-d .ar-card-badge-pill {
+    background: transparent;
+    color: #BE8C33;
+    border-color: rgba(190, 140, 51, 0.35);
+    font-size: 10.5px;
+}
+.ar-card-v-d .ar-card-title {
+    font-size: 17.5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(190, 140, 51, 0.2);
+}
+.ar-card-v-d .ar-card-primary-cta {
+    background: transparent;
+    color: #011B39 !important;
+    border: 2px solid #011B39;
+    flex: 1;
+}
+.ar-card-v-d .ar-card-primary-cta:hover {
+    background: #011B39;
+    color: #FAF7F2 !important;
+    box-shadow: 0 6px 20px rgba(1, 27, 57, 0.2);
+}
+.ar-card-v-d .ar-card-quick-btn {
+    border-color: rgba(190, 140, 51, 0.4);
+    color: #BE8C33;
+}
+.ar-card-v-d:hover {
+    background: #fff !important;
+    box-shadow: 0 18px 42px -8px rgba(190,140,51,0.15), 0 4px 14px rgba(0,0,0,0.05) !important;
+}
+
+/* Hover overlay button on thumbnail */
+.ar-card-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 27, 57, 0.62);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    border-radius: inherit;
+}
+.ar-card-thumb-wrap:hover .ar-card-thumb-overlay { opacity: 1; }
+.ar-thumb-hover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #BE8C33;
+    color: #ffffff !important;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.ar-thumb-hover-btn:hover {
+    background: #FAF7F2;
+    color: #011B39 !important;
+    transform: scale(1.04);
+}
+.ar-card-thumb-wrap { position: relative; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ar-card-action-bar { flex-direction: column; }
+    .ar-card-primary-cta, .ar-card-quick-btn { width: 100%; justify-content: center; }
+}
+
 </style>
 </head><body class="wp-singular page-template-default page page-id-2443 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-2443">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
@@ -2377,15 +2716,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
 
 <div class="ar-portfolio-grid-wrapper" id="ar-portfolio-container">
     <!-- Card: E V Landscape -->
-    <div class="ar-portfolio-card" id="proj-ev-landscape" data-category="architecture">
+    <div class="ar-portfolio-card ar-card-v-a" id="proj-ev-landscape" data-category="architecture">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">ev-landscape.vercel.app</div>
+<div class="ar-card-browser-url">ev-landscape.vercel.app</div>
             <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-status-pill" style="text-decoration: none;" title="Open Live Site: ev-landscape.vercel.app"><span class="ar-pulse-dot"></span> Live</a>
         </div>
         
@@ -2404,7 +2737,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">Landscape &amp; Construction</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-hammer"></i> CSLB #1071473</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/ev-landscape/">E V Landscape — CSLB Contractor</a>
@@ -2425,15 +2758,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: AAA Food Handler Training -->
-    <div class="ar-portfolio-card" id="proj-aaa-food" data-category="lms">
+    <div class="ar-portfolio-card ar-card-v-b" id="proj-aaa-food" data-category="lms">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">aaafoodhandler.com</div>
+<div class="ar-card-browser-url">aaafoodhandler.com</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2452,7 +2779,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">eLearning & LMS</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-graduation-cap"></i> LearnDash</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/aaa-food-handler/">AAA Food Handler Training</a>
@@ -2473,15 +2800,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: All Academic Helpers -->
-    <div class="ar-portfolio-card" id="proj-academic-helpers" data-category="edtech">
+    <div class="ar-portfolio-card ar-card-v-c" id="proj-academic-helpers" data-category="edtech">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">allacademichelpers.com</div>
+<div class="ar-card-browser-url">allacademichelpers.com</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2500,7 +2821,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">Academic & EdTech</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-book-open"></i> Custom Portal</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/academic-helpers/">All Academic Helpers</a>
@@ -2521,15 +2842,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: Scrap Buyer UAE -->
-    <div class="ar-portfolio-card" id="proj-scrap-uae" data-category="b2b">
+    <div class="ar-portfolio-card ar-card-v-d" id="proj-scrap-uae" data-category="b2b">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">scrapbuyeruae.ae</div>
+<div class="ar-card-browser-url">scrapbuyeruae.ae</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2548,7 +2863,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">Industrial & Logistics</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-industry"></i> B2B Portal</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/scrap-trading-uae/">Scrap Buyer UAE</a>
@@ -2569,15 +2884,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: Sanjrani Metal Scrap Bahrain -->
-    <div class="ar-portfolio-card" id="proj-sanjrani-metals" data-category="b2b">
+    <div class="ar-portfolio-card ar-card-v-a" id="proj-sanjrani-metals" data-category="b2b">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">sanjranimetals.com</div>
+<div class="ar-card-browser-url">sanjranimetals.com</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2596,7 +2905,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">Industrial & Logistics</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-cubes"></i> B2B Enterprise</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/sanjrani-metals-bahrain/">Sanjrani Metal Scrap Bahrain</a>
@@ -2617,15 +2926,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: InterCarrier Logistics Australia -->
-    <div class="ar-portfolio-card" id="proj-intercarrier" data-category="b2b">
+    <div class="ar-portfolio-card ar-card-v-b" id="proj-intercarrier" data-category="b2b">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">intercarrierlogistics.com.au</div>
+<div class="ar-card-browser-url">intercarrierlogistics.com.au</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2644,7 +2947,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">Industrial & Logistics</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-truck-moving"></i> Logistics Tech</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/intercarrier-logistics/">InterCarrier Logistics Australia</a>
@@ -2665,15 +2968,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: CF7 WOW Styler — Visual Form Customizer -->
-    <div class="ar-portfolio-card" id="proj-cf7-styler" data-category="plugins">
+    <div class="ar-portfolio-card ar-card-v-c" id="proj-cf7-styler" data-category="plugins">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">wordpress.org/plugins/cf7-styler/</div>
+<div class="ar-card-browser-url">wordpress.org/plugins/cf7-styler/</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2692,7 +2989,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">WordPress Plugins</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-puzzle-piece"></i> WP Plugin</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/cf7-custom-styler/">CF7 WOW Styler — Visual Form Customizer</a>
@@ -2713,15 +3010,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: WebinarIgnition — Interactive Webinar Funnel -->
-    <div class="ar-portfolio-card" id="proj-webinar-ignition" data-category="plugins">
+    <div class="ar-portfolio-card ar-card-v-d" id="proj-webinar-ignition" data-category="plugins">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">webinarignition.com</div>
+<div class="ar-card-browser-url">webinarignition.com</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2740,7 +3031,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">WordPress Plugins</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-video"></i> WP Plugin</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/webinar-ignition/">WebinarIgnition — Interactive Webinar Funnel</a>
@@ -2761,15 +3052,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <!-- Card: 5 Stars Rating Funnel — Reputation Booster -->
-    <div class="ar-portfolio-card" id="proj-5star-funnel" data-category="plugins">
+    <div class="ar-portfolio-card ar-card-v-a" id="proj-5star-funnel" data-category="plugins">
         <!-- Browser Frame Mockup Header -->
-        <div class="ar-card-browser-bar">
-            <div class="ar-card-browser-dots">
-                <span class="ar-cdot ar-cdot-red"></span>
-                <span class="ar-cdot ar-cdot-yellow"></span>
-                <span class="ar-cdot ar-cdot-green"></span>
-            </div>
-            <div class="ar-card-browser-url">5starsratingfunnel.com</div>
+<div class="ar-card-browser-url">5starsratingfunnel.com</div>
             <div class="ar-card-status-pill"><span class="ar-pulse-dot"></span> Live</div>
         </div>
         
@@ -2788,7 +3073,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         <div class="ar-card-info-wrap">
             <div class="ar-card-meta-row">
                 <span class="ar-card-badge-pill">WordPress Plugins</span>
-                <span class="ar-card-tech-pill"><i class="fas fa-star"></i> WP Plugin</span>
+                
             </div>
             <h3 class="ar-card-title">
                 <a href="/portfolio/five-star-funnel/">5 Stars Rating Funnel — Reputation Booster</a>
