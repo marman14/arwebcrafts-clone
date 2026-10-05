@@ -770,8 +770,11 @@ iframe {
   .elementskit-menu-container .elementskit-navbar-nav {
     display: flex !important;
     flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    align-content: flex-start !important;
     width: 100% !important;
-    padding: 12px 0 0 0 !important;
+    padding: 6px 0 0 0 !important;
     margin: 0 !important;
     list-style: none !important;
     flex-grow: 1 !important;
@@ -905,4 +908,14 @@ iframe {
     color: #FFFFFF !important;
   }
 }
+
+/* Prevent any mobile drawer elements from leaking into desktop header */
+@media (min-width: 1025px) {
+  .elementskit-nav-identity-panel,
+  .ar-drawer-cta-wrapper,
+  .ar-drawer-brand {
+    display: none !important;
+  }
+}
+
 

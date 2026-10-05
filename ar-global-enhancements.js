@@ -7,6 +7,9 @@
 (function () {
   'use strict';
 
+  if (window.__AR_GLOBAL_ENHANCEMENTS_INIT__) return;
+  window.__AR_GLOBAL_ENHANCEMENTS_INIT__ = true;
+
   function initMobileMenu() {
     var hamburger = document.querySelector('.elementskit-menu-hamburger');
     var menuContainer = document.querySelector('.elementskit-menu-container');
@@ -26,6 +29,8 @@
     if (!identityPanel) {
       identityPanel = document.createElement('div');
       identityPanel.className = 'elementskit-nav-identity-panel';
+      menuContainer.insertBefore(identityPanel, menuContainer.firstChild);
+    } else if (menuContainer.firstChild !== identityPanel) {
       menuContainer.insertBefore(identityPanel, menuContainer.firstChild);
     }
 
@@ -57,44 +62,49 @@
       menuContainer.appendChild(ctaWrap);
     }
 
-    function openMenu() {
+    function openMenu(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
       document.body.classList.add('ar-menu-open');
       menuContainer.classList.add('active');
       overlay.classList.add('active');
       hamburger.setAttribute('aria-expanded', 'true');
     }
 
-    function closeMenu() {
+    function closeMenu(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
       document.body.classList.remove('ar-menu-open');
       menuContainer.classList.remove('active');
       overlay.classList.remove('active');
       hamburger.setAttribute('aria-expanded', 'false');
     }
 
-    hamburger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
-      if (menuContainer.classList.contains('active') || document.body.classList.contains('ar-menu-open')) {
-        closeMenu();
-      } else {
-        openMenu();
+    function toggleMenu(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
       }
-    }, true);
+      if (menuContainer.classList.contains('active') || document.body.classList.contains('ar-menu-open')) {
+        closeMenu(e);
+      } else {
+        openMenu(e);
+      }
+    }
 
-    closeBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
-      closeMenu();
-    }, true);
+    // Expose global methods
+    window.openMobileDrawer = openMenu;
+    window.closeMobileDrawer = closeMenu;
+    window.toggleMobileDrawer = toggleMenu;
 
-    overlay.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
-      closeMenu();
-    }, true);
+    hamburger.addEventListener('click', toggleMenu, true);
+    closeBtn.addEventListener('click', closeMenu, true);
+    overlay.addEventListener('click', closeMenu, true);
 
     // Close when clicking normal navigation links
     var links = menuContainer.querySelectorAll('.elementskit-navbar-nav a:not(.elementskit-dropdown-has > a)');
@@ -123,7 +133,7 @@
     // Keyboard support: Escape closes menu
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && document.body.classList.contains('ar-menu-open')) {
-        closeMenu();
+        closeMenu(e);
       }
     });
   }
@@ -151,12 +161,14 @@
         iframe.style.height = '100%';
         iframe.style.minHeight = '700px';
         iframe.style.border = 'none';
+        iframe.style.display = 'block';
         widget.appendChild(iframe);
       } else {
         iframe.style.width = '100%';
         iframe.style.height = '100%';
         iframe.style.minHeight = '700px';
         iframe.style.border = 'none';
+        iframe.style.display = 'block';
       }
     });
 
