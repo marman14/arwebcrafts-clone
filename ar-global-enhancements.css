@@ -14,7 +14,7 @@
    ============================================================ */
 
 /* ============================================================
-   SECTION 1 — GLOBAL OVERFLOW PREVENTION (All Pages)
+   SECTION 1 — GLOBAL OVERFLOW PREVENTION
    Prevents horizontal scrolling / side-cutoff on any viewport
    ============================================================ */
 html, body {
@@ -23,24 +23,25 @@ html, body {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+/* Footer Logo Size & Standardization (Crisp, proportional, matching original) */
+.ekit-template-content-footer .elementor-element-d39b040 img,
+.ekit-template-content-footer .elementor-widget-image img {
+  max-width: 185px !important;
+  width: 185px !important;
+  height: auto !important;
+  display: block !important;
+  margin-bottom: 14px !important;
 }
 
-/* Elementor containers — prevent break-out */
-.elementor-container,
-.elementor-section,
-.elementor-inner-section,
-.elementor-widget-wrap {
-  max-width: 100% !important;
-  overflow: visible;
+.ekit-template-content-footer .elementor-heading-title {
+  color: #0A1C2E !important;
+  font-weight: 700 !important;
 }
 
-/* Images — ensure they never overflow */
-img, video, iframe, embed, object {
-  max-width: 100% !important;
-  height: auto;
+.ekit-template-content-footer .elementor-icon-list-item {
+  padding-bottom: 8px !important;
 }
+
 
 /* ============================================================
    SECTION 2 — GLOBAL MOBILE TYPOGRAPHY & BUTTON FIXES
