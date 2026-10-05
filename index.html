@@ -375,31 +375,85 @@ img.lazyload, img.lazyloaded, img[data-src] {
     overflow: hidden !important;
 }
 
-.elementor-element.elementor-element-5d61ecc > .elementor-container {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    padding: 0 15px !important;
-    box-sizing: border-box !important;
+@media (min-width: 768px) {
+  .elementor-element.elementor-element-5d61ecc > .elementor-container {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-around !important;
+      align-items: center !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      padding: 0 15px !important;
+      box-sizing: border-box !important;
+  }
+
+  .elementor-element.elementor-element-5d61ecc .elementor-column.elementor-col-25 {
+      width: 25% !important;
+      flex: 1 1 25% !important;
+      max-width: 25% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 0 10px !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+  }
 }
 
-.elementor-element.elementor-element-5d61ecc .elementor-column.elementor-col-25 {
-    width: 25% !important;
-    flex: 1 1 25% !important;
-    max-width: 25% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 0 10px !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-    position: relative !important;
+@media (max-width: 767px) {
+  .elementor-element.elementor-element-5d61ecc > .elementor-container {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px 12px !important;
+      padding: 16px 14px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+  }
+  .elementor-element.elementor-element-5d61ecc .elementor-column.elementor-col-25 {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 1 1 100% !important;
+      padding: 6px 4px !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+  }
+  .elementor-element.elementor-element-f881503::after,
+  .elementor-element.elementor-element-6d18a61::after,
+  .elementor-element.elementor-element-49fcbaf::after {
+      display: none !important;
+  }
+  .elementor-element.elementor-element-5d61ecc .elementor-counter-number-wrapper,
+  .elementor-element.elementor-element-5d61ecc .elementor-counter-number,
+  .elementor-element.elementor-element-5d61ecc .elementor-counter-number-prefix,
+  .elementor-element.elementor-element-5d61ecc .elementor-counter-number-suffix {
+      font-size: clamp(22px, 5.5vw, 28px) !important;
+  }
+  .elementor-element.elementor-element-5d61ecc .elementor-counter-title {
+      font-size: 12.5px !important;
+      white-space: normal !important;
+  }
+  .elementor-element-37ede7ff .elementor-container,
+  .elementor-element-410be97 .elementor-widget-wrap {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      max-width: 100% !important;
+  }
+  .elementor-element-2fbf4db .elementor-heading-title {
+      font-size: clamp(22px, 6.2vw, 32px) !important;
+      line-height: 1.25 !important;
+      padding: 0 4px !important;
+      text-align: center !important;
+  }
+  .elementor-element-4c2b6595 {
+      padding: 0 8px !important;
+      text-align: center !important;
+  }
 }
 
 /* White vertical dividers between columns 1, 2, and 3 - vertically centered, stops before top/bottom edge */
