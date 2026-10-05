@@ -976,7 +976,56 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
   }
-  </style>
+  
+  @media (max-width: 768px) {
+    .ar-main-navbar { padding-block: 8px !important; }
+    .ar-navbar-inner {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding-inline: 12px !important;
+    }
+    .ar-brand-logo img {
+      height: 32px !important;
+      max-width: 140px !important;
+      width: auto !important;
+    }
+    .ar-navbar-tagline {
+      display: none !important;
+    }
+    .ar-btn-consultation {
+      padding: 7px 12px !important;
+      font-size: 11.5px !important;
+      white-space: nowrap !important;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 7.5vw, 38px) !important;
+      line-height: 1.15 !important;
+    }
+    .hero .lede {
+      font-size: 14.5px !important;
+      line-height: 1.5 !important;
+    }
+    .dock {
+      display: flex !important;
+      padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+      gap: 8px !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      box-sizing: border-box !important;
+    }
+    .dock .btn {
+      min-height: 44px !important;
+      padding: 8px 10px !important;
+      font-size: 12px !important;
+      white-space: nowrap !important;
+    }
+    .dock .btn-primary { flex: 2 !important; }
+    .dock .btn-ghost { flex: 1 !important; }
+  }
+
+</style>
 </head>
 <body>
 

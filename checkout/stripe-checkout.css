@@ -904,3 +904,36 @@ html, body {
     padding: 11px 12px !important;
   }
 }
+
+/* Dedicated Mobile Containment & Overflow Prevention */
+@media (max-width: 768px) {
+  .ar-checkout-wrapper {
+    padding: 16px 12px 60px !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .ar-checkout-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .ar-checkout-hero h1 {
+    font-size: clamp(20px, 6.5vw, 28px) !important;
+    line-height: 1.25 !important;
+    word-break: normal !important;
+  }
+  .ar-checkout-hero p {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+    padding-inline: 4px !important;
+  }
+  .ar-trust-bar {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+}
