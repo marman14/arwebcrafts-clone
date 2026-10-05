@@ -2515,6 +2515,109 @@ h2.ar-cta-title,
     .ar-card-primary-cta, .ar-card-quick-btn { width: 100%; justify-content: center; }
 }
 
+
+/* ====================================================
+   CRITICAL FIX: New card structure overrides
+   The old base .ar-portfolio-card has padding:24px !important
+   which breaks our new flush-image layout.
+   These rules fix it for all 4 variations.
+   ==================================================== */
+
+/* Reset base card padding for all new variation cards */
+.ar-card-v-a,
+.ar-card-v-b,
+.ar-card-v-c,
+.ar-card-v-d {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* Variation D has inner padding around the image */
+.ar-card-v-d {
+    padding: 0 !important;
+}
+
+/* Ensure thumb wrap fills the card top properly */
+.ar-card-v-a .ar-card-thumb-wrap,
+.ar-card-v-b .ar-card-thumb-wrap,
+.ar-card-v-c .ar-card-thumb-wrap {
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+
+/* Info wrap gets the padding instead */
+.ar-card-v-a .ar-card-info-wrap,
+.ar-card-v-b .ar-card-info-wrap,
+.ar-card-v-c .ar-card-info-wrap {
+    padding: 20px 22px 18px !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+/* Variation D: image has padding inside card */
+.ar-card-v-d .ar-card-thumb-wrap {
+    margin: 14px 14px 0 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+}
+
+.ar-card-v-d .ar-card-info-wrap {
+    padding: 16px 18px 18px !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+/* Push action bar to bottom */
+.ar-card-action-bar {
+    margin-top: auto !important;
+    padding-top: 14px !important;
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+
+/* Make image cover the full width */
+.ar-card-v-a .ar-card-img,
+.ar-card-v-b .ar-card-img,
+.ar-card-v-c .ar-card-img {
+    width: 100% !important;
+    height: 230px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
+.ar-card-v-d .ar-card-img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+    display: block !important;
+}
+
+/* Fix top corners of card to match radius */
+.ar-card-v-a .ar-card-thumb-wrap,
+.ar-card-v-b .ar-card-thumb-wrap,
+.ar-card-v-c .ar-card-thumb-wrap {
+    border-radius: 20px 20px 0 0 !important;
+    overflow: hidden !important;
+}
+
+.ar-card-v-b .ar-card-thumb-wrap {
+    border-radius: 14px 14px 0 0 !important;
+}
+
+/* Hover overlay must be relative to thumb-wrap */
+.ar-card-thumb-wrap {
+    position: relative !important;
+}
+
 </style>
 </head><body class="wp-singular page-template-default page page-id-2443 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-2443">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
