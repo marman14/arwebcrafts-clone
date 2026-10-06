@@ -142,41 +142,33 @@
     var widgets = document.querySelectorAll('.calendly-inline-widget');
     if (widgets.length === 0) return;
 
-    widgets.forEach(function (widget) {
-      var url = widget.getAttribute('data-url') || 'https://calendly.com/arwebcrafts/30-mint?hide_gdpr_banner=1';
-      widget.style.minWidth = '320px';
-      widget.style.width = '100%';
-      widget.style.minHeight = '700px';
-      widget.style.height = '750px';
+    function cleanupDuplicates() {
+      widgets.forEach(function (widget) {
+        widget.style.minWidth = '320px';
+        widget.style.width = '100%';
+        widget.style.minHeight = '750px';
+        widget.style.display = 'block';
+        widget.style.position = 'relative';
 
-      var iframe = widget.querySelector('iframe');
-      if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.src = url;
-        iframe.width = '100%';
-        iframe.height = '100%';
-        iframe.frameBorder = '0';
-        iframe.title = 'Select a Date & Time - Calendly';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.minHeight = '700px';
-        iframe.style.border = 'none';
-        iframe.style.display = 'block';
-        widget.appendChild(iframe);
-      } else {
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.minHeight = '700px';
-        iframe.style.border = 'none';
-        iframe.style.display = 'block';
-      }
-    });
+        var iframes = widget.querySelectorAll('iframe');
+        if (iframes.length > 1) {
+          for (var i = 0; i < iframes.length; i++) {
+            if (!iframes[i].src.includes('embed_domain')) {
+              iframes[i].remove();
+            }
+          }
+        }
+      });
+    }
+
+    cleanupDuplicates();
+    setInterval(cleanupDuplicates, 500);
 
     // Dynamically adjust height if Calendly sends postMessage
     window.addEventListener('message', function (e) {
       if (e.data && e.data.event === 'calendly.page_height' && e.data.payload && e.data.payload.height) {
         widgets.forEach(function (w) {
-          var h = Math.max(700, parseInt(e.data.payload.height, 10));
+          var h = Math.max(750, parseInt(e.data.payload.height, 10));
           w.style.height = h + 'px';
           var ifr = w.querySelector('iframe');
           if (ifr) ifr.style.height = h + 'px';

@@ -34,18 +34,29 @@ iframe {
    CALENDLY INLINE WIDGET & BOOKING SLOTS FULL HEIGHT
    ============================================================ */
 .calendly-inline-widget,
-.calendly-inline-widget iframe,
 .elementor-widget-html .calendly-inline-widget,
+#appointmant .calendly-inline-widget {
+  width: 100% !important;
+  min-width: 320px !important;
+  min-height: 750px !important;
+  height: auto !important;
+  display: block !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.calendly-inline-widget iframe,
 .elementor-widget-html .calendly-inline-widget iframe,
-#appointmant .calendly-inline-widget,
 #appointmant iframe {
   width: 100% !important;
   min-width: 320px !important;
-  min-height: 700px !important;
-  height: 750px !important;
+  min-height: 750px !important;
+  height: 750px;
   display: block !important;
   border: none !important;
   box-sizing: border-box !important;
+  position: relative !important;
 }
 
 /* ============================================================
@@ -56,9 +67,10 @@ iframe {
 #appointmant,
 .elementor-element-7629475 {
   position: relative !important;
-  z-index: 10 !important;
-  margin-bottom: 30px !important;
+  z-index: 2 !important;
+  margin-bottom: 50px !important;
   clear: both !important;
+  overflow: visible !important;
 }
 
 .elementor-element-ac3f73a,
@@ -69,7 +81,7 @@ section.elementor-element-ac3f73a,
   bottom: auto !important;
   left: auto !important;
   right: auto !important;
-  margin-top: 40px !important;
+  margin-top: 50px !important;
   margin-bottom: 0 !important;
   clear: both !important;
   z-index: 1 !important;
