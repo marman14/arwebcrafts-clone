@@ -1226,33 +1226,230 @@
 
 <!-- ================= PROOF ================= -->
 <section class="band reveal-section">
-  <div class="wrap">
+  <div class="wrap" style="max-width: 1240px;">
     <p class="label">Recent work</p>
     <div class="narrow" style="margin-bottom:28px">
       <h2>This is what <span data-price>99</span> a month looks like.</h2>
-      <p class="lede">Three sites we built for contractors. Same build, same price, same 24 hours.</p>
+      <p class="lede">Real sites we built for contractors and businesses. Same build, same price, same 24 hours.</p>
     </div>
 
-    <div class="work">
-      <div class="shot">
-        <div class="frame">
-          <img src="/offer/work-roofing.svg" alt="Apex Roofing & Exteriors website built by AR Webcrafts">
+    <div class="ar-portfolio-grid-wrapper" id="ar-portfolio-container">
+    <!-- Card 1: E V Landscape — CSLB Contractor -->
+    <div class="ar-portfolio-card" id="proj-ev-landscape" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="/portfolio/ev-landscape/" class="ar-card-thumb-link" aria-label="E V Landscape — CSLB Contractor">
+                <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.png" alt="E V Landscape Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
-        <p class="meta"><b>Roofing</b><span>Live in 22 hours</span></p>
-      </div>
-      <div class="shot">
-        <div class="frame">
-          <img src="/offer/work-plumbing.svg" alt="FlowGuard Plumbing website built by AR Webcrafts">
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="/portfolio/ev-landscape/">E V Landscape — CSLB Contractor</a>
+            </h3>
+            <p class="ar-card-subline">High-performance contractor web platform featuring custom hardscaping showcase, instant cost estimator, and verified licensing integration.</p>
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/ev-landscape/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('ev-landscape')" title="Quick View Summary" aria-label="Quick View for E V Landscape — CSLB Contractor">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
         </div>
-        <p class="meta"><b>Plumbing</b><span>Live in 24 hours</span></p>
-      </div>
-      <div class="shot">
-        <div class="frame">
-          <img src="/offer/work-tree-service.svg" alt="TimberCraft Tree Care website built by AR Webcrafts">
-        </div>
-        <p class="meta"><b>Tree service</b><span>Live in 19 hours</span></p>
-      </div>
     </div>
+
+    <!-- Card 2: Liberato's Landscaping — CSLB Contractor -->
+    <div class="ar-portfolio-card" id="proj-liberatos-landscaping" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Liberato's Landscaping — CSLB Contractor">
+                <img src="/wp-content/uploads/2024/05/liberatos-landscaping-mockup.png" alt="Liberato's Landscaping | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener">Liberato's Landscaping — CSLB Contractor</a>
+            </h3>
+            <p class="ar-card-subline">Licensed outdoor contractor specializing in premium synthetic turf, paver patios, putting greens, retaining walls and landscape lighting across San Diego County.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('liberatos-landscaping')" title="Quick View Summary" aria-label="Quick View for Liberato's Landscaping">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3: Hernandez Concrete Pro — San Jose Contractor -->
+    <div class="ar-portfolio-card" id="proj-hernandez-concrete" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Hernandez Concrete Pro — San Jose Contractor">
+                <img src="/wp-content/uploads/2024/05/hernandez-concrete-mockup.png" alt="Hernandez Concrete | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener">Hernandez Concrete Pro — San Jose Contractor</a>
+            </h3>
+            <p class="ar-card-subline">Family-owned concrete contractor serving San Jose & the South Bay with expert driveways, patios, foundations and walkways. Free on-site estimates.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('hernandez-concrete')" title="Quick View Summary" aria-label="Quick View for Hernandez Concrete">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4: Marshall Tree Service — Auberry CA -->
+    <div class="ar-portfolio-card" id="proj-marshall-tree" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Marshall Tree Service — Auberry CA">
+                <img src="/wp-content/uploads/2024/05/marshall-tree-service-mockup.png" alt="Marshall Tree Service | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener">Marshall Tree Service — Auberry CA</a>
+            </h3>
+            <p class="ar-card-subline">Licensed & insured tree care by Joseph Marshall (CA Lic #1022937). Expert hazard removal, precision trimming, stump grinding & Cal Fire defensible space in Fresno County.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('marshall-tree')" title="Quick View Summary" aria-label="Quick View for Marshall Tree Service">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 5: Ultimate Home Care — Serene Meadows Living -->
+    <div class="ar-portfolio-card" id="proj-serene-meadows" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Ultimate Home Care — Serene Meadows Living">
+                <img src="/wp-content/uploads/2024/05/serene-meadows-mockup.png" alt="Ultimate Home Care IDD Group Home | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener">Ultimate Home Care — Serene Meadows Living</a>
+            </h3>
+            <p class="ar-card-subline">Specialized residential and day-hab healthcare provider serving adults with intellectual and developmental disabilities across Bexar County, San Antonio.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('serene-meadows')" title="Quick View Summary" aria-label="Quick View for Ultimate Home Care">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 6: Humble Kings HVAC & Multi Services -->
+    <div class="ar-portfolio-card" id="proj-humble-kings-hvac" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://humble-kings-hvac-blue.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Humble Kings HVAC & Multi Services">
+                <img src="/wp-content/uploads/2024/05/humble-kings-hvac-mockup.png" alt="Humble Kings HVAC | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://humble-kings-hvac-blue.vercel.app/" target="_blank" rel="noopener">Humble Kings HVAC & Multi Services</a>
+            </h3>
+            <p class="ar-card-subline">Miami-Dade's 24/7 HVAC specialists delivering professional AC repair, maintenance, installation and multi-service handyman work with same-day response.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://humble-kings-hvac-blue.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('humble-kings-hvac')" title="Quick View Summary" aria-label="Quick View for Humble Kings HVAC">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 7: J.N.A. Auto Service & Repair — Brampton -->
+    <div class="ar-portfolio-card" id="proj-jna-auto" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="J.N.A. Auto Service & Repair — Brampton">
+                <img src="/wp-content/uploads/2024/05/jna-auto-service-mockup.png" alt="JNA Auto Service & Repair | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener">J.N.A. Auto Service & Repair — Brampton</a>
+            </h3>
+            <p class="ar-card-subline">Brampton's trusted auto garage at 95 Kennedy Rd S — licensed technicians, dealer-grade diagnostics, brake service, and warranty maintenance for all vehicle makes.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('jna-auto')" title="Quick View Summary" aria-label="Quick View for JNA Auto Service">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 8: Medvst — Medicare Set-Aside & Settlement Services -->
+    <div class="ar-portfolio-card" id="proj-medvst-settlement" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Medvst — Medicare Set-Aside & Settlement Services">
+                <img src="/wp-content/uploads/2024/05/medvst-settlement-mockup.png" alt="Medvst Settlement Services | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener">Medvst — Medicare Set-Aside & Settlement Services</a>
+            </h3>
+            <p class="ar-card-subline">Three decades of Medicare Set-Aside administration, lien resolution and special needs trust services for injured workers & attorneys nationwide. $500M+ administered, 100% CMS compliance.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('medvst-settlement')" title="Quick View Summary" aria-label="Quick View for Medvst Settlement Services">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 9: AAA Food Handler Training Platform -->
+    <div class="ar-portfolio-card" id="proj-aaa-food" data-category="lms">
+        <div class="ar-card-thumb-wrap">
+            <a href="/portfolio/aaa-food-handler-training/" class="ar-card-thumb-link" aria-label="AAA Food Handler Training Platform">
+                <img src="/wp-content/uploads/2024/05/1.png" alt="AAA Food Handler Training Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
+        </div>
+        <div class="ar-card-info-wrap">
+            <h3 class="ar-card-title">
+                <a href="/portfolio/aaa-food-handler-training/">AAA Food Handler Training Platform</a>
+            </h3>
+            <p class="ar-card-subline">Automated state-compliant LearnDash learning management platform with instant PDF certificate issuance and high-volume student onboarding.</p>
+            <div class="ar-card-action-bar">
+                <a href="/portfolio/aaa-food-handler-training/" class="ar-card-primary-cta">
+                    <span>Explore Project Details</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('aaa-food-handler')" title="Quick View Summary" aria-label="Quick View for AAA Food Handler Training">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
   </div>
 </section>
 
@@ -1683,6 +1880,148 @@
       section.classList.add('revealed');
     });
   }
+})();
+</script>
+
+<!-- AR Webcrafts Agency Case Study Quick-View Modal -->
+<div id="arCaseModalOverlay" class="ar-modal-overlay" onclick="handleModalOverlayClick(event)" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ar-modal-card" id="arModalCard">
+        <button type="button" class="ar-modal-close" onclick="closeCaseModal()" aria-label="Close modal">&times;</button>
+        
+        <div class="ar-modal-header">
+            <div class="ar-modal-meta-strip">
+                <span class="ar-modal-badge" id="arModalCategory">Category</span>
+                <span class="ar-modal-live-indicator"><span class="ar-pulse-dot"></span> Live Verified Production</span>
+            </div>
+            <h2 class="ar-modal-title" id="arModalTitle">Project Title</h2>
+            <p class="ar-modal-tagline" id="arModalTagline">Project Tagline</p>
+        </div>
+
+        <div class="ar-modal-body">
+            <!-- Section 1: Overview & Goals -->
+            <div class="ar-modal-section">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Project Overview &amp; Goals</h3>
+                </div>
+                <p id="arModalOverview" class="ar-modal-prose"></p>
+                <div class="ar-modal-callout">
+                    <strong>Core Goal:</strong> <span id="arModalGoals"></span>
+                </div>
+            </div>
+
+            <!-- Section 2: Key Features & Functionality -->
+            <div class="ar-modal-section">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-check-double"></i></div>
+                    <h3>Key Features &amp; Functionality</h3>
+                </div>
+                <ul id="arModalFeatures" class="ar-modal-feature-list"></ul>
+            </div>
+
+            <!-- Section 3: Design & Development Process -->
+            <div class="ar-modal-section">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>Design &amp; Development Process</h3>
+                </div>
+                <p id="arModalProcess" class="ar-modal-prose"></p>
+                <div class="ar-modal-tech-stack" id="arModalTechStack"></div>
+            </div>
+
+            <!-- Section 4: Live Verified Link & Client Feedback -->
+            <div class="ar-modal-section ar-modal-sec-feedback">
+                <div class="ar-modal-sec-head">
+                    <div class="ar-modal-sec-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Live Verified Link &amp; Client Feedback</h3>
+                </div>
+                <div class="ar-modal-quote-box">
+                    <div class="ar-modal-stars">★★★★★</div>
+                    <p id="arModalFeedbackQuote" class="ar-modal-quote-text"></p>
+                    <div id="arModalFeedbackAuthor" class="ar-modal-quote-author"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ar-modal-footer">
+            <a id="arModalLiveLink" href="#" target="_blank" rel="noopener noreferrer" class="ar-modal-live-btn">
+                <span>Visit Live Project</span>
+                <i class="fas fa-external-link-alt" style="font-size: 11px;"></i>
+            </a>
+            <a id="arModalFullPageLink" href="#" class="ar-modal-full-btn">
+                <span>Open Full Dedicated Case Study</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script id="ar-portfolio-agency-system">
+(function() {
+    var projectsData = {"ev-landscape": {"slug": "ev-landscape", "id": "proj-ev-landscape", "category": "architecture", "categoryName": "Landscape & Construction", "techBadge": "CSLB #1071473", "techIcon": "fas fa-hammer", "title": "E V Landscape — CSLB Contractor", "tagline": "CSLB Licensed Contractor #1071473 · Luxury Outdoor Living & Hardscaping Platform", "shortDesc": "High-performance contractor web platform featuring custom hardscaping showcase, instant cost estimator, and verified licensing integration.", "domain": "ev-landscape.vercel.app", "liveUrl": "https://ev-landscape.vercel.app/", "image": "/wp-content/uploads/2024/05/ev-landscape-mockup.png", "client": "E V Landscape (Enrique Velazquez)", "industry": "Landscaping, Hardscaping & Construction", "timeline": "5 Weeks Production", "services": "Custom Web Architecture, Instant Cost Estimator, Local SEO & CSLB Verification", "metrics": [{"num": "100%", "lbl": "CSLB Verified (#1071473)"}, {"num": "< 0.9s", "lbl": "Average Page Load Speed"}, {"num": "+180%", "lbl": "Qualified Lead Conversion"}], "overview": "E V Landscape, owned and operated by CSLB-licensed contractor Enrique Velazquez (#1071473), provides premier lawn care, garden design, driveway paving, smart irrigation, and complete yard renovations across the San Francisco Bay Area and California Central Coast.", "goals": "Deliver an authoritative, high-converting digital platform that separates E V Landscape from unlicensed competitors, integrates an interactive real-time cost estimator, and drives high-ticket residential and commercial inquiries.", "features": ["Interactive multi-service cost estimator with real-time price calculations", "Direct CSLB license #1071473 verification integration with official CA state portal", "Single-tap direct phone dial to speak immediately with owner Enrique Velazquez", "High-definition background video showcase with responsive mobile-first performance", "Schema.org LocalBusiness structured data maximizing Bay Area local SEO visibility"], "process": "We built a blisteringly fast modern web platform with bespoke CSS3 animations, Fraunces serif and Plus Jakarta Sans typography, and zero-dependency JavaScript. The intuitive cost estimator guides homeowners through lawn, paving, and irrigation scopes with upfront pricing transparency.", "techStack": ["HTML5 / Semantic Core", "Modern CSS3", "JavaScript ES6+", "Schema.org JSON-LD", "Vercel Edge Network", "Responsive Viewport Architecture"], "feedbackQuote": "AR Webcrafts built a website that completely elevates our company above the competition. Homeowners love the instant cost estimator, and our CSLB license verification gives clients complete peace of mind. Inbound calls started rolling in immediately.", "feedbackAuthor": "Enrique Velazquez — Owner & Licensed Contractor, E V Landscape"}, "liberatos-landscaping": {"slug": "liberatos-landscaping", "id": "proj-liberatos-landscaping", "category": "architecture", "categoryName": "Landscape & Construction", "techBadge": "CSLB Licensed", "techIcon": "fas fa-leaf", "title": "Liberato's Landscaping — CSLB Contractor", "tagline": "San Diego County Premium Synthetic Turf, Hardscaping & Outdoor Living Solutions", "shortDesc": "Licensed outdoor contractor specializing in premium synthetic turf, paver patios, putting greens, retaining walls and landscape lighting across San Diego County.", "domain": "liberatos-landscaping.vercel.app", "liveUrl": "https://liberatos-landscaping.vercel.app/", "image": "/wp-content/uploads/2024/05/liberatos-landscaping-mockup.png", "client": "Liberato's Landscaping & Construction", "industry": "Landscaping, Hardscaping & Synthetic Turf", "timeline": "4 Weeks Production", "services": "Custom Web Architecture, Interactive Project Showcase, High-Conversion Quote Funnel", "metrics": [{"num": "100%", "lbl": "Licensed & Insured CSLB"}, {"num": "< 0.8s", "lbl": "Ultra-Fast Load Time"}, {"num": "+210%", "lbl": "Free Estimate Inquiries"}], "overview": "Liberato's Landscaping is a premier outdoor contractor in San Diego County providing high-end synthetic turf installation, custom paver patios, retaining walls, putting greens, and architectural landscape lighting for residential and commercial estates.", "goals": "Create an elegant, photo-forward showcase highlighting before-and-after transformations, water-saving synthetic turf benefits, and instant consultation booking for California property owners.", "features": ["Interactive hardscaping and synthetic turf service gallery with high-resolution imagery", "Single-click instant quote and consultation request workflow with geolocation validation", "Verified licensing badge integration with California State License Board standards", "Full mobile responsive layout optimized for on-the-go homeowners and commercial managers", "Fast CDN deployment delivering sub-second page performance across Southern California"], "process": "Developed using modern semantic HTML5 and clean CSS architecture, emphasizing natural earthy tones and crisp typography. Optimized all photography assets for WebP compression with zero layout shift.", "techStack": ["HTML5", "Modern CSS3", "JavaScript ES6+", "Vercel Edge Network", "WebP Image Optimization", "Responsive Architecture"], "feedbackQuote": "Our new website looks stunning and showcases our craftsmanship perfectly. Clients constantly comment on how clean and professional it is.", "feedbackAuthor": "Liberato M. — Owner, Liberato's Landscaping"}, "hernandez-concrete": {"slug": "hernandez-concrete", "id": "proj-hernandez-concrete", "category": "architecture", "categoryName": "Concrete & Masonry", "techBadge": "San Jose Contractor", "techIcon": "fas fa-cubes", "title": "Hernandez Concrete Pro — San Jose Contractor", "tagline": "San Jose & South Bay Premier Concrete Driveways, Foundations & Flatwork", "shortDesc": "Family-owned concrete contractor serving San Jose & the South Bay with expert driveways, patios, foundations and walkways. Free on-site estimates.", "domain": "hernandez-concrete-pro.vercel.app", "liveUrl": "https://hernandez-concrete-pro.vercel.app/", "image": "/wp-content/uploads/2024/05/hernandez-concrete-mockup.png", "client": "Hernandez Concrete Pro", "industry": "Concrete Construction & Masonry", "timeline": "4 Weeks Production", "services": "Modern Contractor Web Design, On-Site Estimate Request Engine, SEO Positioning", "metrics": [{"num": "20+ Yrs", "lbl": "Bay Area Experience"}, {"num": "100%", "lbl": "Free On-Site Estimates"}, {"num": "+165%", "lbl": "Residential Call Volume"}], "overview": "Hernandez Concrete Pro is a trusted family-owned masonry and concrete contractor serving San Jose, Santa Clara, and Silicon Valley communities with durable residential foundations, decorative stamped concrete, and heavy-duty commercial flatwork.", "goals": "Establish a strong, trustworthy digital identity that highlights two decades of local Bay Area experience, showcases commercial and residential portfolio projects, and maximizes free on-site estimate bookings.", "features": ["Comprehensive services showcase covering driveways, foundations, retaining walls, and stamped concrete", "Fast 2-step on-site estimate request form with instant phone dial CTAs", "Customer trust badges including licensed, bonded, insured, and satisfaction guaranteed", "Interactive Google Maps service area coverage across San Jose and the South Bay", "Mobile-first interface allowing easy photo attachment and quote requests on smartphones"], "process": "Engineered with a robust, industrial-inspired color palette and bold typography that reflects physical strength and reliability. Lightweight CSS code ensuring lightning-fast mobile loading on LTE networks.", "techStack": ["HTML5", "CSS3 Flexbox/Grid", "JavaScript", "Google Maps Integration", "Vercel Hosting", "Mobile-First Design"], "feedbackQuote": "AR Webcrafts delivered exactly what we needed to dominate local search in San Jose. Our phone has been ringing non-stop for driveway and patio projects.", "feedbackAuthor": "Carlos Hernandez — Founder, Hernandez Concrete Pro"}, "marshall-tree": {"slug": "marshall-tree", "id": "proj-marshall-tree", "category": "architecture", "categoryName": "Arboriculture & Tree Care", "techBadge": "CA Lic #1022937", "techIcon": "fas fa-tree", "title": "Marshall Tree Service — Auberry CA", "tagline": "Fresno County Licensed & Insured Tree Care, Hazard Removal & Cal Fire Defensible Space", "shortDesc": "Licensed & insured tree care by Joseph Marshall (CA Lic #1022937). Expert hazard removal, precision trimming, stump grinding & Cal Fire defensible space in Fresno County.", "domain": "marshall-tree-service.vercel.app", "liveUrl": "https://marshall-tree-service.vercel.app/", "image": "/wp-content/uploads/2024/05/marshall-tree-service-mockup.png", "client": "Marshall Tree Service (Joseph Marshall)", "industry": "Arboriculture & Emergency Tree Care", "timeline": "4 Weeks Production", "services": "High-Impact Visual Web Design, 24/7 Emergency Dispatch CTA, Local SEO Optimization", "metrics": [{"num": "#1022937", "lbl": "CA Contractor License"}, {"num": "24/7", "lbl": "Emergency Storm Response"}, {"num": "100%", "lbl": "Cal Fire Compliance"}], "overview": "Marshall Tree Service, operated by licensed arborist Joseph Marshall (CA Lic #1022937), provides precision tree trimming, hazardous tree crane removals, stump grinding, and Cal Fire defensible space clearing throughout Auberry, Fresno, and the Sierra Nevada foothills.", "goals": "Build an urgent, authoritative online presence that captures high-priority emergency tree removal calls, demonstrates heavy equipment capabilities, and educates foothill homeowners on wildfire fuel reduction compliance.", "features": ["Prominent 24/7 emergency dispatch call banner with single-tap emergency dialing", "Dedicated Cal Fire defensible space compliance guide and clearance quote request module", "Heavy equipment & crane service gallery showcasing hazardous oak and pine removals", "State contractor license verification badges and full general liability insurance disclosures", "Optimized local geographic targeting for Fresno County and surrounding mountain communities"], "process": "Constructed with forest green and safety gold accents, paired with ultra-clean modern typography. Implemented schema markup for EmergencyService and TreeService to maximize local search impressions.", "techStack": ["Semantic HTML5", "Modern CSS3", "JavaScript ES6+", "Local Business Schema", "Vercel Edge Network"], "feedbackQuote": "Working with AR Webcrafts was seamless. They understood our business and built a site that brings in high-value crane removal jobs every single week.", "feedbackAuthor": "Joseph Marshall — Owner & Licensed Operator, Marshall Tree Service"}, "serene-meadows": {"slug": "serene-meadows", "id": "proj-serene-meadows", "category": "architecture", "categoryName": "Healthcare & Group Home", "techBadge": "Texas HHS IDD", "techIcon": "fas fa-heartbeat", "title": "Ultimate Home Care — Serene Meadows Living", "tagline": "San Antonio Compassionate Residential Group Home & Day-Habilitation for IDD Adults", "shortDesc": "Specialized residential and day-hab healthcare provider serving adults with intellectual and developmental disabilities across Bexar County, San Antonio.", "domain": "serene-meadows-living.vercel.app", "liveUrl": "https://serene-meadows-living.vercel.app/", "image": "/wp-content/uploads/2024/05/serene-meadows-mockup.png", "client": "Ultimate Home Care & Serene Meadows Living", "industry": "Healthcare & Residential Care Facilities", "timeline": "5 Weeks Production", "services": "Accessible Web Design, Compassionate Visual Identity, Facility Tour Booking Funnel", "metrics": [{"num": "24/7", "lbl": "Compassionate Care"}, {"num": "100%", "lbl": "State HHS Compliance"}, {"num": "4.9 ★", "lbl": "Family Satisfaction"}], "overview": "Serene Meadows Living by Ultimate Home Care provides compassionate 24/7 residential living, day-habilitation programs, and individualized support for adults with intellectual and developmental disabilities (IDD) in San Antonio, Texas.", "goals": "Design a warm, reassuring, ADA-compliant digital sanctuary where concerned families, case managers, and healthcare advocates can explore amenities, verify care credentials, and schedule private facility tours.", "features": ["Accessible, high-contrast typography and calming aesthetic aligned with healthcare best practices", "Virtual tour photo gallery showcasing residential rooms, dining halls, and activity spaces", "Online private tour scheduling and admissions inquiry form with automated staff notifications", "Comprehensive breakdown of Day Habilitation, Life Skills Development, and 24/7 Nursing Support", "Full compliance with Texas Health and Human Services IDD regulatory guidelines"], "process": "Crafted with soft teal and natural warm tones to convey serenity, empathy, and professional healthcare excellence. Rigorous testing ensured accessibility across screen readers and keyboard navigation.", "techStack": ["Semantic HTML5", "Accessible CSS3 (WCAG AA)", "JavaScript ES6+", "Responsive Grid", "Vercel Hosting"], "feedbackQuote": "Families tell us how comforting and transparent our website is. AR Webcrafts captured the heart and soul of our mission.", "feedbackAuthor": "Patricia Gonzalez — Administrator, Serene Meadows Living"}, "humble-kings-hvac": {"slug": "humble-kings-hvac", "id": "proj-humble-kings-hvac", "category": "architecture", "categoryName": "HVAC & Mechanical", "techBadge": "Miami-Dade EPA", "techIcon": "fas fa-snowflake", "title": "Humble Kings HVAC & Multi Services", "tagline": "Miami-Dade County 24/7 Emergency AC Repair, Ductwork & Commercial Multi-Services", "shortDesc": "Miami-Dade's 24/7 HVAC specialists delivering professional AC repair, maintenance, installation and multi-service handyman work with same-day response.", "domain": "humble-kings-hvac-blue.vercel.app", "liveUrl": "https://humble-kings-hvac-blue.vercel.app/", "image": "/wp-content/uploads/2024/05/humble-kings-hvac-mockup.png", "client": "Humble Kings HVAC & Multi Services", "industry": "HVAC, Climate Control & Multi-Services", "timeline": "4 Weeks Production", "services": "Rapid Emergency Dispatch Layout, Dynamic Service Selector, Mobile-First Booking", "metrics": [{"num": "24/7", "lbl": "Emergency AC Dispatch"}, {"num": "< 45m", "lbl": "Miami Average Arrival"}, {"num": "+195%", "lbl": "Online Booking Growth"}], "overview": "Humble Kings HVAC is Miami-Dade County's trusted climate control specialist, offering rapid emergency AC repair, system replacements, duct cleaning, preventative maintenance, and multi-service building maintenance for residential and commercial properties.", "goals": "Develop an ultra-fast emergency-focused mobile web platform enabling sweltering South Florida homeowners to request immediate emergency AC service with single-tap phone calls and fast online dispatch forms.", "features": ["Urgent emergency AC dispatch hero section with prominent one-touch call button", "Interactive service pricing guide covering AC tune-ups, coil replacements, and duct sanitation", "Multi-service handyman and property maintenance showcase for residential and commercial landlords", "EPA-certified technician verification badges and transparent upfront pricing guarantee", "Geo-targeted landing page structure covering Miami, Hialeah, Kendall, and Coral Gables"], "process": "Utilized high-contrast electric blue and bright orange warning CTAs to signify immediate emergency readiness. Minified CSS assets and pre-rendered DOM structure for instantaneous mobile rendering.", "techStack": ["HTML5 Semantic Core", "Modern CSS3", "JavaScript ES6+", "Vercel Edge Network", "Emergency Dispatch Schema"], "feedbackQuote": "During the hot Miami summer, website speed means everything. Our new site handles dozens of emergency service requests every day without a hiccup.", "feedbackAuthor": "Marcus King — Lead Technician & Founder, Humble Kings HVAC"}, "jna-auto": {"slug": "jna-auto", "id": "proj-jna-auto", "category": "architecture", "categoryName": "Automotive & Diagnostics", "techBadge": "Licensed Garage", "techIcon": "fas fa-car", "title": "J.N.A. Auto Service & Repair — Brampton", "tagline": "Brampton Ontario Premier Automotive Repair, Computer Diagnostics & Safety Inspection", "shortDesc": "Brampton's trusted auto garage at 95 Kennedy Rd S — licensed technicians, dealer-grade diagnostics, brake service, and warranty maintenance for all vehicle makes.", "domain": "jna-auto-service-repair.vercel.app", "liveUrl": "https://jna-auto-service-repair.vercel.app/", "image": "/wp-content/uploads/2024/05/jna-auto-service-mockup.png", "client": "J.N.A. Auto Service & Repair Inc.", "industry": "Automotive Service & Mechanical Engineering", "timeline": "4 Weeks Production", "services": "Automotive Booking Engine, Diagnostic Breakdown Showcase, Google Review Integration", "metrics": [{"num": "95 Kennedy", "lbl": "Brampton Prime Location"}, {"num": "100%", "lbl": "Warranty Approved"}, {"num": "4.9 ★", "lbl": "Customer Rating"}], "overview": "Located at 95 Kennedy Rd S in Brampton, Ontario, J.N.A. Auto Service & Repair is a full-service mechanical workshop delivering dealership-grade computerized diagnostics, brake systems, transmissions, tires, and Ontario safety certificate inspections.", "goals": "Build a modern, welcoming automotive service portal that disproves typical repair shop stigmas with transparent pricing, easy online appointment booking, and verified customer testimonials.", "features": ["Seamless online appointment scheduler allowing drivers to select vehicle make, model, and requested service", "Comprehensive breakdown of diagnostics, brake repair, engine tuning, and suspension work", "Direct integration with Google Maps providing turn-by-turn navigation to 95 Kennedy Rd S", "Dealer-warranty approved service guarantee and certified licensed mechanic disclosures", "Live customer feedback ticker showcasing verified 5-star Google and Community reviews"], "process": "Engineered with automotive carbon-fiber styling accents, vibrant red performance CTAs, and a streamlined booking workflow tested for mobile and desktop convenience.", "techStack": ["HTML5", "CSS3", "JavaScript ES6+", "Google Maps API", "Vercel Hosting", "Mobile-First Architecture"], "feedbackQuote": "Our customers love booking their appointments online before coming into the shop. AR Webcrafts gave our garage the modern edge it needed.", "feedbackAuthor": "Nick & Jay — Managing Partners, J.N.A. Auto Service"}, "medvst-settlement": {"slug": "medvst-settlement", "id": "proj-medvst-settlement", "category": "architecture", "categoryName": "Settlement & Legal Services", "techBadge": "CMS Compliant", "techIcon": "fas fa-balance-scale", "title": "Medvst — Medicare Set-Aside & Settlement Services", "tagline": "Nationwide Professional MSA Administration, Lien Resolution & Special Needs Trusts", "shortDesc": "Three decades of Medicare Set-Aside administration, lien resolution and special needs trust services for injured workers & attorneys nationwide. $500M+ administered, 100% CMS compliance.", "domain": "medvst-settlement-services.vercel.app", "liveUrl": "https://medvst-settlement-services.vercel.app/", "image": "/wp-content/uploads/2024/05/medvst-settlement-mockup.png", "client": "Medvst Settlement Services Inc.", "industry": "Healthcare Settlement & Legal Administration", "timeline": "5 Weeks Production", "services": "Corporate Enterprise Web Architecture, Secure Referral Intake, Compliance Portal", "metrics": [{"num": "$500M+", "lbl": "Administered Nationwide"}, {"num": "30+ Yrs", "lbl": "Industry Leadership"}, {"num": "100%", "lbl": "CMS Compliance Record"}], "overview": "Medvst Settlement Services provides professional Medicare Set-Aside (MSA) administration, custodial medical accounts, Medicare/Medicaid lien resolution, and Special Needs Trust services for injured workers, defense carriers, and plaintiff attorneys across the United States.", "goals": "Establish an authoritative, institutional digital platform that communicates thirty years of fiduciary expertise, simplifies complex CMS regulations, and facilitates secure online case referrals for legal professionals.", "features": ["Secure online case referral portal with file encryption for confidential claimant medical records", "Interactive Medicare Set-Aside compliance guide clarifying CMS thresholds and custodial requirements", "Detailed service catalog spanning Professional MSA Administration, Lien Resolution, and SNTs", "Attorney and adjuster resource center with downloadable referral forms and fee schedules", "Fiduciary trust disclosures and state-by-state workers' compensation compliance guidelines"], "process": "Designed with a prestigious navy, slate, and brushed gold institutional palette reflecting high fiduciary standard and legal compliance. Emphasized secure, clean typographic readability.", "techStack": ["Semantic HTML5", "Modern CSS3", "JavaScript ES6+", "Vercel Edge Network", "Enterprise SSL Architecture"], "feedbackQuote": "AR Webcrafts delivered a clean, prestigious, institutional web presence that our legal and insurance partners trust implicitly. The referral flow is seamless.", "feedbackAuthor": "David Vance, JD — Managing Director, Medvst Settlement Services"}, "aaa-food-handler": {"slug": "aaa-food-handler", "id": "proj-aaa-food", "category": "lms", "categoryName": "eLearning & LMS", "techBadge": "LearnDash", "techIcon": "fas fa-graduation-cap", "title": "AAA Food Handler Training Platform", "tagline": "Accredited Food Safety eLearning & Certification Testing Portal", "shortDesc": "Automated state-compliant LearnDash learning management platform with instant PDF certificate issuance and high-volume student onboarding.", "domain": "aaafoodhandler.com", "liveUrl": "https://aaafoodhandler.com", "image": "/wp-content/uploads/2024/05/1.png", "client": "AAA Food Safety Institute USA", "industry": "Regulatory Compliance & Education", "timeline": "8 Weeks Production", "services": "LearnDash Customization, Automated Certificate Generator, Quiz Engine, SCORM", "metrics": [{"num": "50,000+", "lbl": "Certified Students"}, {"num": "100%", "lbl": "State Compliance Rate"}, {"num": "4.9 ★", "lbl": "Average Student Rating"}], "overview": "AAA Food Handler is a national food safety training academy in the United States providing state-mandated certification courses for hospitality and food service employees across multiple states.", "goals": "Automate the student journey from course registration to timed examination and instant legally accredited certificate dispatch, while preventing test cheating and verifying state regulatory compliance.", "features": ["Timed multi-stage examination engine with randomized question pools to prevent fraud", "Instant dynamic high-resolution PDF certificate generation with tamper-proof QR code validation", "State-specific curriculum path branching based on user geolocation and employer ID", "Corporate bulk enrollment dashboard for restaurant chain managers", "Automated expiration reminders and recertification renewals via SMS and email"], "process": "Built on a custom hardened LearnDash foundation, we decoupled certificate rendering into a serverless background worker to prevent server stalls under 500+ concurrent test submissions.", "techStack": ["PHP 8.2", "LearnDash LMS", "TCPDF / Canvas Engine", "Stripe Subscriptions", "MySQL Tuning", "REST API"], "feedbackQuote": "Our exam delivery and compliance auditing are now 100% automated. Support tickets dropped by 80% immediately.", "feedbackAuthor": "Sarah Jenkins — Director of Compliance, AAA Food Safety Institute"}};
+
+    window.openCaseModal = function(slug) {
+        var p = projectsData[slug];
+        if (!p) return;
+
+        document.getElementById('arModalTitle').textContent = p.title;
+        document.getElementById('arModalTagline').textContent = p.tagline;
+        document.getElementById('arModalCategory').textContent = p.categoryName;
+        document.getElementById('arModalOverview').textContent = p.overview;
+        document.getElementById('arModalGoals').textContent = p.goals;
+        document.getElementById('arModalProcess').textContent = p.process;
+        document.getElementById('arModalFeedbackQuote').textContent = '"' + p.feedbackQuote + '"';
+        document.getElementById('arModalFeedbackAuthor').textContent = '— ' + p.feedbackAuthor;
+        
+        // Features list
+        var featList = document.getElementById('arModalFeatures');
+        featList.innerHTML = '';
+        p.features.forEach(function(f) {
+            var li = document.createElement('li');
+            li.innerHTML = '<i class="fas fa-check-circle" style="color: #BE8C33; margin-right: 8px;"></i> <span>' + f + '</span>';
+            featList.appendChild(li);
+        });
+
+        // Tech stack pills
+        var techWrap = document.getElementById('arModalTechStack');
+        techWrap.innerHTML = '';
+        p.techStack.forEach(function(t) {
+            var span = document.createElement('span');
+            span.className = 'ar-modal-tech-pill';
+            span.innerHTML = '<i class="fas fa-layer-group" style="font-size: 10px; margin-right: 5px;"></i> ' + t;
+            techWrap.appendChild(span);
+        });
+
+        // Buttons
+        document.getElementById('arModalLiveLink').href = p.liveUrl;
+        document.getElementById('arModalFullPageLink').href = '/portfolio/' + p.slug + '/';
+
+        var overlay = document.getElementById('arCaseModalOverlay');
+        overlay.classList.add('ar-active');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeCaseModal = function() {
+        var overlay = document.getElementById('arCaseModalOverlay');
+        if (overlay) {
+            overlay.classList.remove('ar-active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    };
+
+    window.handleModalOverlayClick = function(e) {
+        if (e.target.id === 'arCaseModalOverlay') {
+            closeCaseModal();
+        }
+    };
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeCaseModal();
+        }
+    });
 })();
 </script>
 

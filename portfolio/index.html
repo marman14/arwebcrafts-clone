@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /> <script data-cfasync="false" data-pagespeed-no-defer>var pys_datalayer_name = "dataLayer";
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /> <script data-cfasync="false" data-pagespeed-no-defer>var pys_datalayer_name = "dataLayer";
 	window["dataLayer"] = window["dataLayer"] || [];
 	(function(){var l=window["dataLayer"],i;
 	for(i=l.length;i--;){if(l[i]){if(l[i][0]==="consent"){if(l[i][1]==="default"){return;}}}}
@@ -1723,45 +1723,15 @@ h2.ar-cta-title,
     transform: scale(1.04) !important;
 }
 
-.ar-card-thumb-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    background: rgba(1, 27, 57, 0.55) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
-    z-index: 5 !important;
-}
-
-.ar-portfolio-card:hover .ar-card-thumb-overlay {
-    opacity: 1 !important;
-}
-
-.ar-thumb-hover-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    background: #BE8C33 !important;
-    color: #FFFFFF !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    padding: 10px 22px !important;
-    border-radius: 50px !important;
-    text-decoration: none !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
-    transform: translateY(8px) !important;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-}
-
+/* Zero-Blur & Clean Display */
+.ar-card-thumb-overlay,
+.ar-thumb-hover-btn,
+.ar-portfolio-card:hover .ar-card-thumb-overlay,
 .ar-portfolio-card:hover .ar-thumb-hover-btn {
-    transform: translateY(0) !important;
-}
-
-.ar-thumb-hover-btn:hover {
-    background: #D8A54A !important;
-    color: #FFFFFF !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 /* Card Content Area - Clean Spacing & Docked Bottom */
@@ -2235,50 +2205,33 @@ h2.ar-cta-title,
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.ar-portfolio-card:hover .ar-card-img {
-    transform: scale(1.04) !important;
-}
-
-/* Hover Action Overlay */
-.ar-card-thumb-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    background: rgba(1, 27, 57, 0.6) !important;
-    backdrop-filter: blur(4px) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
-    z-index: 5 !important;
-}
-
-.ar-portfolio-card:hover .ar-card-thumb-overlay {
-    opacity: 1 !important;
-}
-
-.ar-thumb-hover-btn {
-    background: #BE8C33 !important;
-    color: #FFFFFF !important;
-    font-size: 13.5px !important;
-    font-weight: 700 !important;
-    padding: 11px 22px !important;
-    border-radius: 9999px !important;
+/* Card Thumbnail Link & Image (Zero Blur, Always Clean) */
+.ar-card-thumb-link {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
     text-decoration: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    transform: translateY(10px) !important;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease !important;
-    box-shadow: 0 8px 20px rgba(190, 140, 51, 0.4) !important;
+    overflow: hidden !important;
 }
 
+.ar-portfolio-card:hover .ar-card-img {
+    transform: scale(1.02) !important;
+    filter: none !important;
+}
+
+/* STRICT FIX: Completely remove hover blur, overlay and hover button */
+.ar-card-thumb-overlay,
+.ar-thumb-hover-btn,
+.ar-card-thumb-wrap .ar-card-thumb-overlay,
+.ar-portfolio-card:hover .ar-card-thumb-overlay,
 .ar-portfolio-card:hover .ar-thumb-hover-btn {
-    transform: translateY(0) !important;
-}
-
-.ar-thumb-hover-btn:hover {
-    background: #a07324 !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
 }
 
 /* Card Content Area */
@@ -2627,13 +2580,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 1: E V Landscape — CSLB Contractor -->
     <div class="ar-portfolio-card" id="proj-ev-landscape" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.png" alt="E V Landscape Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="/portfolio/ev-landscape/" class="ar-thumb-hover-btn">
-                    <span>View Case Study</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="/portfolio/ev-landscape/" class="ar-card-thumb-link" aria-label="E V Landscape — CSLB Contractor">
+                <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.png" alt="E V Landscape Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2655,13 +2604,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 2: Liberato's Landscaping — CSLB Contractor -->
     <div class="ar-portfolio-card" id="proj-liberatos-landscaping" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/liberatos-landscaping-mockup.png" alt="Liberato's Landscaping | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Liberato's Landscaping — CSLB Contractor">
+                <img src="/wp-content/uploads/2024/05/liberatos-landscaping-mockup.png" alt="Liberato's Landscaping | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2683,13 +2628,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 3: Hernandez Concrete Pro — San Jose Contractor -->
     <div class="ar-portfolio-card" id="proj-hernandez-concrete" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/hernandez-concrete-mockup.png" alt="Hernandez Concrete | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Hernandez Concrete Pro — San Jose Contractor">
+                <img src="/wp-content/uploads/2024/05/hernandez-concrete-mockup.png" alt="Hernandez Concrete | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2711,13 +2652,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 4: Marshall Tree Service — Auberry CA -->
     <div class="ar-portfolio-card" id="proj-marshall-tree" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/marshall-tree-service-mockup.png" alt="Marshall Tree Service | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Marshall Tree Service — Auberry CA">
+                <img src="/wp-content/uploads/2024/05/marshall-tree-service-mockup.png" alt="Marshall Tree Service | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2739,13 +2676,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 5: Ultimate Home Care — Serene Meadows Living -->
     <div class="ar-portfolio-card" id="proj-serene-meadows" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/serene-meadows-mockup.png" alt="Ultimate Home Care IDD Group Home | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Ultimate Home Care — Serene Meadows Living">
+                <img src="/wp-content/uploads/2024/05/serene-meadows-mockup.png" alt="Ultimate Home Care IDD Group Home | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2767,13 +2700,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 6: Humble Kings HVAC & Multi Services -->
     <div class="ar-portfolio-card" id="proj-humble-kings-hvac" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/humble-kings-hvac-mockup.png" alt="Humble Kings HVAC | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://humble-kings-hvac-blue.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://humble-kings-hvac-blue.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Humble Kings HVAC & Multi Services">
+                <img src="/wp-content/uploads/2024/05/humble-kings-hvac-mockup.png" alt="Humble Kings HVAC | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2795,13 +2724,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 7: J.N.A. Auto Service & Repair — Brampton -->
     <div class="ar-portfolio-card" id="proj-jna-auto" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/jna-auto-service-mockup.png" alt="JNA Auto Service & Repair | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="J.N.A. Auto Service & Repair — Brampton">
+                <img src="/wp-content/uploads/2024/05/jna-auto-service-mockup.png" alt="JNA Auto Service & Repair | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2823,13 +2748,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 8: Medvst — Medicare Set-Aside & Settlement Services -->
     <div class="ar-portfolio-card" id="proj-medvst-settlement" data-category="architecture">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/medvst-settlement-mockup.png" alt="Medvst Settlement Services | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener" class="ar-thumb-hover-btn">
-                    <span>View Live Site</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener" class="ar-card-thumb-link" aria-label="Medvst — Medicare Set-Aside & Settlement Services">
+                <img src="/wp-content/uploads/2024/05/medvst-settlement-mockup.png" alt="Medvst Settlement Services | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
@@ -2851,13 +2772,9 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <!-- Card 9: AAA Food Handler Training Platform -->
     <div class="ar-portfolio-card" id="proj-aaa-food" data-category="lms">
         <div class="ar-card-thumb-wrap">
-            <img src="/wp-content/uploads/2024/05/1.png" alt="AAA Food Handler Training Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
-            <div class="ar-card-thumb-overlay">
-                <a href="/portfolio/aaa-food-handler-training/" class="ar-thumb-hover-btn">
-                    <span>View Case Study</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <a href="/portfolio/aaa-food-handler-training/" class="ar-card-thumb-link" aria-label="AAA Food Handler Training Platform">
+                <img src="/wp-content/uploads/2024/05/1.png" alt="AAA Food Handler Training Showcase | AR Webcrafts" class="ar-card-img" loading="lazy" />
+            </a>
         </div>
         <div class="ar-card-info-wrap">
             <h3 class="ar-card-title">
