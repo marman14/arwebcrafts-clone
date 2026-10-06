@@ -164,9 +164,27 @@ section.elementor-element-ac3f73a,
   margin-bottom: 14px !important;
 }
 
-.ekit-template-content-footer .elementor-heading-title {
+/* Footer Links Section Headings (Services, Company, Contact) */
+.ekit-template-content-footer .elementor-element-33a98256 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-1ac2ab32 .elementor-heading-title {
   color: #0A1C2E !important;
   font-weight: 700 !important;
+}
+
+/* Call Back Banner Heading - Pure White Guaranteed On Dark Background */
+.elementor-element-b2cec12 .elementor-heading-title,
+.elementor-element-9be69e0 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-b2cec12 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-9be69e0 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-b2cec12 h3,
+.ekit-template-content-footer .elementor-element-9be69e0 h3,
+.elementor-element-b2cec12 h3,
+.elementor-element-9be69e0 h3 {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
 }
 
 .ekit-template-content-footer .elementor-icon-list-item {
@@ -332,6 +350,15 @@ section.elementor-element-ac3f73a,
   .elementor-element-b2cec12 {
     padding: 24px 16px !important;
     margin: 0 12px !important;
+  }
+  .elementor-element-b2cec12 .elementor-heading-title,
+  .elementor-element-9be69e0 .elementor-heading-title,
+  .ekit-template-content-footer .elementor-element-b2cec12 .elementor-heading-title {
+    color: #FFFFFF !important;
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
   }
   .elementor-element-ac3f73a .elementor-container,
   .elementor-element-33a98256 .elementor-container {
