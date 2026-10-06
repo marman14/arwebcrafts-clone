@@ -937,3 +937,142 @@ html, body {
     padding: 12px 14px !important;
   }
 }
+
+/* ==========================================================================
+   STRICT MOBILE OVERFLOW FIX (2026-10-06)
+   Fixes: service price cut-off, payment button text overflow,
+   pay button text truncation, summary header pill clipping.
+   ONLY targets mobile ≤767px. Zero desktop changes.
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* Universal box-sizing so nothing escapes viewport */
+  .ar-checkout-wrapper *,
+  .ar-checkout-wrapper *::before,
+  .ar-checkout-wrapper *::after {
+    box-sizing: border-box !important;
+  }
+
+  /* --- Service item: stack name and price vertically on very narrow screens --- */
+  .ar-service-header {
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+  }
+
+  .ar-service-name {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    font-size: 13.5px !important;
+  }
+
+  .ar-service-price {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 13.5px !important;
+  }
+
+  /* Service item padding reduced so price fits inline */
+  .ar-service-item {
+    padding: 12px 12px !important;
+    gap: 0 !important;
+  }
+
+  /* Service description: prevent overflow */
+  .ar-service-desc {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* --- Summary card: prevent pill from overflowing the header --- */
+  .ar-summary-header {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .ar-summary-header h3 {
+    font-size: 16px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .ar-live-pill {
+    flex-shrink: 0 !important;
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Summary rows: prevent long text pushing value off screen */
+  .ar-summary-row {
+    flex-wrap: wrap !important;
+    gap: 2px 8px !important;
+    font-size: 13px !important;
+  }
+
+  .ar-total-amount {
+    font-size: 21px !important;
+    word-break: break-word !important;
+  }
+
+  /* --- Payment method toggle: stack buttons vertically --- */
+  .ar-method-toggle {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .ar-method-btn {
+    width: 100% !important;
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+  }
+
+  /* --- Pay button: allow text to wrap so it never gets cut --- */
+  .ar-btn-pay {
+    width: 100% !important;
+    padding: 14px 12px !important;
+    font-size: 14px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    line-height: 1.4 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Card / summary card: ensure 100% width, no escape */
+  .ar-card,
+  .ar-summary-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  /* Card icons row: wrap so badges stay inside card */
+  .ar-card-icons {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: center !important;
+  }
+
+  .ar-card-badge {
+    font-size: 11px !important;
+  }
+
+  .ar-encryption-note {
+    font-size: 11px !important;
+    word-break: break-word !important;
+  }
+}

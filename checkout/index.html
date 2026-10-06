@@ -343,6 +343,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-radius: 14px !important;
     box-sizing: border-box !important;
     width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
   .ar-service-option {
     padding: 12px 10px !important;
@@ -354,19 +356,99 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ar-service-name {
     font-size: 13px !important;
     line-height: 1.35 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .ar-service-desc {
     font-size: 11.5px !important;
     line-height: 1.4 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .ar-service-price {
     font-size: 13.5px !important;
     white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
-  .ar-btn-pay {
-    font-size: 15px !important;
-    padding: 14px 16px !important;
+  /* Service header: allow name+price to wrap so price is never cut off */
+  .ar-service-header {
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+    align-items: baseline !important;
+  }
+  .ar-service-item {
+    padding: 12px 12px !important;
+  }
+  /* Summary header: keep pill from overflowing right edge */
+  .ar-summary-header {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  .ar-summary-header h3 {
+    font-size: 16px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .ar-live-pill {
+    flex-shrink: 0 !important;
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+    white-space: nowrap !important;
+  }
+  /* Summary rows */
+  .ar-summary-row {
+    flex-wrap: wrap !important;
+    gap: 2px 8px !important;
+    font-size: 13px !important;
+  }
+  .ar-total-amount {
+    font-size: 21px !important;
+  }
+  /* Payment method toggle: full-width stacked buttons */
+  .ar-method-toggle {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .ar-method-btn {
     width: 100% !important;
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+  }
+  /* Pay button: let text wrap instead of being cut off */
+  .ar-btn-pay {
+    font-size: 14px !important;
+    padding: 14px 12px !important;
+    width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+  }
+  /* Card icon badges */
+  .ar-card-icons {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: center !important;
+  }
+  .ar-card-badge {
+    font-size: 11px !important;
+  }
+  .ar-encryption-note {
+    font-size: 11px !important;
+    word-break: break-word !important;
+  }
+  /* Universal box-sizing containment */
+  .ar-checkout-wrapper *,
+  .ar-checkout-wrapper *::before,
+  .ar-checkout-wrapper *::after {
+    box-sizing: border-box !important;
   }
 }
 </style>
