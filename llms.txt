@@ -21,6 +21,9 @@
 - **J.N.A. Auto Service & Repair**: Brampton Ontario full-service automotive workshop, dealership-grade diagnostics & Ontario safety certifications. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/jna-auto/)
 - **Medvst Settlement Services**: Nationwide professional Medicare Set-Aside administration, lien resolution & special needs trusts ($500M+ administered). [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/medvst-settlement/)
 - **AAA Food Handler Training**: ANSI-accredited online food safety eLearning LMS portal with instant PDF certificate issuance (50,000+ certified). [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/aaa-food-handler/)
+- **MillerTime Mobile Detailing**: Hinesville GA showroom-grade mobile auto detailing, multi-stage paint correction & ceramic coatings. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/millertime-mobile-detailing/)
+- **Serene Meadows Senior Living**: Harmony Hills CA luxury assisted living, independent suites & accredited memory care campus. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/senior-care-web/)
+- **County Process Services**: San Jose & Santa Clara County licensed and bonded legal process serving, subpoenas & same-day court filing. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/county-process-services/)
 
 ## Company Information
 
