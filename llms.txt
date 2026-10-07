@@ -12,15 +12,15 @@
 
 ## Key Projects & Case Studies (Interactive Portfolios & Architecture Reviews)
 
-- **E V Landscape**: High-velocity WooCommerce electronics retail store with faceted search and instant checkout. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/ev-landscape/)
-- **AAA Food Handler**: State-accredited eLearning LMS training portal with automated certification and group licensing. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/aaa-food-handler/)
-- **All Academic Helpers**: Academic consultation and mentorship web application with end-to-end encryption and 24/7 support. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/academic-helpers/)
-- **Scrap Buyer UAE**: B2B industrial commodities valuation portal with real-time WhatsApp integration and local SEO dominance. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/scrap-trading-uae/)
-- **Sanjrani Metal Scrap Bahrain**: Bilingual (Arabic/English) enterprise asset recovery web portal. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/sanjrani-metals-bahrain/)
-- **InterCarrier Logistics Australia**: Nationwide freight forwarding and parcel dispatch booking system. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/intercarrier-logistics/)
-- **CF7 WOW Styler**: Official WordPress.org live visual contact form styler with 10k+ active installations and 5.0 rating. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/cf7-custom-styler/)
-- **WebinarIgnition**: Full-featured live and automated webinar funnel engine competing with GoToWebinar and Demio. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/webinar-ignition/)
-- **5 Stars Rating Funnel**: Smart customer sentiment and review routing system for Google, Yelp, and Facebook. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/five-star-funnel/)
+- **E V Landscape**: California CSLB Licensed Contractor #1071473 luxury outdoor living, hardscaping & masonry platform. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/ev-landscape/)
+- **Liberato's Landscaping**: San Diego County licensed synthetic turf, paver patios, retaining walls & outdoor living architecture. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/liberatos-landscaping/)
+- **Hernandez Concrete Pro**: San Jose & Bay Area premier structural concrete, driveways, foundations & stamped masonry contractor. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/hernandez-concrete/)
+- **Marshall Tree Service**: Fresno County CA licensed arborist (#1022937), emergency storm tree removal & Cal Fire defensible space. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/marshall-tree/)
+- **Serene Meadows Living**: San Antonio Bexar County residential group home and day habilitation for IDD adults. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/serene-meadows/)
+- **Humble Kings HVAC**: Miami-Dade County 24/7 emergency AC repair, heating, ventilation & commercial maintenance solutions. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/humble-kings-hvac/)
+- **J.N.A. Auto Service & Repair**: Brampton Ontario full-service automotive workshop, dealership-grade diagnostics & Ontario safety certifications. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/jna-auto/)
+- **Medvst Settlement Services**: Nationwide professional Medicare Set-Aside administration, lien resolution & special needs trusts ($500M+ administered). [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/medvst-settlement/)
+- **AAA Food Handler Training**: ANSI-accredited online food safety eLearning LMS portal with instant PDF certificate issuance (50,000+ certified). [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/aaa-food-handler/)
 
 ## Company Information
 
