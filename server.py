@@ -81,23 +81,30 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
         self.send_response(405)
         self.end_headers()
 
+    def translate_path(self, path):
+        clean_path = path.split("?")[0].split("#")[0].strip("/")
+        target = DIRECTORY / clean_path
+        if target.exists():
+            if target.is_dir():
+                idx = target / "index.html"
+                if idx.exists():
+                    return str(idx)
+            return str(target)
+        
+        # Check if blog/clean_path exists
+        blog_target = DIRECTORY / "blog" / clean_path
+        if blog_target.exists():
+            if blog_target.is_dir():
+                idx = blog_target / "index.html"
+                if idx.exists():
+                    return str(idx)
+            return str(blog_target)
+
+        return super().translate_path(path)
+
     def do_GET(self):
         if self.path.startswith('/api/'):
             return self.handle_api('GET')
-        # Handle trailing slash or clean urls
-        url_path = self.path.split("?")[0].split("#")[0]
-        local_file = DIRECTORY / url_path.lstrip("/")
-        
-        if local_file.is_dir():
-            index_file = local_file / "index.html"
-            if index_file.exists():
-                self.path = url_path.rstrip("/") + "/index.html"
-        elif not local_file.exists():
-            # Check if url_path + /index.html exists
-            clean_dir = DIRECTORY / url_path.strip("/") / "index.html"
-            if clean_dir.exists():
-                self.path = "/" + url_path.strip("/") + "/index.html"
-
         return super().do_GET()
 
     def end_headers(self):

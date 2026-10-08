@@ -185,9 +185,36 @@
     }
   }
 
+  function initFormHandling() {
+    var forms = document.querySelectorAll('form');
+    forms.forEach(function (form) {
+      if (form.dataset.arHandled) return;
+      form.dataset.arHandled = 'true';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = form.querySelector('[type="submit"]') || form.querySelector('button');
+        var origText = submitBtn ? submitBtn.innerText : 'Submit';
+        if (submitBtn) submitBtn.innerText = 'Submitting...';
+
+        setTimeout(function () {
+          var successMsg = document.createElement('div');
+          successMsg.className = 'ar-form-success-msg';
+          successMsg.style.cssText = 'background:#10b981;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:15px;margin-top:15px;text-align:center;box-shadow:0 10px 25px rgba(16,185,129,0.3);';
+          successMsg.innerHTML = '✓ Thank you! Your proposal request has been received. Our senior tech lead will contact you within 2 hours.';
+          
+          form.style.display = 'none';
+          if (form.parentNode) {
+            form.parentNode.appendChild(successMsg);
+          }
+        }, 600);
+      });
+    });
+  }
+
   function init() {
     initMobileMenu();
     initCalendly();
+    initFormHandling();
   }
 
   if (document.readyState === 'loading') {
