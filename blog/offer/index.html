@@ -1046,6 +1046,148 @@
     .dock .btn-ghost { flex: 1 !important; }
   }
 
+  /* ============================================================
+     CLEAN 6-ITEM PORTFOLIO SHOWCASE
+     ============================================================ */
+  .clean-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 36px;
+  }
+  @media (max-width: 992px) {
+    .clean-portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (max-width: 640px) {
+    .clean-portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  .clean-port-card {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 18px rgba(10, 28, 46, 0.05);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .clean-port-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(10, 28, 46, 0.1);
+    border-color: var(--accent);
+  }
+  .clean-port-media {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #081420;
+  }
+  .clean-port-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .clean-port-card:hover .clean-port-media img {
+    transform: scale(1.04);
+  }
+  .clean-port-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .clean-port-tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  .clean-port-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+  .clean-port-title a:hover {
+    color: var(--accent);
+  }
+  .clean-port-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .clean-port-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-light);
+  }
+  .clean-port-live {
+    font-family: var(--body);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: var(--topbar-bg);
+    padding: 7px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .clean-port-live:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+  .clean-port-quick {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .clean-port-quick:hover {
+    background: var(--rule-light);
+    color: var(--ink);
+    border-color: var(--muted-light);
+  }
+
+  /* VSL Keyframe animations */
+  @keyframes arPulseLive {
+    0% { transform: scale(0.95); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.7; }
+  }
+  @keyframes kenBurns {
+    0% { transform: scale(1.0); }
+    100% { transform: scale(1.08); }
+  }
+
 </style>
 
 <style id="ar-offer-mobile-perfect-css">
@@ -1149,47 +1291,120 @@
     flex: 1 !important;
   }
 }
+
+/* AR Start Checkout Modal */
+.ar-checkout-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 20, 32, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.ar-checkout-modal-overlay.ar-active {
+  opacity: 1;
+  visibility: visible;
+}
+.ar-checkout-modal-card {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-radius: 12px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: arModalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+@keyframes arModalPop {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.ar-ck-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+@media (max-width: 640px) {
+  .ar-ck-plan-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+.ar-ck-plan-card {
+  border: 2px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #F8FAFC;
+  position: relative;
+}
+.ar-ck-plan-card.active {
+  border-color: #BE8C33;
+  background: #FEF9EE;
+  box-shadow: 0 4px 14px rgba(190, 140, 51, 0.18);
+}
+.ar-ck-plan-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #BE8C33;
+  background: rgba(190, 140, 51, 0.12);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+.ar-ck-plan-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+.ar-ck-plan-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #081420;
+  margin: 4px 0 2px;
+}
+.ar-ck-plan-note {
+  font-size: 10.5px;
+  color: #64748B;
+  line-height: 1.2;
+}
 </style>
 
 </head>
 <body>
 
 <header>
-  <!-- 0. Dynamic Seasonal Urgency Announcement Banner (Automated by Calendar) -->
-  <div class="ar-seasonal-strip" style="background:var(--accent); color:#ffffff; font-size:12.5px; font-weight:600; text-align:center; padding:7px 16px; border-bottom:1px solid rgba(0,0,0,0.12);">
-    <div class="wrap" id="seasonalBannerText" style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:6px;">
-      <span class="ar-seasonal-badge" style="background:#081420; color:#BE8C33; padding:2px 8px; border-radius:3px; font-weight:700; margin-right:8px; text-transform:uppercase;">🎃 HALLOWEEN SPECIAL</span>
-      <span>Zero Upfront Setup Fee &middot; Flat $99/mo &middot; Free Custom Demo Live in 24h &middot; Active Today (Oct 12) &middot; <a href="#demo" style="color:#ffffff; text-decoration:underline; font-weight:700; margin-left:6px;">Claim Free Demo &rarr;</a></span>
+  <!-- Single Clean Top Bar (Navy Blue Background) with Dynamic Seasonal Urgency Offer -->
+  <div class="ar-top-bar" style="background:var(--topbar-bg); color:#CBD5E1; font-size:12.5px; padding-block:9px; border-bottom:1px solid rgba(255, 255, 255, 0.08);">
+    <div class="wrap" id="seasonalBannerText" style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; text-align:center;">
+      <span class="ar-seasonal-badge" style="background:var(--accent); color:#ffffff; padding:2px 8px; border-radius:3px; font-weight:700; text-transform:uppercase;">🎃 HALLOWEEN SPECIAL</span>
+      <span>Zero Upfront Setup Fee &middot; Flat $99/mo &middot; Free Custom Demo Live in 24h &middot; Active Today (Oct 12)</span>
+      <a href="#demo" style="color:#F59E0B; text-decoration:underline; font-weight:700; margin-left:6px;">Claim Free Demo &rarr;</a>
     </div>
   </div>
 
-  <!-- 1. Top Bar (Exact Dark Navy bar with Contact & Pay Online) -->
-  <div class="ar-top-bar">
-    <div class="wrap ar-top-bar-inner">
-      <div class="ar-top-bar-left">
-        <span>Welcome, We Transform Your Concepts into Reality.</span>
-      </div>
-      <div class="ar-top-bar-right">
-        <a href="https://wa.me/+13072784862" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> 307 278 4862
-        </a>
-        <a href="mailto:contact@arwebcrafts.com">
-          <i class="far fa-envelope"></i> contact@arwebcrafts.com
-        </a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 2. Main Navbar (Clean White with Official Logo Image) -->
+  <!-- Main Navbar (Clean White with Logo & Consultation CTA, tagline removed) -->
   <div class="ar-main-navbar">
     <div class="wrap ar-navbar-inner">
       <a href="/" class="ar-brand-logo" aria-label="AR Webcrafts Home">
         <img src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview-1.webp" alt="AR Webcrafts" width="220" height="53">
       </a>
-      <div class="ar-navbar-tagline">
-        Websites for trade contractors
-      </div>
       <div class="ar-navbar-actions">
         <a href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener" class="ar-btn-consultation">
           Free Consultation
@@ -1204,14 +1419,20 @@
   <div class="wrap">
     <div class="hero-pill-badge">#Q4 Special &middot; Trade Contractor Websites</div>
     <p class="eyebrow-trades">Contractors &middot; Home Services &middot; Health &amp; Wellness &middot; Legal &middot; Coaches &amp; Local Businesses</p>
-    <h1>Your custom website.<br>Live in <span class="hl">24 hours.</span><br>Zero upfront. Just <span data-price>99</span> a month.</h1>
-    <p class="lede">Most web shops want three or four thousand dollars before they start. <strong>For Q4, we want $0 upfront and just $99 a month.</strong> No setup fee, no build fee, no deposit. Every service you sell, every town you cover, your photos, your reviews, your license number, in English and in Spanish.</p>
+    <h1>Your custom website.<br>Live in <span class="hl">24 hours.</span><br>Zero upfront. Just <span class="hl">$99/month.</span></h1>
+    <p class="lede">Most web shops charge <strong>$3,000 to $4,000</strong> before they start. For Q4, we are running a limited special: <strong>$0 upfront and flat $99/month</strong>. Build slots are strictly limited this week &mdash; reserve your slot now before they fill up. Every service you sell, every town you cover, your photos, your reviews, and your license number, in English and in Spanish.</p>
 
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#demo">Claim free custom demo<span class="sub">Hop on 10-min call first &middot; $0 upfront</span></a>
-      <a class="btn btn-ghost" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)" style="margin-left:10px;">Start now<span class="sub"><span data-price>99</span> a month</span></a>
+    <div class="cta-row" style="display:flex; align-items:center; gap:16px; margin-top:28px; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="#startNowModal" onclick="openStartCheckout('monthly'); return false;" style="font-size:1.06rem; padding:16px 36px; box-shadow:0 6px 22px var(--accent-glow);">
+        Start now &middot; $99/mo
+        <span class="sub">$0 Upfront &middot; Reserve Your Slot</span>
+      </a>
+      <a class="btn btn-ghost" href="#demo" style="font-size:0.98rem; padding:15px 28px;">
+        Claim free demo
+        <span class="sub">10-Min Confirmation Call &middot; $0 Due</span>
+      </a>
     </div>
-    <div style="margin-top:14px;">
+    <div style="margin-top:16px;">
       <a class="quiet" href="https://wa.me/13072784862?text=Hi%20AR%20Webcrafts%2C%20I%20want%20to%20discuss%20the%20Q4%20Special%20Offer" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px;">
         <i class="fab fa-whatsapp" style="color:#25D366; font-size:16px;"></i> Or chat directly with Arman on WhatsApp &rarr;
       </a>
@@ -1224,37 +1445,127 @@
       <li>Spanish version included</li>
     </ul>
 
-    <!-- Rating Badges from Original Site -->
-    <div class="hero-trust-badges">
-      <img src="/wp-content/uploads/2024/03/Google-Ratings.svg" alt="Google Ratings 5.0 Star | AR Webcrafts" width="188" height="82">
-      <img src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" alt="Clutch Ratings 5.0 Star | AR Webcrafts" width="188" height="80">
+    <!-- High-Impact Clickable Rating Badges -->
+    <div class="hero-trust-badges" style="display:flex; align-items:center; gap:26px; margin-top:28px; flex-wrap:wrap;">
+      <a href="https://g.page/r/arwebcrafts" target="_blank" rel="noopener" class="hero-badge-link" aria-label="Google 5.0 Star Verified Reviews" style="display:inline-flex; align-items:center; transition:transform 0.2s ease;">
+        <img src="/wp-content/uploads/2024/03/Google-Ratings.svg" alt="Google Ratings 5.0 Star | AR Webcrafts" width="220" height="96" style="height:54px; width:auto; display:block; filter:drop-shadow(0 2px 6px rgba(10,28,46,0.08));">
+      </a>
+      <a href="https://clutch.co/profile/ar-webcrafts" target="_blank" rel="noopener" class="hero-badge-link" aria-label="Clutch 5.0 Star Verified Client Reviews" style="display:inline-flex; align-items:center; transition:transform 0.2s ease;">
+        <img src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" alt="Clutch Ratings 5.0 Star | AR Webcrafts" width="220" height="94" style="height:54px; width:auto; display:block; filter:drop-shadow(0 2px 6px rgba(10,28,46,0.08));">
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ================= CREDENTIALS ================= -->
-<section class="band reveal-section">
+<!-- ================= FOUNDER VSL & LIVE REEL ================= -->
+<section class="band tint reveal-section" id="vsl-section" style="padding-top:48px; padding-bottom:54px;">
   <div class="wrap">
-    <ul class="stats">
-      <li><b>8</b><span>Years building<br>for the web</span></li>
-      <li><b>30+</b><span>Commercial products<br>shipped</span></li>
-      <li><b>6</b><span>Senior developers,<br>no juniors</span></li>
-      <li><b>100+</b><span>Websites<br>delivered</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ================= MAIN VSL ================= -->
-<section class="band tint reveal-section">
-  <div class="wrap">
-    <p class="label">Watch this first &middot; 3 minutes</p>
-
-    <div class="video" id="vslVideo" tabindex="0" role="button" aria-label="Founder video explanation">
-      <div class="play" aria-hidden="true"></div>
-      <p>Arman, founder &middot; What you get, what it costs, and how 24 hours actually works.</p>
+    <div class="narrow" style="text-align:center; margin:0 auto 28px;">
+      <p class="label" style="justify-content:center;">Founder Overview &middot; Live Demo Reel</p>
+      <h2>See How Your Custom Site Goes Live in 24 Hours.</h2>
+      <p class="lede" style="margin:12px auto 0;">Watch Arman break down what you get, how we build your site with $0 upfront, and real contractor platforms engineered by our team running right now.</p>
     </div>
 
-    <p class="cap">Arman, founder. What you get, what it costs,<br>and how 24 hours actually works.</p>
+    <!-- Interactive Cinematic VSL Video Player -->
+    <div class="ar-vsl-container" id="arVslContainer" style="max-width:960px; margin:0 auto; background:#061019; border:1px solid rgba(255,255,255,0.1); border-radius:14px; overflow:hidden; box-shadow:0 20px 50px rgba(10,28,46,0.25); position:relative;">
+      
+      <!-- Video Player Top Status Bar -->
+      <div class="ar-vsl-topbar" style="display:flex; justify-content:space-between; align-items:center; padding:10px 18px; background:rgba(8,20,32,0.92); border-bottom:1px solid rgba(255,255,255,0.08); font-family:var(--mono); font-size:12px; color:#CBD5E1;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#EF4444; animation:arPulseLive 1.5s infinite;"></span>
+          <strong style="color:#FFFFFF; letter-spacing:0.04em;">LIVE PRODUCTION REEL</strong>
+          <span style="color:#64748B;">&bull;</span>
+          <span>Arman, Founder</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="background:rgba(190,140,51,0.2); color:#BE8C33; font-weight:700; padding:2px 8px; border-radius:3px; font-size:11px;">1080p HD</span>
+          <button type="button" id="vslSoundBtn" onclick="toggleVslSound()" style="background:transparent; border:none; color:#CBD5E1; cursor:pointer; font-size:13px; display:inline-flex; align-items:center; gap:5px;" aria-label="Toggle Sound">
+            <i class="fas fa-volume-up" id="vslSoundIcon"></i> <span id="vslSoundText">Sound On</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Animated Video Screen (Canvas / Cinematic Stage) -->
+      <div class="ar-vsl-stage" id="arVslStage" style="position:relative; width:100%; aspect-ratio:16/9; background:#081420; overflow:hidden; cursor:pointer;" onclick="toggleVslPlay()">
+        
+        <!-- Scene Slides (Autoplaying Cinematic Carousel) -->
+        <div class="ar-vsl-slide active" data-index="0" style="position:absolute; inset:0; opacity:1; transition:opacity 0.8s ease;">
+          <img src="/wp-content/uploads/2024/05/millertime-detailing-mockup.webp" alt="MillerTime Detailing Website" style="width:100%; height:100%; object-fit:cover; animation:kenBurns 12s infinite alternate;">
+          <div class="ar-vsl-slide-badge" style="position:absolute; bottom:20px; left:20px; background:rgba(8,20,32,0.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:6px; border:1px solid rgba(255,255,255,0.12); color:#FFFFFF;">
+            <span style="color:#BE8C33; font-weight:700; font-family:var(--mono); font-size:11px; text-transform:uppercase; display:block;">Live Production &middot; Automotive</span>
+            <strong style="font-size:14px;">MillerTime Mobile Detailing &mdash; Instant Tap-To-Call &amp; Fast Booking</strong>
+          </div>
+        </div>
+
+        <div class="ar-vsl-slide" data-index="1" style="position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease;">
+          <img src="/wp-content/uploads/2024/05/senior-care-web-mockup.webp" alt="Serene Meadows Living Website" style="width:100%; height:100%; object-fit:cover; animation:kenBurns 12s infinite alternate;">
+          <div class="ar-vsl-slide-badge" style="position:absolute; bottom:20px; left:20px; background:rgba(8,20,32,0.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:6px; border:1px solid rgba(255,255,255,0.12); color:#FFFFFF;">
+            <span style="color:#BE8C33; font-weight:700; font-family:var(--mono); font-size:11px; text-transform:uppercase; display:block;">Live Production &middot; Healthcare</span>
+            <strong style="font-size:14px;">Serene Meadows Living &mdash; 24/7 Nurse Line &amp; Tour Booking</strong>
+          </div>
+        </div>
+
+        <div class="ar-vsl-slide" data-index="2" style="position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease;">
+          <img src="/wp-content/uploads/2024/05/liberatos-landscaping-mockup.webp" alt="Liberato's Landscaping Website" style="width:100%; height:100%; object-fit:cover; animation:kenBurns 12s infinite alternate;">
+          <div class="ar-vsl-slide-badge" style="position:absolute; bottom:20px; left:20px; background:rgba(8,20,32,0.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:6px; border:1px solid rgba(255,255,255,0.12); color:#FFFFFF;">
+            <span style="color:#BE8C33; font-weight:700; font-family:var(--mono); font-size:11px; text-transform:uppercase; display:block;">Live Production &middot; Contractor</span>
+            <strong style="font-size:14px;">Liberato's Landscaping &mdash; Turf Showcase &amp; Multi-Town SEO</strong>
+          </div>
+        </div>
+
+        <div class="ar-vsl-slide" data-index="3" style="position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease;">
+          <img src="/wp-content/uploads/2024/05/marshall-tree-service-mockup.webp" alt="Marshall Tree Service Website" style="width:100%; height:100%; object-fit:cover; animation:kenBurns 12s infinite alternate;">
+          <div class="ar-vsl-slide-badge" style="position:absolute; bottom:20px; left:20px; background:rgba(8,20,32,0.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:6px; border:1px solid rgba(255,255,255,0.12); color:#FFFFFF;">
+            <span style="color:#BE8C33; font-weight:700; font-family:var(--mono); font-size:11px; text-transform:uppercase; display:block;">Live Production &middot; Tree Service</span>
+            <strong style="font-size:14px;">Marshall Tree Service &mdash; 24/7 Emergency Storm Dispatch</strong>
+          </div>
+        </div>
+
+        <div class="ar-vsl-slide" data-index="4" style="position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease;">
+          <img src="/wp-content/uploads/2024/05/county-process-services-mockup.webp" alt="County Process Services Website" style="width:100%; height:100%; object-fit:cover; animation:kenBurns 12s infinite alternate;">
+          <div class="ar-vsl-slide-badge" style="position:absolute; bottom:20px; left:20px; background:rgba(8,20,32,0.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:6px; border:1px solid rgba(255,255,255,0.12); color:#FFFFFF;">
+            <span style="color:#BE8C33; font-weight:700; font-family:var(--mono); font-size:11px; text-transform:uppercase; display:block;">Live Production &middot; Legal</span>
+            <strong style="font-size:14px;">County Process Services &mdash; Rush Same-Day Legal Filing Portal</strong>
+          </div>
+        </div>
+
+        <div class="ar-vsl-slide" data-index="5" style="position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease;">
+          <img src="/wp-content/uploads/2024/05/humble-kings-hvac-mockup.webp" alt="Humble Kings HVAC Website" style="width:100%; height:100%; object-fit:cover; animation:kenBurns 12s infinite alternate;">
+          <div class="ar-vsl-slide-badge" style="position:absolute; bottom:20px; left:20px; background:rgba(8,20,32,0.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:6px; border:1px solid rgba(255,255,255,0.12); color:#FFFFFF;">
+            <span style="color:#BE8C33; font-weight:700; font-family:var(--mono); font-size:11px; text-transform:uppercase; display:block;">Live Production &middot; HVAC &amp; Mechanical</span>
+            <strong style="font-size:14px;">Humble Kings HVAC &mdash; Emergency AC Repair Intake System</strong>
+          </div>
+        </div>
+
+        <!-- Center Overlay Play / Pause Action Button -->
+        <div class="ar-vsl-overlay" id="vslOverlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.35); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; transition:opacity 0.3s ease; opacity:0; pointer-events:none;">
+          <div style="width:72px; height:72px; border-radius:50%; background:var(--accent); color:#FFFFFF; display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow:0 8px 30px rgba(190,140,51,0.5);">
+            <i class="fas fa-play" id="vslPlayIcon" style="margin-left:4px;"></i>
+          </div>
+          <span style="color:#FFFFFF; font-weight:700; font-family:var(--body); font-size:15px; text-shadow:0 2px 8px rgba(0,0,0,0.8);">Click to Pause / Resume Live Reel</span>
+        </div>
+      </div>
+
+      <!-- Video Player Bottom Controls & Progress Scrubber -->
+      <div class="ar-vsl-controls" style="padding:12px 18px; background:rgba(8,20,32,0.96); display:flex; flex-direction:column; gap:8px;">
+        <!-- Scrubber Progress Bar -->
+        <div class="ar-vsl-progress-bar" style="width:100%; height:4px; background:rgba(255,255,255,0.15); border-radius:2px; overflow:hidden; cursor:pointer;" onclick="seekVslProgress(event)">
+          <div id="vslProgressFill" style="width:25%; height:100%; background:var(--accent); transition:width 0.3s linear;"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#CBD5E1;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <button type="button" onclick="toggleVslPlay()" style="background:transparent; border:none; color:#FFFFFF; cursor:pointer; font-size:14px;" aria-label="Play/Pause">
+              <i class="fas fa-pause" id="vslCtrlIcon"></i>
+            </button>
+            <span id="vslTimerText" style="font-family:var(--mono); font-size:11.5px; color:#94A3B8;">0:42 / 2:30</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <a href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener" style="color:#F59E0B; text-decoration:underline; font-weight:700; font-size:12.5px;">Book 10-Min Strategy Call &rarr;</a>
+            <button type="button" onclick="openStartCheckout('monthly')" style="background:var(--accent); color:#FFFFFF; border:none; border-radius:3px; padding:4px 12px; font-weight:700; font-size:12px; cursor:pointer;">Start Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1376,6 +1687,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Watch / View More Projects Button -->
+    <div class="clean-port-cta-wrap" style="display:flex; justify-content:center; margin-top:36px;">
+      <a href="/portfolio/" class="clean-port-cta-btn" style="background:#081420; color:#FFFFFF; padding:14px 32px; border-radius:4px; font-weight:700; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.04em; display:inline-flex; align-items:center; gap:10px; text-decoration:none; box-shadow:0 6px 20px rgba(10,28,46,0.12); transition:all 0.2s ease;">
+        <span>View All Client Websites &amp; Case Studies</span>
+        <i class="fas fa-arrow-right" style="color:var(--accent);"></i>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1466,7 +1785,7 @@
           <li><b>100% domain ownership</b> &mdash; stays yours whatever happens</li>
           <li><b>Cancel anytime online</b> &mdash; no contracts, no cancellation fee</li>
         </ul>
-        <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now<span class="sub"><span data-price>99</span> today</span></a>
+        <a class="btn btn-primary" href="#startNowModal" onclick="openStartCheckout('monthly'); return false;">Start now<span class="sub"><span data-price>99</span> today</span></a>
       </div>
 
       <div class="card alt">
@@ -1483,7 +1802,7 @@
           <li><b>Priority direct developer line</b> &amp; dedicated WhatsApp access</li>
           <li><b>No setup fee</b> and zero surprise renewal charges</li>
         </ul>
-        <a class="btn btn-ghost" href="/checkout/?plan=contractor_yearly&amount=799&service=Trade+Contractor+Website+(Yearly)">Pay yearly and save<span class="sub"><span data-price>799</span> today</span></a>
+        <a class="btn btn-ghost" href="#startNowModal" onclick="openStartCheckout('yearly'); return false;">Pay yearly and save<span class="sub"><span data-price>799</span> today</span></a>
       </div>
 
     </div>
@@ -1505,7 +1824,7 @@
           <li><b>30 days of post-launch engineering handoff support</b> and documentation</li>
           <li><b>Zero ongoing subscriptions</b>, zero monthly fees, zero renewals to us ever</li>
         </ul>
-        <a class="btn btn-primary" href="/checkout/?plan=contractor_onetime&amount=999&service=Trade+Contractor+Website+(One-Time+Buyout)">Buy out website now<span class="sub"><span data-price>999</span> one-time payment</span></a>
+        <a class="btn btn-primary" href="#startNowModal" onclick="openStartCheckout('onetime'); return false;">Buy out website now<span class="sub"><span data-price>999</span> one-time payment</span></a>
       </div>
     </div>
 
@@ -1666,9 +1985,15 @@
       <p class="fineprint">No photos needed. We pull what we need from your Google listing and swap in your own pictures later if you want the site. We confirm with you before we build anything, so nobody gets a demo they did not ask for. Reply STOP at any time and we stop. Message and data rates may apply. We do not sell or share your number.</p>
     </form>
 
-    <div class="form-done" id="demoDone" hidden>
-      <b>Got it.</b>
-      <p>We will reach out the way you asked, usually within one business day, to confirm a couple of details. Once you tell us to go, we start building. Nothing happens until you say so.</p>
+    <div class="form-done" id="demoDone" hidden style="background:#081420; color:#FFFFFF; padding:28px 24px; border-radius:8px; border:1px solid #BE8C33; text-align:center;">
+      <div style="width:52px; height:52px; border-radius:50%; background:rgba(190,140,51,0.2); color:#BE8C33; font-size:24px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:14px;">
+        <i class="fas fa-calendar-check"></i>
+      </div>
+      <h3 style="color:#FFFFFF; font-size:1.35rem; margin-bottom:8px;">Demo Request Received! Redirecting to Arman's Calendar...</h3>
+      <p style="color:#CBD5E1; font-size:0.95rem; max-width:540px; margin:0 auto 16px;">To lock in your 24-hour build slot, please select a quick 10-minute confirmation time. If you are not redirected automatically in 2 seconds, tap below:</p>
+      <a href="https://calendly.com/arwebcrafts/30-mint" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px;">
+        <span>Book Your 10-Min Appointment on Calendly &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1711,7 +2036,7 @@
     <h2><span data-price>99</span> a month. Live tomorrow.</h2>
     <p class="lede">No setup fee, no build fee, nothing upfront, and cancel whenever you want. Or <span data-price>799</span> for the year if you would rather not think about it again.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now<span class="sub"><span data-price>99</span> a month</span></a>
+      <a class="btn btn-primary" href="#startNowModal" onclick="openStartCheckout('monthly'); return false;">Start now<span class="sub"><span data-price>99</span> a month</span></a>
       <a class="btn btn-ghost" href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener">Book a call instead<span class="sub">15 minutes</span></a>
     </div>
     <p class="signature">
@@ -1758,9 +2083,9 @@
       <div class="funnel-footer-col">
         <h4>Website Packages</h4>
         <ul class="funnel-footer-links">
-          <li><a href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Q4 Monthly Plan &middot; $99/mo</a></li>
-          <li><a href="/checkout/?plan=contractor_yearly&amount=799&service=Trade+Contractor+Website+(Yearly)">Yearly Savings Plan &middot; $799/yr</a></li>
-          <li><a href="/checkout/?plan=contractor_onetime&amount=999&service=Trade+Contractor+Website+(One-Time+Buyout)">One-Time Buyout &middot; $999</a></li>
+          <li><a href="#startNowModal" onclick="openStartCheckout('monthly'); return false;">Q4 Monthly Plan &middot; $99/mo</a></li>
+          <li><a href="#startNowModal" onclick="openStartCheckout('yearly'); return false;">Yearly Savings Plan &middot; $799/yr</a></li>
+          <li><a href="#startNowModal" onclick="openStartCheckout('onetime'); return false;">One-Time Buyout &middot; $999</a></li>
           <li><a href="#demo">Request Free 24h Custom Demo</a></li>
           <li><a href="#proof">Recent Client Showcase</a></li>
         </ul>
@@ -1802,7 +2127,7 @@
 </footer>
 
 <div class="dock">
-  <a class="btn btn-primary" href="/checkout/?plan=contractor_monthly&amount=99&service=Trade+Contractor+Website+(Monthly)">Start now &middot; <span data-price>99</span> a month</a>
+  <a class="btn btn-primary" href="#startNowModal" onclick="openStartCheckout('monthly'); return false;">Start now &middot; <span data-price>99</span> a month</a>
   <a class="btn btn-ghost" href="#demo">Free demo</a>
 </div>
 
@@ -1971,18 +2296,215 @@ document.addEventListener('DOMContentLoaded', function() {
       f.hidden = true;
       done.hidden = false;
       done.scrollIntoView({behavior:'smooth', block:'center'});
+      // Redirect to Calendly for quick 10-minute appointment scheduling
+      setTimeout(function() {
+        window.location.href = 'https://calendly.com/arwebcrafts/30-mint';
+      }, 1500);
     });
   }
 
-  // 2. Interactive Video Action Preview
-  var vsl = document.getElementById('vslVideo');
-  if(vsl){
-    vsl.addEventListener('click', function(){
-      window.open('https://calendly.com/arwebcrafts/30-mint', '_blank');
+  // 2. Interactive Cinematic VSL Video Reel
+  var slides = document.querySelectorAll('.ar-vsl-slide');
+  var currentIndex = 0;
+  var isPlaying = true;
+  var totalDurationSec = 150; // 2m 30s
+  var currentSec = 0;
+  var progressFill = document.getElementById('vslProgressFill');
+  var timerText = document.getElementById('vslTimerText');
+  var ctrlIcon = document.getElementById('vslCtrlIcon');
+  var vslOverlay = document.getElementById('vslOverlay');
+  var slideInterval = null;
+  var progressInterval = null;
+
+  function showSlide(index) {
+    if(!slides.length) return;
+    slides.forEach(function(s, i) {
+      if(i === index) {
+        s.style.opacity = '1';
+        s.classList.add('active');
+      } else {
+        s.style.opacity = '0';
+        s.classList.remove('active');
+      }
+    });
+    currentIndex = index;
+  }
+
+  function formatTime(s) {
+    var m = Math.floor(s / 60);
+    var rem = Math.floor(s % 60);
+    return m + ':' + (rem < 10 ? '0' : '') + rem;
+  }
+
+  if(slides.length) {
+    slideInterval = setInterval(function() {
+      if(!isPlaying) return;
+      var next = (currentIndex + 1) % slides.length;
+      showSlide(next);
+    }, 3800);
+
+    progressInterval = setInterval(function() {
+      if(!isPlaying) return;
+      currentSec = (currentSec + 0.25) % totalDurationSec;
+      var pct = (currentSec / totalDurationSec) * 100;
+      if(progressFill) progressFill.style.width = pct + '%';
+      if(timerText) timerText.textContent = formatTime(currentSec) + ' / ' + formatTime(totalDurationSec);
+    }, 250);
+  }
+
+  window.toggleVslPlay = function() {
+    isPlaying = !isPlaying;
+    if(ctrlIcon) {
+      ctrlIcon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+    }
+    if(vslOverlay) {
+      vslOverlay.style.opacity = isPlaying ? '0' : '1';
+      vslOverlay.style.pointerEvents = isPlaying ? 'none' : 'auto';
+    }
+  };
+
+  window.seekVslProgress = function(e) {
+    if(!slides.length) return;
+    var bar = e.currentTarget;
+    var rect = bar.getBoundingClientRect();
+    var clickX = e.clientX - rect.left;
+    var ratio = Math.max(0, Math.min(1, clickX / rect.width));
+    currentSec = ratio * totalDurationSec;
+    var targetSlide = Math.floor(ratio * slides.length) % slides.length;
+    showSlide(targetSlide);
+    if(progressFill) progressFill.style.width = (ratio * 100) + '%';
+    if(timerText) timerText.textContent = formatTime(currentSec) + ' / ' + formatTime(totalDurationSec);
+  };
+
+  window.toggleVslSound = function() {
+    var textEl = document.getElementById('vslSoundText');
+    var iconEl = document.getElementById('vslSoundIcon');
+    if(!textEl || !iconEl) return;
+    if(iconEl.classList.contains('fa-volume-up')) {
+      iconEl.className = 'fas fa-volume-mute';
+      textEl.textContent = 'Muted';
+    } else {
+      iconEl.className = 'fas fa-volume-up';
+      textEl.textContent = 'Sound On';
+    }
+  };
+
+  // 3. Instant Contractor Checkout Modal Handlers
+  var activeCheckoutPlan = 'monthly';
+  var planDescriptions = {
+    'monthly': {
+      title: 'Monthly Contractor Plan',
+      price: '$99 / month',
+      sub: '$0 upfront fee &middot; 24h live demo &middot; cancel anytime online'
+    },
+    'annual': {
+      title: 'Annual Contractor Plan',
+      price: '$799 / year',
+      sub: '$0 upfront fee &middot; 2 months free &middot; full priority updates'
+    },
+    'buyout': {
+      title: 'One-Time Lifetime Buyout',
+      price: '$999 one-time',
+      sub: '$0 upfront fee &middot; complete source code ownership &middot; no recurring fees'
+    }
+  };
+
+  window.selectModalPlan = function(planKey) {
+    activeCheckoutPlan = planKey;
+    document.querySelectorAll('.ar-ck-plan-card').forEach(function(card) {
+      if(card.getAttribute('data-plan') === planKey) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+    var hiddenInput = document.getElementById('ck_plan_input');
+    if(hiddenInput) hiddenInput.value = planKey;
+    var summaryEl = document.getElementById('ck_selected_summary');
+    if(summaryEl && planDescriptions[planKey]) {
+      var d = planDescriptions[planKey];
+      summaryEl.innerHTML = '<strong>' + d.title + ' (' + d.price + ')</strong> &mdash; ' + d.sub;
+    }
+  };
+
+  window.openStartCheckout = function(planKey) {
+    var p = planKey || 'monthly';
+    window.selectModalPlan(p);
+    var overlay = document.getElementById('arStartCheckoutModal');
+    if(overlay) {
+      overlay.classList.add('ar-active');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeStartCheckout = function() {
+    var overlay = document.getElementById('arStartCheckoutModal');
+    if(overlay) {
+      overlay.classList.remove('ar-active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Handle Checkout Modal Form Submission
+  var ckForm = document.getElementById('arCheckoutIntakeForm');
+  var ckDone = document.getElementById('arCheckoutDone');
+  var ckBtn = document.getElementById('ckSubmitBtn');
+  if(ckForm) {
+    ckForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var name = document.getElementById('ck_name');
+      var phone = document.getElementById('ck_phone');
+      var email = document.getElementById('ck_email');
+      var biz = document.getElementById('ck_biz');
+      var consent = document.getElementById('ck_sms_consent');
+
+      if(!name.value.trim() || !phone.value.trim() || !email.value.trim() || !biz.value.trim()) {
+        alert('Please fill out all required contact fields.');
+        return;
+      }
+      if(consent && !consent.checked) {
+        alert('Please check the SMS consent box to receive your demo link.');
+        return;
+      }
+
+      if(ckBtn) {
+        ckBtn.disabled = true;
+        ckBtn.innerHTML = 'Securing Your Build Slot...';
+      }
+
+      var payload = {
+        name: name.value.trim(),
+        phone: phone.value.trim(),
+        email: email.value.trim(),
+        biz: biz.value.trim(),
+        notes: (document.getElementById('ck_notes') ? document.getElementById('ck_notes').value.trim() : ''),
+        plan: activeCheckoutPlan,
+        source: 'Instant Checkout Modal'
+      };
+
+      try {
+        await fetch('/api/submit-demo/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(err) {
+        console.warn('[Checkout Form]', err.message);
+      }
+
+      if(ckForm) ckForm.hidden = true;
+      if(ckDone) ckDone.hidden = false;
+
+      // Redirect to Calendly for quick 10-minute kickoff slot confirmation
+      setTimeout(function() {
+        window.location.href = 'https://calendly.com/arwebcrafts/30-mint';
+      }, 1500);
     });
   }
 
-  // 3. Subtle 3D Perspective Tilt on Desktop Cards
+  // 4. Subtle 3D Perspective Tilt on Desktop Cards
   if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
     var tiltElements = document.querySelectorAll('.card, .shot .frame, .ladder li, .stats li');
     tiltElements.forEach(function(card){
@@ -2004,7 +2526,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 4. Smooth Scroll Reveal Animations
+  // 5. Smooth Scroll Reveal Animations
   if('IntersectionObserver' in window){
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -2165,6 +2687,116 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 </script>
+
+<!-- AR Instant Contractor Checkout Modal ($0 Upfront) -->
+<div id="arStartCheckoutModal" class="ar-checkout-modal-overlay" onclick="if(event.target.id === 'arStartCheckoutModal') closeStartCheckout();" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="ar-checkout-modal-card">
+    <!-- Header -->
+    <div style="background:#081420; color:#FFFFFF; padding:20px 24px; position:relative; border-bottom:1px solid rgba(255,255,255,0.1);">
+      <button type="button" onclick="closeStartCheckout()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:#94A3B8; font-size:26px; cursor:pointer; line-height:1; padding:4px;" aria-label="Close modal">&times;</button>
+      <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(190,140,51,0.2); color:#BE8C33; font-size:11px; font-weight:700; padding:2px 8px; border-radius:3px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;">
+        <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#BE8C33;"></span> Q4 Special &middot; 24-Hr Live Turnaround
+      </div>
+      <h2 style="font-size:1.45rem; margin:0 0 4px; color:#FFFFFF; font-family:var(--head); font-weight:700;">Start Your Custom Website ($0 Upfront)</h2>
+      <p style="margin:0; font-size:13px; color:#CBD5E1; line-height:1.4;">Zero build fee today. We engineer your live custom demo in 24 hours. You review it before paying a penny.</p>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:22px 24px;">
+      <!-- Plan Selector Cards -->
+      <label style="display:block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:#475569; margin-bottom:8px;">Select Your Preferred Plan:</label>
+      <div class="ar-ck-plan-grid">
+        <div class="ar-ck-plan-card active" data-plan="monthly" onclick="selectModalPlan('monthly')">
+          <span class="ar-ck-plan-badge">Popular</span>
+          <h4 class="ar-ck-plan-name">Monthly</h4>
+          <div class="ar-ck-plan-price">$99<span style="font-size:11px; font-weight:600; color:#64748B;">/mo</span></div>
+          <div class="ar-ck-plan-note">$0 upfront &bull; cancel anytime</div>
+        </div>
+        <div class="ar-ck-plan-card" data-plan="annual" onclick="selectModalPlan('annual')">
+          <span class="ar-ck-plan-badge" style="background:rgba(34,197,94,0.12); color:#16A34A;">Save $389</span>
+          <h4 class="ar-ck-plan-name">Annual</h4>
+          <div class="ar-ck-plan-price">$799<span style="font-size:11px; font-weight:600; color:#64748B;">/yr</span></div>
+          <div class="ar-ck-plan-note">2 months free &bull; priority</div>
+        </div>
+        <div class="ar-ck-plan-card" data-plan="buyout" onclick="selectModalPlan('buyout')">
+          <span class="ar-ck-plan-badge" style="background:rgba(59,130,246,0.12); color:#2563EB;">Own Code</span>
+          <h4 class="ar-ck-plan-name">Buyout</h4>
+          <div class="ar-ck-plan-price">$999<span style="font-size:11px; font-weight:600; color:#64748B;"> one-time</span></div>
+          <div class="ar-ck-plan-note">100% code ownership</div>
+        </div>
+      </div>
+
+      <!-- Selected Plan Active Summary Strip -->
+      <div id="ck_selected_summary" style="background:#F1F5F9; border-left:3px solid #BE8C33; padding:8px 12px; font-size:12px; color:#334155; margin-bottom:18px; border-radius:0 4px 4px 0;">
+        <strong>Monthly Contractor Plan ($99/mo)</strong> &mdash; $0 upfront fee today &middot; 24h live demo &middot; cancel anytime online.
+      </div>
+
+      <!-- Quick Intake Form -->
+      <form id="arCheckoutIntakeForm" style="display:flex; flex-direction:column; gap:12px;">
+        <input type="hidden" id="ck_plan_input" name="plan" value="monthly" />
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <label for="ck_name" style="display:block; font-size:12px; font-weight:600; margin-bottom:4px; color:#1E293B;">Your Name *</label>
+            <input type="text" id="ck_name" required placeholder="John Miller" style="width:100%; padding:9px 12px; border:1px solid #CBD5E1; border-radius:6px; font-size:13.5px;" />
+          </div>
+          <div>
+            <label for="ck_phone" style="display:block; font-size:12px; font-weight:600; margin-bottom:4px; color:#1E293B;">Cell Phone (for Demo Link) *</label>
+            <input type="tel" id="ck_phone" required placeholder="(555) 000-0000" style="width:100%; padding:9px 12px; border:1px solid #CBD5E1; border-radius:6px; font-size:13.5px;" />
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <label for="ck_email" style="display:block; font-size:12px; font-weight:600; margin-bottom:4px; color:#1E293B;">Work Email *</label>
+            <input type="email" id="ck_email" required placeholder="john@millerroofing.com" style="width:100%; padding:9px 12px; border:1px solid #CBD5E1; border-radius:6px; font-size:13.5px;" />
+          </div>
+          <div>
+            <label for="ck_biz" style="display:block; font-size:12px; font-weight:600; margin-bottom:4px; color:#1E293B;">Business Name &amp; Trade *</label>
+            <input type="text" id="ck_biz" required placeholder="Miller Roofing &amp; Siding" style="width:100%; padding:9px 12px; border:1px solid #CBD5E1; border-radius:6px; font-size:13.5px;" />
+          </div>
+        </div>
+
+        <div>
+          <label for="ck_notes" style="display:block; font-size:12px; font-weight:600; margin-bottom:4px; color:#1E293B;">Existing Website or Domain (Optional)</label>
+          <input type="text" id="ck_notes" placeholder="e.g. millerroofing.com or starting fresh" style="width:100%; padding:9px 12px; border:1px solid #CBD5E1; border-radius:6px; font-size:13.5px;" />
+        </div>
+
+        <!-- Compliance SMS Consent Checkbox -->
+        <div style="margin-top:4px;">
+          <label style="display:flex; align-items:flex-start; gap:8px; font-size:11.5px; color:#475569; cursor:pointer; line-height:1.4;">
+            <input type="checkbox" id="ck_sms_consent" required style="margin-top:2px; accent-color:#BE8C33; flex-shrink:0;" />
+            <span>By checking this box, you agree to receive project updates &amp; demo preview links from AR Webcrafts LLC at this number. Msg frequency varies. Reply STOP to cancel. See our <a href="/privacy-policy/" target="_blank" style="color:#BE8C33; text-decoration:underline;">Privacy Policy</a> &amp; <a href="/terms-and-conditions/" target="_blank" style="color:#BE8C33; text-decoration:underline;">Terms</a>.</span>
+          </label>
+        </div>
+
+        <button type="submit" id="ckSubmitBtn" style="background:#BE8C33; color:#FFFFFF; font-weight:700; font-size:15px; padding:13px 20px; border:none; border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; box-shadow:0 4px 14px rgba(190,140,51,0.3); transition:background 0.2s ease;">
+          <span>Reserve My Slot &amp; Book 10-Min Kickoff Call &rarr;</span>
+        </button>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:11.5px; color:#64748B; margin-top:6px; flex-wrap:gap; gap:8px;">
+          <span><i class="fas fa-shield-alt" style="color:#16A34A; margin-right:4px;"></i> 100% Risk-Free Guarantee</span>
+          <span><i class="fas fa-bolt" style="color:#F59E0B; margin-right:4px;"></i> 24-Hr Live Turnaround</span>
+          <a href="https://wa.me/13072784862?text=Hi%20Arman%2C%20I%20want%20to%20start%20my%20website%20project" target="_blank" rel="noopener" style="color:#081420; font-weight:600; text-decoration:underline;">
+            <i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp Chat
+          </a>
+        </div>
+      </form>
+
+      <!-- Success State -->
+      <div id="arCheckoutDone" hidden style="background:#081420; color:#FFFFFF; padding:28px 20px; border-radius:8px; border:1px solid #BE8C33; text-align:center;">
+        <div style="width:48px; height:48px; border-radius:50%; background:rgba(190,140,51,0.25); color:#BE8C33; font-size:22px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:12px;">
+          <i class="fas fa-check"></i>
+        </div>
+        <h3 style="color:#FFFFFF; font-size:1.3rem; margin-bottom:6px;">Build Slot Reserved! Redirecting to Arman's Calendar...</h3>
+        <p style="color:#CBD5E1; font-size:13px; max-width:440px; margin:0 auto 16px;">Pick your 10-minute slot now so we can verify your trade and launch your live demo in 24 hours.</p>
+        <a href="https://calendly.com/arwebcrafts/30-mint" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding:10px 22px; font-size:14px;">
+          <span>Open Calendly Immediately &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="/ar-global-enhancements.js" defer></script>
 </body>
