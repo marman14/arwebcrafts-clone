@@ -1,17 +1,25 @@
 // Vercel Serverless Function: api/create-checkout-session.js
 // Creates a secure Stripe Checkout Session for AR Webcrafts LLC services/invoices
 
-const Stripe = require('stripe');
+function getStripe(secretKey) {
+  try {
+    const Stripe = require('stripe');
+    return new Stripe(secretKey);
+  } catch (e) {
+    return null;
+  }
+}
+const {
+  applySecurityHeaders,
+  verifyCsrfAndOrigin,
+  checkRateLimit,
+  getClientIp,
+  sanitizeInput,
+  maskPii
+} = require('./_security');
 
 module.exports = async (req, res) => {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  applySecurityHeaders(req, res);
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -21,22 +29,37 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed. Please use POST.' });
   }
 
-  try {
-    const {
-      serviceName = 'Custom WordPress Development Milestone',
-      description = 'AR Webcrafts LLC Client Service Deposit / Milestone Payment',
-      amount = 500,
-      currency = 'usd',
-      customerName = '',
-      customerEmail = '',
-      customerPhone = '',
-      invoiceNumber = '',
-      notes = ''
-    } = req.body || {};
+  // 1. CSRF & Origin Verification
+  if (!verifyCsrfAndOrigin(req)) {
+    return res.status(403).json({ error: 'Forbidden: Invalid request origin.' });
+  }
 
-    const numericAmount = parseFloat(amount);
-    if (isNaN(numericAmount) || numericAmount <= 0) {
-      return res.status(400).json({ error: 'Invalid payment amount specified.' });
+  // 2. IP Rate Limiting (max 15 checkout sessions per minute to block card testing bots)
+  const clientIp = getClientIp(req);
+  const rateCheck = checkRateLimit(`chk_${clientIp}`, 15, 60 * 1000);
+  if (rateCheck.limited) {
+    res.setHeader('Retry-After', String(rateCheck.retryAfter));
+    return res.status(429).json({
+      error: 'Too many requests. Please wait before creating a new checkout session.'
+    });
+  }
+
+  try {
+    const body = req.body || {};
+    const rawServiceName = sanitizeInput(body.serviceName || 'Custom WordPress Development Milestone', 120);
+    const rawDescription = sanitizeInput(body.description || 'AR Webcrafts LLC Client Service Deposit / Milestone Payment', 250);
+    const rawCustomerName = sanitizeInput(body.customerName || '', 100);
+    const rawCustomerEmail = sanitizeInput(body.customerEmail || '', 120);
+    const rawCustomerPhone = sanitizeInput(body.customerPhone || '', 30);
+    const rawInvoiceNumber = sanitizeInput(body.invoiceNumber || '', 50);
+    const rawNotes = sanitizeInput(body.notes || '', 500);
+    const currency = sanitizeInput(body.currency || 'usd', 5).toLowerCase();
+
+    const numericAmount = parseFloat(body.amount);
+    if (isNaN(numericAmount) || numericAmount < 1.00 || numericAmount > 50000.00) {
+      return res.status(400).json({
+        error: 'Invalid payment amount specified. Amount must be between $1.00 and $50,000.00 USD.'
+      });
     }
 
     const unitAmountCents = Math.round(numericAmount * 100);
@@ -50,18 +73,18 @@ module.exports = async (req, res) => {
 
     // If Stripe Secret Key is properly set in environment
     if (secretKey && !secretKey.includes('your_actual') && !secretKey.includes('Demo000000')) {
-      const stripe = new Stripe(secretKey);
-
-      const sessionPayload = {
+      const stripe = getStripe(secretKey);
+      if (stripe) {
+        const sessionPayload = {
         payment_method_types: ['card'],
         mode: 'payment',
         line_items: [
           {
             price_data: {
-              currency: currency.toLowerCase(),
+              currency: currency || 'usd',
               product_data: {
-                name: serviceName,
-                description: description || `Invoice Ref: ${invoiceNumber || 'N/A'}`
+                name: rawServiceName,
+                description: rawDescription || `Invoice Ref: ${rawInvoiceNumber || 'N/A'}`
               },
               unit_amount: unitAmountCents
             },
@@ -72,17 +95,17 @@ module.exports = async (req, res) => {
         cancel_url: `${origin}/checkout/transaction-failed/?session_id={CHECKOUT_SESSION_ID}`,
         metadata: {
           company: 'AR Webcrafts LLC',
-          customer_name: customerName,
-          customer_email: customerEmail,
-          customer_phone: customerPhone,
-          invoice_number: invoiceNumber || 'N/A',
-          service_name: serviceName,
-          notes: notes.substring(0, 500)
+          customer_name: rawCustomerName,
+          customer_email: rawCustomerEmail,
+          customer_phone: rawCustomerPhone,
+          invoice_number: rawInvoiceNumber || 'N/A',
+          service_name: rawServiceName,
+          notes: rawNotes
         }
       };
 
-      if (customerEmail && customerEmail.includes('@')) {
-        sessionPayload.customer_email = customerEmail;
+      if (rawCustomerEmail && rawCustomerEmail.includes('@')) {
+        sessionPayload.customer_email = rawCustomerEmail;
       }
 
       const session = await stripe.checkout.sessions.create(sessionPayload);
@@ -92,12 +115,18 @@ module.exports = async (req, res) => {
         url: session.url,
         mode: 'live_stripe'
       });
+      }
     }
 
     // Graceful Sandbox / Test Mode Simulation if live keys are not yet provided in Vercel environment
-    // Generates a verified test receipt redirect so developers & clients can test the full UI flow
     const testSessionId = 'cs_test_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
-    const testSuccessUrl = `${origin}/checkout/receipt/?session_id=${testSessionId}&amount=${numericAmount.toFixed(2)}&currency=${currency.toUpperCase()}&service=${encodeURIComponent(serviceName)}&customer=${encodeURIComponent(customerName)}&invoice=${encodeURIComponent(invoiceNumber || 'INV-DEMO')}&mode=test_simulated`;
+    const testSuccessUrl = `${origin}/checkout/receipt/?session_id=${testSessionId}&amount=${numericAmount.toFixed(2)}&currency=${currency.toUpperCase()}&service=${encodeURIComponent(rawServiceName)}&customer=${encodeURIComponent(rawCustomerName)}&invoice=${encodeURIComponent(rawInvoiceNumber || 'INV-DEMO')}&mode=test_simulated`;
+
+    console.log('[Stripe Session Created - Test Mode]', {
+      customer: maskPii(rawCustomerName),
+      email: maskPii(rawCustomerEmail, 'email'),
+      amount: numericAmount
+    });
 
     return res.status(200).json({
       id: testSessionId,
@@ -106,9 +135,10 @@ module.exports = async (req, res) => {
       message: 'Running in Test Mode. Set STRIPE_SECRET_KEY in Vercel to route directly to live Stripe hosted checkout.'
     });
   } catch (error) {
-    console.error('Create Checkout Session Error:', error);
+    console.error('Create Checkout Session Error:', error.message);
     return res.status(500).json({
-      error: error.message || 'An error occurred while creating the checkout session.'
+      error: 'An error occurred while creating the checkout session. Please try again.'
     });
   }
 };
+

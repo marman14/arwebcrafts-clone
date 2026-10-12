@@ -23,13 +23,17 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
             body_data = self.rfile.read(content_length)
 
         if js_file.exists():
+            headers_dict = {k.lower(): v for k, v in self.headers.items()}
+            if 'origin' not in headers_dict and 'host' in headers_dict:
+                headers_dict['origin'] = f"http://{headers_dict['host']}"
+            headers_json = json.dumps(headers_dict)
             runner_script = f"""
             const handler = require('./api/{api_name}.js');
             let body = {{}};
             try {{ body = JSON.parse(process.argv[1]); }} catch(e) {{}}
             const req = {{
                 method: '{method}',
-                headers: {{ host: '{self.headers.get("Host", "localhost:3000")}' }},
+                headers: {headers_json},
                 body: body
             }};
             const res = {{
@@ -52,15 +56,25 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
                 )
                 output = proc.stdout.strip()
                 if output:
-                    res_obj = json.loads(output)
-                    self.send_response(res_obj.get("status", 200))
-                    self.send_header('Content-Type', 'application/json')
-                    self.send_header('Access-Control-Allow-Origin', '*')
-                    self.end_headers()
-                    self.wfile.write(json.dumps(res_obj.get("data", {})).encode('utf-8'))
-                    return
+                    res_obj = None
+                    for line in reversed(output.splitlines()):
+                        line_str = line.strip()
+                        if line_str.startswith("{") and line_str.endswith("}"):
+                            try:
+                                candidate = json.loads(line_str)
+                                if "status" in candidate:
+                                    res_obj = candidate
+                                    break
+                            except Exception:
+                                pass
+                    if res_obj:
+                        self.send_response(res_obj.get("status", 200))
+                        self.send_header('Content-Type', 'application/json')
+                        self.end_headers()
+                        self.wfile.write(json.dumps(res_obj.get("data", {})).encode('utf-8'))
+                        return
             except Exception as e:
-                pass
+                print(f"[API Server Error]: {e}")
         
         self.send_response(404)
         self.send_header('Content-Type', 'application/json')

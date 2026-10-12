@@ -188,25 +188,89 @@
   function initFormHandling() {
     var forms = document.querySelectorAll('form');
     forms.forEach(function (form) {
-      if (form.dataset.arHandled) return;
+      // Exclude forms that manage their own checkout or demo submissions
+      if (
+        form.id === 'ar-checkout-form' ||
+        form.id === 'demoForm' ||
+        form.dataset.customSubmit === 'true' ||
+        form.dataset.arHandled === 'true'
+      ) {
+        return;
+      }
+
       form.dataset.arHandled = 'true';
-      form.addEventListener('submit', function (e) {
+
+      // Inject hidden anti-spam honeypot & timestamp if not already present
+      if (!form.querySelector('input[name="hp_website_check"]')) {
+        var hpWrap = document.createElement('div');
+        hpWrap.style.cssText = 'display:none!important;position:absolute;left:-9999px;opacity:0;';
+        hpWrap.setAttribute('aria-hidden', 'true');
+        hpWrap.innerHTML = '<input type="text" name="hp_website_check" tabindex="-1" autocomplete="off"><input type="hidden" name="form_loaded_at" value="' + Date.now() + '">';
+        form.appendChild(hpWrap);
+      }
+
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        // 1. Validate A2P 10DLC SMS Consent Checkbox if present in form
+        var consentBox = form.querySelector('input[name="sms_consent"]');
+        if (consentBox && !consentBox.checked) {
+          var consentContainer = consentBox.closest('.ar-sms-consent-box') || consentBox.parentElement;
+          if (consentContainer) {
+            consentContainer.style.outline = '2px solid #BE8C33';
+            consentContainer.style.outlineOffset = '2px';
+            consentContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          consentBox.focus();
+          return;
+        } else if (consentBox) {
+          var consentContainer = consentBox.closest('.ar-sms-consent-box') || consentBox.parentElement;
+          if (consentContainer) consentContainer.style.outline = '';
+        }
+
+        // 2. Check honeypot field
+        var hp = form.querySelector('input[name="hp_website_check"]');
+        if (hp && hp.value.trim()) {
+          // Bot detected: silent success drop
+          showSuccess();
+          return;
+        }
+
         var submitBtn = form.querySelector('[type="submit"]') || form.querySelector('button');
         var origText = submitBtn ? submitBtn.innerText : 'Submit';
-        if (submitBtn) submitBtn.innerText = 'Submitting...';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Sending...';
+        }
 
-        setTimeout(function () {
+        // 3. Serialize and post to secure /api/contact/
+        var formData = new FormData(form);
+        var payload = { page_url: window.location.pathname };
+        formData.forEach(function (v, k) { payload[k] = v; });
+
+        try {
+          await fetch('/api/contact/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch (err) {
+          console.warn('[Contact Form] Notice:', err.message);
+        }
+
+        function showSuccess() {
           var successMsg = document.createElement('div');
           successMsg.className = 'ar-form-success-msg';
-          successMsg.style.cssText = 'background:#10b981;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:15px;margin-top:15px;text-align:center;box-shadow:0 10px 25px rgba(16,185,129,0.3);';
-          successMsg.innerHTML = '✓ Thank you! Your proposal request has been received. Our senior tech lead will contact you within 2 hours.';
-          
+          successMsg.style.cssText = 'background:#10b981;color:#fff;padding:16px 20px;border-radius:12px;font-weight:700;font-size:15px;margin-top:15px;text-align:center;box-shadow:0 10px 25px rgba(16,185,129,0.25);';
+          successMsg.innerHTML = '✓ Thank you! Your request has been received. Our team will contact you within 2 hours.';
+
           form.style.display = 'none';
           if (form.parentNode) {
             form.parentNode.appendChild(successMsg);
           }
-        }, 600);
+        }
+
+        setTimeout(showSuccess, 400);
       });
     });
   }

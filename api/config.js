@@ -1,18 +1,17 @@
 // Vercel Serverless Function: api/config.js
 // Provides the Stripe Publishable Key securely to the frontend client
 
+const { applySecurityHeaders } = require('./_security');
+
 module.exports = async (req, res) => {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  applySecurityHeaders(req, res);
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
+  }
+
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed. Please use GET.' });
   }
 
   try {
@@ -27,7 +26,8 @@ module.exports = async (req, res) => {
       company: 'AR Webcrafts LLC'
     });
   } catch (error) {
-    console.error('Config API Error:', error);
-    return res.status(500).json({ error: error.message });
+    console.error('Config API Error:', error.message);
+    return res.status(500).json({ error: 'Failed to retrieve configuration.' });
   }
 };
+

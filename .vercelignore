@@ -1,2 +1,9 @@
 scripts/
 .git
+*.bak
+*.log
+*.py
+server.py
+.env
+.env.*
+.DS_Store

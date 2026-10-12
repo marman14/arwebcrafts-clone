@@ -6,5 +6,7 @@
     "start": "npx serve . -p 3000",
     "serve": "python server.py 3000"
   },
-  "dependencies": {}
+  "dependencies": {
+    "stripe": "^14.25.0"
+  }
 }
