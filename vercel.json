@@ -22,6 +22,16 @@
       "source": "/home/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact-us/",
+      "permanent": true
     }
   ],
   "headers": [

@@ -97,6 +97,14 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
 
     def translate_path(self, path):
         clean_path = path.split("?")[0].split("#")[0].strip("/")
+        aliases = {
+            "contact": "contact-us",
+            "about": "about-us",
+            "home": ""
+        }
+        if clean_path in aliases:
+            clean_path = aliases[clean_path]
+
         target = DIRECTORY / clean_path
         if target.exists():
             if target.is_dir():
@@ -121,9 +129,18 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
             return self.handle_api('GET')
         return super().do_GET()
 
+    def copyfile(self, source, outputfile):
+        try:
+            super().copyfile(source, outputfile)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+
     def end_headers(self):
-        # Enable CORS and caching headers
+        # Enable CORS and disable caching in local development
         self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
         super().end_headers()
 
 if __name__ == "__main__":
