@@ -32,6 +32,36 @@
       "source": "/contact/",
       "destination": "/contact-us/",
       "permanent": true
+    },
+    {
+      "source": "/white-label",
+      "destination": "/white-label-development-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/white-label/",
+      "destination": "/white-label-development-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/partner",
+      "destination": "/white-label-development-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/partner/",
+      "destination": "/white-label-development-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/work-with-us",
+      "destination": "/white-label-development-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/work-with-us/",
+      "destination": "/white-label-development-partner/",
+      "permanent": true
     }
   ],
   "headers": [

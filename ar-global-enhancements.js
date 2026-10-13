@@ -2,6 +2,7 @@
  * AR WEBCRAFTS LLC — Global Enhancements & Mobile Interactive Features
  * 1. Robust Mobile Hamburger Menu Drawer (Open, Close, Nav, Backdrop, Esc)
  * 2. Calendly Full-Height Responsive Embedding & Auto-Height Resizing
+ * 3. Header Nav Label Renames & White Label Partner Link Enhancement
  */
 
 (function () {
@@ -287,11 +288,100 @@
     document.body.appendChild(btn);
   }
 
+  /**
+   * 5. Nav Label Renames & Enhancements
+   * - "About Us" → "About", "Contact Us" → "Contact"
+   * - Dynamically insert "Agency Partner" link if not already present
+   * - Mark "Hire Us" and "Agency Partner" items with appropriate classes
+   */
+  function initNavEnhancements() {
+    var ul = document.querySelector('.elementskit-navbar-nav');
+    if (!ul) return;
+
+    var currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+    var isPartnerPage = /white-label|partner/i.test(currentPath);
+
+    // Ensure Agency Partner item exists in nav
+    var existingPartner = ul.querySelector('a[href*="white-label"], a[href*="partner"], .ar-nav-partner-item');
+    if (!existingPartner) {
+      // Find Hire Us item (usually last) to insert right before it
+      var hireLi = null;
+      var items = ul.querySelectorAll(':scope > li');
+      for (var i = items.length - 1; i >= 0; i--) {
+        if (/hire\s+us/i.test(items[i].textContent || '')) {
+          hireLi = items[i];
+          break;
+        }
+      }
+      var newLi = document.createElement('li');
+      newLi.className = 'menu-item menu-item-type-post_type menu-item-object-page nav-item ar-nav-partner-item' + (isPartnerPage ? ' current-menu-item active' : '');
+      newLi.innerHTML = '<a href="/white-label-development-partner/" class="ekit-menu-nav-link"' + (isPartnerPage ? ' aria-current="page"' : '') + '>Agency Partner</a>';
+      if (hireLi) {
+        ul.insertBefore(newLi, hireLi);
+      } else {
+        ul.appendChild(newLi);
+      }
+    }
+
+    var navItems = ul.querySelectorAll(':scope > li > a.ekit-menu-nav-link');
+    navItems.forEach(function(link) {
+      var text = link.textContent || link.innerText || '';
+      var trimmed = text.trim();
+      var li = link.parentElement;
+
+      // Rename "About Us" → "About"
+      if (/^about\s+us$/i.test(trimmed)) {
+        var textNode = findTextNode(link, trimmed);
+        if (textNode) textNode.textContent = 'About';
+        li.classList.add('ar-nav-renamed');
+      }
+
+      // Rename "Contact Us" → "Contact"
+      if (/^contact\s+us$/i.test(trimmed)) {
+        var textNode = findTextNode(link, trimmed);
+        if (textNode) textNode.textContent = 'Contact';
+        li.classList.add('ar-nav-renamed');
+      }
+
+      // Mark "Hire Us" button-style
+      if (/^hire\s+us$/i.test(trimmed)) {
+        li.classList.add('ar-nav-hire-btn');
+      }
+
+      // Mark "Work With Us" / White Label partner item in gold
+      if (/work\s+with\s+us|white\s+label|agency\s+partner/i.test(trimmed)) {
+        li.classList.add('ar-nav-partner-item');
+        if (isPartnerPage) {
+          li.classList.add('current-menu-item', 'active');
+          link.setAttribute('aria-current', 'page');
+        }
+      }
+    });
+  }
+
+  /** Find a text node within an element matching given text */
+  function findTextNode(el, text) {
+    var nodes = el.childNodes;
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].nodeType === Node.TEXT_NODE && nodes[i].textContent.trim() === text.trim()) {
+        return nodes[i];
+      }
+    }
+    // Fallback: return first text node found
+    for (var j = 0; j < nodes.length; j++) {
+      if (nodes[j].nodeType === Node.TEXT_NODE && nodes[j].textContent.trim().length > 0) {
+        return nodes[j];
+      }
+    }
+    return null;
+  }
+
   function init() {
     initMobileMenu();
     initCalendly();
     initFormHandling();
     initWhatsAppButton();
+    initNavEnhancements();
   }
 
   if (document.readyState === 'loading') {
