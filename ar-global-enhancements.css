@@ -2096,15 +2096,22 @@ section.elementor-element-ac3f73a,
     color: #BE8C33 !important;
   }
 
-  /* Agency Partner nav item - completely hidden from header */
-  .ar-nav-partner-item,
-  .elementskit-navbar-nav > li.ar-nav-partner-item {
-    display: none !important;
+  /* Agency Partner nav item - prominent gold styling */
+  .ar-nav-partner-item > a.ekit-menu-nav-link {
+    color: #BE8C33 !important;
+    font-weight: 700 !important;
+  }
+  .ar-nav-partner-item > a.ekit-menu-nav-link:hover,
+  .ar-nav-partner-item.current-menu-item > a.ekit-menu-nav-link {
+    color: #8C6119 !important;
+    background: rgba(190, 140, 51, 0.12) !important;
   }
 
-  /* Hire Us nav item */
-  .ar-nav-hire-btn > a.ekit-menu-nav-link {
-    font-weight: 700 !important;
+  /* Hide Hire Us button from header nav menu (page remains 100% active & accessible) */
+  .ar-nav-hidden-hire,
+  .elementskit-navbar-nav > li.ar-nav-hidden-hire,
+  .elementskit-navbar-nav > li:has(a[href*="hire-a-full-stack-wordpress-developer"]) {
+    display: none !important;
   }
 
   /* ── The Premium Mega Menu Panel ── */
