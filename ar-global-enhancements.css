@@ -2416,3 +2416,33 @@ section.elementor-element-ac3f73a,
     visibility: visible !important;
   }
 }
+
+/* ── Agency Partner Page Enhancements ── */
+.wl-nda-bar {
+  color: #E2E8F0 !important;
+}
+.wl-nda-bar strong {
+  color: #FFFFFF !important;
+}
+.wl-nda-bar span {
+  color: #E2E8F0 !important;
+}
+.wl-hero-stamps li {
+  color: #E2E8F0 !important;
+}
+.wl-cta-trust,
+.wl-cta-trust span {
+  color: #E2E8F0 !important;
+}
+.wl-who-icon {
+  color: #BE8C33 !important;
+  font-size: 2.2rem !important;
+  line-height: 1 !important;
+}
+.wl-footer-logo img {
+  filter: none !important;
+  height: 34px !important;
+  width: auto !important;
+  display: block !important;
+}
+

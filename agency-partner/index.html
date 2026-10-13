@@ -266,7 +266,7 @@
     align-items: center;
     gap: 8px;
     font-size: 13px;
-    color: #94A3B8;
+    color: #E2E8F0;
     font-family: var(--sans);
     font-weight: 600;
   }
@@ -626,6 +626,8 @@
     font-size: 2.2rem;
     margin-bottom: 14px;
     display: block;
+    color: var(--gold);
+    line-height: 1;
   }
   .wl-who-name {
     font-family: var(--sans);
@@ -900,7 +902,7 @@
   .wl-cta-trust {
     margin-top: 24px;
     font-size: 12.5px;
-    color: #475569;
+    color: #E2E8F0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -909,7 +911,7 @@
     position: relative;
     z-index: 1;
   }
-  .wl-cta-trust span { display: flex; align-items: center; gap: 6px; }
+  .wl-cta-trust span { display: flex; align-items: center; gap: 6px; color: #E2E8F0; }
   .wl-cta-trust .check { color: var(--gold); font-size: 13px; }
 
   /* ── FOOTER ── */
@@ -928,7 +930,7 @@
   }
   @media (max-width: 860px) { .wl-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
   @media (max-width: 520px) { .wl-footer-grid { grid-template-columns: 1fr; } }
-  .wl-footer-logo img { height: 34px; filter: brightness(0) invert(1); margin-bottom: 14px; }
+  .wl-footer-logo img { height: 34px; width: auto; margin-bottom: 14px; display: block; }
   .wl-footer-tagline { font-size: 13px; color: #475569; line-height: 1.65; max-width: 260px; }
   .wl-footer-col-title {
     font-family: var(--sans);
@@ -974,8 +976,8 @@
 
   /* Sticky NDA bar */
   .wl-nda-bar {
-    background: rgba(190,140,51,0.08);
-    border: 1px solid rgba(190,140,51,0.25);
+    background: rgba(190,140,51,0.12);
+    border: 1px solid rgba(190,140,51,0.35);
     border-radius: 10px;
     padding: 14px 18px;
     display: flex;
@@ -983,8 +985,10 @@
     gap: 12px;
     margin-top: 20px;
     font-size: 13px;
-    color: var(--navy);
+    color: #E2E8F0;
   }
+  .wl-nda-bar strong { color: #FFFFFF; }
+  .wl-nda-bar span { color: #E2E8F0; }
   .wl-nda-bar i { color: var(--gold); font-size: 16px; flex-shrink: 0; }
 
   /* Partnership tiers */
@@ -1363,32 +1367,32 @@
 
     <div class="wl-who-grid">
       <div class="wl-who-card reveal">
-        <span class="wl-who-icon" role="img" aria-label="Marketing agency">🎯</span>
+        <span class="wl-who-icon" aria-hidden="true"><i class="fas fa-bullseye"></i></span>
         <div class="wl-who-name">Marketing Agencies</div>
         <p class="wl-who-desc">You sell the campaigns, SEO, and strategy. We build the websites and tech — delivered under your brand seamlessly.</p>
       </div>
       <div class="wl-who-card reveal reveal-delay-1">
-        <span class="wl-who-icon" role="img" aria-label="Web agency">🖥️</span>
+        <span class="wl-who-icon" aria-hidden="true"><i class="fas fa-desktop"></i></span>
         <div class="wl-who-name">Web Design Agencies</div>
         <p class="wl-who-desc">You design, we develop. Or we do both. Scale without burning out your team or compromising your delivery standards.</p>
       </div>
       <div class="wl-who-card reveal reveal-delay-2">
-        <span class="wl-who-icon" role="img" aria-label="Developers">👨‍💻</span>
+        <span class="wl-who-icon" aria-hidden="true"><i class="fas fa-laptop-code"></i></span>
         <div class="wl-who-name">Freelance Developers</div>
         <p class="wl-who-desc">Take on bigger projects you couldn't handle alone. Use us as your backend team, extend your stack, or handle overflow work.</p>
       </div>
       <div class="wl-who-card reveal">
-        <span class="wl-who-icon" role="img" aria-label="Digital agency">📱</span>
+        <span class="wl-who-icon" aria-hidden="true"><i class="fas fa-mobile-alt"></i></span>
         <div class="wl-who-name">Digital Agencies</div>
         <p class="wl-who-desc">From social media to mobile apps — expand your service menu without expanding your payroll. We slot into your workflow.</p>
       </div>
       <div class="wl-who-card reveal reveal-delay-1">
-        <span class="wl-who-icon" role="img" aria-label="Consulting firms">💼</span>
+        <span class="wl-who-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></span>
         <div class="wl-who-name">IT Consulting Firms</div>
         <p class="wl-who-desc">Win enterprise deals with confidence. We provide the dev muscle behind your proposals and deliver at enterprise level.</p>
       </div>
       <div class="wl-who-card reveal reveal-delay-2">
-        <span class="wl-who-icon" role="img" aria-label="Entrepreneurs">🚀</span>
+        <span class="wl-who-icon" aria-hidden="true"><i class="fas fa-rocket"></i></span>
         <div class="wl-who-name">Entrepreneurs & Startups</div>
         <p class="wl-who-desc">Building a product but not technical? We become your CTO-for-hire and development team rolled into one efficient partner.</p>
       </div>
@@ -1690,7 +1694,7 @@
     <div class="wl-footer-grid">
       <div>
         <a href="/" aria-label="AR Webcrafts Home" class="wl-footer-logo">
-          <img src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview-1.webp" alt="AR Webcrafts LLC">
+          <img src="/wp-content/uploads/2023/05/AR_Webcrafts_white.webp" alt="AR Webcrafts LLC" width="142" height="34" onerror="this.onerror=null;this.src='/wp-content/uploads/2023/05/AR_Webcrafts_white.png';">
         </a>
         <p class="wl-footer-tagline">White label development partner for agencies, developers, and marketing firms worldwide. We build — you deliver.</p>
       </div>
@@ -1716,10 +1720,10 @@
       <div>
         <div class="wl-footer-col-title">Contact</div>
         <nav class="wl-footer-links" aria-label="Contact links">
-          <a href="tel:+13072784862">📞 +1 307 278 4862</a>
-          <a href="mailto:contact@arwebcrafts.com">✉ contact@arwebcrafts.com</a>
-          <a href="https://wa.me/13072784862" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-          <a href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener">📅 Book a Free Call</a>
+          <a href="tel:+13072784862"><i class="fas fa-phone-alt" style="color:var(--gold); margin-right:8px;" aria-hidden="true"></i>+1 307 278 4862</a>
+          <a href="mailto:contact@arwebcrafts.com"><i class="fas fa-envelope" style="color:var(--gold); margin-right:8px;" aria-hidden="true"></i>contact@arwebcrafts.com</a>
+          <a href="https://wa.me/13072784862" target="_blank" rel="noopener"><i class="fab fa-whatsapp" style="color:#25D366; margin-right:8px;" aria-hidden="true"></i>WhatsApp Us</a>
+          <a href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener"><i class="fas fa-calendar-alt" style="color:var(--gold); margin-right:8px;" aria-hidden="true"></i>Book a Free Call</a>
         </nav>
       </div>
     </div>
@@ -1729,7 +1733,7 @@
       <div style="display:flex; gap:18px; flex-wrap:wrap;">
         <a href="/privacy-policy/">Privacy Policy</a>
         <a href="/terms-and-conditions/">Terms of Service</a>
-        <a href="/white-label-development-partner/" aria-current="page">White Label Partner</a>
+        <a href="/agency-partner/" aria-current="page">White Label Partner</a>
       </div>
     </div>
   </div>
