@@ -35,32 +35,42 @@
     },
     {
       "source": "/white-label",
-      "destination": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
       "permanent": true
     },
     {
       "source": "/white-label/",
-      "destination": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
       "permanent": true
     },
     {
       "source": "/partner",
-      "destination": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
       "permanent": true
     },
     {
       "source": "/partner/",
-      "destination": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
       "permanent": true
     },
     {
       "source": "/work-with-us",
-      "destination": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
       "permanent": true
     },
     {
       "source": "/work-with-us/",
-      "destination": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/white-label-development-partner",
+      "destination": "/agency-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/white-label-development-partner/",
+      "destination": "/agency-partner/",
       "permanent": true
     }
   ],

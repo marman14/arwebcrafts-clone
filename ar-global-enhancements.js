@@ -301,33 +301,26 @@
     var currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
     var isPartnerPage = /white-label|partner/i.test(currentPath);
 
-    // Ensure Agency Partner item exists in nav
-    var existingPartner = ul.querySelector('a[href*="white-label"], a[href*="partner"], .ar-nav-partner-item');
-    if (!existingPartner) {
-      // Find Hire Us item (usually last) to insert right before it
-      var hireLi = null;
-      var items = ul.querySelectorAll(':scope > li');
-      for (var i = items.length - 1; i >= 0; i--) {
-        if (/hire\s+us/i.test(items[i].textContent || '')) {
-          hireLi = items[i];
-          break;
-        }
+    // Ensure Agency Partner item is completely removed from header nav
+    var existingPartners = ul.querySelectorAll('a[href*="white-label"], a[href*="agency-partner"], .ar-nav-partner-item');
+    existingPartners.forEach(function(el) {
+      var li = el.closest('li');
+      if (li) {
+        li.remove();
       }
-      var newLi = document.createElement('li');
-      newLi.className = 'menu-item menu-item-type-post_type menu-item-object-page nav-item ar-nav-partner-item' + (isPartnerPage ? ' current-menu-item active' : '');
-      newLi.innerHTML = '<a href="/white-label-development-partner/" class="ekit-menu-nav-link"' + (isPartnerPage ? ' aria-current="page"' : '') + '>Agency Partner</a>';
-      if (hireLi) {
-        ul.insertBefore(newLi, hireLi);
-      } else {
-        ul.appendChild(newLi);
-      }
-    }
+    });
 
     var navItems = ul.querySelectorAll(':scope > li > a.ekit-menu-nav-link');
     navItems.forEach(function(link) {
       var text = link.textContent || link.innerText || '';
       var trimmed = text.trim();
       var li = link.parentElement;
+
+      // Remove any Agency Partner item
+      if (/agency\s+partner|white\s+label/i.test(trimmed)) {
+        li.remove();
+        return;
+      }
 
       // Rename "About Us" → "About"
       if (/^about\s+us$/i.test(trimmed)) {
@@ -346,15 +339,6 @@
       // Mark "Hire Us" button-style
       if (/^hire\s+us$/i.test(trimmed)) {
         li.classList.add('ar-nav-hire-btn');
-      }
-
-      // Mark "Work With Us" / White Label partner item in gold
-      if (/work\s+with\s+us|white\s+label|agency\s+partner/i.test(trimmed)) {
-        li.classList.add('ar-nav-partner-item');
-        if (isPartnerPage) {
-          li.classList.add('current-menu-item', 'active');
-          link.setAttribute('aria-current', 'page');
-        }
       }
     });
 
