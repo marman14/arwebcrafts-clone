@@ -357,6 +357,35 @@
         }
       }
     });
+
+    // Perfectly align the 3 mega menu category headers vertically on the same baseline
+    try {
+      var headerRow = document.querySelector('.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-container');
+      if (headerRow) {
+        headerRow.style.setProperty('display', 'flex', 'important');
+        headerRow.style.setProperty('align-items', 'center', 'important');
+        headerRow.style.setProperty('justify-content', 'space-between', 'important');
+      }
+      var catTitles = document.querySelectorAll(
+        '.elementskit-megamenu-panel .elementor-element-4bf31f5d h2.elementor-heading-title, ' +
+        '.elementskit-megamenu-panel .elementor-element-ds-hdr-title .elementor-heading-title, ' +
+        '.elementskit-megamenu-panel .elementor-element-9a1bcf8 .elementor-heading-title, ' +
+        '.elementskit-megamenu-panel .elementor-element-2c61c89f .elementor-heading-title'
+      );
+      catTitles.forEach(function (title) {
+        title.style.setProperty('margin', '0', 'important');
+        title.style.setProperty('padding', '0', 'important');
+        title.style.setProperty('line-height', '1', 'important');
+        title.style.setProperty('font-size', '12px', 'important');
+        title.style.setProperty('font-weight', '800', 'important');
+        title.style.setProperty('letter-spacing', '0.12em', 'important');
+        title.style.setProperty('text-transform', 'uppercase', 'important');
+        title.style.setProperty('color', '#BE8C33', 'important');
+        title.style.setProperty('display', 'inline-flex', 'important');
+        title.style.setProperty('align-items', 'center', 'important');
+        title.style.setProperty('vertical-align', 'middle', 'important');
+      });
+    } catch (e) {}
   }
 
   /** Find a text node within an element matching given text */

@@ -2156,14 +2156,19 @@ section.elementor-element-ac3f73a,
   /* ── Header bar inside mega menu (Deep Navy with Gold Titles) ── */
   .elementskit-megamenu-panel .elementor-element-4bf31f5d {
     background: linear-gradient(135deg, #011B39 0%, #0A2444 100%) !important;
-    padding: 13px 20px !important;
+    padding: 14px 20px !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
   }
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-container {
     display: flex !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
+    justify-content: space-between !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -2183,7 +2188,8 @@ section.elementor-element-ac3f73a,
   }
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-widget-wrap,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-populated,
-  .elementskit-megamenu-panel .elementor-element.elementor-element-ds-hdr > .elementor-element-populated {
+  .elementskit-megamenu-panel .elementor-element.elementor-element-ds-hdr > .elementor-element-populated,
+  .elementor-1638 .elementor-element.elementor-element-ds-hdr > .elementor-element-populated {
     margin: 0 !important;
     padding: 0 !important;
     display: flex !important;
@@ -2194,16 +2200,19 @@ section.elementor-element-ac3f73a,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-widget-container {
     margin: 0 !important;
     padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
   }
   /* Perfect vertical alignment for all 3 top headings: SERVICES, MAINTENANCE, DIGITAL SOLUTIONS */
   .elementskit-megamenu-panel .elementor-element-4bf31f5d h2.elementor-heading-title,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-widget-heading h2,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-ds-hdr-title .elementor-heading-title,
+  .elementskit-megamenu-panel .elementor-element.elementor-element-ds-hdr-title .elementor-heading-title,
   .elementor-1638 .elementor-element.elementor-element-ds-hdr-title .elementor-heading-title,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-9a1bcf8 .elementor-heading-title,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-2c61c89f .elementor-heading-title {
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
-    font-size: 11.5px !important;
+    font-size: 12px !important;
     font-weight: 800 !important;
     letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
@@ -2213,8 +2222,9 @@ section.elementor-element-ac3f73a,
     margin-bottom: 0 !important;
     padding: 0 !important;
     border: none !important;
-    line-height: 1.2 !important;
-    display: inline-block !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
     vertical-align: middle !important;
   }
 
