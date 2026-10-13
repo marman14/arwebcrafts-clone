@@ -2257,12 +2257,70 @@ section.elementor-element-ac3f73a,
 }
 
 /* ============================================================
-   FIX: Elementor Scroll Animation Visibility
-   elementor-invisible is set by Elementor's JS animation system.
-   In static HTML (no WordPress/elementorFrontendConfig), the JS
-   never removes this class, leaving sections permanently hidden.
-   This override ensures ALL page content is always visible.
+   AR SCROLL ANIMATION SYSTEM
+   Elementor uses .elementor-invisible (visibility:hidden) for
+   scroll-triggered entrance animations. In static HTML the
+   Elementor JS never runs those reveals.
+   Our custom IntersectionObserver (in ar-global-enhancements.js)
+   watches these elements and adds .ar-reveal-animate when they
+   scroll into view — giving smooth, professional animations.
+   Safety fallback: after 4s any remaining hidden elements are shown.
    ============================================================ */
-.elementor-invisible {
+
+/* Animation keyframes */
+@keyframes arFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Revealed state — plays when JS removes elementor-invisible and adds this class */
+.ar-reveal-animate {
+  visibility: visible !important;
+  animation: arFadeInUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Instant-show fallback class (added by timeout after 4s) */
+.ar-show-instant {
+  visibility: visible !important;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ar-reveal-animate {
+    animation: none !important;
     visibility: visible !important;
+  }
 }

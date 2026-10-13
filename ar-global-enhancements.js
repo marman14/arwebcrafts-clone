@@ -376,12 +376,46 @@
     return null;
   }
 
+  function initScrollAnimations() {
+    var hidden = document.querySelectorAll('.elementor-invisible');
+    if (!hidden.length) return;
+
+    // If IntersectionObserver is supported, use scroll-triggered animation
+    if (window.IntersectionObserver) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            el.classList.remove('elementor-invisible');
+            el.classList.add('ar-reveal-animate');
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+
+      hidden.forEach(function (el) { observer.observe(el); });
+
+    } else {
+      // Older browsers: reveal instantly
+      hidden.forEach(function (el) { el.classList.remove('elementor-invisible'); });
+    }
+
+    // Safety fallback — after 4s reveal any still-hidden elements
+    setTimeout(function () {
+      document.querySelectorAll('.elementor-invisible').forEach(function (el) {
+        el.classList.remove('elementor-invisible');
+        el.classList.add('ar-show-instant');
+      });
+    }, 4000);
+  }
+
   function init() {
     initMobileMenu();
     initCalendly();
     initFormHandling();
     initWhatsAppButton();
     initNavEnhancements();
+    initScrollAnimations();
   }
 
   if (document.readyState === 'loading') {
