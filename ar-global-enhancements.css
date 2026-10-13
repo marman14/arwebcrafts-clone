@@ -2446,3 +2446,74 @@ section.elementor-element-ac3f73a,
   display: block !important;
 }
 
+/* ── Agency Partner Hero Layout & Form Alignment ── */
+.wl-hero .wrap {
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 768px) {
+  .wl-hero .wrap {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}
+.wl-hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 440px) !important;
+  gap: clamp(32px, 4.5vw, 56px) !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+.wl-hero-card {
+  padding: 24px 24px 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.wl-card-title {
+  margin-bottom: 4px !important;
+}
+.wl-card-sub {
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+}
+.wl-form {
+  gap: 9px !important;
+}
+.wl-field input, .wl-field select, .wl-field textarea {
+  padding: 9px 12px !important;
+  font-size: 13.5px !important;
+}
+.wl-field textarea {
+  min-height: 64px !important;
+}
+.wl-submit-btn {
+  padding: 11px 20px !important;
+  font-size: 14.5px !important;
+}
+@media (max-width: 980px) {
+  .wl-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .wl-hero-card {
+    max-width: 520px !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 600px) {
+  .wl-hero-card {
+    padding: 20px 16px 18px !important;
+    max-width: 100% !important;
+  }
+  .wl-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+}
+
+
