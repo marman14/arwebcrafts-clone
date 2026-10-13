@@ -376,37 +376,83 @@
     return null;
   }
 
+  /**
+   * Elementor Scroll & Entrance Animation Engine
+   * Detects elements with .elementor-invisible or animation settings,
+   * reads their animation type (fadeInLeft, fadeInRight, etc.) & delay,
+   * and plays the animation as they enter the viewport.
+   */
   function initScrollAnimations() {
-    var hidden = document.querySelectorAll('.elementor-invisible');
-    if (!hidden.length) return;
+    var targets = document.querySelectorAll('.elementor-invisible, [data-settings*="animation"]');
+    if (!targets.length) return;
 
-    // If IntersectionObserver is supported, use scroll-triggered animation
+    function applyAnimation(el) {
+      if (el.hasAttribute('data-ar-animated')) return;
+      el.setAttribute('data-ar-animated', 'true');
+
+      var settingsAttr = el.getAttribute('data-settings');
+      var animName = 'fadeInLeft';
+      var delay = 0;
+
+      if (settingsAttr) {
+        try {
+          var s = JSON.parse(settingsAttr);
+          var a = s._animation || s.animation;
+          if (a && a !== 'none') animName = a;
+          var d = s._animation_delay !== undefined ? s._animation_delay : s.animation_delay;
+          if (d !== undefined && d !== null) delay = parseInt(d, 10) || 0;
+        } catch (err) {
+          var m = settingsAttr.match(/"_?animation":\s*"([^"]+)"/);
+          if (m && m[1] !== 'none') animName = m[1];
+          var dm = settingsAttr.match(/"_?animation_delay":\s*(\d+)/);
+          if (dm) delay = parseInt(dm[1], 10) || 0;
+        }
+      }
+
+      if (animName === 'none') {
+        el.classList.remove('elementor-invisible');
+        el.style.visibility = 'visible';
+        return;
+      }
+
+      el.classList.remove('elementor-invisible');
+      if (delay > 0) {
+        el.style.animationDelay = delay + 'ms';
+        el.style.webkitAnimationDelay = delay + 'ms';
+      }
+      el.classList.add('animated', animName);
+    }
+
     if (window.IntersectionObserver) {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            var el = entry.target;
-            el.classList.remove('elementor-invisible');
-            el.classList.add('ar-reveal-animate');
-            observer.unobserve(el);
+            applyAnimation(entry.target);
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+      }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
+      });
 
-      hidden.forEach(function (el) { observer.observe(el); });
-
+      targets.forEach(function (el) {
+        observer.observe(el);
+      });
     } else {
-      // Older browsers: reveal instantly
-      hidden.forEach(function (el) { el.classList.remove('elementor-invisible'); });
+      targets.forEach(function (el) {
+        applyAnimation(el);
+      });
     }
 
-    // Safety fallback — after 4s reveal any still-hidden elements
+    // Safety fallback: reveal all remaining hidden elements after 3.5s so nothing is ever stuck blank
     setTimeout(function () {
-      document.querySelectorAll('.elementor-invisible').forEach(function (el) {
-        el.classList.remove('elementor-invisible');
-        el.classList.add('ar-show-instant');
-      });
-    }, 4000);
+      var stillHidden = document.querySelectorAll('.elementor-invisible');
+      for (var i = 0; i < stillHidden.length; i++) {
+        stillHidden[i].classList.remove('elementor-invisible');
+        stillHidden[i].style.visibility = 'visible';
+      }
+    }, 3500);
   }
 
   function init() {

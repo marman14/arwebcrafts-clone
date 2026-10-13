@@ -2257,70 +2257,120 @@ section.elementor-element-ac3f73a,
 }
 
 /* ============================================================
-   AR SCROLL ANIMATION SYSTEM
-   Elementor uses .elementor-invisible (visibility:hidden) for
-   scroll-triggered entrance animations. In static HTML the
-   Elementor JS never runs those reveals.
-   Our custom IntersectionObserver (in ar-global-enhancements.js)
-   watches these elements and adds .ar-reveal-animate when they
-   scroll into view — giving smooth, professional animations.
-   Safety fallback: after 4s any remaining hidden elements are shown.
+   AR ELEMENTOR ANIMATION RESTORATION SYSTEM
+   Restores native scroll & entrance animations (fadeInLeft,
+   fadeInRight, fadeInUp, fadeInDown, fadeIn, zoomIn, etc.)
+   on all service pages and static templates.
    ============================================================ */
 
-/* Animation keyframes */
-@keyframes arFadeInUp {
+.elementor-invisible {
+  visibility: hidden;
+}
+
+.animated {
+  -webkit-animation-duration: 1.25s;
+  animation-duration: 1.25s;
+  -webkit-animation-fill-mode: both !important;
+  animation-fill-mode: both !important;
+  visibility: visible !important;
+}
+
+.animated.animated-slow {
+  -webkit-animation-duration: 1.8s;
+  animation-duration: 1.8s;
+}
+
+.animated.animated-fast {
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+}
+
+/* Keyframes & utility classes for Elementor animation names */
+@keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(-40px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
 
-@keyframes arFadeInLeft {
+@keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translate3d(40px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
+.fadeInRight {
+  animation-name: fadeInRight;
+}
 
-@keyframes arFadeInRight {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translate3d(0, 40px, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
+.fadeInUp {
+  animation-name: fadeInUp;
+}
 
-@keyframes arFadeIn {
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeIn {
   from { opacity: 0; }
-  to   { opacity: 1; }
+  to { opacity: 1; }
+}
+.fadeIn {
+  animation-name: fadeIn;
 }
 
-/* Revealed state — plays when JS removes elementor-invisible and adds this class */
-.ar-reveal-animate {
-  visibility: visible !important;
-  animation: arFadeInUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+.zoomIn {
+  animation-name: zoomIn;
 }
 
-/* Instant-show fallback class (added by timeout after 4s) */
-.ar-show-instant {
-  visibility: visible !important;
-}
-
-/* Respect user preference for reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .ar-reveal-animate {
+  .animated {
     animation: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+  .elementor-invisible {
     visibility: visible !important;
   }
 }
