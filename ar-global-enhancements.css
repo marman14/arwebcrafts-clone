@@ -2255,3 +2255,14 @@ section.elementor-element-ac3f73a,
   .elementskit-megamenu-panel .elementor-widget { padding: 0 !important; }
   .elementskit-megamenu-panel .elementor-widget-container { padding: 0 !important; }
 }
+
+/* ============================================================
+   FIX: Elementor Scroll Animation Visibility
+   elementor-invisible is set by Elementor's JS animation system.
+   In static HTML (no WordPress/elementorFrontendConfig), the JS
+   never removes this class, leaving sections permanently hidden.
+   This override ensures ALL page content is always visible.
+   ============================================================ */
+.elementor-invisible {
+    visibility: visible !important;
+}
