@@ -2284,26 +2284,31 @@ section.elementor-element-ac3f73a,
     color: #BE8C33 !important;
   }
 
-  /* Agency Partner nav item - prominent gold styling */
+  /* Agency Partner nav item - standard nav link styling */
   .ar-nav-partner-item > a.ekit-menu-nav-link {
-    color: #BE8C33 !important;
-    font-weight: 700 !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #011B39 !important;
   }
   .ar-nav-partner-item > a.ekit-menu-nav-link:hover,
   .ar-nav-partner-item.current-menu-item > a.ekit-menu-nav-link {
-    color: #8C6119 !important;
-    background: rgba(190, 140, 51, 0.12) !important;
+    color: #BE8C33 !important;
+    background: rgba(190, 140, 51, 0.08) !important;
   }
 
-  /* Hire Us nav item */
-  .ar-nav-hire-btn > a.ekit-menu-nav-link {
-    font-weight: 700 !important;
+  /* Hide Hire Us button from header nav menu (page remains 100% active & accessible via URL) */
+  .ar-nav-hidden-hire,
+  .elementskit-navbar-nav > li.ar-nav-hidden-hire,
+  .elementskit-navbar-nav > li#menu-item-10238,
+  .elementskit-navbar-nav > li:has(a[href*="hire-a-full-stack-wordpress-developer"]) {
+    display: none !important;
   }
 
   /* ── The Premium Mega Menu Panel ── */
   .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel {
     position: fixed !important;
-    top: 86px !important;
+    top: 106px !important;
     left: 50% !important;
     transform: translateX(-50%) translateY(0) !important;
     width: min(940px, 94vw) !important;
@@ -2322,14 +2327,20 @@ section.elementor-element-ac3f73a,
     overflow: hidden !important;
   }
 
+  /* When header becomes sticky on scroll */
+  .elementor-sticky--active .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel,
+  .elementor-sticky--active .elementskit-megamenu-panel {
+    top: 72px !important;
+  }
+
   /* Invisible hover bridge to eliminate gap dropouts */
   .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel::before {
     content: '' !important;
     position: absolute !important;
-    top: -30px !important;
+    top: -45px !important;
     left: 0 !important;
     right: 0 !important;
-    height: 30px !important;
+    height: 45px !important;
     background: transparent !important;
   }
 
