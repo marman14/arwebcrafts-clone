@@ -628,6 +628,60 @@ img.lazyload, img.lazyloaded, img[data-src] {
     font-size: 11.5px;
   }
 }
+
+/* Fix Request A Call Back Banner Overlap & Z-Index */
+#appointmant,
+.elementor-element-7629475 {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-bottom: 50px !important;
+  clear: both !important;
+  overflow: visible !important;
+}
+
+.elementor-element-ac3f73a,
+section.elementor-element-ac3f73a,
+.elementor-section.elementor-element-ac3f73a {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin-top: 50px !important;
+  margin-bottom: 0 !important;
+  clear: both !important;
+  z-index: 1 !important;
+  transform: none !important;
+  float: none !important;
+}
+
+.elementor-element-b2cec12,
+.elementor-element.elementor-element-b2cec12 {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin: 0 auto !important;
+  transform: none !important;
+  z-index: 1 !important;
+  background-color: #011B39 !important;
+}
+
+.elementor-element-9be69e0 .elementor-heading-title,
+.elementor-element-b2cec12 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-b2cec12 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-9be69e0 .elementor-heading-title,
+.ekit-template-content-footer .elementor-element-b2cec12 h3,
+.ekit-template-content-footer .elementor-element-9be69e0 h3,
+.elementor-element-b2cec12 h3,
+.elementor-element-9be69e0 h3 {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
 </style>
 
 
@@ -1159,13 +1213,13 @@ img.lazyload, img.lazyloaded, img[data-src] {
   /* ── WHY CHOOSE US (DARK BLUE SECTION) ── */
   .wpd-why-section {
     background: var(--wpd-navy);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
   }
   .wpd-why-section .wpd-sec-title {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
   }
   .wpd-why-section .wpd-sec-desc {
-    color: #94A3B8;
+    color: #E2E8F0 !important;
   }
   .wpd-why-grid {
     display: grid;
@@ -1215,20 +1269,26 @@ img.lazyload, img.lazyloaded, img[data-src] {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--wpd-gold);
+    color: var(--wpd-gold) !important;
     margin-bottom: 8px;
   }
+  .wpd-why-card h3,
+  .wpd-why-card .wpd-why-title,
+  h3.wpd-why-title,
   .wpd-why-title {
     font-family: var(--wpd-sans);
     font-size: 18px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     margin-bottom: 12px;
     line-height: 1.3;
   }
+  .wpd-why-card p,
+  .wpd-why-card .wpd-why-desc,
+  p.wpd-why-desc,
   .wpd-why-desc {
     font-size: 14px;
-    color: #CBD5E1;
+    color: #E2E8F0 !important;
     line-height: 1.65;
     margin: 0;
   }
@@ -1382,13 +1442,13 @@ img.lazyload, img.lazyloaded, img[data-src] {
   /* ── TECH STACK SECTION ── */
   .wpd-tech-section {
     background: var(--wpd-navy-mid);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
   }
   .wpd-tech-section .wpd-sec-title {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
   }
   .wpd-tech-section .wpd-sec-desc {
-    color: #94A3B8;
+    color: #E2E8F0 !important;
   }
   .wpd-tech-grid {
     display: grid;
@@ -1426,16 +1486,22 @@ img.lazyload, img.lazyloaded, img[data-src] {
     color: var(--wpd-gold);
     flex-shrink: 0;
   }
+  .wpd-tech-card h3,
+  .wpd-tech-card .wpd-tech-name,
+  h3.wpd-tech-name,
   .wpd-tech-name {
     font-family: var(--wpd-sans);
     font-size: 15px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     margin-bottom: 2px;
   }
+  .wpd-tech-card p,
+  .wpd-tech-card .wpd-tech-detail,
+  p.wpd-tech-detail,
   .wpd-tech-detail {
     font-size: 12px;
-    color: #94A3B8;
+    color: #E2E8F0 !important;
     line-height: 1.4;
   }
 
@@ -2245,54 +2311,634 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <h2 class="wpd-sec-title" id="testimonials-heading">What Founders &amp; Agencies Say</h2>
       <p class="wpd-sec-desc">Real feedback from plugin product owners, SaaS companies, and digital agencies who rely on AR Webcrafts for custom WordPress software.</p>
     </div>
+  </div>
 
-    <div class="wpd-testimonials-grid">
-      <!-- Testimonial 1 -->
-      <article class="wpd-testi-card wpd-reveal">
-        <div>
-          <div class="wpd-testi-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote class="wpd-testi-quote">"AR Webcrafts built a custom WooCommerce subscription and split-payment extension that five other agencies said was impossible without rewriting the entire core. They delivered on time, under budget, and the plugin has run flawlessly for 2 years with zero conflicts."</blockquote>
-        </div>
-        <footer class="wpd-testi-author">
-          <div class="wpd-testi-avatar" aria-hidden="true">DB</div>
-          <div>
-            <div class="wpd-testi-name">David B.</div>
-            <div class="wpd-testi-role">Founder, High-Volume eCommerce Brand — US</div>
-          </div>
-        </footer>
-      </article>
-
-      <!-- Testimonial 2 -->
-      <article class="wpd-testi-card wpd-reveal wpd-reveal-delay-1">
-        <div>
-          <div class="wpd-testi-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote class="wpd-testi-quote">"Our LearnDash course portal was dragging down our server with thousands of concurrent quiz takers. AR Webcrafts restructured the entire LMS data model into custom indexed tables and built a custom caching layer. Response times dropped from 4.2 seconds to 320ms."</blockquote>
-        </div>
-        <footer class="wpd-testi-author">
-          <div class="wpd-testi-avatar" aria-hidden="true">ML</div>
-          <div>
-            <div class="wpd-testi-name">Markus L.</div>
-            <div class="wpd-testi-role">CTO, EdTech Platform — Germany</div>
-          </div>
-        </footer>
-      </article>
-
-      <!-- Testimonial 3 -->
-      <article class="wpd-testi-card wpd-reveal wpd-reveal-delay-2">
-        <div>
-          <div class="wpd-testi-stars" aria-label="5 stars">★★★★★</div>
-          <blockquote class="wpd-testi-quote">"The level of code cleanliness is unmatched. As a senior developer myself, I reviewed every PR in their git repo. Namespaces, dependency injection, PHPUnit tests, and comprehensive PHPDoc comments. They are true software engineers who understand WordPress deeply."</blockquote>
-        </div>
-        <footer class="wpd-testi-author">
-          <div class="wpd-testi-avatar" aria-hidden="true">EM</div>
-          <div>
-            <div class="wpd-testi-name">Elena M.</div>
-            <div class="wpd-testi-role">Lead Engineer, Digital Agency — UK</div>
-          </div>
-        </footer>
-      </article>
+<div class="ar-google-reviews-section">
+  <div class="ar-google-summary-badge">
+    <svg viewBox="0 0 24 24" width="20" height="20">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+    </svg>
+    <div class="ar-google-summary-text">
+      <strong>EXCELLENT</strong>
+      <div class="ar-google-summary-stars">★★★★★</div>
+      <span class="ar-google-summary-count"><strong>5.0</strong> based on <strong>Google Reviews</strong></span>
     </div>
   </div>
+  <div class="ar-google-marquee-wrapper">
+    <div class="ar-google-marquee-track">
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #126883;">T</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Tobias Conrad</span>
+              <span class="ar-google-author-des" title="Founder & CEO, WebinarIgnition">Founder & CEO, WebinarIgnition</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"AR Webcrafts took over full plugin development for WebinarIgnition and has been managing all updates, complex integrations, and feature releases independently. Flawless execution and reliable senior developers who take full ownership."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #1a73e8;">M</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Michael R</span>
+              <span class="ar-google-author-des" title="Director of Operations, Manufacturing Co.">Director of Operations, Manufacturing Co.</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"The ERP integration AR Webcrafts built eliminated 40+ hours per week of manual data entry. ROI in 6 months. Our operations team can finally focus on growth instead of spreadsheets."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">a month ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #34a853;">D</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">David Li</span>
+              <span class="ar-google-author-des" title="Director, D2C Supplement Brand">Director, D2C Supplement Brand</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I needed a custom WooCommerce checkout with subscription logic. They delivered in 8 weeks exactly as quoted. Great results, paid for itself in Q1. AR WebCrafts is now our go-to for updates."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">3 weeks ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #f9ab00;">J</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Justin</span>
+              <span class="ar-google-author-des" title="Owner, Web Wizard Agency">Owner, Web Wizard Agency</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I run a web design agency and I outsource all the development and customization work to AR WebCrafts. When you're running client projects, you need a dev team you can hand something to and trust it'll come back right. Fast turnaround, no back-and-forth on basic stuff, and they flag problems before they become your problem."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #8430ce;">G</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Georgios Cappon</span>
+              <span class="ar-google-author-des" title="Owner & Creative Director, Pixoyo">Owner & Creative Director, Pixoyo</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I’ve been working with Arman for the last year and I must say he’s an amazing hard working guy. Very friendly and professional. If you need any development work then he’s your guy. I hope to work for many more projects with Arman! Thanks for all the great work!"</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #00897b;">S</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Suzan</span>
+              <span class="ar-google-author-des" title="Agency Owner, Germany">Agency Owner, Germany</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"We needed a fully custom WordPress theme built for a solar energy client — something that didn't exist off the shelf and had to match a very specific design. AR WebCrafts handled the entire build. The theme came out exactly as we needed, and working with them across the time zone was never a problem."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #ea4335;">S</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Sarah M.</span>
+              <span class="ar-google-author-des" title="Founder, Online Education Platform">Founder, Online Education Platform</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"Our course completion rate jumped from 52% to 71% after AR Webcrafts built our custom student tracking system. LearnDash couldn't handle our certification logic—they built exactly what we needed in 10 weeks."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">2 weeks ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #3f51b5;">P</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Paul</span>
+              <span class="ar-google-author-des" title="Mortgage Broker, Owner">Mortgage Broker, Owner</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I needed a brokerage website that reflected how I actually work — not a generic template. AR WebCrafts built it from the ground up and understood what a mortgage broker's clients need to see before they pick up the phone. The site does that job well. Straightforward to work with, delivered what they said they would."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">2 months ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #126883;">T</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Tobias Conrad</span>
+              <span class="ar-google-author-des" title="Founder & CEO, WebinarIgnition">Founder & CEO, WebinarIgnition</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"AR Webcrafts took over full plugin development for WebinarIgnition and has been managing all updates, complex integrations, and feature releases independently. Flawless execution and reliable senior developers who take full ownership."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #1a73e8;">M</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Michael R</span>
+              <span class="ar-google-author-des" title="Director of Operations, Manufacturing Co.">Director of Operations, Manufacturing Co.</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"The ERP integration AR Webcrafts built eliminated 40+ hours per week of manual data entry. ROI in 6 months. Our operations team can finally focus on growth instead of spreadsheets."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">a month ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #34a853;">D</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">David Li</span>
+              <span class="ar-google-author-des" title="Director, D2C Supplement Brand">Director, D2C Supplement Brand</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I needed a custom WooCommerce checkout with subscription logic. They delivered in 8 weeks exactly as quoted. Great results, paid for itself in Q1. AR WebCrafts is now our go-to for updates."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">3 weeks ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #f9ab00;">J</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Justin</span>
+              <span class="ar-google-author-des" title="Owner, Web Wizard Agency">Owner, Web Wizard Agency</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I run a web design agency and I outsource all the development and customization work to AR WebCrafts. When you're running client projects, you need a dev team you can hand something to and trust it'll come back right. Fast turnaround, no back-and-forth on basic stuff, and they flag problems before they become your problem."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #8430ce;">G</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Georgios Cappon</span>
+              <span class="ar-google-author-des" title="Owner & Creative Director, Pixoyo">Owner & Creative Director, Pixoyo</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I’ve been working with Arman for the last year and I must say he’s an amazing hard working guy. Very friendly and professional. If you need any development work then he’s your guy. I hope to work for many more projects with Arman! Thanks for all the great work!"</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card ar-clutch-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #00897b;">S</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Suzan</span>
+              <span class="ar-google-author-des" title="Agency Owner, Germany">Agency Owner, Germany</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Verified on Clutch">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#17313b"/>
+              <path d="M14.5 8.5a4 4 0 1 0 0 7" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="14.5" cy="12" r="1.5" fill="#ff492c"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-clutch-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified on Clutch
+          </span>
+        </div>
+        <div class="ar-google-card-body">"We needed a fully custom WordPress theme built for a solar energy client — something that didn't exist off the shelf and had to match a very specific design. AR WebCrafts handled the entire build. The theme came out exactly as we needed, and working with them across the time zone was never a problem."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">Verified Client</span>
+        <span class="ar-clutch-source">Clutch Review</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #ea4335;">S</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Sarah M.</span>
+              <span class="ar-google-author-des" title="Founder, Online Education Platform">Founder, Online Education Platform</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"Our course completion rate jumped from 52% to 71% after AR Webcrafts built our custom student tracking system. LearnDash couldn't handle our certification logic—they built exactly what we needed in 10 weeks."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">2 weeks ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    <div class="ar-google-card">
+      <div>
+        <div class="ar-google-card-header">
+          <div class="ar-google-user-info">
+            <div class="ar-google-avatar" style="background-color: #3f51b5;">P</div>
+            <div class="ar-google-user-text">
+              <span class="ar-google-author-name">Paul</span>
+              <span class="ar-google-author-des" title="Mortgage Broker, Owner">Mortgage Broker, Owner</span>
+            </div>
+          </div>
+          <div class="ar-google-badge-icon" title="Posted on Google">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ar-google-rating-row">
+          <div class="ar-google-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="ar-google-verified">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified
+          </span>
+        </div>
+        <div class="ar-google-card-body">"I needed a brokerage website that reflected how I actually work — not a generic template. AR WebCrafts built it from the ground up and understood what a mortgage broker's clients need to see before they pick up the phone. The site does that job well. Straightforward to work with, delivered what they said they would."</div>
+      </div>
+      <div class="ar-google-card-footer">
+        <span class="ar-google-post-time">2 months ago</span>
+        <span class="ar-google-source">Google Reviews</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="ar-rating-badges-row" style="display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 35px; flex-wrap: wrap;">
+  <a href="https://www.google.com/maps/place/AR+Webcrafts" target="_blank" rel="noopener">
+<img decoding="async" width="188" height="82" data-src="/wp-content/uploads/2024/03/Google-Ratings.svg" class="attachment-large size-large wp-image-1147 lazyload lazyloaded" alt="AR Webcrafts 5-star Google Reviews rating" src="/wp-content/uploads/2024/03/Google-Ratings.svg" style="--smush-placeholder-width: 188px; --smush-placeholder-aspect-ratio: 188/82;" />								</a>
+  <a href="https://clutch.co/profile/ar-webcrafts">
+<img decoding="async" width="188" height="80" data-src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" class="attachment-large size-large wp-image-1148 lazyload lazyloaded" alt="Clutch Ratings | AR Webcrafts" src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" style="--smush-placeholder-width: 188px; --smush-placeholder-aspect-ratio: 188/80;" />								</a>
+</div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
