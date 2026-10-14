@@ -928,22 +928,38 @@
   }
   .wl-faq summary::-webkit-details-marker { display: none; }
   .wl-faq-icon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     border-radius: 50%;
-    background: rgba(190,140,51,0.1);
+    background: rgba(190, 140, 51, 0.12);
     color: var(--gold);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    font-weight: 700;
     flex-shrink: 0;
-    transition: background 0.2s, transform 0.25s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    transform-origin: center center;
+  }
+  .wl-faq-icon svg {
+    width: 13px;
+    height: 13px;
+    display: block;
+    stroke: currentColor;
+    transform-origin: center center;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .wl-faq details[open] .wl-faq-icon {
     background: var(--gold);
     color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(190, 140, 51, 0.28);
+  }
+  .wl-faq details[open] .wl-faq-icon svg {
     transform: rotate(45deg);
   }
   .wl-faq details p {
@@ -1183,7 +1199,7 @@
     </a>
     <ul class="wl-nav-links" role="list">
       <li><a href="/services/">Services</a></li>
-      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/case-studies/">Case Studies</a></li>
       <li><a href="/about-us/">About</a></li>
       <li><a href="/contact-us/">Contact</a></li>
     </ul>
@@ -1299,28 +1315,6 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════
-     TRUST BAR
-════════════════════════════════════════ -->
-<div class="wl-trust-bar" role="complementary" aria-label="Company credentials">
-  <div class="wrap wl-trust-inner">
-    <div class="wl-trust-stars">
-      <span class="stars" aria-hidden="true">★★★★★</span>
-      <span>4.9/5 from 80+ agency reviews</span>
-    </div>
-    <div class="wl-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wl-trust-label">🏆 Clutch Top Developer 2024–2025</span>
-    <div class="wl-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wl-trust-label">🌍 Serving 20+ Countries</span>
-    <div class="wl-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wl-trust-label">🔒 100% NDA Protected</span>
-    <div class="wl-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wl-trust-label">⚡ 7+ Years in Business</span>
-  </div>
-</div>
-
-
 <!-- ═══════════════════════════════════════
      SERVICES
 ════════════════════════════════════════ -->
@@ -1429,7 +1423,7 @@
       </div>
       <div class="reveal reveal-delay-3">
         <div class="wl-stat-num">20+</div>
-        <div class="wl-stat-label">Countries We Serve</div>
+        <div class="wl-stat-label">Global</div>
       </div>
     </div>
   </div>
@@ -1696,42 +1690,42 @@
       <details>
         <summary role="listitem">
           Will AR Webcrafts ever contact my clients directly?
-          <span class="wl-faq-icon" aria-hidden="true">+</span>
+          <span class="wl-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Never. We have a strict policy of zero direct client contact. All communication goes through you. We sign NDAs as standard and our name never appears in any deliverable unless you specifically ask us to.</p>
       </details>
       <details>
         <summary>
           How do you handle invoicing and payments?
-          <span class="wl-faq-icon" aria-hidden="true">+</span>
+          <span class="wl-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>We invoice you (the agency) directly. You handle your own invoicing with your client and keep whatever margin you choose. We never know — or care — what you charge your client.</p>
       </details>
       <details>
         <summary>
           What is your typical turnaround time?
-          <span class="wl-faq-icon" aria-hidden="true">+</span>
+          <span class="wl-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Standard websites: 5–10 business days. Complex web apps: 3–8 weeks. Mobile apps: 6–14 weeks. SaaS platforms: 8–20 weeks. We provide exact timelines in our quotes and stick to them.</p>
       </details>
       <details>
         <summary>
           What's your revision and quality guarantee?
-          <span class="wl-faq-icon" aria-hidden="true">+</span>
+          <span class="wl-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Every project includes 2 rounds of revisions. We don't consider a project done until you're 100% satisfied. We also provide a 30-day bug fix warranty after delivery at no additional cost.</p>
       </details>
       <details>
         <summary>
           Can you work in our project management tools?
-          <span class="wl-faq-icon" aria-hidden="true">+</span>
+          <span class="wl-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Yes. We work in Asana, ClickUp, Monday.com, Trello, Jira, Notion, or whatever you use. We adapt to your workflow, not the other way around. We can also set up a private Slack channel.</p>
       </details>
       <details>
         <summary>
           Do you work with agencies outside the US?
-          <span class="wl-faq-icon" aria-hidden="true">+</span>
+          <span class="wl-faq-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Absolutely. We partner with agencies across the US, UK, Canada, Australia, Europe, and beyond. We have team members covering multiple time zones and we're accustomed to remote-first, async-friendly partnerships.</p>
       </details>
