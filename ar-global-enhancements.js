@@ -449,7 +449,28 @@
     }, 3500);
   }
 
+  /**
+   * Top Bar Container & Content Sync
+   * - Ensures container has standard container classes
+   * - Updates text to "Top-Rated Development Agency | Book Your Free Strategy Call Today!"
+   */
+  function initTopBar() {
+    var topBar = document.querySelector('.elementor-element-011475a');
+    if (!topBar) return;
+
+    var container = topBar.querySelector('.elementor-container');
+    if (container) {
+      container.classList.add('container', 'mx-auto', 'px-4');
+    }
+
+    var textSpan = topBar.querySelector('.elementor-element-8360e7b .elementor-icon-list-text');
+    if (textSpan) {
+      textSpan.textContent = 'Top-Rated Development Agency | Book Your Free Strategy Call Today!';
+    }
+  }
+
   function init() {
+    initTopBar();
     initMobileMenu();
     initCalendly();
     initFormHandling();
