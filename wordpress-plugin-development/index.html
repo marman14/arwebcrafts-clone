@@ -949,22 +949,27 @@ section.elementor-element-ac3f73a,
   .wpd-nda-bar {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 12.5px;
+    gap: 14px;
+    background: #1E293B;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-left: 3px solid var(--wpd-gold);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
     color: #E2E8F0;
-    line-height: 1.5;
+    line-height: 1.6;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 4px 10px -2px rgba(0, 0, 0, 0.25);
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .wpd-nda-bar i {
     color: var(--wpd-gold);
-    font-size: 16px;
+    font-size: 18px;
     flex-shrink: 0;
   }
   .wpd-nda-bar strong {
     color: #FFFFFF;
+    font-weight: 700;
   }
 
   /* ── HERO FORM CARD ── */
@@ -1612,25 +1617,41 @@ section.elementor-element-ac3f73a,
     display: none;
   }
   .wpd-faq summary .icon-toggle {
-    width: 26px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     border-radius: 50%;
-    background: var(--wpd-panel);
-    border: 1px solid var(--wpd-rule);
-    display: flex;
+    background: rgba(190, 140, 51, 0.12);
+    border: none;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: 800;
     color: var(--wpd-gold);
     flex-shrink: 0;
-    transition: transform 0.25s, background 0.25s, color 0.25s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    transform-origin: center center;
+  }
+  .wpd-faq summary .icon-toggle svg {
+    width: 13px;
+    height: 13px;
+    display: block;
+    stroke: currentColor;
+    transform-origin: center center;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .wpd-faq details[open] summary .icon-toggle {
-    transform: rotate(45deg);
     background: var(--wpd-gold);
     color: #FFFFFF;
-    border-color: var(--wpd-gold);
+    border: none;
+    box-shadow: 0 4px 12px rgba(190, 140, 51, 0.28);
+  }
+  .wpd-faq details[open] summary .icon-toggle svg {
+    transform: rotate(45deg);
   }
   .wpd-faq details p {
     padding: 0 22px 20px;
@@ -1995,26 +2016,6 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     TRUST CREDENTIALS BAR
-═══════════════════════════════════════════════════════════════ -->
-<div class="wpd-trust-bar" role="complementary" aria-label="Plugin engineering credentials">
-  <div class="wpd-wrap wpd-trust-inner">
-    <div class="wpd-trust-stars">
-      <span class="stars" aria-hidden="true">★★★★★</span>
-      <span>4.9/5 from 80+ Client Reviews</span>
-    </div>
-    <div class="wpd-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wpd-trust-label">🏆 Clutch Top WordPress Developer 2024–2025</span>
-    <div class="wpd-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wpd-trust-label">⚡ 60+ Custom Plugins Deployed</span>
-    <div class="wpd-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wpd-trust-label">🔒 WordPress VIP Coding Standards</span>
-    <div class="wpd-trust-divider" role="separator" aria-hidden="true"></div>
-    <span class="wpd-trust-label">🛡️ 100% Full Source Code Ownership</span>
-  </div>
-</div>
 
 <!-- ═══════════════════════════════════════════════════════════
      WHY CHOOSE OUR PLUGIN DEVELOPMENT (DARK BLUE SECTION)
@@ -2956,7 +2957,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal" open>
         <summary role="listitem">
           How much does custom WordPress plugin development cost?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>The cost of custom WordPress plugin development depends on complexity and integrations. Lightweight utility plugins or focused extensions typically range from $1,500 to $3,500. Comprehensive plugins featuring custom admin UI, database schema, payment gateways, and third-party API sync typically cost between $4,500 and $12,000+. After reviewing your project brief on our discovery call, we provide a fixed-price proposal with transparent milestone billing — no hourly guesswork.</p>
       </details>
@@ -2964,7 +2965,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal wpd-reveal-delay-1">
         <summary>
           How long does it take to develop a custom WordPress plugin?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Most standard custom plugins are delivered within 2 to 4 weeks. Complex commercial software, SaaS connectors, and large enterprise LMS extensions usually require 5 to 8 weeks from discovery to final production deployment. We provide detailed sprint milestones so you can test functionality in staging continuously throughout the build.</p>
       </details>
@@ -2972,7 +2973,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal wpd-reveal-delay-2">
         <summary>
           Will I own 100% of the plugin source code?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Yes, absolutely. 100% full source code ownership is transferred to you upon project sign-off. We provide the complete Git repository, unminified source code, database migration scripts, and architecture documentation. There are zero licensing fees, zero proprietary locks, and zero vendor dependencies.</p>
       </details>
@@ -2980,7 +2981,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal wpd-reveal-delay-3">
         <summary>
           Do you sign a Non-Disclosure Agreement (NDA)?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Yes. We routinely execute mutual NDAs before reviewing any existing code, proprietary business logic, or technical requirements. We maintain strict confidentiality for all client codebases, user data, and commercial algorithms.</p>
       </details>
@@ -2988,7 +2989,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal">
         <summary>
           Can you integrate our third-party CRM, ERP, or API into WordPress?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Yes. API integrations for WordPress are one of our core specialties. We build secure, reliable bi-directional bridges between WordPress and third-party systems like Salesforce, HubSpot, QuickBooks, Stripe, custom GraphQL microservices, and proprietary REST APIs with robust error handling and background queue management.</p>
       </details>
@@ -2996,7 +2997,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal wpd-reveal-delay-1">
         <summary>
           Can you update, fix, or optimize an existing abandoned plugin?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Yes. We regularly take over abandoned or malfunctioning plugins created by previous developers. We conduct a thorough code audit to isolate fatal errors, modernize outdated hooks, upgrade compatibility to PHP 8.2/8.3, and resolve database bottlenecks to restore stability.</p>
       </details>
@@ -3004,7 +3005,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       <details class="wpd-reveal wpd-reveal-delay-2">
         <summary>
           Do you provide ongoing maintenance and security patches for custom plugins?
-          <span class="icon-toggle" aria-hidden="true">+</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
         </summary>
         <p>Yes. Every custom plugin includes a 60-day post-launch warranty covering any unforeseen bugs. Beyond that, we offer flexible monthly maintenance retainers where our senior engineers monitor WordPress Core updates, manage third-party API version deprecations, and deploy ongoing feature enhancements.</p>
       </details>
