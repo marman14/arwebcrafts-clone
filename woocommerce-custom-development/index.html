@@ -555,6 +555,1024 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   <link rel="stylesheet" href="/ar-global-enhancements.css" />
+
+<style id="wcd-styles">
+  /* ═══════════════════════════════════════════════════════════════════════════
+     WOOCOMMERCE CUSTOM DEVELOPMENT — ENTERPRISE ECOMMERCE ARCHITECTURE
+     Matches /wordpress-theme-development-services/ and /wordpress-plugin-development/
+     Color palette, typography, container widths, visual hierarchy & 3D motions.
+     Confined strictly to this route.
+  ═══════════════════════════════════════════════════════════════════════════════ */
+  :root {
+    --wcd-navy:       #011B39;
+    --wcd-navy-mid:   #0A2444;
+    --wcd-navy-light: #0E305C;
+    --wcd-gold:       #BE8C33;
+    --wcd-gold-light: #DFC15D;
+    --wcd-gold-glow:  rgba(190, 140, 51, 0.35);
+    --wcd-paper:      #FFFFFF;
+    --wcd-panel:      #F8FAFC;
+    --wcd-panel-alt:  #F1F5F9;
+    --wcd-rule:       #E2E8F0;
+    --wcd-muted:      #64748B;
+    --wcd-ink:        #0A1C2E;
+    --wcd-good:       #16A34A;
+    --wcd-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --wcd-body: 'Poppins', -apple-system, sans-serif;
+  }
+
+  main#content {
+    font-family: var(--wcd-body);
+    color: var(--wcd-ink);
+    background: var(--wcd-paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  main#content *, main#content *::before, main#content *::after {
+    box-sizing: border-box;
+  }
+
+  .wcd-wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  @media (min-width: 768px) {
+    .wcd-wrap {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  /* ── SECTION BASICS ── */
+  .wcd-sec {
+    padding: clamp(56px, 7vw, 96px) 0;
+    position: relative;
+  }
+  .wcd-sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--wcd-sans);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wcd-gold);
+    margin-bottom: 14px;
+  }
+  .wcd-sec-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--wcd-gold);
+    border-radius: 2px;
+  }
+  .wcd-sec-title {
+    font-family: var(--wcd-sans);
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    font-weight: 800;
+    color: var(--wcd-navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .wcd-sec-desc {
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    color: var(--wcd-muted);
+    line-height: 1.75;
+    max-width: 66ch;
+    margin: 0;
+  }
+  .wcd-sec-head {
+    margin-bottom: clamp(36px, 5vw, 56px);
+  }
+  .wcd-sec-head.center {
+    text-align: center;
+  }
+  .wcd-sec-head.center .wcd-sec-label {
+    justify-content: center;
+  }
+  .wcd-sec-head.center .wcd-sec-label::before {
+    display: none;
+  }
+  .wcd-sec-head.center .wcd-sec-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── HERO SECTION ── */
+  .wcd-hero {
+    background: var(--wcd-navy);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(64px, 8vw, 108px) 0 clamp(64px, 8vw, 100px);
+    color: #FFFFFF;
+  }
+  .wcd-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 10% 40%, rgba(190, 140, 51, 0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .wcd-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 440px);
+    gap: clamp(32px, 4.5vw, 56px);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  .wcd-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(190, 140, 51, 0.15);
+    border: 1px solid rgba(190, 140, 51, 0.35);
+    color: var(--wcd-gold-light);
+    font-family: var(--wcd-sans);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+  .wcd-hero-badge .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--wcd-gold);
+    border-radius: 50%;
+    animation: wcdDotPulse 2s infinite;
+  }
+  @keyframes wcdDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.6); }
+  }
+  .wcd-hero h1 {
+    font-family: var(--wcd-sans);
+    font-size: clamp(2.1rem, 4.2vw, 3.3rem);
+    font-weight: 900;
+    line-height: 1.12;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .wcd-hero h1 .wcd-hl {
+    color: var(--wcd-gold-light);
+    position: relative;
+  }
+  .wcd-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    color: #CBD5E1;
+    line-height: 1.75;
+    max-width: 58ch;
+    margin-bottom: 32px;
+  }
+  .wcd-hero-stamps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 34px;
+  }
+  .wcd-hero-stamps li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #E2E8F0;
+    font-family: var(--wcd-sans);
+    font-weight: 600;
+  }
+  .wcd-hero-stamps li::before {
+    content: '✓';
+    color: var(--wcd-gold);
+    font-weight: 800;
+    font-size: 12px;
+  }
+  .wcd-hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .wcd-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--wcd-gold);
+    color: #FFFFFF !important;
+    font-family: var(--wcd-sans);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px var(--wcd-gold-glow);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .wcd-btn-gold:hover {
+    background: #a07324;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(190, 140, 51, 0.45);
+    color: #FFFFFF !important;
+  }
+  .wcd-btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #FFFFFF !important;
+    font-family: var(--wcd-sans);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 26px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .wcd-btn-outline-white:hover {
+    border-color: var(--wcd-gold);
+    background: rgba(190, 140, 51, 0.12);
+  }
+
+  /* ── HERO FORM CARD ── */
+  .wcd-hero-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 24px 24px 20px;
+    box-shadow: 0 24px 60px rgba(1, 27, 57, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--wcd-ink);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+  }
+  .wcd-hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    border-radius: 21px;
+    background: linear-gradient(135deg, rgba(190, 140, 51, 0.4) 0%, transparent 50%);
+    z-index: -1;
+  }
+  .wcd-card-title {
+    font-family: var(--wcd-sans);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--wcd-navy);
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+  .wcd-card-sub {
+    font-size: 12.5px;
+    color: var(--wcd-muted);
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--wcd-rule);
+    line-height: 1.45;
+  }
+  .wcd-form {
+    display: grid;
+    gap: 9px;
+  }
+  .wcd-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: left;
+  }
+  .wcd-field label {
+    font-family: var(--wcd-sans);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--wcd-muted);
+    line-height: 1.2;
+  }
+  .wcd-field input, .wcd-field select, .wcd-field textarea {
+    font-family: var(--wcd-body);
+    font-size: 13.5px;
+    color: var(--wcd-ink);
+    background: var(--wcd-panel);
+    border: 1.5px solid var(--wcd-rule);
+    border-radius: 8px;
+    padding: 9px 12px;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .wcd-field input:focus, .wcd-field select:focus, .wcd-field textarea:focus {
+    border-color: var(--wcd-gold);
+    box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15);
+    background: #FFFFFF;
+  }
+  .wcd-field textarea {
+    resize: vertical;
+    min-height: 64px;
+  }
+  .wcd-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .wcd-submit-btn {
+    width: 100%;
+    background: var(--wcd-navy);
+    color: #FFFFFF;
+    font-family: var(--wcd-sans);
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 3px;
+  }
+  .wcd-submit-btn:hover {
+    background: var(--wcd-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px var(--wcd-gold-glow);
+  }
+  .wcd-form-trust {
+    text-align: center;
+    font-size: 11px;
+    color: var(--wcd-muted);
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 980px) {
+    .wcd-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .wcd-hero-card {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 600px) {
+    .wcd-hero {
+      padding: 48px 0 56px;
+    }
+    .wcd-hero h1 {
+      font-size: clamp(1.85rem, 6.5vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .wcd-hero-desc {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .wcd-hero-stamps {
+      gap: 8px 16px;
+      margin-bottom: 24px;
+    }
+    .wcd-hero-stamps li {
+      font-size: 12.5px;
+    }
+    .wcd-hero-ctas {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wcd-hero-ctas a {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+    .wcd-hero-card {
+      padding: 20px 16px 18px;
+      border-radius: 16px;
+    }
+    .wcd-form-row {
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+    .wcd-field input, .wcd-field select, .wcd-field textarea {
+      padding: 9px 10px;
+      font-size: 13px;
+    }
+  }
+
+  /* ── 3D MOTION CARDS & GLOW BORDERS ── */
+  .wcd-3d-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    will-change: transform;
+  }
+  .wcd-3d-card:hover {
+    transform: translateY(-6px);
+  }
+  .wcd-glow-hover {
+    position: relative;
+    overflow: hidden;
+  }
+  .wcd-glow-hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(190, 140, 51, 0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .wcd-glow-hover:hover::after {
+    opacity: 1;
+  }
+
+  /* ── WHY CHOOSE US (DARK BLUE SECTION) ── */
+  .wcd-why-section {
+    background: #0F2133;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: clamp(80px, 9vw, 128px);
+    padding-bottom: clamp(64px, 8vw, 104px);
+    color: #FFFFFF !important;
+    position: relative;
+  }
+  .wcd-why-section .wcd-sec-title {
+    color: #FFFFFF !important;
+  }
+  .wcd-why-section .wcd-sec-desc {
+    color: #E2E8F0 !important;
+  }
+  .wcd-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 980px) {
+    .wcd-why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 620px) {
+    .wcd-why-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .wcd-why-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 30px 24px;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    box-sizing: border-box;
+  }
+  .wcd-why-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(190, 140, 51, 0.45);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25), 0 0 20px rgba(190, 140, 51, 0.15);
+  }
+  .wcd-why-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(190, 140, 51, 0.15);
+    border: 1px solid rgba(190, 140, 51, 0.3);
+    color: var(--wcd-gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .wcd-why-num {
+    font-family: var(--wcd-sans);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--wcd-gold) !important;
+    margin-bottom: 8px;
+  }
+  .wcd-why-card h3,
+  .wcd-why-card .wcd-why-title,
+  h3.wcd-why-title,
+  .wcd-why-title {
+    font-family: var(--wcd-sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF !important;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .wcd-why-card p,
+  .wcd-why-card .wcd-why-desc,
+  p.wcd-why-desc,
+  .wcd-why-desc {
+    font-size: 14px;
+    color: #E2E8F0 !important;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── VISUAL SHOWCASE SPLITS ── */
+  .wcd-showcase-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 64px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 48px);
+  }
+  .wcd-showcase-split.reverse {
+    direction: rtl;
+  }
+  .wcd-showcase-split.reverse > * {
+    direction: ltr;
+  }
+  .wcd-showcase-media {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .wcd-showcase-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .wcd-showcase-media:hover .wcd-showcase-img {
+    transform: scale(1.02);
+  }
+  .wcd-showcase-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(1, 27, 57, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(190, 140, 51, 0.4);
+    color: var(--wcd-gold-light);
+    font-family: var(--wcd-sans);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .wcd-showcase-content h3 {
+    font-family: var(--wcd-sans);
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .wcd-showcase-content p {
+    font-size: 14.5px;
+    color: #E2E8F0;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .wcd-showcase-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .wcd-showcase-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #CBD5E1;
+  }
+  .wcd-showcase-features li i {
+    color: var(--wcd-gold);
+    font-size: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .wcd-showcase-split {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 24px;
+    }
+    .wcd-showcase-split.reverse {
+      direction: ltr;
+    }
+  }
+
+  /* ── CAPABILITIES / FEATURES GRID ── */
+  .wcd-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 980px) {
+    .wcd-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .wcd-services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .wcd-service-card {
+    background: var(--wcd-paper);
+    border: 1.5px solid var(--wcd-rule);
+    border-radius: 18px;
+    padding: 30px 26px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .wcd-service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(1, 27, 57, 0.08), 0 0 20px rgba(190, 140, 51, 0.12);
+    border-color: var(--wcd-gold);
+  }
+  .wcd-service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(190, 140, 51, 0.1);
+    color: var(--wcd-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+  .wcd-service-name {
+    font-family: var(--wcd-sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--wcd-navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .wcd-service-desc {
+    font-size: 14px;
+    color: var(--wcd-muted);
+    line-height: 1.65;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+  .wcd-service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+  }
+  .wcd-tag {
+    background: var(--wcd-panel);
+    color: #475569;
+    font-family: var(--wcd-sans);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 50px;
+    border: 1px solid var(--wcd-rule);
+  }
+
+  /* ── 5-STEP PROCESS SECTION ── */
+  .wcd-process-section {
+    background: var(--wcd-panel);
+    border-top: 1px solid var(--wcd-rule);
+    border-bottom: 1px solid var(--wcd-rule);
+  }
+  .wcd-how-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    position: relative;
+    margin-top: 48px;
+  }
+  @media (max-width: 1024px) {
+    .wcd-how-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+  @media (max-width: 640px) {
+    .wcd-how-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  .wcd-step {
+    background: var(--wcd-paper);
+    border: 1px solid var(--wcd-rule);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    box-sizing: border-box;
+  }
+  .wcd-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(1, 27, 57, 0.08);
+    border-color: var(--wcd-gold);
+  }
+  .wcd-step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--wcd-navy);
+    color: var(--wcd-gold);
+    font-family: var(--wcd-sans);
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border: 2px solid var(--wcd-gold);
+  }
+  .wcd-step-title {
+    font-family: var(--wcd-sans);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--wcd-navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .wcd-step-desc {
+    font-size: 12.5px;
+    color: var(--wcd-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── TECH STACK SECTION ── */
+  .wcd-tech-section {
+    background: var(--wcd-navy-mid);
+    color: #FFFFFF !important;
+  }
+  .wcd-tech-section .wcd-sec-title {
+    color: #FFFFFF !important;
+  }
+  .wcd-tech-section .wcd-sec-desc {
+    color: #E2E8F0 !important;
+  }
+  .wcd-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 44px;
+  }
+  @media (max-width: 900px) {
+    .wcd-tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 500px) {
+    .wcd-tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .wcd-tech-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 22px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .wcd-tech-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(190, 140, 51, 0.4);
+    transform: translateY(-3px);
+  }
+  .wcd-tech-icon {
+    font-size: 26px;
+    color: var(--wcd-gold);
+    flex-shrink: 0;
+  }
+  .wcd-tech-card h3,
+  .wcd-tech-card .wcd-tech-name,
+  h3.wcd-tech-name,
+  .wcd-tech-name {
+    font-family: var(--wcd-sans);
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF !important;
+    margin-bottom: 2px;
+  }
+  .wcd-tech-card p,
+  .wcd-tech-card .wcd-tech-detail,
+  p.wcd-tech-detail,
+  .wcd-tech-detail {
+    font-size: 12px;
+    color: #E2E8F0 !important;
+    line-height: 1.4;
+  }
+
+  /* ── FAQ ACCORDION ── */
+  .wcd-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .wcd-faq details {
+    background: var(--wcd-paper);
+    border: 1.5px solid var(--wcd-rule);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .wcd-faq details[open] {
+    border-color: var(--wcd-gold);
+    box-shadow: 0 8px 24px rgba(1, 27, 57, 0.06);
+  }
+  .wcd-faq summary {
+    font-family: var(--wcd-sans);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--wcd-navy);
+    padding: 18px 22px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    gap: 16px;
+    outline: none;
+    transition: background-color 0.2s ease;
+  }
+  .wcd-faq summary::-webkit-details-marker,
+  .wcd-faq summary::marker {
+    display: none;
+    content: "";
+  }
+  .wcd-faq-q {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    line-height: 1.45;
+  }
+  .wcd-faq summary .icon-toggle {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--wcd-gold);
+    background: rgba(190, 140, 51, 0.08);
+    color: var(--wcd-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1;
+    outline: none;
+    box-shadow: none !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+  .wcd-faq summary .icon-toggle svg {
+    width: 12px;
+    height: 12px;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    transform-origin: center center;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .wcd-faq summary:hover .icon-toggle {
+    background: rgba(190, 140, 51, 0.16);
+  }
+  .wcd-faq details[open] summary .icon-toggle {
+    background: var(--wcd-gold);
+    border-color: var(--wcd-gold);
+    color: #FFFFFF;
+    box-shadow: none !important;
+  }
+  .wcd-faq details[open] summary:hover .icon-toggle {
+    background: #a07324;
+    border-color: #a07324;
+  }
+  .wcd-faq details[open] summary .icon-toggle svg {
+    transform: rotate(45deg);
+  }
+  .wcd-faq details p {
+    padding: 0 22px 20px;
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── BOTTOM CTA BANNER ── */
+  .wcd-cta-section {
+    background: var(--wcd-navy);
+    text-align: center;
+    color: #FFFFFF;
+    padding: clamp(60px, 8vw, 96px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .wcd-cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(190, 140, 51, 0.16) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .wcd-cta-section .wcd-sec-title {
+    color: #FFFFFF;
+  }
+  .wcd-cta-desc {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: #CBD5E1;
+    max-width: 58ch;
+    margin: 0 auto 36px;
+    line-height: 1.75;
+  }
+  .wcd-cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .wcd-cta-trust {
+    display: flex;
+    justify-content: center;
+    gap: 12px 28px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #E2E8F0;
+    font-family: var(--wcd-sans);
+    font-weight: 600;
+  }
+  .wcd-cta-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .wcd-cta-trust .check {
+    color: var(--wcd-gold);
+    font-weight: 800;
+  }
+
+  /* ── ROBUST REVEAL / NEVER HIDE CONTENT ── */
+  .wcd-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+</style>
+
 </head><body class="wp-singular page-template-default page page-id-4096 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-4096">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
 height="0" width="0" style="display:none;visibility:hidden" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" data-load-mode="0"></iframe></noscript><a class="skip-link screen-reader-text" href="#content">
@@ -713,53 +1731,433 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
 <span class="elementor-button-content-wrapper">
 <span class="elementor-button-text">Free Consultation</span>
 </span>
-</a></div></div></div></div></div></div></section></div></div><main id="content" class="site-main post-4096 page type-page status-publish hentry"><div class="page-content"><div data-elementor-type="wp-page" data-elementor-id="4096" class="elementor elementor-4096" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="page"><section class="elementor-section elementor-top-section elementor-element elementor-element-73857ed elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="73857ed" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-background-overlay"></div><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5cc1ce1" data-id="5cc1ce1" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-a5b5a91 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="a5b5a91" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img data-lazyloaded="1" src="/wp-content/uploads/2024/04/Untitled-12.webp" fetchpriority="high" decoding="async" width="600" height="534" data-src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" data-srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" data-sizes="(max-width: 600px) 100vw, 600px" /><noscript><img fetchpriority="high" decoding="async" width="600" height="534" src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript></div></div><div class="elementor-element elementor-element-4d6d376 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="4d6d376" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img data-lazyloaded="1" src="/wp-content/uploads/2024/04/Untitled-12.webp" fetchpriority="high" decoding="async" width="600" height="534" data-src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" data-srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" data-sizes="(max-width: 600px) 100vw, 600px" /><noscript><img fetchpriority="high" decoding="async" width="600" height="534" src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript></div></div><div class="elementor-element elementor-element-0c15641 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="0c15641" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img decoding="async" width="600" height="534" data-src="/wp-content/uploads/2024/04/Untitled-13.webp" class="attachment-large size-large wp-image-2140 lazyload" alt="Untitled 13 | AR Webcrafts" data-srcset="/wp-content/uploads/2024/04/Untitled-13.webp 600w, /wp-content/uploads/2024/04/Untitled-13-300x267.webp 300w" data-sizes="(max-width: 600px) 100vw, 600px" src="/wp-content/uploads/2024/04/Untitled-13.webp" style="--smush-placeholder-width: 600px; --smush-placeholder-aspect-ratio: 600/534;" /></div></div><div class="elementor-element elementor-element-6f15fc1 animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="6f15fc1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="heading.default"><div class="elementor-widget-container"><h1 class="elementor-heading-title elementor-size-default">Expert WooCommerce Development Agency for Scalable eCommerce Solutions</h1></div></div><div class="elementor-element elementor-element-36c6e8a animated-slow elementor-invisible elementor-widget elementor-widget-text-editor" data-id="36c6e8a" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;,&quot;_animation_delay&quot;:500}" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p data-pm-slice="1 1 []">leading WooCommerce development agency | Custom Development | Scalable Solutions</p></div></div></div></div><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-6dd96bf" data-id="6dd96bf" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-0ef24a6 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="0ef24a6" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img data-lazyloaded="1" src="/wp-content/uploads/2024/04/Untitled-12.webp" fetchpriority="high" decoding="async" width="600" height="534" data-src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" data-srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" data-sizes="(max-width: 600px) 100vw, 600px" /><noscript><img fetchpriority="high" decoding="async" width="600" height="534" src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript></div></div><div class="elementor-element elementor-element-dbc2e94 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="dbc2e94" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img data-lazyloaded="1" src="/wp-content/uploads/2024/04/Untitled-12.webp" fetchpriority="high" decoding="async" width="600" height="534" data-src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" data-srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" data-sizes="(max-width: 600px) 100vw, 600px" /><noscript><img fetchpriority="high" decoding="async" width="600" height="534" src="/wp-content/uploads/2024/04/Untitled-12.webp" class="attachment-large size-large wp-image-2139" alt="Untitled 12 | AR Webcrafts" srcset="/wp-content/uploads/2024/04/Untitled-12.webp 600w, /wp-content/uploads/2024/04/Untitled-12-300x267.webp 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript></div></div><div class="elementor-element elementor-element-ff7d146 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="ff7d146" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img decoding="async" width="600" height="534" data-src="/wp-content/uploads/2024/04/Untitled-13.webp" class="attachment-large size-large wp-image-2140 lazyload" alt="Untitled 13 | AR Webcrafts" data-srcset="/wp-content/uploads/2024/04/Untitled-13.webp 600w, /wp-content/uploads/2024/04/Untitled-13-300x267.webp 300w" data-sizes="(max-width: 600px) 100vw, 600px" src="/wp-content/uploads/2024/04/Untitled-13.webp" style="--smush-placeholder-width: 600px; --smush-placeholder-aspect-ratio: 600/534;" /></div></div><div class="elementor-element elementor-element-467ff40 fluentform-widget-submit-button-custom elementor-widget elementor-widget-fluent-form-widget" data-id="467ff40" data-element_type="widget" data-e-type="widget" data-widget_type="fluent-form-widget.default"><div class="elementor-widget-container"><div class="fluentform-widget-wrapper hide-fluent-form-labels fluentform-widget-align-default"><div class='fluentform ff-default fluentform_wrapper_7 ffs_default_wrap'><form data-form_id="7" id="fluentform_7" class="frm-fluent-form fluent_form_7 ff-el-form-top ff_form_instance_7_1 ff-form-loading ffs_default" data-form_instance="ff_form_instance_7_1" method="POST" ><fieldset  style="border: none!important;margin: 0!important;padding: 0!important;background-color: transparent!important;box-shadow: none!important;outline: none!important; min-inline-size: 100%;"><legend class="ff_screen_reader_title" style="display: block; margin: 0!important;padding: 0!important;height: 0!important;text-indent: -999999px;width: 0!important;overflow:hidden;">Submit on all Pages</legend><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="153"/><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-optimized="1" src="data:text/javascript;base64,ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImFrX2pzXzEiKS5zZXRBdHRyaWJ1dGUoInZhbHVlIiwobmV3IERhdGUoKSkuZ2V0VGltZSgpKQ==" defer></script> </p><input type='hidden' name='__fluent_form_embded_post_id' value='4096' /><input type="hidden" id="_fluentform_7_fluentformnonce" name="_fluentform_7_fluentformnonce" value="8aeb966096" /><input type="hidden" name="_wp_http_referer" value="/woocommerce-custom-development/" /><div data-type="name-element" data-name="names" class=" ff-field_container ff-name-field-wrapper" ><div class='ff-t-container'><div class='ff-t-cell '><div class='ff-el-group ff-el-form-top'><div class="ff-el-input--label ff-el-is-required asterisk-right"><label for='ff_7_names_first_name_' id='label_ff_7_names_first_name_' >Name</label></div><div class='ff-el-input--content'><input type="text" name="names[first_name]" id="ff_7_names_first_name_" class="ff-el-form-control" placeholder="Enter Your Name" aria-invalid="false" aria-required=true></div></div></div></div></div><div class='ff-el-group'><div class="ff-el-input--label ff-el-is-required asterisk-right"><label for='ff_7_email' id='label_ff_7_email' aria-label="Email">Email</label></div><div class='ff-el-input--content'><input type="email" name="email" id="ff_7_email" class="ff-el-form-control" placeholder="Email Address" data-name="email"  aria-invalid="false" aria-required=true></div></div><div class='ff-el-group'><div class="ff-el-input--label ff-el-is-required asterisk-right"><label for='ff_7_dropdown' id='label_ff_7_dropdown' aria-label="Service needed">Service needed</label></div><div class='ff-el-input--content'><select name="dropdown" id="ff_7_dropdown" class="ff-el-form-control" data-name="dropdown" data-calc_value="0"  aria-invalid="false" aria-required="true" aria-labelledby="label_ff_7_dropdown"><option value="">Select a service..</option><option value="WordPress Plugin Development"  >WordPress Plugin Development</option><option value="WooCommerce Custom Development"  >WooCommerce Custom Development</option><option value="LearnDash Development"  >LearnDash Development</option><option value="Website Migration"  >Website Migration</option><option value="Plugin / Site Maintenance"  >Plugin / Site Maintenance</option><option value="API Integration"  >API Integration</option><option value="Other"  >Other</option></select></div></div><div class='ff-el-group'><div class="ff-el-input--label asterisk-right"><label for='ff_7_description' id='label_ff_7_description' aria-label="Tell us about your project">Tell us about your project</label></div><div class='ff-el-input--content'><textarea aria-required="false" aria-labelledby="label_ff_7_description" name="description" id="ff_7_description" class="ff-el-form-control" placeholder="What are you trying to build or fix" rows="3" cols="2" data-name="description" ></textarea></div></div><div class='ff-el-group ff-text-left ff_submit_btn_wrapper'><div class="ar-sms-consent-box" style="margin: 16px 0; padding: 14px 16px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; line-height: 1.5; color: #1e293b; text-align: left; box-sizing: border-box; width: 100%;">
-  <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-weight: normal; margin: 0; color: #1e293b; font-size: 13px;">
-    <input type="checkbox" name="sms_consent" style="margin-top: 3px; width: 16px; height: 16px; accent-color: #BE8C33; flex-shrink: 0;" />
-    <span>By submitting this form, you agree to receive marketing and promotional text messages from AR Webcrafts LLC at the number you provided. Consent is not a condition of purchase. Msg frequency varies. Msg and data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="/privacy-policy/" target="_blank" style="color: #BE8C33; text-decoration: underline; font-weight: 600;">Privacy Policy</a> and <a href="/terms-and-conditions/" target="_blank" style="color: #BE8C33; text-decoration: underline; font-weight: 600;">Terms</a>.</span>
-  </label>
-</div>
-<button type="submit" class="ff-btn ff-btn-submit ff-btn-md ff_btn_style"  aria-label="Send Message">Send Message</button></div></fieldset></form><div id='fluentform_7_errors' class='ff-errors-in-stack ff_form_instance_7_1 ff-form-loading_errors ff_form_instance_7_1_errors'></div></div> <script data-optimized="1" type="text/javascript" src="data:text/javascript;base64,d2luZG93LmZsdWVudF9mb3JtX2ZmX2Zvcm1faW5zdGFuY2VfN18xPXsiaWQiOiI3IiwiYWpheFVybCI6Imh0dHBzOlwvXC93d3cuYXJ3ZWJjcmFmdHMuY29tXC93cC1hZG1pblwvYWRtaW4tYWpheC5waHAiLCJzZXR0aW5ncyI6eyJsYXlvdXQiOnsibGFiZWxQbGFjZW1lbnQiOiJ0b3AiLCJhc3Rlcmlza1BsYWNlbWVudCI6ImFzdGVyaXNrLXJpZ2h0IiwiaGVscE1lc3NhZ2VQbGFjZW1lbnQiOiJ3aXRoX2xhYmVsIiwiZXJyb3JNZXNzYWdlUGxhY2VtZW50IjoiaW5saW5lIiwiY3NzQ2xhc3NOYW1lIjoiIn0sInJlc3RyaWN0aW9ucyI6eyJkZW55RW1wdHlTdWJtaXNzaW9uIjp7ImVuYWJsZWQiOiExfX19LCJmb3JtX2luc3RhbmNlIjoiZmZfZm9ybV9pbnN0YW5jZV83XzEiLCJmb3JtX2lkX3NlbGVjdG9yIjoiZmx1ZW50Zm9ybV83IiwicnVsZXMiOnsibmFtZXNbZmlyc3RfbmFtZV0iOnsicmVxdWlyZWQiOnsidmFsdWUiOiEwLCJtZXNzYWdlIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZCIsImdsb2JhbF9tZXNzYWdlIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZCIsImdsb2JhbCI6ITB9fSwibmFtZXNbbWlkZGxlX25hbWVdIjp7InJlcXVpcmVkIjp7InZhbHVlIjohMSwibWVzc2FnZSI6IlRoaXMgZmllbGQgaXMgcmVxdWlyZWQiLCJnbG9iYWxfbWVzc2FnZSI6IlRoaXMgZmllbGQgaXMgcmVxdWlyZWQiLCJnbG9iYWwiOiEwfX0sIm5hbWVzW2xhc3RfbmFtZV0iOnsicmVxdWlyZWQiOnsidmFsdWUiOiExLCJtZXNzYWdlIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZCIsImdsb2JhbF9tZXNzYWdlIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZCIsImdsb2JhbCI6ITB9fSwiZW1haWwiOnsicmVxdWlyZWQiOnsidmFsdWUiOiEwLCJtZXNzYWdlIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZCIsImdsb2JhbF9tZXNzYWdlIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZCIsImdsb2JhbCI6ITB9LCJlbWFpbCI6eyJ2YWx1ZSI6ITAsIm1lc3NhZ2UiOiJUaGlzIGZpZWxkIG11c3QgY29udGFpbiBhIHZhbGlkIGVtYWlsIiwiZ2xvYmFsX21lc3NhZ2UiOiJUaGlzIGZpZWxkIG11c3QgY29udGFpbiBhIHZhbGlkIGVtYWlsIiwiZ2xvYmFsIjohMH19LCJkcm9wZG93biI6eyJyZXF1aXJlZCI6eyJ2YWx1ZSI6ITAsIm1lc3NhZ2UiOiJQbGVhc2Ugc2VsZWN0IGZyb20gdGhlIGRyb3Bkb3duIiwiZ2xvYmFsX21lc3NhZ2UiOiJUaGlzIGZpZWxkIGlzIHJlcXVpcmVkIiwiZ2xvYmFsIjohMX19LCJkZXNjcmlwdGlvbiI6eyJyZXF1aXJlZCI6eyJ2YWx1ZSI6ITEsIm1lc3NhZ2UiOiJUaGlzIGZpZWxkIGlzIHJlcXVpcmVkIiwiZ2xvYmFsX21lc3NhZ2UiOiJUaGlzIGZpZWxkIGlzIHJlcXVpcmVkIiwiZ2xvYmFsIjohMH19fSwiZGVib3VuY2VfdGltZSI6MzAwLCJmaWxlX3VwbG9hZF9zZXR0aW5ncyI6W119" defer></script> </div></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-6a0e57b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6a0e57b" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1021f0b" data-id="1021f0b" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-4151813 animated-slow elementor-invisible elementor-widget elementor-widget-image" data-id="4151813" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="image.default"><div class="elementor-widget-container">
-<img decoding="async" width="800" height="533" data-src="/wp-content/uploads/2024/10/Custom-WooCommerce-Plugins-to-Boost-Your-Online-Store.webp" class="attachment-large size-large wp-image-3072 lazyload" alt="woocommerce development agency" data-srcset="/wp-content/uploads/2024/10/Custom-WooCommerce-Plugins-to-Boost-Your-Online-Store.webp" data-sizes="(max-width: 800px) 100vw, 800px" src="/wp-content/uploads/2024/10/Custom-WooCommerce-Plugins-to-Boost-Your-Online-Store.webp" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/533;" /></div></div></div></div><div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-44fab99" data-id="44fab99" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-d63f57a animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="d63f57a" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;,&quot;_animation_delay&quot;:500}" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">WooCommerce Custom Development</h2></div></div><div class="elementor-element elementor-element-66dfebe animated-slow elementor-invisible elementor-widget elementor-widget-text-editor" data-id="66dfebe" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">WooCommerce&#8217;s default setup gets most stores about 70% of the way there. The last 30% — the custom checkout logic, B2B pricing rules, ERP integrations, subscription flows — that&#8217;s where standard plugins stop and custom development starts.</p><p class="font-claude-response-body break-words whitespace-normal leading-[1.7]">We build what&#8217;s missing. Fixed price, staged delivery, direct access to the developers building it</p></div></div><div class="elementor-element elementor-element-e0593fd ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-id="e0593fd" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-lef-right-aligin elementor-animation- media  "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  text-center">
-<i aria-hidden="true" class="elementkit-infobox-icon icon icon-rocket"></i></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-Let&#039;s build something amazing together</h3><p>Let disconnected systems slow down your business. Contact us today to discuss your WooCommerce Custom Development and discover how we can do best for you.</p></div></div>
-</a></div></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-2a1f2ae elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2a1f2ae" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-407dc5f" data-id="407dc5f" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-ca4c53b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ca4c53b" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-1924437 elementor-invisible" data-id="1924437" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-ed3db07 ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="ed3db07" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-   "><div class="box-body"><h3 class="elementskit-info-box-title">
-Why Opt for WooCommerce Custom Development?</h3><p>WooCommerce is widely recognized as a robust and flexible platform for building e-commerce websites. However, while its out-of-the-box capabilities are impressive, they may not fully align with your business's specific needs. Off-the-shelf themes and plugins often come with limitations—generic designs, unnecessary features, or a lack of essential functionalities—that can hold your business back.
-Custom development addresses these challenges by enabling you to build a WooCommerce store that's perfectly aligned with your business goals. Imagine having a platform that isn't just functional but is also optimized for conversion, engagement, and scalability. With WooCommerce Custom Development, you can break free from the constraints of standard solutions, creating a truly unique store tailored to your needs. Whether you require custom themes, specialized plugins, or complex integrations, AR Webcrafts ensures that your WooCommerce store meets your expectations, drives growth, and enhances customer satisfaction.</p></div></div>
-</a></div></div></div></div></div></div></section><section class="elementor-section elementor-inner-section elementor-element elementor-element-71e1743 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="71e1743" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-8465096" data-id="8465096" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;none&quot;}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-7aa3871 elementor-widget elementor-widget-heading" data-id="7aa3871" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h6 class="elementor-heading-title elementor-size-default">what we do best</h6></div></div><div class="elementor-element elementor-element-6f32a32 elementor-widget elementor-widget-heading" data-id="6f32a32" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><p class="elementor-heading-title elementor-size-default">Got an idea? Hire brilliant human minds to help you visualize it faster and better!</p></div></div></div></div></div></section><section class="elementor-section elementor-inner-section elementor-element elementor-element-cdf79f1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="cdf79f1" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-0e6481b elementor-invisible" data-id="0e6481b" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-78d3297 ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="78d3297" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  ">
-<i aria-hidden="true" class="elementkit-infobox-icon icon icon-store"></i></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-Consultation &amp; Planning</h3><p>The first step in our process is an in-depth consultation to thoroughly understand your business needs, challenges, and goals. We take the time to listen to your ideas and explore the specific requirements that will make your WooCommerce store successful. This collaborative approach ensures that every aspect of your online store is designed to drive your business forward.</p></div></div>
-</a></div></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a04be37 elementor-invisible" data-id="a04be37" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-39a08bf ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="39a08bf" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  ">
-<i aria-hidden="true" class="elementkit-infobox-icon fas fa-graduation-cap"></i></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-Design &amp; Development</h3><p>Once the planning phase is complete, our team of creative designers and skilled developers begins bringing your vision to life. We craft a WooCommerce site that is visually stunning but also user-friendly and responsive. Our designs are built to reflect your brand's identity while offering a seamless user experience that keeps customers engaged. During the development phase, we focus on coding best practices, ensuring your store is robust, scalable, and easy to maintain.</p></div></div>
-</a></div></div></div></div></div></div></section><section class="elementor-section elementor-inner-section elementor-element elementor-element-6a656d7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6a656d7" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1c566aa elementor-invisible" data-id="1c566aa" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-70393c0 ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="70393c0" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  ">
-<i aria-hidden="true" class="elementkit-infobox-icon icon icon-users"></i></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-Customization &amp; Integration</h3><p>Tailoring Your Store to Your Needs
-Customization is at the heart of our WooCommerce development services. No two businesses are alike; your e-commerce store should reflect that uniqueness. We create custom themes that capture the essence of your brand and develop bespoke plugins to extend the functionality of your store. Whether you need advanced search features, custom checkout processes, or integration with third-party tools like CRMs, payment gateways, or shipping providers, we've got you covered. We aim to ensure your store operates like a well-oiled machine, providing a seamless experience for you and your customers.</p></div></div>
-</a></div></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5761f27 elementor-invisible" data-id="5761f27" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-fe58dc0 ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="fe58dc0" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  ">
-<i aria-hidden="true" class="elementkit-infobox-icon icon icon-customer-support-2"></i></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-Testing &amp; Optimization</h3><p>Before your WooCommerce store goes live, it undergoes rigorous testing to ensure flawless performance across all devices and browsers. We check for any bugs or issues that could impact the user experience and resolve them promptly. Additionally, we optimize your store for speed, ensuring quick load times that keep customers engaged and reduce bounce rates. Security is another critical aspect of our optimization process; we implement advanced security measures to protect your store and customer data from potential threats.</p></div></div>
-</a></div></div></div></div></div></div></section></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-a2824d7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a2824d7" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b49b09c" data-id="b49b09c" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-4698ff2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4698ff2" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2082383 elementor-invisible" data-id="2082383" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-81f581c ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="81f581c" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  ">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="83" height="85" viewBox="0 0 83 85" fill="none"><path d="M71.9266 6.22119L65.8467 13.3434L70.5369 14.82L75.0535 10.9983L76.7037 7.17661L71.9266 6.22119Z" fill="#0AC7EF"></path><path d="M75.9214 31.4963L69.3203 39.8346C69.3203 39.8346 73.2288 41.0505 73.4894 41.0505C73.75 41.0505 78.6139 37.6631 78.6139 37.6631L79.9168 34.9706L79.6562 32.9729L75.9214 31.4963Z" fill="#0AC7EF"></path><path d="M55.0765 30.2805L31.9727 53.8186L43.1771 64.7625L55.4239 55.7295C55.4239 55.7295 57.6822 57.3797 58.2902 57.3797C58.8981 57.3797 64.0227 52.1683 64.0227 52.1683L68.8866 46.1752L65.1518 41.3981L55.0765 30.2805Z" fill="#0AC7EF"></path><path d="M15.5568 67.4551L14.4277 68.5842C13.8197 69.1922 13.8197 70.0608 14.4277 70.6688C14.6882 70.9293 15.0357 71.103 15.47 71.103C15.9042 71.103 16.2517 70.9293 16.5122 70.6688L17.6414 69.5396C17.9019 69.279 18.0756 68.9316 18.0756 68.4973C18.0756 68.0631 17.9019 67.7156 17.6414 67.4551C17.0334 66.9339 16.078 66.9339 15.5568 67.4551Z" fill="#074B79"></path><path d="M20.1603 62.8515L19.0312 63.9807C18.4232 64.5887 18.4232 65.4572 19.0312 66.0652C19.2918 66.3258 19.6392 66.4995 20.0735 66.4995C20.5077 66.4995 20.8552 66.3258 21.1157 66.0652L22.2449 64.9361C22.5054 64.6755 22.6792 64.3281 22.6792 63.8938C22.6792 63.4595 22.5054 63.1121 22.2449 62.8515C21.6369 62.3304 20.6815 62.3304 20.1603 62.8515Z" fill="#0AC7EF"></path><path d="M24.7629 58.2483L23.6337 59.3774C23.0257 59.9854 23.0257 60.854 23.6337 61.462C23.8943 61.7225 24.2417 61.8962 24.676 61.8962C25.1103 61.8962 25.4577 61.7225 25.7183 61.462L26.8474 60.3328C27.108 60.0723 27.2817 59.7248 27.2817 59.2906C27.2817 58.8563 27.108 58.5088 26.8474 58.2483C26.2394 57.7271 25.284 57.7271 24.7629 58.2483Z" fill="#0AC7EF"></path><path d="M82.2622 34.1021C82.0885 33.4073 81.5673 32.7993 80.8725 32.5387L76.9639 31.0622L75.4874 27.1536L78.1799 24.4611C78.6142 24.0268 78.7879 23.3319 78.7011 22.7239C78.5274 22.0291 78.0062 21.4211 77.3114 21.1605L73.4028 19.684L71.9263 15.7754L77.5719 10.1298C78.0062 9.69547 78.1799 9.00062 78.0931 8.39263C77.9194 7.69778 77.3982 7.08978 76.7034 6.82921L72.7948 5.35265L71.3183 1.44412C71.0577 0.749264 70.4497 0.228125 69.7549 0.0544122C69.1469 -0.119301 68.452 0.141269 68.0177 0.575551L61.9378 6.6555C61.5035 7.08978 61.4166 7.69778 61.5904 8.21892L63.3275 12.8223L51.515 24.3742L46.043 18.9023L47.6933 17.252L52.2967 18.9891C52.8178 19.1628 53.4258 19.076 53.8601 18.6417L59.9401 12.5617C60.3744 12.1275 60.5481 11.4326 60.4612 10.8246C60.2875 10.1298 59.7664 9.52176 59.0715 9.26119L55.2498 7.87149C55.163 7.78463 54.9893 7.69778 54.9893 7.61092L53.5996 3.87609C53.339 3.18124 52.731 2.6601 52.0361 2.48639C51.4281 2.31268 50.7333 2.57325 50.299 3.00753L44.2191 9.08748C43.7848 9.52176 43.6979 10.1298 43.8716 10.6509L45.6088 15.2543L43.9585 16.9046L42.8294 15.6886C42.0477 14.9069 41.0054 14.4726 39.8762 14.4726C38.7471 14.4726 37.7048 14.9069 36.9231 15.6886L28.5849 24.0268C27.1952 25.4165 26.9346 27.5879 28.0638 29.2382L0.877707 64.2413C-0.425139 65.8916 -0.251427 68.1498 1.22513 69.6264L8.2605 76.6618V76.7486H8.34736L15.3827 83.784C16.1644 84.5657 17.2067 85 18.249 85C19.1176 85 20.073 84.6526 20.7678 84.1314L55.6841 56.9454C56.379 57.3797 57.1607 57.6402 57.9424 57.6402C59.0715 57.6402 60.1138 57.2059 60.8955 56.4242L69.2337 48.086C70.0154 47.3043 70.4497 46.262 70.4497 45.1329C70.4497 44.0038 70.0154 42.9615 69.2337 42.1798L68.452 41.3981L69.4074 40.4426L74.0108 42.1798C74.532 42.3535 75.14 42.2666 75.5742 41.8324L81.6542 35.7524C82.1753 35.405 82.349 34.7101 82.2622 34.1021ZM65.4989 10.3903L64.5435 7.87149L68.8863 3.52867L69.8417 5.96065L65.4989 10.3903ZM72.1868 26.2851L70.7103 27.7616L68.2783 26.8062L72.6211 22.4634L75.0531 23.4188L72.1868 26.2851L72.3605 26.4588L72.1868 26.2851ZM67.7572 15.6017L62.5458 20.8131C62.1115 21.2474 62.0246 21.8554 62.1983 22.3765L63.9355 26.9799L59.0715 31.8439L53.5996 26.3719L65.3252 14.6463L67.7572 15.6017ZM65.2383 22.2897L69.5811 17.9468L70.5366 20.3788L66.1937 24.7216L65.2383 22.2897ZM65.7595 33.8416L67.4966 38.445L66.5412 39.4004L61.0692 33.9284L65.9332 29.0645L68.3652 30.0199L66.02 32.365C65.6726 32.7124 65.5857 33.3204 65.7595 33.8416ZM67.5834 12.4749L71.9263 8.13206L74.3582 9.08748L70.0154 13.4303L67.5834 12.4749ZM73.2291 29.325L74.1845 31.757L69.8417 36.0998L68.8863 33.6678L73.2291 29.325ZM78.6142 34.797L74.2714 39.1398L71.8394 38.1844L76.1822 33.8416L78.6142 34.797ZM52.2099 51.5603C51.9493 51.8208 51.7756 52.1683 51.7756 52.6025C51.7756 53.0368 51.9493 53.3843 52.2099 53.6448L53.6864 55.1214L51.9493 56.4242L28.7586 33.1467L30.0615 31.4096L37.4443 38.7924C38.4865 39.8347 40.2237 39.9215 41.3528 38.8792C42.5688 37.7501 44.4796 37.7501 45.6956 38.9661L46.2168 39.4872C47.4327 40.7032 47.4328 42.6141 46.3036 43.8301C45.2613 44.9592 45.2613 46.6963 46.3905 47.7386L48.5619 49.91C49.083 50.4311 50.0384 50.4311 50.6464 49.91C50.907 49.6494 51.0807 49.302 51.0807 48.8677C51.0807 48.4334 50.8201 48.086 50.5596 47.8254L48.475 45.7409C50.6464 43.3089 50.5596 39.7478 48.2145 37.4027L47.6933 36.8815C45.4351 34.6233 41.7871 34.5364 39.3551 36.621L30.6695 27.9353C30.4089 27.6748 30.322 27.4142 30.322 27.0668C30.322 26.7193 30.4957 26.3719 30.6695 26.1982L39.0077 17.86C39.5288 17.3388 40.3105 17.3388 40.8317 17.86L65.4989 42.5272V42.6141H65.5857L67.3229 44.3512C67.844 44.8723 67.844 45.654 67.3229 46.1752L58.9847 54.5134C58.5504 55.0345 57.6818 55.0345 57.1607 54.5134L54.2944 51.5603C53.7733 50.9523 52.731 50.9523 52.2099 51.5603ZM31.1037 44.9592C30.8432 45.2197 30.6695 45.5672 30.6695 46.0015C30.6695 46.4357 30.8432 46.7832 31.1037 47.0437L45.4351 61.375L43.6111 62.8516L22.2444 41.4849L23.7209 39.6609L27.3689 43.3089C27.8901 43.8301 28.8455 43.8301 29.4535 43.3089C30.0615 42.7009 30.0615 41.8324 29.4535 41.2244L25.5449 37.3158L27.0215 35.4918L49.7779 58.2482L47.9539 59.7248L33.1883 44.9592C32.5803 44.438 31.6249 44.438 31.1037 44.9592ZM30.8432 63.199L22.1575 69.887C21.5495 70.4081 21.3758 71.2767 21.897 71.9715C22.4181 72.5795 23.3735 72.7532 23.9815 72.2321L32.6672 65.5442C32.9277 65.3704 33.1883 65.2836 33.4489 65.3704L38.5734 66.7601L19.1176 81.8732C18.6833 82.2206 17.9884 82.2206 17.5541 81.7863L14.9484 79.1806L19.7256 75.4458C20.073 75.1852 20.2467 74.8378 20.2467 74.4904C20.3335 74.1429 20.1598 73.7087 19.9861 73.4481C19.465 72.8401 18.5964 72.6664 17.9016 73.1875L12.8639 77.0961L11.3873 75.6195L13.0376 73.9692C13.6456 73.3612 13.6456 72.4927 13.0376 71.8847C12.4296 71.2767 11.561 71.2767 10.9531 71.8847L9.30278 73.5349L7.82622 72.0584L21.7232 54.0791C22.4181 53.1237 22.6787 51.9077 22.4181 50.7786L20.5941 44.0038L40.9185 64.3282L34.1437 62.591C33.0146 62.2436 31.7986 62.5042 30.8432 63.199ZM3.13597 65.9784L18.249 46.5226L19.6387 51.6471C19.7255 51.9077 19.6387 52.1683 19.465 52.4288L5.74167 70.0607L3.22283 67.5418C2.87541 67.1076 2.78855 66.4996 3.13597 65.9784ZM49.9516 14.9937L54.2944 10.6509L56.7264 11.6063L52.3836 15.9491L49.9516 14.9937ZM46.9116 10.4772L51.2544 6.13436L52.2099 8.56634L47.867 12.9092L46.9116 10.4772Z" fill="#074B79"></path></svg></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-A Smooth Transition to Success</h3><p>With your store fully developed, tested, and optimized, we manage the launch process to ensure a smooth transition. But our commitment doesn't end there. We provide ongoing support and updates to keep your WooCommerce store performing at its best long after launch day. Whether you need regular maintenance, feature updates, or troubleshooting, AR Webcrafts is here to ensure your e-commerce store continues to thrive.</p></div></div>
-</a></div></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ea7c586 elementor-invisible" data-id="ea7c586" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInDown&quot;,&quot;animation_delay&quot;:200}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-b188840 ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box" data-id="b188840" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-icon-box.default"><div class="elementor-widget-container"><div class="ekit-wid-con" >
-<a href="#" class="ekit_global_links"><div class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   "><div class="elementskit-box-header elementor-animation-"><div class="elementskit-info-box-icon  ">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="86" height="85" viewBox="0 0 86 85" fill="none"><path d="M31.0369 67.3026L19.9651 78.3744L9.93945 68.3488L21.0112 57.277C22.1446 57.277 22.842 57.277 23.9753 57.277L31.0369 64.3385C31.0369 65.4718 31.0369 66.0821 31.0369 67.3026Z" fill="#0AC7EF"></path><path d="M72.4472 23.8L83.0831 18.6564L72.5344 13.5128L67.3908 2.87695L62.2472 13.5128L51.6113 18.6564L62.2472 23.8L67.3908 34.4359L72.4472 23.8ZM67.3908 21.6205C65.7344 21.6205 64.4267 20.3129 64.4267 18.6564C64.4267 17 65.7344 15.6923 67.3908 15.6923C69.0472 15.6923 70.3549 17 70.3549 18.6564C70.3549 20.3129 69.0472 21.6205 67.3908 21.6205Z" fill="#0AC7EF"></path><path d="M33.3026 36.1795L20.3128 49.1692L18.8308 47.6872L13.4256 47.7744L4.96923 56.2308V64.6L0 69.5693L15.4308 85L20.4 80.0308H28.7692L50.041 58.759L46.118 54.8359L49.0821 51.8718L44.4615 47.2513L46.5538 45.159L39.9282 38.5334L37.8359 40.8L33.3026 36.1795ZM11.6821 68.6103L21.2718 59.0205H23.1026L29.2923 65.2103V67.041L19.7026 76.6308L11.6821 68.6103ZM15.3436 80.9898L3.92308 69.5693L6.27692 67.2154L17.6974 78.6359L15.3436 80.9898ZM39.9282 42.718L42.5436 45.3334L31.3846 56.4051L33.3897 58.4103L42.4564 49.3436L45.0718 51.959L36.0051 60.9385L38.0103 62.9436L44.1128 56.841L46.0308 58.759L27.5487 77.241H23.1897L32.2564 68.1744V63.9898L24.4103 56.1436H20.2256L9.7641 66.6051L7.75897 64.6V57.3641L14.559 50.5641L17.6103 50.4769L18.3077 51.1744L14.9949 54.4872L17 56.4923L33.3026 40.1898L35.9179 42.8051L26.8513 51.7846L28.8564 53.7898L39.9282 42.718Z" fill="#074B79"></path><path d="M67.1282 0L60.9384 12.8154L48.123 19.0051L60.8513 25.1949L67.041 38.0103L73.1436 25.1949L85.9589 19.0051L73.2307 12.7282L67.1282 0ZM79.5077 19.0051L71.0512 23.1026L67.041 31.4718L62.9436 23.1026L54.5743 19.0051L62.9436 14.9077L67.041 6.53846L71.0512 14.9077L79.5077 19.0051Z" fill="#074B79"></path><path d="M62.6826 19.0052C62.6826 21.4462 64.6877 23.4513 67.1288 23.4513C68.3493 23.4513 69.4826 22.9283 70.2672 22.1436C71.0518 21.359 71.5749 20.2257 71.5749 19.0052C71.5749 16.5642 69.5698 14.559 67.1288 14.559C64.6877 14.559 62.6826 16.5642 62.6826 19.0052ZM68.698 19.0052C68.698 19.877 68.0006 20.5744 67.1288 20.5744C66.257 20.5744 65.5595 19.877 65.5595 19.0052C65.5595 18.5693 65.7339 18.2206 65.9954 17.8718C66.257 17.6103 66.6929 17.4359 67.1288 17.4359C68.0006 17.4359 68.698 18.1334 68.698 19.0052Z" fill="#074B79"></path><path d="M49.3126 35.4943L47.2783 37.5286L49.3126 39.5628L51.3469 37.5286L49.3126 35.4943Z" fill="#074B79"></path><path d="M45.9728 38.7957L43.9385 40.83L45.9727 42.8642L48.007 40.83L45.9728 38.7957Z" fill="#074B79"></path><path d="M58.4578 26.308L50.6289 34.1368L52.6632 36.1711L60.492 28.3422L58.4578 26.308Z" fill="#074B79"></path><path d="M61.004 31.1666L50.5244 41.6462L52.5587 43.6804L63.0383 33.2009L61.004 31.1666Z" fill="#0AC7EF"></path><path d="M54.2511 23.1868L52.2168 25.2211L54.2511 27.2553L56.2853 25.2211L54.2511 23.1868Z" fill="#0AC7EF"></path><path d="M47.5704 29.9132L45.5361 31.9474L47.5704 33.9817L49.6047 31.9474L47.5704 29.9132Z" fill="#0AC7EF"></path><path d="M50.9727 26.55L48.9385 28.5843L50.9727 30.6186L53.007 28.5843L50.9727 26.55Z" fill="#0AC7EF"></path></svg></div></div><div class="box-body"><h3 class="elementskit-info-box-title">
-Ready to Elevate Your WooCommerce Store?</h3><p>Refrain from settling for the ordinary when you can have the extraordinary. AR Webcrafts is ready to transform your WooCommerce store into a powerful engine for growth and customer satisfaction. With our custom development services, you'll have a platform that meets your business needs and sets you apart from the competition. Contact us today to start your custom development journey and discover how we can help you achieve your e-commerce goals.</p></div></div>
-</a></div></div></div></div></div></div></section></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-e6fc893 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e6fc893" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-background-overlay"></div><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0be75f1" data-id="0be75f1" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-0d36882 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0d36882" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-f52dbc4 elementor-invisible" data-id="f52dbc4" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-bc7cd7a elementor-widget elementor-widget-heading" data-id="bc7cd7a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h6 class="elementor-heading-title elementor-size-default">Testimonials</h6></div></div><div class="elementor-element elementor-element-94ab055 elementor-widget elementor-widget-heading" data-id="94ab055" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">WHAT CLIENTS SAY</h2></div></div></div></div></div></section><div class="elementor-element elementor-element-ce22c5a elementor-widget elementor-widget-elementskit-testimonial" data-id="ce22c5a" data-element_type="widget" data-e-type="widget" data-widget_type="elementskit-testimonial.default"><div class="elementor-widget-container"><div class="ekit-wid-con"><div class="ar-google-reviews-section">
+</a></div></div></div></div></div></div></section></div></div><main id="content" class="site-main post-4096 page type-page status-publish hentry">
+
+<!-- SECTION 1: HERO SECTION & CONTACT FORM -->
+<section class="wcd-hero" aria-labelledby="hero-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-hero-grid">
+      <div class="wcd-hero-copy wcd-reveal">
+        <span class="wcd-hero-badge">
+          <span class="dot" aria-hidden="true"></span>
+          Enterprise E-Commerce Architecture
+        </span>
+        <h1 id="hero-heading">
+          Custom WooCommerce Development <span class="wcd-hl">Built to Scale Revenue &amp; Speed</span>
+        </h1>
+        <p class="wcd-hero-desc">
+          Stop fighting slow checkout pages, cart abandonment, and rigid off-the-shelf plugins that break under traffic surges. AR Webcrafts engineers high-concurrency WooCommerce stores with clean object-oriented architecture, custom checkout funnels, ERP integrations, and <strong>100% full source code ownership</strong>.
+        </p>
+        <ul class="wcd-hero-stamps" aria-label="Key Service Benefits">
+          <li>Sub-Second Cart &amp; Checkout Speeds</li>
+          <li>High-Performance Order Storage (HPOS)</li>
+          <li>Custom Checkout &amp; 1-Click Upsells</li>
+          <li>Multi-Currency &amp; B2B Wholesale Logic</li>
+          <li>Zero Vendor Lock-in &amp; 100% Code Ownership</li>
+          <li>60-Day Post-Launch Bug Warranty</li>
+        </ul>
+        <div class="wcd-hero-ctas">
+          <a href="#wcd-contact-form" class="wcd-btn-gold">
+            <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+            Request Custom WooCommerce Proposal
+          </a>
+          <a href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener" class="wcd-btn-outline-white">
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            Book 30-Min Architecture Call
+          </a>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE HERO LEAD CAPTURE FORM -->
+      <div class="wcd-hero-card wcd-reveal" id="wcd-contact-form">
+        <div class="wcd-card-title">Request Custom WooCommerce Proposal</div>
+        <div class="wcd-card-sub">Tell us about your store requirements. Speak directly with senior WooCommerce developers within 2 business hours.</div>
+        <form id="wcd-woo-form" class="wcd-form" novalidate>
+          <div class="wcd-form-row">
+            <div class="wcd-field">
+              <label for="wcd-name">Your Name *</label>
+              <input type="text" id="wcd-name" name="name" required placeholder="John Smith" autocomplete="name">
+            </div>
+            <div class="wcd-field">
+              <label for="wcd-company">Company / Store URL</label>
+              <input type="text" id="wcd-company" name="company" placeholder="example.com" autocomplete="organization">
+            </div>
+          </div>
+          <div class="wcd-form-row">
+            <div class="wcd-field">
+              <label for="wcd-email">Work Email *</label>
+              <input type="email" id="wcd-email" name="email" required placeholder="john@company.com" autocomplete="email">
+            </div>
+            <div class="wcd-field">
+              <label for="wcd-phone">Phone / WhatsApp</label>
+              <input type="tel" id="wcd-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+            </div>
+          </div>
+          <div class="wcd-field">
+            <label for="wcd-service">eCommerce Service Needed *</label>
+            <select id="wcd-service" name="service" required>
+              <option value="">Select eCommerce requirement...</option>
+              <option value="Custom Checkout & Cart Solutions">Custom Checkout Solutions &amp; 1-Page Funnels</option>
+              <option value="B2B Wholesale Portal & Pricing">B2B Wholesale Portal &amp; Tiered Pricing</option>
+              <option value="ERP, CRM & Payment Integration">ERP, CRM &amp; Custom Payment Gateways</option>
+              <option value="High-Concurrency Speed & Scale">High-Concurrency Speed Optimization &amp; HPOS</option>
+              <option value="Custom WooCommerce Plugin">Custom WooCommerce Plugin Development</option>
+              <option value="Subscriptions & Recurring Billing">Subscriptions, Memberships &amp; Recurring Logic</option>
+              <option value="Store Migration to WooCommerce">Store Migration to WooCommerce</option>
+              <option value="Headless WooCommerce & REST API">Headless WooCommerce &amp; REST API Build</option>
+            </select>
+          </div>
+          <div class="wcd-field">
+            <label for="wcd-budget">Estimated Budget / Scope</label>
+            <select id="wcd-budget" name="budget">
+              <option value="">Select estimated scope...</option>
+              <option value="< $3,000">&lt; $3,000 (Quick sprint / Single custom feature)</option>
+              <option value="$3,000 - $7,500">$3,000 – $7,500 (Custom module / Checkout overhaul)</option>
+              <option value="$7,500 - $15,000">$7,500 – $15,000 (Full custom store / B2B portal)</option>
+              <option value="$15,000+">$15,000+ (Enterprise scale / High concurrency)</option>
+            </select>
+          </div>
+          <div class="wcd-field">
+            <label for="wcd-brief">Project Brief / Store Challenges</label>
+            <textarea id="wcd-brief" name="message" rows="3" placeholder="Tell us about your product catalog, traffic peaks, current bottlenecks, or desired integrations..."></textarea>
+          </div>
+          <button type="submit" id="wcd-submit-btn" class="wcd-submit-btn">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            Get Custom WooCommerce Proposal
+          </button>
+          <div class="wcd-form-trust">
+            <i class="fas fa-shield-alt" style="color:var(--wcd-gold);" aria-hidden="true"></i>
+            100% Code Ownership · Strict NDA · Reply within 2 business hours
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WHY CHOOSE US (DARK BLUE SECTION — METICULOUS VISUAL SEPARATION) -->
+<section class="wcd-sec wcd-why-section" id="why-choose-us" aria-labelledby="why-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-sec-head center wcd-reveal">
+      <span class="wcd-sec-label" style="color:var(--wcd-gold-light);">Why Choose AR Webcrafts</span>
+      <h2 class="wcd-sec-title" id="why-heading">Engineered for High-Converting E-Commerce, Not Just Templates</h2>
+      <p class="wcd-sec-desc">Most WooCommerce stores rely on dozens of third-party plugins that bloat databases, create checkout friction, and cause severe slowdowns during traffic surges. We build lean, custom-coded architecture that maximizes conversion rates.</p>
+    </div>
+
+    <div class="wcd-why-grid">
+      <div class="wcd-why-card wcd-glow-hover wcd-reveal">
+        <div class="wcd-why-icon" aria-hidden="true"><i class="fas fa-bolt"></i></div>
+        <div class="wcd-why-num">Feature 01</div>
+        <h3 class="wcd-why-title">Sub-Second Cart &amp; Checkout Speeds</h3>
+        <p class="wcd-why-desc">We leverage High-Performance Order Storage (HPOS), optimized custom database queries, Redis caching, and asset deferral so checkout loads instantly without drop-off.</p>
+      </div>
+
+      <div class="wcd-why-card wcd-glow-hover wcd-reveal">
+        <div class="wcd-why-icon" aria-hidden="true"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="wcd-why-num">Feature 02</div>
+        <h3 class="wcd-why-title">High-Concurrency Traffic Scaling</h3>
+        <p class="wcd-why-desc">Zero deadlocks or 504 timeouts during flash sales. We decouple resource-intensive tasks using Action Scheduler queues and isolated query caching.</p>
+      </div>
+
+      <div class="wcd-why-card wcd-glow-hover wcd-reveal">
+        <div class="wcd-why-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></div>
+        <div class="wcd-why-num">Feature 03</div>
+        <h3 class="wcd-why-title">100% Full Source Code Ownership</h3>
+        <p class="wcd-why-desc">No encrypted files, no recurring licensing fees, and no vendor lock-in. You receive the complete clean Git repository that your internal team can easily extend.</p>
+      </div>
+
+      <div class="wcd-why-card wcd-glow-hover wcd-reveal">
+        <div class="wcd-why-icon" aria-hidden="true"><i class="fas fa-users-cog"></i></div>
+        <div class="wcd-why-num">Feature 04</div>
+        <h3 class="wcd-why-title">Complex B2B &amp; Wholesale Engines</h3>
+        <p class="wcd-why-desc">Built-in tiered wholesale pricing, dynamic tax exemptions, quote-to-order workflows, and corporate buyer hierarchies tailored to your business model.</p>
+      </div>
+
+      <div class="wcd-why-card wcd-glow-hover wcd-reveal">
+        <div class="wcd-why-icon" aria-hidden="true"><i class="fas fa-network-wired"></i></div>
+        <div class="wcd-why-num">Feature 05</div>
+        <h3 class="wcd-why-title">ERP, CRM &amp; Payment Gateway Integrations</h3>
+        <p class="wcd-why-desc">Flawless bi-directional synchronization with NetSuite, SAP, Salesforce, QuickBooks, Stripe custom webhooks, and multi-warehouse logistics.</p>
+      </div>
+
+      <div class="wcd-why-card wcd-glow-hover wcd-reveal">
+        <div class="wcd-why-icon" aria-hidden="true"><i class="fas fa-user-shield"></i></div>
+        <div class="wcd-why-num">Feature 06</div>
+        <h3 class="wcd-why-title">Senior WooCommerce Core Engineers Only</h3>
+        <p class="wcd-why-desc">No junior outsourcing. Work directly with experienced WooCommerce core architects who adhere strictly to WordPress VIP and Automattic coding standards.</p>
+      </div>
+    </div>
+
+    <!-- FIRST VISUAL SHOWCASE: ECOMMERCE CHECKOUT & CONVERSION ENGINE -->
+    <div class="wcd-showcase-split wcd-reveal">
+      <div class="wcd-showcase-content">
+        <span class="wcd-sec-label" style="color:var(--wcd-gold-light);">Frictionless Checkout Architecture</span>
+        <h3>From Complex Product Options to 1-Click Frictionless Checkout</h3>
+        <p>Every second of checkout latency drains revenue. We re-engineer default WooCommerce checkouts into modern one-page funnels, custom multi-step flows, dynamic slide-out carts, and localized payment integrations with Apple Pay, Google Pay, and Stripe Elements.</p>
+        <ul class="wcd-showcase-features">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Custom AJAX slide-out cart with instant quantity updates and free shipping bars</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> 1-page checkout flows with address auto-complete and guest express checkout</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Custom order meta stored directly in High-Performance Order Storage (HPOS)</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Automated cart abandonment recovery webhooks and CRM synchronization</li>
+        </ul>
+        <a href="#wcd-contact-form" class="wcd-btn-gold">
+          <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+          Request Checkout Optimization Quote
+        </a>
+      </div>
+      <div class="wcd-showcase-media">
+        <img src="/wp-content/uploads/2024/08/Customize-eCommerce-WordPress-site.webp" alt="Custom WooCommerce shopping cart and optimized e-commerce checkout flow" class="wcd-showcase-img" width="800" height="533" loading="lazy">
+        <div class="wcd-showcase-badge">
+          <i class="fas fa-shield-check" aria-hidden="true"></i>
+          100% Optimized for Maximum Conversion
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 3: SPECIALIZED CAPABILITIES / FEATURES GRID -->
+<section class="wcd-sec" id="capabilities" aria-labelledby="capabilities-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-sec-head center wcd-reveal">
+      <span class="wcd-sec-label">Specialized Capabilities</span>
+      <h2 class="wcd-sec-title" id="capabilities-heading">End-to-End WooCommerce Engineering Solutions</h2>
+      <p class="wcd-sec-desc">From bespoke checkout funnels and custom plugin development to enterprise ERP bridges, our WooCommerce services cover every facet of scalable e-commerce.</p>
+    </div>
+
+    <div class="wcd-services-grid">
+      <div class="wcd-service-card wcd-reveal">
+        <div class="wcd-service-icon" aria-hidden="true"><i class="fas fa-cash-register"></i></div>
+        <h3 class="wcd-service-name">Custom Checkout &amp; One-Page Funnels</h3>
+        <p class="wcd-service-desc">Bespoke checkout architectures that slash cart abandonment. Multi-step forms, address autocomplete, instant tax calculation, and custom post-purchase 1-click upsells.</p>
+        <div class="wcd-service-tags">
+          <span class="wcd-tag">One-Page Checkout</span>
+          <span class="wcd-tag">Apple / Google Pay</span>
+          <span class="wcd-tag">Slide-Out Cart</span>
+          <span class="wcd-tag">A/B Tested</span>
+        </div>
+      </div>
+
+      <div class="wcd-service-card wcd-reveal">
+        <div class="wcd-service-icon" aria-hidden="true"><i class="fas fa-building"></i></div>
+        <h3 class="wcd-service-name">B2B Wholesale Portals &amp; Dynamic Pricing</h3>
+        <p class="wcd-service-desc">Transform WooCommerce into an enterprise wholesale engine. Tiered quantity pricing tables, corporate sub-accounts, net payment terms, and custom catalog visibility rules.</p>
+        <div class="wcd-service-tags">
+          <span class="wcd-tag">B2B Wholesale</span>
+          <span class="wcd-tag">Tiered Pricing</span>
+          <span class="wcd-tag">Corporate Accounts</span>
+          <span class="wcd-tag">Tax Exemptions</span>
+        </div>
+      </div>
+
+      <div class="wcd-service-card wcd-reveal">
+        <div class="wcd-service-icon" aria-hidden="true"><i class="fas fa-puzzle-piece"></i></div>
+        <h3 class="wcd-service-name">Custom WooCommerce Plugin Development</h3>
+        <p class="wcd-service-desc">Bespoke WooCommerce plugins and extensions tailored to your operational workflows. Object-oriented, documented code that stays completely immune to WooCommerce core updates.</p>
+        <div class="wcd-service-tags">
+          <span class="wcd-tag">Custom Extensions</span>
+          <span class="wcd-tag">Action Scheduler</span>
+          <span class="wcd-tag">OOP Standards</span>
+          <span class="wcd-tag">Zero Bloat</span>
+        </div>
+      </div>
+
+      <div class="wcd-service-card wcd-reveal">
+        <div class="wcd-service-icon" aria-hidden="true"><i class="fas fa-sync-alt"></i></div>
+        <h3 class="wcd-service-name">ERP, CRM &amp; Inventory Synchronization</h3>
+        <p class="wcd-service-desc">Real-time bi-directional API connections between WooCommerce and NetSuite, SAP, QuickBooks, Salesforce, HubSpot, and custom multi-location warehouse management systems.</p>
+        <div class="wcd-service-tags">
+          <span class="wcd-tag">ERP Integrations</span>
+          <span class="wcd-tag">REST API &amp; Webhooks</span>
+          <span class="wcd-tag">Inventory Sync</span>
+          <span class="wcd-tag">Warehouse Flow</span>
+        </div>
+      </div>
+
+      <div class="wcd-service-card wcd-reveal">
+        <div class="wcd-service-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
+        <h3 class="wcd-service-name">High-Concurrency Scaling &amp; Speed Optimization</h3>
+        <p class="wcd-service-desc">Refactor slow queries, configure High-Performance Order Storage (HPOS), tune database indexes, and implement Redis object caching for hundreds of concurrent checkouts.</p>
+        <div class="wcd-service-tags">
+          <span class="wcd-tag">HPOS Enabled</span>
+          <span class="wcd-tag">Redis Cache</span>
+          <span class="wcd-tag">Sub-Second Load</span>
+          <span class="wcd-tag">Flash Sale Ready</span>
+        </div>
+      </div>
+
+      <div class="wcd-service-card wcd-reveal">
+        <div class="wcd-service-icon" aria-hidden="true"><i class="fas fa-redo-alt"></i></div>
+        <h3 class="wcd-service-name">Subscriptions, Memberships &amp; Recurring Billing</h3>
+        <p class="wcd-service-desc">Complex recurring billing setups, custom subscription proration, tiered membership paywalls, gated digital downloads, and automated smart dunning payment recovery.</p>
+        <div class="wcd-service-tags">
+          <span class="wcd-tag">Woo Subscriptions</span>
+          <span class="wcd-tag">Custom Proration</span>
+          <span class="wcd-tag">Smart Dunning</span>
+          <span class="wcd-tag">Gated Portals</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECOND VISUAL SHOWCASE: RESPONSIVE MULTI-DEVICE COMMERCE -->
+    <div class="wcd-showcase-split reverse wcd-reveal" style="background:var(--wcd-panel); border:1.5px solid var(--wcd-rule);">
+      <div class="wcd-showcase-content">
+        <span class="wcd-sec-label" style="color:var(--wcd-navy);">Mobile-First E-Commerce</span>
+        <h3 style="color:var(--wcd-navy);">Fluid Responsive Checkout &amp; Multi-Device Adaptability</h3>
+        <p style="color:var(--wcd-muted);">Over 70% of e-commerce transactions originate on mobile devices. We develop thumb-friendly touch targets, friction-free mobile drawer carts, swipeable product galleries, and zero-layout-shift checkout flows.</p>
+        <ul class="wcd-showcase-features">
+          <li style="color:#334155;"><i class="fas fa-check-circle" style="color:var(--wcd-gold);" aria-hidden="true"></i> Mobile-first architecture tested across real iOS and Android devices</li>
+          <li style="color:#334155;"><i class="fas fa-check-circle" style="color:var(--wcd-gold);" aria-hidden="true"></i> Zero cumulative layout shift (CLS) during price variations and product image loading</li>
+          <li style="color:#334155;"><i class="fas fa-check-circle" style="color:var(--wcd-gold);" aria-hidden="true"></i> Instant AJAX product filtering and variation selection without page reloads</li>
+        </ul>
+        <a href="#wcd-contact-form" class="wcd-btn-gold">
+          <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+          Schedule a Mobile eCommerce Audit
+        </a>
+      </div>
+      <div class="wcd-showcase-media" style="border:1.5px solid var(--wcd-rule); box-shadow:0 16px 36px rgba(1,27,57,0.08);">
+        <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.webp" alt="Responsive multi-device custom WooCommerce design layout" class="wcd-showcase-img" width="600" height="534" loading="lazy">
+        <div class="wcd-showcase-badge" style="background:rgba(255,255,255,0.92); color:var(--wcd-navy); border-color:var(--wcd-rule);">
+          <i class="fas fa-mobile-alt" style="color:var(--wcd-gold);" aria-hidden="true"></i>
+          Responsive Across All Breakpoints
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4: 5-STEP E-COMMERCE ENGINEERING PROCESS -->
+<section class="wcd-sec wcd-process-section" id="process" aria-labelledby="process-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-sec-head center wcd-reveal">
+      <span class="wcd-sec-label">Our Engineering Workflow</span>
+      <h2 class="wcd-sec-title" id="process-heading">How We Build High-Performing WooCommerce Stores</h2>
+      <p class="wcd-sec-desc">A predictable, milestone-driven lifecycle engineered to eliminate downtime, hit deadlines, and guarantee bulletproof e-commerce transactions.</p>
+    </div>
+
+    <div class="wcd-how-grid">
+      <div class="wcd-step wcd-reveal">
+        <div class="wcd-step-num" aria-hidden="true">01</div>
+        <h3 class="wcd-step-title">Store Audit &amp; Discovery</h3>
+        <p class="wcd-step-desc">We analyze your catalog, payment gateways, database queries, and current cart bottlenecks to formulate an architectural blueprint.</p>
+      </div>
+
+      <div class="wcd-step wcd-reveal">
+        <div class="wcd-step-num" aria-hidden="true">02</div>
+        <h3 class="wcd-step-title">Fixed-Price Scope &amp; Plan</h3>
+        <p class="wcd-step-desc">Transparent fixed-price proposal detailing exact milestones, database schemas, and delivery timeline. Zero unexpected hourly charges.</p>
+      </div>
+
+      <div class="wcd-step wcd-reveal">
+        <div class="wcd-step-num" aria-hidden="true">03</div>
+        <h3 class="wcd-step-title">Phased Agile Build</h3>
+        <p class="wcd-step-desc">We build clean OOP modules on an isolated staging clone. Weekly progress calls and staging access keep you informed every Friday.</p>
+      </div>
+
+      <div class="wcd-step wcd-reveal">
+        <div class="wcd-step-num" aria-hidden="true">04</div>
+        <h3 class="wcd-step-title">Load &amp; Concurrency QA</h3>
+        <p class="wcd-step-desc">Stress testing under simulated traffic surges, payment webhook verification, edge-case testing, and multi-currency checkout QA.</p>
+      </div>
+
+      <div class="wcd-step wcd-reveal">
+        <div class="wcd-step-num" aria-hidden="true">05</div>
+        <h3 class="wcd-step-title">Launch &amp; 60-Day Warranty</h3>
+        <p class="wcd-step-desc">Zero-downtime deployment, complete technical documentation for your team, and 60 days of guaranteed post-launch bug coverage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: ARCHITECTURE & TOOLING TECH STACK -->
+<section class="wcd-sec wcd-tech-section" aria-labelledby="tech-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-sec-head center wcd-reveal">
+      <span class="wcd-sec-label" style="color:var(--wcd-gold-light);">Architecture &amp; Tooling</span>
+      <h2 class="wcd-sec-title" id="tech-heading">Modern Tooling for High-Performance WooCommerce</h2>
+      <p class="wcd-sec-desc">We reject bloated generic multi-purpose plugins in favor of modern front-end and back-end standards that deliver blistering speed and clean maintainability.</p>
+    </div>
+
+    <div class="wcd-tech-grid">
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fab fa-php"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">PHP 8.2 / 8.3 &amp; OOP</h3>
+          <p class="wcd-tech-detail">Strict OOP, type hints, namespaced classes adhering to WordPress VIP coding standards.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fas fa-database"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">WooCommerce HPOS</h3>
+          <p class="wcd-tech-detail">High-Performance Order Storage for massive order processing throughput without postmeta bloat.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fas fa-network-wired"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">REST API &amp; Webhooks</h3>
+          <p class="wcd-tech-detail">Secure custom endpoints for headless storefronts, ERPs, and real-time inventory feeds.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fab fa-react"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">React &amp; Gutenberg Blocks</h3>
+          <p class="wcd-tech-detail">Interactive custom checkout blocks, slide-out carts, and modern dynamic react product cards.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fas fa-memory"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">Redis &amp; Transients Cache</h3>
+          <p class="wcd-tech-detail">In-memory caching for high-speed cart session lookup and sub-millisecond query execution.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fas fa-server"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">MySQL Query Tuning</h3>
+          <p class="wcd-tech-detail">Indexed order tables and clean query structure preventing locks during flash sales.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fab fa-stripe"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">Stripe &amp; Payment Webhooks</h3>
+          <p class="wcd-tech-detail">Robust asynchronous webhook listeners with signature verification and retry queuing.</p>
+        </div>
+      </div>
+
+      <div class="wcd-tech-card wcd-reveal">
+        <div class="wcd-tech-icon" aria-hidden="true"><i class="fas fa-vial"></i></div>
+        <div>
+          <h3 class="wcd-tech-name">PHPUnit &amp; Automated QA</h3>
+          <p class="wcd-tech-detail">Automated tests for cart calculations, checkout gateways, and order status transitions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: CLIENT TESTIMONIALS & SOCIAL PROOF (STANDARDIZED CLUTCH & GOOGLE MARQUEE) -->
+<section class="wcd-sec" style="background:var(--wcd-panel);" aria-labelledby="testimonials-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-sec-head center wcd-reveal">
+      <span class="wcd-sec-label">Client Testimonials</span>
+      <h2 class="wcd-sec-title" id="testimonials-heading">What Founders &amp; Agencies Say</h2>
+      <p class="wcd-sec-desc">Real feedback from e-commerce store owners, digital agencies, and tech founders who trust AR Webcrafts with custom WooCommerce engineering.</p>
+    </div>
+  </div>
+<div class="ar-google-reviews-section">
   <div class="ar-google-summary-badge">
     <svg viewBox="0 0 24 24" width="20" height="20">
       <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -1377,8 +2775,188 @@ Ready to Elevate Your WooCommerce Store?</h3><p>Refrain from settling for the or
     </div>
     </div>
   </div>
-</div></div></div></div><div data-ha-element-link="{&quot;url&quot;:&quot;https:\/\/clutch.co\/profile\/ar-webcrafts&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;}" style="cursor: pointer" class="elementor-element elementor-element-80a73f9 elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="80a73f9" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
-<img decoding="async" width="188" height="80" data-src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" class="attachment-large size-large wp-image-1148 lazyload" alt="Clutch Ratings | AR Webcrafts" src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" style="--smush-placeholder-width: 188px; --smush-placeholder-aspect-ratio: 188/80;" /></div></div></div></div></div></section></div></div></main><div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support"><div data-elementor-type="wp-post" data-elementor-id="61" class="elementor elementor-61" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="elementskit_template"><section class="elementor-section elementor-top-section elementor-element elementor-element-ac3f73a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ac3f73a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7968366" data-id="7968366" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-b2cec12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b2cec12" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c2b2407" data-id="c2b2407" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-9be69e0 elementor-widget elementor-widget-heading" data-id="9be69e0" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">Request A Call Back</h3></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8f0dcec" data-id="8f0dcec" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-0709913 elementor-align-center elementor-widget elementor-widget-button" data-id="0709913" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
+</div>
+
+<div class="ar-rating-badges-row" style="display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 35px; flex-wrap: wrap;">
+  <a href="https://www.google.com/maps/place/AR+Webcrafts" target="_blank" rel="noopener">
+<img decoding="async" width="188" height="82" data-src="/wp-content/uploads/2024/03/Google-Ratings.svg" class="attachment-large size-large wp-image-1147 lazyload lazyloaded" alt="AR Webcrafts 5-star Google Reviews rating" src="/wp-content/uploads/2024/03/Google-Ratings.svg" style="--smush-placeholder-width: 188px; --smush-placeholder-aspect-ratio: 188/82;" />								</a>
+  <a href="https://clutch.co/profile/ar-webcrafts">
+<img decoding="async" width="188" height="80" data-src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" class="attachment-large size-large wp-image-1148 lazyload lazyloaded" alt="Clutch Ratings | AR Webcrafts" src="/wp-content/uploads/2024/03/Clutch-Ratings.svg" style="--smush-placeholder-width: 188px; --smush-placeholder-aspect-ratio: 188/80;" />								</a>
+</div>
+
+</section>
+
+<!-- SECTION 7: STANDARDIZED FAQ ACCORDION -->
+<section class="wcd-sec" aria-labelledby="faq-heading">
+  <div class="wcd-wrap">
+    <div class="wcd-sec-head center wcd-reveal">
+      <span class="wcd-sec-label">Frequently Asked Questions</span>
+      <h2 class="wcd-sec-title" id="faq-heading">Everything You Need to Know About Custom WooCommerce</h2>
+      <p class="wcd-sec-desc">Transparent answers to common questions about our WooCommerce engineering process, timelines, scaling, and ownership.</p>
+    </div>
+
+    <div class="wcd-faq wcd-reveal">
+      <details>
+        <summary>
+          <span class="wcd-faq-q">Why should I invest in custom WooCommerce development instead of standard plugins?</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
+        </summary>
+        <p>Out-of-the-box WooCommerce and commercial plugins cover about 70% of standard store operations. However, stacking 30+ off-the-shelf plugins creates database bloat, fatal update conflicts, slow cart response times, and checkout drop-offs. Custom WooCommerce development by AR Webcrafts gives you lightweight, purpose-built code tailored to your exact business model. Your checkout loads in sub-seconds, conflicts are eliminated, and you maintain complete control without recurring plugin license fees.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="wcd-faq-q">How do you prevent store crashes and slow checkouts during high-traffic flash sales?</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
+        </summary>
+        <p>High traffic bottlenecks in WooCommerce are usually caused by uncached cart sessions, unindexed database tables, and synchronous external API calls during checkout. We eliminate these bottlenecks by configuring High-Performance Order Storage (HPOS), setting up Redis object caching, optimizing custom MySQL indexes, and offloading heavy tasks (like email dispatch or ERP syncing) to asynchronous Action Scheduler queues.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="wcd-faq-q">Can you integrate WooCommerce with our ERP, CRM, or warehouse management system?</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
+        </summary>
+        <p>Yes. We build secure, bi-directional API bridges connecting WooCommerce with NetSuite, SAP, Salesforce, HubSpot, QuickBooks, Fishbowl, ShipStation, and custom internal inventory ERPs. Our integrations feature robust error logging, automatic retry queues, and webhook listeners to ensure your inventory, orders, and customer data never desynchronize.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="wcd-faq-q">Will our business own 100% of the custom WooCommerce code you write?</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
+        </summary>
+        <p>Yes, absolutely 100%. Upon final milestone delivery, all custom code, plugins, database schemas, and documentation are entirely your intellectual property. We do not use encrypted code, proprietary licensing callbacks, or vendor lock-in. You receive the complete Git repository ready for your internal team or any developer to maintain.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="wcd-faq-q">How long does a custom WooCommerce development project take?</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
+        </summary>
+        <p>Project timelines depend on scope. A targeted custom feature (such as a 1-page checkout flow or custom payment gateway) typically takes 2–3 weeks. A complex B2B wholesale engine or custom ERP bridge generally spans 4–8 weeks. Comprehensive store rebuilds or high-concurrency scaling overhauls take 6–10 weeks. Every project has a clear, fixed-price milestone schedule with weekly Friday demos.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="wcd-faq-q">What post-launch support and warranty do you provide?</span>
+          <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
+        </summary>
+        <p>Every custom build includes 60 days of post-launch bug warranty and technical monitoring. Because production traffic frequently exposes edge cases not visible on staging, we remain actively engaged to resolve any issues immediately at zero extra charge. We also offer ongoing monthly maintenance retainers for continuous feature development and security updates.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: BOTTOM CTA BANNER -->
+<section class="wcd-cta-section" aria-labelledby="cta-heading">
+  <div class="wcd-wrap">
+    <span class="wcd-sec-label" style="color:var(--wcd-gold-light);">Ready to Scale Your Store?</span>
+    <h2 class="wcd-sec-title" id="cta-heading">Let's Engineer Your Custom WooCommerce Store</h2>
+    <p class="wcd-cta-desc">Stop losing sales to slow carts and bloated plugins. Partner with senior WooCommerce core architects to build an e-commerce platform engineered for speed, conversions, and scale.</p>
+    <div class="wcd-cta-btns">
+      <a href="#wcd-contact-form" class="wcd-btn-gold">
+        <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+        Request Custom WooCommerce Proposal
+      </a>
+      <a href="https://calendly.com/arwebcrafts/30-mint" target="_blank" rel="noopener" class="wcd-btn-outline-white">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        Schedule a 30-Min Discovery Call
+      </a>
+    </div>
+    <div class="wcd-cta-trust">
+      <span><span class="check">✓</span> 100% Full Source Code Ownership</span>
+      <span><span class="check">✓</span> NDA Signed Prior to Discussion</span>
+      <span><span class="check">✓</span> Fixed-Price Milestone Scope</span>
+      <span><span class="check">✓</span> 60-Day Post-Launch Bug Warranty</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE SCRIPTS: FORM SUBMISSION, FAQ ACCORDION & 3D MOTION -->
+<script>
+(function() {
+  // 1. FAQ Accordion Single-Open Handler
+  var detailsList = document.querySelectorAll('.wcd-faq details');
+  detailsList.forEach(function(targetDetail) {
+    targetDetail.addEventListener('click', function() {
+      detailsList.forEach(function(detail) {
+        if (detail !== targetDetail && detail.hasAttribute('open')) {
+          detail.removeAttribute('open');
+        }
+      });
+    });
+  });
+
+  // 2. 3D Card Hover Tilt Effect for Hero Form
+  var heroCard = document.querySelector('.wcd-hero-card');
+  if (heroCard && window.matchMedia('(min-width: 992px)').matches) {
+    heroCard.addEventListener('mousemove', function(e) {
+      var rect = heroCard.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var centerX = rect.width / 2;
+      var centerY = rect.height / 2;
+      var rotateX = ((y - centerY) / centerY) * -5;
+      var rotateY = ((x - centerX) / centerX) * 5;
+      heroCard.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
+    });
+
+    heroCard.addEventListener('mouseleave', function() {
+      heroCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  }
+
+  // 3. Contact Form Submission Handling
+  var form = document.getElementById('wcd-woo-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('wcd-submit-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing Proposal...';
+      }
+
+      var formData = new FormData(form);
+      var payload = { page_url: window.location.pathname };
+      formData.forEach(function(v, k) { payload[k] = v; });
+
+      payload.subject = 'Custom WooCommerce Proposal Request: ' + (payload.company || payload.name || 'New Client');
+      payload.message = '[Custom WooCommerce Inquiry]\n' +
+        'Client Name: ' + (payload.name || 'N/A') + '\n' +
+        'Company/Store: ' + (payload.company || 'N/A') + '\n' +
+        'Email: ' + (payload.email || 'N/A') + '\n' +
+        'Phone/WhatsApp: ' + (payload.phone || 'N/A') + '\n' +
+        'Service Needed: ' + (payload.service || 'Custom WooCommerce') + '\n' +
+        'Budget / Scope: ' + (payload.budget || 'Not specified') + '\n' +
+        'Store Brief: ' + (payload.message || 'None provided');
+
+      try {
+        await fetch('/api/contact/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {}
+
+      var card = form.closest('.wcd-hero-card');
+      if (card) {
+        card.innerHTML = '<div style="text-align:center; padding:36px 18px;">' +
+          '<div style="font-size:3rem; margin-bottom:16px;">🚀</div>' +
+          '<h3 style="font-family:var(--wcd-sans); font-size:22px; font-weight:800; color:var(--wcd-navy); margin-bottom:12px;">WooCommerce Proposal Request Received!</h3>' +
+          '<p style="color:var(--wcd-muted); font-size:14.5px; line-height:1.65; margin-bottom:20px;">Thank you for contacting AR Webcrafts. A senior WooCommerce core architect will review your store requirements and reach out within 2 business hours with technical recommendations and next steps.</p>' +
+          '<div style="background:var(--wcd-panel); border:1px solid var(--wcd-rule); border-radius:10px; padding:14px; font-size:13px; color:var(--wcd-muted); margin-bottom:18px;">' +
+          '<i class="fas fa-shield-alt" style="color:var(--wcd-gold); margin-right:6px;"></i> NDA Protected: All shared specifications and architecture remain strictly confidential.' +
+          '</div>' +
+          '<p style="font-size:13px; color:var(--wcd-muted);">Need immediate assistance? <a href="https://wa.me/13072784862" target="_blank" style="color:var(--wcd-gold); font-weight:700; text-decoration:underline;">Chat with us on WhatsApp</a></p>' +
+          '</div>';
+      }
+    });
+  }
+})();
+</script>
+
+</main><div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support"><div data-elementor-type="wp-post" data-elementor-id="61" class="elementor elementor-61" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="elementskit_template"><section class="elementor-section elementor-top-section elementor-element elementor-element-ac3f73a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ac3f73a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7968366" data-id="7968366" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-b2cec12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b2cec12" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c2b2407" data-id="c2b2407" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-9be69e0 elementor-widget elementor-widget-heading" data-id="9be69e0" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">Request A Call Back</h3></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8f0dcec" data-id="8f0dcec" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-0709913 elementor-align-center elementor-widget elementor-widget-button" data-id="0709913" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
 <a class="elementor-button elementor-button-link elementor-size-sm" href="/free-quote/">
 <span class="elementor-button-content-wrapper">
 <span class="elementor-button-text">Click here</span>
