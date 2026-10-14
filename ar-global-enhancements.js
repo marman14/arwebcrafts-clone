@@ -300,84 +300,106 @@
     var currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
     var isPartnerPage = /agency-partner|white-label|partner/i.test(currentPath);
 
-    // 1. Hide "Hire Us" item from header nav menu (page remains 100% active & accessible via URL)
-    var hireItems = ul.querySelectorAll('a[href*="hire-a-full-stack-wordpress-developer"], .ar-nav-hire-btn, li#menu-item-10238');
-    hireItems.forEach(function(el) {
-      var li = el.tagName === 'LI' ? el : el.closest('li');
-      if (li) {
-        li.classList.add('ar-nav-hidden-hire');
-        li.style.setProperty('display', 'none', 'important');
+    // 1. CRITICAL: Ensure Services mega menu (li#menu-item-1074) is NEVER hidden or marked as hire
+    var servicesLi = ul.querySelector(':scope > li#menu-item-1074, :scope > li.elementskit-megamenu-has');
+    if (servicesLi) {
+      servicesLi.classList.remove('ar-nav-hidden-hire');
+      servicesLi.style.removeProperty('display');
+      // Services MUST always be the very first item in the header navigation
+      if (ul.firstElementChild !== servicesLi) {
+        ul.insertBefore(servicesLi, ul.firstElementChild);
       }
-    });
+    }
 
-    // 2. Ensure "Agency Partner" link is in the exact spot where "Hire Us" was (right after Contact)
-    var existingPartner = ul.querySelector('a[href*="agency-partner"], a[href*="white-label"], .ar-nav-partner-item');
-    if (!existingPartner) {
-      var newLi = document.createElement('li');
-      newLi.className = 'menu-item menu-item-type-post_type menu-item-object-page nav-item ar-nav-partner-item' + (isPartnerPage ? ' current-menu-item active' : '');
-      newLi.innerHTML = '<a href="/agency-partner/" class="ekit-menu-nav-link"' + (isPartnerPage ? ' aria-current="page"' : '') + '>Agency Partner</a>';
-      
-      var hireLi = ul.querySelector('li#menu-item-10238, li.ar-nav-hidden-hire');
-      if (hireLi) {
-        ul.insertBefore(newLi, hireLi);
-      } else {
-        ul.appendChild(newLi);
-      }
-    } else {
-      existingPartner.setAttribute('href', '/agency-partner/');
-      var partnerLi = existingPartner.closest('li');
-      if (partnerLi) {
-        partnerLi.style.removeProperty('display');
-        partnerLi.classList.remove('ar-nav-hidden-hire');
-        partnerLi.classList.add('ar-nav-partner-item');
-        if (isPartnerPage) {
-          partnerLi.classList.add('current-menu-item', 'active');
+    // 2. Hide ONLY top-level "Hire Us" menu item (never match links inside mega menu panel!)
+    var topHireLi = ul.querySelector(':scope > li#menu-item-10238');
+    if (!topHireLi) {
+      var topLis = ul.querySelectorAll(':scope > li');
+      for (var i = 0; i < topLis.length; i++) {
+        var a = topLis[i].querySelector(':scope > a.ekit-menu-nav-link');
+        if (a && /^hire\s+us$/i.test((a.textContent || '').trim())) {
+          topHireLi = topLis[i];
+          break;
         }
-        var hireLi = ul.querySelector('li#menu-item-10238, li.ar-nav-hidden-hire');
-        if (hireLi && partnerLi.nextElementSibling !== hireLi) {
-          ul.insertBefore(partnerLi, hireLi);
+      }
+    }
+    if (topHireLi) {
+      topHireLi.classList.add('ar-nav-hidden-hire');
+      topHireLi.style.setProperty('display', 'none', 'important');
+    }
+
+    // 3. Locate or create "Agency Partner" nav item at the END of the navigation menu
+    var partnerLi = ul.querySelector(':scope > li.ar-nav-partner-item');
+    if (!partnerLi) {
+      var topLis2 = ul.querySelectorAll(':scope > li');
+      for (var j = 0; j < topLis2.length; j++) {
+        var linkEl = topLis2[j].querySelector(':scope > a');
+        if (linkEl && (/agency-partner|white-label/i.test(linkEl.getAttribute('href') || '') || /agency\s+partner/i.test((linkEl.textContent || '').trim()))) {
+          partnerLi = topLis2[j];
+          break;
         }
       }
     }
 
+    if (!partnerLi) {
+      partnerLi = document.createElement('li');
+      partnerLi.className = 'menu-item menu-item-type-post_type menu-item-object-page nav-item elementskit-mobile-builder-content ar-nav-partner-item' + (isPartnerPage ? ' current-menu-item active' : '');
+      partnerLi.setAttribute('data-vertical-menu', '750px');
+      partnerLi.innerHTML = '<a href="/agency-partner/" class="ekit-menu-nav-link"' + (isPartnerPage ? ' aria-current="page"' : '') + '>Agency Partner</a>';
+    } else {
+      partnerLi.classList.remove('ar-nav-hidden-hire');
+      partnerLi.style.removeProperty('display');
+      partnerLi.classList.add('ar-nav-partner-item');
+      var partnerA = partnerLi.querySelector(':scope > a');
+      if (partnerA) {
+        partnerA.setAttribute('href', '/agency-partner/');
+        if (isPartnerPage) {
+          partnerLi.classList.add('current-menu-item', 'active');
+          partnerA.setAttribute('aria-current', 'page');
+        }
+      }
+    }
+
+    // Move Agency Partner to the very END of visible items (before hidden Hire Us, or append to ul)
+    if (topHireLi) {
+      ul.insertBefore(partnerLi, topHireLi);
+    } else {
+      ul.appendChild(partnerLi);
+    }
+
+    // 4. Rename "About Us" → "About" and "Contact Us" → "Contact" on TOP-LEVEL items only
     var navItems = ul.querySelectorAll(':scope > li > a.ekit-menu-nav-link');
     navItems.forEach(function(link) {
-      var text = link.textContent || link.innerText || '';
-      var trimmed = text.trim();
+      var text = (link.textContent || '').trim();
       var li = link.parentElement;
 
-      // Hide Hire Us item if found by text
-      if (/^hire\s+us$/i.test(trimmed)) {
-        li.classList.add('ar-nav-hidden-hire');
-        li.style.setProperty('display', 'none', 'important');
-        return;
-      }
-
       // Rename "About Us" → "About"
-      if (/^about\s+us$/i.test(trimmed)) {
-        var textNode = findTextNode(link, trimmed);
-        if (textNode) textNode.textContent = 'About';
+      if (/^about\s+us$/i.test(text)) {
+        var textNode = findTextNode(link, text);
+        if (textNode) {
+          textNode.textContent = 'About';
+        } else {
+          link.textContent = 'About';
+        }
         li.classList.add('ar-nav-renamed');
       }
 
       // Rename "Contact Us" → "Contact"
-      if (/^contact\s+us$/i.test(trimmed)) {
-        var textNode = findTextNode(link, trimmed);
-        if (textNode) textNode.textContent = 'Contact';
-        li.classList.add('ar-nav-renamed');
-      }
-
-      // Format Agency Partner standard link
-      if (/agency\s+partner|white\s+label/i.test(trimmed)) {
-        li.classList.add('ar-nav-partner-item');
-        link.setAttribute('href', '/agency-partner/');
-        if (isPartnerPage) {
-          li.classList.add('current-menu-item', 'active');
-          link.setAttribute('aria-current', 'page');
+      if (/^contact\s+us$/i.test(text)) {
+        var textNode = findTextNode(link, text);
+        if (textNode) {
+          textNode.textContent = 'Contact';
+        } else {
+          link.textContent = 'Contact';
         }
+        li.classList.add('ar-nav-renamed');
       }
     });
 
+    // 5. Final check: Ensure Services is strictly the very first element child of ul
+    if (servicesLi && ul.firstElementChild !== servicesLi) {
+      ul.insertBefore(servicesLi, ul.firstElementChild);
+    }
     // Perfectly align the 3 mega menu category headers vertically on the same baseline
     try {
       var headerRow = document.querySelector('.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-container');
@@ -412,13 +434,13 @@
   function findTextNode(el, text) {
     var nodes = el.childNodes;
     for (var i = 0; i < nodes.length; i++) {
-      if (nodes[i].nodeType === Node.TEXT_NODE && nodes[i].textContent.trim() === text.trim()) {
+      if ((nodes[i].nodeType === 3) && nodes[i].textContent.trim() === text.trim()) {
         return nodes[i];
       }
     }
     // Fallback: return first text node found
     for (var j = 0; j < nodes.length; j++) {
-      if (nodes[j].nodeType === Node.TEXT_NODE && nodes[j].textContent.trim().length > 0) {
+      if ((nodes[j].nodeType === 3) && nodes[j].textContent.trim().length > 0) {
         return nodes[j];
       }
     }

@@ -2297,11 +2297,15 @@ section.elementor-element-ac3f73a,
     background: rgba(190, 140, 51, 0.08) !important;
   }
 
-  /* Hide Hire Us button from header nav menu (page remains 100% active & accessible via URL) */
-  .ar-nav-hidden-hire,
-  .elementskit-navbar-nav > li.ar-nav-hidden-hire,
+  /* CRITICAL: Ensure Services mega menu is NEVER hidden */
+  .elementskit-navbar-nav > li#menu-item-1074,
+  .elementskit-navbar-nav > li.elementskit-megamenu-has {
+    display: inline-block !important;
+  }
+
+  /* Hide ONLY top-level Hire Us button from header nav menu (page remains 100% active & accessible via URL) */
   .elementskit-navbar-nav > li#menu-item-10238,
-  .elementskit-navbar-nav > li:has(a[href*="hire-a-full-stack-wordpress-developer"]) {
+  .elementskit-navbar-nav > li.ar-nav-hidden-hire {
     display: none !important;
   }
 
