@@ -115,7 +115,7 @@
       });
     });
 
-    // Services Submenu Toggle for Mobile
+    // Services Submenu Toggle for Mobile & Desktop Hover Hold
     var serviceItem = menuContainer.querySelector('.elementskit-dropdown-has');
     if (serviceItem) {
       var indicator = serviceItem.querySelector('.elementskit-submenu-indicator');
@@ -129,6 +129,34 @@
           panel.style.display = serviceItem.classList.contains('open') ? 'block' : 'none';
         });
       }
+
+      // Desktop Hover Hold & Mouse Leave Grace Period
+      var hoverTimer = null;
+      var isDesktop = function () {
+        return window.innerWidth >= 1025;
+      };
+
+      serviceItem.addEventListener('mouseenter', function () {
+        if (!isDesktop()) return;
+        if (hoverTimer) clearTimeout(hoverTimer);
+        serviceItem.classList.add('elementskit-dropdown-open');
+      });
+
+      serviceItem.addEventListener('mouseleave', function () {
+        if (!isDesktop()) return;
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(function () {
+          serviceItem.classList.remove('elementskit-dropdown-open');
+        }, 220);
+      });
+
+      // Instantly close on sub-page link click to allow smooth navigation
+      var panelLinks = serviceItem.querySelectorAll('.elementskit-megamenu-panel a');
+      panelLinks.forEach(function (pLink) {
+        pLink.addEventListener('click', function () {
+          serviceItem.classList.remove('elementskit-dropdown-open');
+        });
+      });
     }
 
     // Keyboard support: Escape closes menu

@@ -2310,6 +2310,36 @@ section.elementor-element-ac3f73a,
   }
 
   /* ── The Premium Mega Menu Panel ── */
+  /* Ensure parent li has relative context and invisible hover bridge spanning gap */
+  .elementskit-navbar-nav > li.elementskit-dropdown-has {
+    position: relative !important;
+  }
+  .elementskit-navbar-nav > li.elementskit-dropdown-has::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: -40px !important;
+    right: -40px !important;
+    height: 45px !important;
+    background: transparent !important;
+    pointer-events: auto !important;
+    z-index: 99998 !important;
+  }
+  .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link {
+    position: relative !important;
+  }
+  .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: -20px !important;
+    right: -20px !important;
+    height: 45px !important;
+    background: transparent !important;
+    pointer-events: auto !important;
+    z-index: 99998 !important;
+  }
+
   .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel {
     position: fixed !important;
     top: 106px !important;
@@ -2325,7 +2355,7 @@ section.elementor-element-ac3f73a,
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.22s, visibility 0.22s ease 0.22s !important;
     z-index: 99999 !important;
     display: block !important;
     overflow: hidden !important;
@@ -2348,12 +2378,14 @@ section.elementor-element-ac3f73a,
     background: transparent !important;
   }
 
-  /* Show panel on hover or focus */
+  /* Show panel on hover, focus-within, or active state with zero delay */
   .elementskit-navbar-nav > li.elementskit-dropdown-has:hover > .elementskit-megamenu-panel,
+  .elementskit-navbar-nav > li.elementskit-dropdown-has:focus-within > .elementskit-megamenu-panel,
   .elementskit-navbar-nav > li.elementskit-dropdown-open > .elementskit-megamenu-panel {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    transition-delay: 0s !important;
   }
 
   /* ── Header bar inside mega menu (Deep Navy with Gold Titles) ── */
