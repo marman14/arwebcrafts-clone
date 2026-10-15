@@ -1290,6 +1290,222 @@ section.elementor-element-ac3f73a,
 
 </style>
 
+
+
+
+
+<style id="ar-master-audit-fix">
+/* ══════════════════════════════════════════════════════════════════════════
+   MASTER AUDIT FIX: FORM STYLING, PROCESS BOXES, CONTRAST & RESPONSIVENESS
+   Route: /hire-a-full-stack-wordpress-developer/
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. STANDARDIZED AGENCY-PARTNER FORM STYLING */
+.hfsd-form-card {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: 26px 24px 22px !important;
+  box-shadow: 0 24px 60px rgba(1, 27, 57, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  text-align: left !important;
+  color: #0F172A !important;
+  transform: none !important;
+}
+.hfsd-form-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -1px !important; left: -1px !important; right: -1px !important; bottom: -1px !important;
+  border-radius: 21px !important;
+  background: linear-gradient(135deg, rgba(190, 140, 51, 0.4) 0%, transparent 50%) !important;
+  z-index: -1 !important;
+}
+.hfsd-form-head h3 {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #011B39 !important;
+  margin: 0 0 4px !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+}
+.hfsd-form-head p {
+  font-size: 13px !important;
+  color: #64748B !important;
+  margin: 0 0 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+.hfsd-form-group label, .hfsd-form-card label, .hfsd-form-card .ff-el-input-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #475569 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 4px !important;
+  display: block !important;
+  text-align: left !important;
+}
+.hfsd-form-group input, .hfsd-form-group select, .hfsd-form-group textarea, .hfsd-form-card input, .hfsd-form-card select, .hfsd-form-card textarea, .hfsd-form-card .ff-el-form-control {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  color: #0F172A !important;
+  background: #F8FAFC !important;
+  background-color: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  width: 100% !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+.hfsd-form-group input:focus,
+.hfsd-form-group select:focus,
+.hfsd-form-group textarea:focus,
+.hfsd-form-card input:focus,
+.hfsd-form-card select:focus,
+.hfsd-form-card textarea:focus,
+.hfsd-form-card .ff-el-form-control:focus {
+  border-color: #BE8C33 !important;
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15) !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+}
+.hfsd-btn-submit, .hfsd-form-card button[type="submit"], .hfsd-form-card .ff-btn-submit {
+  width: 100% !important;
+  background: #011B39 !important;
+  background-color: #011B39 !important;
+  color: #FFFFFF !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  padding: 13px 20px !important;
+  border-radius: 9px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 6px !important;
+  box-shadow: 0 4px 14px rgba(1, 27, 57, 0.15) !important;
+}
+.hfsd-btn-submit:hover,
+.hfsd-form-card button[type="submit"]:hover,
+.hfsd-form-card .ff-btn-submit:hover {
+  background: #BE8C33 !important;
+  background-color: #BE8C33 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(190, 140, 51, 0.3) !important;
+  color: #FFFFFF !important;
+}
+.hfsd-form-privacy, .hfsd-form-trust {
+  text-align: center !important;
+  font-size: 11.5px !important;
+  color: #64748B !important;
+  margin-top: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+/* 2. UNIFORM 5-STEP PROCESS SECTION */
+.hfsd-steps-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 16px !important;
+  position: relative !important;
+  margin-top: 40px !important;
+}
+.hfsd-step-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 16px !important;
+  padding: 24px 18px !important;
+  text-align: center !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+.hfsd-step-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #BE8C33 !important;
+  box-shadow: 0 12px 28px rgba(1, 27, 57, 0.08) !important;
+}
+.hfsd-step-num {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 50% !important;
+  background: #011B39 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #BE8C33 !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 16px !important;
+  box-shadow: 0 4px 12px rgba(1, 27, 57, 0.2) !important;
+}
+.hfsd-step-title, h3.hfsd-step-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #011B39 !important;
+  margin: 0 0 8px !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+}
+.hfsd-step-desc, p.hfsd-step-desc {
+  font-size: 13px !important;
+  color: #64748B !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+
+
+/* 3. MOBILE RESPONSIVENESS & COLLAPSE */
+@media (max-width: 1024px) {
+  .hfsd-steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 640px) {
+  .hfsd-form-row, .ff-t-cell {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .hfsd-form-card {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+  }
+  .hfsd-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .hfsd-step-card {
+    padding: 20px 16px !important;
+  }
+}
+</style>
+
 </head><body class="wp-singular page-template-default page page-id-3069 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-3069">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
 height="0" width="0" style="display:none;visibility:hidden" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" data-load-mode="0"></iframe></noscript><a class="skip-link screen-reader-text" href="#content">
