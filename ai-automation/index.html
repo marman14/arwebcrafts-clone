@@ -1219,6 +1219,201 @@ button.aia-faq-btn,
   .aia-cta-box { padding: 40px 20px; }
   .aia-cta-box h2 { font-size: 28px; }
 }
+
+
+/* ==========================================================================
+   STANDARDIZED AGENCY PARTNER FORM STYLING (aia)
+   ========================================================================== */
+.aia-form-card,
+.aia-hero-card {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: 24px 24px 20px !important;
+  box-shadow: 0 24px 60px rgba(1, 27, 57, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  color: #0A1C2E !important;
+}
+.aia-form-card::before,
+.aia-hero-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -1px !important; left: -1px !important; right: -1px !important; bottom: -1px !important;
+  border-radius: 21px !important;
+  background: linear-gradient(135deg, rgba(190, 140, 51, 0.4) 0%, transparent 50%) !important;
+  z-index: -1 !important;
+}
+.aia-form-head h3,
+.aia-form-header h3,
+.aia-form-title,
+.aia-card-title {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: #011B39 !important;
+  margin-bottom: 4px !important;
+  line-height: 1.25 !important;
+}
+.aia-form-head p,
+.aia-form-header p,
+.aia-form-subtitle,
+.aia-form-sub,
+.aia-card-sub {
+  font-size: 12.5px !important;
+  color: #64748B !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  line-height: 1.45 !important;
+}
+.aia-form-group label,
+.aia-field label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #64748B !important;
+  line-height: 1.2 !important;
+}
+.aia-form-group input, 
+.aia-form-group select, 
+.aia-form-group textarea,
+.aia-field input,
+.aia-field select,
+.aia-field textarea {
+  font-size: 13.5px !important;
+  color: #0A1C2E !important;
+  background: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 9px 12px !important;
+  width: 100% !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+.aia-form-group input:focus, 
+.aia-form-group select:focus, 
+.aia-form-group textarea:focus,
+.aia-field input:focus,
+.aia-field select:focus,
+.aia-field textarea:focus {
+  border-color: #BE8C33 !important;
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15) !important;
+  background: #FFFFFF !important;
+}
+.aia-btn-submit,
+.aia-submit-btn,
+button.aia-btn-submit,
+button.aia-submit-btn,
+.aia-form-card button[type="submit"],
+.aia-hero-card button[type="submit"] {
+  width: 100% !important;
+  background: #011B39 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  padding: 11px 20px !important;
+  border-radius: 9px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s, transform 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  box-shadow: none !important;
+}
+.aia-btn-submit:hover,
+.aia-submit-btn:hover,
+button.aia-btn-submit:hover,
+button.aia-submit-btn:hover,
+.aia-form-card button[type="submit"]:hover,
+.aia-hero-card button[type="submit"]:hover {
+  background: #BE8C33 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   NEATENED & UNIFORM 5-STEP PROCESS BOXES (.aia-steps-grid)
+   ========================================================================== */
+.aia-steps-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+  margin-top: 36px !important;
+  position: relative !important;
+}
+.aia-step-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 16px !important;
+  padding: 26px 18px 22px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  box-sizing: border-box !important;
+}
+.aia-step-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #BE8C33 !important;
+  box-shadow: 0 14px 30px rgba(1, 27, 57, 0.08) !important;
+}
+.aia-step-num {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: #071527 !important;
+  color: #BE8C33 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  border: 2px solid #BE8C33 !important;
+  margin: 0 auto 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  flex-shrink: 0 !important;
+}
+.aia-step-card h3,
+.aia-step-card [class*="title"] {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #011B39 !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.3 !important;
+}
+.aia-step-card p,
+.aia-step-card [class*="desc"] {
+  font-size: 12.5px !important;
+  color: #64748B !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+}
+@media (max-width: 1024px) {
+  .aia-steps-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 768px) {
+  .aia-steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+}
+@media (max-width: 540px) {
+  .aia-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
 </style>
 
 </head><body class="wp-singular page-template page-template-elementor_header_footer page page-id-9363 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-full-width elementor-kit-9 elementor-page elementor-page-9363">

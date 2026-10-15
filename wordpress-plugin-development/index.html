@@ -1932,6 +1932,87 @@ section.elementor-element-ac3f73a,
   padding: 0 !important;
 }
 
+
+
+/* ==========================================================================
+   NEATENED & UNIFORM 5-STEP PROCESS BOXES (.wpd-how-grid)
+   ========================================================================== */
+.wpd-how-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+  margin-top: 36px !important;
+  position: relative !important;
+}
+.wpd-step {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 16px !important;
+  padding: 26px 18px 22px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  box-sizing: border-box !important;
+}
+.wpd-step:hover {
+  transform: translateY(-4px) !important;
+  border-color: #BE8C33 !important;
+  box-shadow: 0 14px 30px rgba(1, 27, 57, 0.08) !important;
+}
+.wpd-step-num {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: #071527 !important;
+  color: #BE8C33 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  border: 2px solid #BE8C33 !important;
+  margin: 0 auto 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  flex-shrink: 0 !important;
+}
+.wpd-step h3,
+.wpd-step [class*="title"] {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #011B39 !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.3 !important;
+}
+.wpd-step p,
+.wpd-step [class*="desc"] {
+  font-size: 12.5px !important;
+  color: #64748B !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+}
+@media (max-width: 1024px) {
+  .wpd-how-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 768px) {
+  .wpd-how-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+}
+@media (max-width: 540px) {
+  .wpd-how-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
 </style>
 </head><body class="wp-singular page-template-default page page-id-2965 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-2965">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
@@ -2384,35 +2465,35 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     <div class="wpd-how-grid" role="list">
       <!-- Step 1 -->
       <div class="wpd-step wpd-reveal" role="listitem">
-        <div class="wpd-step-num" aria-hidden="true">1</div>
+        <div class="wpd-step-num" aria-hidden="true">01</div>
         <h3 class="wpd-step-title">Technical Discovery</h3>
         <p class="wpd-step-desc">We review your specifications, database schema, user flows, and integrations. We formulate a clear technical blueprint and fixed-price quote.</p>
       </div>
 
       <!-- Step 2 -->
       <div class="wpd-step wpd-reveal wpd-reveal-delay-1" role="listitem">
-        <div class="wpd-step-num" aria-hidden="true">2</div>
+        <div class="wpd-step-num" aria-hidden="true">02</div>
         <h3 class="wpd-step-title">Modular OOP Build</h3>
         <p class="wpd-step-desc">Our senior engineers construct the plugin following SOLID principles, WordPress Core APIs, and isolated modules. Regular staging milestones keep you updated.</p>
       </div>
 
       <!-- Step 3 -->
       <div class="wpd-step wpd-reveal wpd-reveal-delay-2" role="listitem">
-        <div class="wpd-step-num" aria-hidden="true">3</div>
+        <div class="wpd-step-num" aria-hidden="true">03</div>
         <h3 class="wpd-step-title">Security &amp; Load QA</h3>
         <p class="wpd-step-desc">Strict security audits, WPCS code analysis, SQL injection stress testing, and concurrency load tests ensure the plugin never degrades server performance.</p>
       </div>
 
       <!-- Step 4 -->
       <div class="wpd-step wpd-reveal wpd-reveal-delay-3" role="listitem">
-        <div class="wpd-step-num" aria-hidden="true">4</div>
+        <div class="wpd-step-num" aria-hidden="true">04</div>
         <h3 class="wpd-step-title">Staging UAT Testing</h3>
         <p class="wpd-step-desc">We deploy the build on a staging clone of your live site for comprehensive User Acceptance Testing (UAT). We refine until every edge case is perfected.</p>
       </div>
 
       <!-- Step 5 -->
       <div class="wpd-step wpd-reveal wpd-reveal-delay-4" role="listitem">
-        <div class="wpd-step-num" aria-hidden="true">5</div>
+        <div class="wpd-step-num" aria-hidden="true">05</div>
         <h3 class="wpd-step-title">Launch &amp; Warranty</h3>
         <p class="wpd-step-desc">Zero-downtime production deployment, complete source code handover, developer documentation, and a 60-day bug warranty with optional ongoing SLA maintenance.</p>
       </div>
