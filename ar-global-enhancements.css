@@ -2311,9 +2311,18 @@ section.elementor-element-ac3f73a,
 
   /* ── The Premium Mega Menu Panel ── */
   /* Center-align mega menu relative to header container */
+  /* Ensure parent li NEVER has relative positioning or transform containing blocks, even when opened */
+  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li,
+  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.elementskit-dropdown-open,
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074,
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074.elementskit-dropdown-open,
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li.elementskit-dropdown-has,
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li.elementskit-dropdown-has.elementskit-dropdown-open,
   .elementskit-navbar-nav > li.elementskit-dropdown-has,
-  .elementskit-navbar-nav > li#menu-item-1074 {
+  .elementskit-navbar-nav > li#menu-item-1074,
+  .elementskit-navbar-nav > li.elementskit-dropdown-open {
     position: static !important;
+    transform: none !important;
   }
   .elementskit-menu-container {
     position: relative !important;
