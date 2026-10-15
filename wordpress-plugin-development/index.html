@@ -1688,7 +1688,251 @@ section.elementor-element-ac3f73a,
   .wpd-reveal-delay-2 { transition-delay: 0.2s; }
   .wpd-reveal-delay-3 { transition-delay: 0.3s; }
   .wpd-reveal-delay-4 { transition-delay: 0.4s; }
-  </style>
+  
+
+/* ==========================================================================
+   TARGETED UI FIXES: WORDPRESS PLUGIN DEVELOPMENT PAGE
+   ========================================================================== */
+
+/* 1. HERO BUTTONS: REMOVE GLOW / LIGHT SHADOW EFFECT */
+.wpd-btn-gold,
+#hero-primary-cta,
+a.wpd-btn-gold {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.wpd-btn-gold:hover,
+#hero-primary-cta:hover,
+a.wpd-btn-gold:hover {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: #a07324 !important;
+  transform: translateY(-2px) !important;
+}
+.wpd-btn-outline-white,
+#hero-secondary-cta,
+a.wpd-btn-outline-white {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.wpd-btn-outline-white:hover,
+#hero-secondary-cta:hover,
+a.wpd-btn-outline-white:hover {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: rgba(190, 140, 51, 0.12) !important;
+  border-color: var(--wpd-gold) !important;
+}
+
+/* 2. MATCH FORM STYLING 100% WITH AGENCY PARTNER PAGE */
+.wpd-hero-card {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: 24px 24px 20px !important;
+  box-shadow: 0 24px 60px rgba(1, 27, 57, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  color: #0A1C2E !important;
+}
+.wpd-hero-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -1px !important; left: -1px !important; right: -1px !important; bottom: -1px !important;
+  border-radius: 21px !important;
+  background: linear-gradient(135deg, rgba(190, 140, 51, 0.4) 0%, transparent 50%) !important;
+  z-index: -1 !important;
+}
+.wpd-card-title {
+  font-family: var(--wpd-sans) !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: #011B39 !important;
+  margin-bottom: 4px !important;
+  line-height: 1.25 !important;
+}
+.wpd-card-sub {
+  font-size: 12.5px !important;
+  color: #64748B !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  line-height: 1.45 !important;
+}
+.wpd-form {
+  display: grid !important;
+  gap: 9px !important;
+}
+.wpd-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  text-align: left !important;
+}
+.wpd-field label {
+  font-family: var(--wpd-sans) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #64748B !important;
+  line-height: 1.2 !important;
+}
+.wpd-field input, .wpd-field select, .wpd-field textarea {
+  font-family: var(--wpd-body) !important;
+  font-size: 13.5px !important;
+  color: #0A1C2E !important;
+  background: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 9px 12px !important;
+  width: 100% !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+.wpd-field input:focus, .wpd-field select:focus, .wpd-field textarea:focus {
+  border-color: #BE8C33 !important;
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15) !important;
+  background: #FFFFFF !important;
+}
+.wpd-field textarea {
+  resize: vertical !important;
+  min-height: 64px !important;
+}
+.wpd-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+.wpd-submit-btn {
+  width: 100% !important;
+  background: #011B39 !important;
+  color: #FFFFFF !important;
+  font-family: var(--wpd-sans) !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  padding: 11px 20px !important;
+  border-radius: 9px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s, transform 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 2px !important;
+  box-shadow: none !important;
+}
+.wpd-submit-btn:hover {
+  background: #BE8C33 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: none !important;
+}
+.wpd-form-trust {
+  text-align: center !important;
+  font-size: 11px !important;
+  color: #64748B !important;
+  margin-top: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  line-height: 1.3 !important;
+}
+
+/* 3. SECOND SECTION BACKGROUND TO LIGHT GREY (#f8fafc) & DARK TEXT */
+.wpd-why-section,
+section.wpd-why-section {
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding-top: clamp(70px, 8vw, 100px) !important;
+  padding-bottom: clamp(60px, 7vw, 90px) !important;
+  color: #0f172a !important;
+  position: relative !important;
+}
+.wpd-why-section .wpd-sec-title,
+.wpd-why-section h2,
+.wpd-why-section .wpd-sec-title.wpd-why-main-title {
+  color: #0f172a !important;
+}
+.wpd-why-section .wpd-sec-desc,
+.wpd-why-section p.wpd-sec-desc {
+  color: #475569 !important;
+}
+.wpd-why-section .wpd-sec-label {
+  color: var(--wpd-gold) !important;
+}
+.wpd-why-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 18px !important;
+  padding: 30px 24px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s !important;
+  box-sizing: border-box !important;
+}
+.wpd-why-card:hover {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+.wpd-why-icon {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 12px !important;
+  background: rgba(190, 140, 51, 0.1) !important;
+  border: 1px solid rgba(190, 140, 51, 0.25) !important;
+  color: var(--wpd-gold) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  margin-bottom: 20px !important;
+}
+.wpd-why-num {
+  font-family: var(--wpd-sans) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--wpd-gold) !important;
+  margin-bottom: 8px !important;
+}
+.wpd-why-card h3,
+.wpd-why-card .wpd-why-title,
+h3.wpd-why-title,
+.wpd-why-title {
+  font-family: var(--wpd-sans) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin-bottom: 12px !important;
+  line-height: 1.3 !important;
+}
+.wpd-why-card p,
+.wpd-why-card .wpd-why-text {
+  font-size: 14px !important;
+  color: #475569 !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+/* 4. PERMANENT SUPPRESSION OF CALL BACK BANNER */
+.elementor-element-ac3f73a,
+section.elementor-element-ac3f73a,
+.elementor-section.elementor-element-ac3f73a,
+.elementor-element-b2cec12 {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+</style>
 </head><body class="wp-singular page-template-default page page-id-2965 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-2965">
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-N3LL3CVZ"
 height="0" width="0" style="display:none;visibility:hidden" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" data-load-mode="0"></iframe></noscript><a class="skip-link screen-reader-text" href="#content">
@@ -1864,20 +2108,18 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         </div>
 
         <h1 id="hero-heading">
-          Custom WordPress Plugin Development <br>
-          <span class="wpd-hl">Built for Speed, Scale & Security</span>
+          Custom WordPress Plugin <br>
+          <span class="wpd-hl">Development &amp; Engineering</span>
         </h1>
 
         <p class="wpd-hero-desc">
-          Stop fighting plugin conflicts, site slowdowns, and security vulnerabilities. AR Webcrafts engineers bespoke, production-ready WordPress plugins that do exactly what off-the-shelf plugins cannot. Built with clean OOP architecture, strict WordPress VIP coding standards, and <strong>100% full source code ownership.</strong>
+          Bespoke, high-performance WordPress plugins engineered for speed, security, and scalability. Clean OOP architecture following strict WordPress VIP standards with 100% full source code ownership.
         </p>
 
         <ul class="wpd-hero-stamps" role="list">
-          <li>60+ Commercial & Bespoke Plugins Shipped</li>
-          <li>WordPress VIP & PHP 8.2+ Standards</li>
-          <li>Sub-Millisecond Query & Caching Optimization</li>
-          <li>100% Full Source Code Ownership & No Lock-in</li>
-          <li>Direct Senior Architect Communication</li>
+          <li>100% Full Source Code Ownership &amp; No Lock-in</li>
+          <li>WordPress VIP &amp; PHP 8.2+ Architecture</li>
+          <li>Sub-Millisecond Query &amp; Cache Optimization</li>
           <li>60-Day Post-Launch Bug Warranty</li>
         </ul>
 
@@ -2909,7 +3151,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     </div>
 
     <div class="wpd-faq" role="list">
-      <details class="wpd-reveal" open>
+      <details class="wpd-reveal">
         <summary>
           <span class="wpd-faq-q">How much does custom WordPress plugin development cost?</span>
           <span class="icon-toggle" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="1.5" x2="6" y2="10.5"></line><line x1="1.5" y1="6" x2="10.5" y2="6"></line></svg></span>
@@ -3090,12 +3332,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
 })();
 </script>
 
-</main><div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support"><div data-elementor-type="wp-post" data-elementor-id="61" class="elementor elementor-61" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="elementskit_template"><section class="elementor-section elementor-top-section elementor-element elementor-element-ac3f73a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ac3f73a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7968366" data-id="7968366" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-b2cec12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b2cec12" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c2b2407" data-id="c2b2407" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-9be69e0 elementor-widget elementor-widget-heading" data-id="9be69e0" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">Request A Call Back</h3></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8f0dcec" data-id="8f0dcec" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-0709913 elementor-align-center elementor-widget elementor-widget-button" data-id="0709913" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
-<a class="elementor-button elementor-button-link elementor-size-sm" href="/free-quote/">
-<span class="elementor-button-content-wrapper">
-<span class="elementor-button-text">Click here</span>
-</span>
-</a></div></div></div></div></div></div></section></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-33a98256 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33a98256" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7b0aefbd" data-id="7b0aefbd" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-1ac2ab32 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1ac2ab32" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-5fa453c9" data-id="5fa453c9" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-d39b040 elementor-widget elementor-widget-image" data-id="d39b040" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+</main><div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support"><div data-elementor-type="wp-post" data-elementor-id="61" class="elementor elementor-61" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="elementskit_template"><section class="elementor-section elementor-top-section elementor-element elementor-element-33a98256 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33a98256" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7b0aefbd" data-id="7b0aefbd" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-1ac2ab32 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1ac2ab32" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-5fa453c9" data-id="5fa453c9" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-d39b040 elementor-widget elementor-widget-image" data-id="d39b040" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
 <img width="500" height="120" data-src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview.webp" class="lazyloaded attachment-large size-large wp-image-4019 lazyload" alt="Ar Webcrafts | AR Webcrafts" data-srcset="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview.webp 500w, /wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview-300x72.webp 300w" data-sizes="(max-width: 500px) 100vw, 500px" src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview.webp" style="--smush-placeholder-width: 500px; --smush-placeholder-aspect-ratio: 500/120;" /></div></div><div class="elementor-element elementor-element-256a00f8 elementor-widget elementor-widget-heading" data-id="256a00f8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><div class="elementor-heading-title elementor-size-default">Custom WordPress Development for E-commerce &amp; LMS </br>WooCommerce, React, PHP, API Integrations</Br>
 60+ Projects | 8+ Years in Business</div></div></div><div class="elementor-element elementor-element-4b611e6a e-grid-align-mobile-center elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="4b611e6a" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default"><div class="elementor-widget-container"><div class="elementor-social-icons-wrapper elementor-grid" role="list">
 <span class="elementor-grid-item" role="listitem">
