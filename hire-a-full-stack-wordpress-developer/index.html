@@ -552,7 +552,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 }
 
-/* Fix Request A Call Back Banner Overlap & Z-Index */
+/* Call Back Banner Suppressed */
 #appointmant,
 .elementor-element-7629475 {
   position: relative !important;
@@ -616,7 +616,7 @@ section.elementor-element-ac3f73a,
    2. Light grey second section (#f8fafc) with dark text
    3. Adapted developer hiring form
    4. Exact Home Page reviews sync
-   5. No "Request A Call Back" footer banner
+   5. No "" footer banner
    -------------------------------------------------------------------------- */
 :root {
   --hfsd-navy-dark: #071527;
@@ -1028,6 +1028,185 @@ button.hfsd-faq-btn,
   .hfsd-cta-box { padding: 40px 20px; }
   .hfsd-cta-box h2 { font-size: 28px; }
 }
+
+
+/* ==========================================================================
+   TARGETED UI FIXES: HIRE A FULL STACK WORDPRESS DEVELOPER PAGE
+   ========================================================================== */
+
+/* Rule 4: Hero buttons glow removal */
+.hfsd-btn-primary,
+#hero-primary-cta,
+a.hfsd-btn-primary {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.hfsd-btn-primary:hover,
+#hero-primary-cta:hover,
+a.hfsd-btn-primary:hover {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: #a07324 !important;
+  transform: translateY(-2px) !important;
+}
+.hfsd-btn-secondary,
+#hero-secondary-cta,
+a.hfsd-btn-secondary {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.hfsd-btn-secondary:hover,
+#hero-secondary-cta:hover,
+a.hfsd-btn-secondary:hover {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: rgba(190, 140, 51, 0.12) !important;
+  border-color: #BE8C33 !important;
+}
+
+/* Rule 6: Match Form Styling 100% with Agency Partner Page */
+.hfsd-form-card {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: 24px 24px 20px !important;
+  box-shadow: 0 24px 60px rgba(1, 27, 57, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  color: #0A1C2E !important;
+}
+.hfsd-form-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -1px !important; left: -1px !important; right: -1px !important; bottom: -1px !important;
+  border-radius: 21px !important;
+  background: linear-gradient(135deg, rgba(190, 140, 51, 0.4) 0%, transparent 50%) !important;
+  z-index: -1 !important;
+}
+.hfsd-form-header h3,
+.hfsd-form-header .hfsd-form-title {
+  font-family: var(--hfsd-font-heading) !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: #011B39 !important;
+  margin-bottom: 4px !important;
+  line-height: 1.25 !important;
+}
+.hfsd-form-header p,
+.hfsd-form-header .hfsd-form-sub {
+  font-size: 12.5px !important;
+  color: #64748B !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  line-height: 1.45 !important;
+}
+.hfsd-form-group label {
+  font-family: var(--hfsd-font-heading) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #64748B !important;
+  line-height: 1.2 !important;
+}
+.hfsd-form-group input, 
+.hfsd-form-group select, 
+.hfsd-form-group textarea {
+  font-family: var(--hfsd-font-body) !important;
+  font-size: 13.5px !important;
+  color: #0A1C2E !important;
+  background: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 9px 12px !important;
+  width: 100% !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+.hfsd-form-group input:focus, 
+.hfsd-form-group select:focus, 
+.hfsd-form-group textarea:focus {
+  border-color: #BE8C33 !important;
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15) !important;
+  background: #FFFFFF !important;
+}
+.hfsd-btn-submit,
+button.hfsd-btn-submit,
+.hfsd-form-card .hfsd-btn-submit {
+  width: 100% !important;
+  background: #011B39 !important;
+  color: #FFFFFF !important;
+  font-family: var(--hfsd-font-heading) !important;
+  font-weight: 700 !important;
+  font-size: 14.5px !important;
+  padding: 11px 20px !important;
+  border-radius: 9px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s, transform 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  box-shadow: none !important;
+}
+.hfsd-btn-submit:hover,
+button.hfsd-btn-submit:hover,
+.hfsd-form-card .hfsd-btn-submit:hover {
+  background: #BE8C33 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: none !important;
+}
+
+/* Rule 2: Second Section Background to Light Grey (#f8fafc) & Dark Text */
+section.hfsd-bg-light,
+main > section.hfsd-sec:nth-of-type(2),
+.hfsd-hero + section.hfsd-sec {
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+.hfsd-hero + section.hfsd-sec .hfsd-sec-title,
+.hfsd-hero + section.hfsd-sec h2 {
+  color: #0f172a !important;
+}
+.hfsd-hero + section.hfsd-sec .hfsd-sec-desc,
+.hfsd-hero + section.hfsd-sec p.hfsd-sec-desc {
+  color: #475569 !important;
+}
+.hfsd-hero + section.hfsd-sec .hfsd-card,
+.hfsd-hero + section.hfsd-sec .hfsd-pillar-card,
+.hfsd-hero + section.hfsd-sec .hfsd-feature-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  color: #0f172a !important;
+}
+.hfsd-hero + section.hfsd-sec .hfsd-card h3,
+.hfsd-hero + section.hfsd-sec .hfsd-pillar-card h3 {
+  color: #0f172a !important;
+}
+.hfsd-hero + section.hfsd-sec .hfsd-card p,
+.hfsd-hero + section.hfsd-sec .hfsd-pillar-card p {
+  color: #475569 !important;
+}
+
+/* Rule 5: Permanent suppression of Call Back banner */
+.elementor-element-ac3f73a,
+section.elementor-element-ac3f73a,
+.elementor-section.elementor-element-ac3f73a,
+.elementor-element-b2cec12 {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 </style>
 
 </head><body class="wp-singular page-template-default page page-id-3069 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-9 elementor-page elementor-page-3069">
@@ -1206,11 +1385,11 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
           </div>
 
           <h1 class="hfsd-hero-h1">
-            Hire Elite Full-Stack WordPress Developers
+            Hire Elite Full-Stack <br>
+            <span style="color: var(--hfsd-gold, #be8c33);">WordPress Developers</span>
           </h1>
-
           <p class="hfsd-hero-lead">
-            Skip the months of recruiting — get a dedicated senior WordPress engineer embedded into your team within 72 hours. AR Webcrafts provides battle-tested full-stack WP developers for custom builds, WooCommerce, and complex API integrations.
+            Dedicated senior WordPress engineers embedded into your team within 72 hours. Battle-tested talent for custom plugin architectures, headless setups, and enterprise builds.
           </p>
 
           <div class="hfsd-hero-checks">
@@ -2322,7 +2501,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
       </div>
 
       <div class="hfsd-faq-wrap">
-        <div class="hfsd-faq-item active">
+        <div class="hfsd-faq-item">
           <button class="hfsd-faq-btn" onclick="toggleHfsdFaq(this)">
             <span>How quickly can a dedicated WordPress developer start on my project?</span>
             <div class="hfsd-faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
@@ -2387,7 +2566,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
 
   <!-- ======================================================
        SECTION 10: BOTTOM CTA (DARK NAVY)
-       RULE 5: NO "Request A Call Back" banner — CTA is self-contained
+       RULE 5: NO "" banner — CTA is self-contained
        ====================================================== -->
   <section class="hfsd-sec hfsd-bg-navy" aria-label="Hire WP Developer CTA">
     <div class="hfsd-wrap">
@@ -2442,12 +2621,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
   </script>
 
 </main>
-<div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support"><div data-elementor-type="wp-post" data-elementor-id="61" class="elementor elementor-61" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="elementskit_template"><section class="elementor-section elementor-top-section elementor-element elementor-element-ac3f73a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ac3f73a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7968366" data-id="7968366" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-b2cec12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b2cec12" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-c2b2407" data-id="c2b2407" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-9be69e0 elementor-widget elementor-widget-heading" data-id="9be69e0" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h3 class="elementor-heading-title elementor-size-default">Request A Call Back</h3></div></div></div></div><div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8f0dcec" data-id="8f0dcec" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-0709913 elementor-align-center elementor-widget elementor-widget-button" data-id="0709913" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper">
-<a class="elementor-button elementor-button-link elementor-size-sm" href="/free-quote/">
-<span class="elementor-button-content-wrapper">
-<span class="elementor-button-text">Click here</span>
-</span>
-</a></div></div></div></div></div></div></section></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-33a98256 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33a98256" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7b0aefbd" data-id="7b0aefbd" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-1ac2ab32 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1ac2ab32" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-5fa453c9" data-id="5fa453c9" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-d39b040 elementor-widget elementor-widget-image" data-id="d39b040" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
+<div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support"><div data-elementor-type="wp-post" data-elementor-id="61" class="elementor elementor-61" data-elementor-settings="{&quot;ha_cmc_init_switcher&quot;:&quot;no&quot;}" data-elementor-post-type="elementskit_template"><section class="elementor-section elementor-top-section elementor-element elementor-element-33a98256 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33a98256" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7b0aefbd" data-id="7b0aefbd" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><section class="elementor-section elementor-inner-section elementor-element elementor-element-1ac2ab32 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1ac2ab32" data-element_type="section" data-e-type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-5fa453c9" data-id="5fa453c9" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-d39b040 elementor-widget elementor-widget-image" data-id="d39b040" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container">
 <img width="500" height="120" data-src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview.webp" class="attachment-large size-large wp-image-4019 lazyload" alt="Ar Webcrafts | AR Webcrafts" data-srcset="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview.webp 500w, /wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview-300x72.webp 300w" data-sizes="(max-width: 500px) 100vw, 500px" src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview.webp" style="--smush-placeholder-width: 500px; --smush-placeholder-aspect-ratio: 500/120;" /></div></div><div class="elementor-element elementor-element-256a00f8 elementor-widget elementor-widget-heading" data-id="256a00f8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><div class="elementor-heading-title elementor-size-default">Custom WordPress Development for E-commerce &amp; LMS </br>WooCommerce, React, PHP, API Integrations</Br>
 60+ Projects | 8+ Years in Business</div></div></div><div class="elementor-element elementor-element-4b611e6a e-grid-align-mobile-center elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="4b611e6a" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default"><div class="elementor-widget-container"><div class="elementor-social-icons-wrapper elementor-grid" role="list">
 <span class="elementor-grid-item" role="listitem">
