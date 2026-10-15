@@ -2,7 +2,12 @@ import http.server
 import socketserver
 import os
 import sys
+import mimetypes
 from pathlib import Path
+
+mimetypes.add_type('application/rss+xml', '.rss')
+mimetypes.add_type('text/plain', '.txt')
+mimetypes.add_type('application/xml', '.xml')
 
 PORT = 3000
 DIRECTORY = Path(__file__).resolve().parent

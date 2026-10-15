@@ -72,6 +72,16 @@
       "source": "/white-label-development-partner/",
       "destination": "/agency-partner/",
       "permanent": true
+    },
+    {
+      "source": "/sitemap.rss/",
+      "destination": "/sitemap.rss",
+      "permanent": true
+    },
+    {
+      "source": "/robots.txt/",
+      "destination": "/robots.txt",
+      "permanent": true
     }
   ],
   "headers": [
@@ -118,6 +128,32 @@
         {
           "key": "Pragma",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.rss",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/rss+xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
         }
       ]
     }

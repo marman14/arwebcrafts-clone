@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://arwebcrafts-clone.vercel.app/sitemap.xml</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://www.arwebcrafts.com/sitemap.xml</loc>
+    <lastmod>2026-10-15</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://arwebcrafts-clone.vercel.app/post-sitemap.xml</loc>
-    <lastmod>2025-12-27</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://arwebcrafts-clone.vercel.app/page-sitemap.xml</loc>
-    <lastmod>2026-09-29</lastmod>
+    <loc>https://www.arwebcrafts.com/sitemap.rss</loc>
+    <lastmod>2026-10-15</lastmod>
   </sitemap>
 </sitemapindex>
