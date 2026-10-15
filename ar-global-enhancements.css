@@ -2768,4 +2768,71 @@ section.elementor-element-ac3f73a,
   }
 }
 
+/* ============================================================
+   FOOTER SEPARATOR LINE & COPYRIGHT CENTER ALIGNMENT
+   Eliminates duplicate overlapping lines (only 1 clean line)
+   and perfectly centers copyright text across all viewports
+   ============================================================ */
+.elementor-element.elementor-element-1ac2ab32,
+.elementor-section.elementor-element-1ac2ab32 {
+  border-bottom: none !important;
+  border-style: none !important;
+  border-width: 0 !important;
+}
+
+.elementor-element.elementor-element-107d13f9,
+.elementor-section.elementor-element-107d13f9 {
+  border-top: 1px solid #E2E8F0 !important;
+  padding: 24px 0 !important;
+  margin-top: 35px !important;
+  text-align: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.elementor-element.elementor-element-107d13f9 .elementor-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+
+.elementor-element.elementor-element-107d13f9 .elementor-column,
+.elementor-element.elementor-element-15fe639d {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.elementor-element.elementor-element-107d13f9 .elementor-widget-wrap {
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  display: flex !important;
+  padding: 0 !important;
+}
+
+.elementor-element.elementor-element-6cb93df3,
+.elementor-element.elementor-element-6cb93df3 .elementor-widget-container,
+.elementor-element.elementor-element-6cb93df3 .elementor-heading-title {
+  width: 100% !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  color: #718096 !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+}
+
+
 
