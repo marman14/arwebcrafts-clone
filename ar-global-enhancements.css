@@ -2311,41 +2311,51 @@ section.elementor-element-ac3f73a,
 
   /* ── The Premium Mega Menu Panel ── */
   /* Ensure parent li has relative context and invisible hover bridge spanning gap */
-  .elementskit-navbar-nav > li.elementskit-dropdown-has {
+  .elementskit-navbar-nav > li.elementskit-dropdown-has,
+  .elementskit-navbar-nav > li#menu-item-1074 {
     position: relative !important;
   }
-  .elementskit-navbar-nav > li.elementskit-dropdown-has::after {
+  .elementskit-navbar-nav > li.elementskit-dropdown-has::after,
+  .elementskit-navbar-nav > li#menu-item-1074::after {
     content: '' !important;
     position: absolute !important;
     top: 100% !important;
-    left: -40px !important;
-    right: -40px !important;
-    height: 45px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 35px !important;
     background: transparent !important;
     pointer-events: auto !important;
     z-index: 99998 !important;
   }
-  .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link {
+  .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link,
+  .elementskit-navbar-nav > li#menu-item-1074 > a.ekit-menu-nav-link {
     position: relative !important;
   }
-  .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link::after {
+  .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link::after,
+  .elementskit-navbar-nav > li#menu-item-1074 > a.ekit-menu-nav-link::after {
     content: '' !important;
     position: absolute !important;
     top: 100% !important;
-    left: -20px !important;
-    right: -20px !important;
-    height: 45px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 35px !important;
     background: transparent !important;
     pointer-events: auto !important;
     z-index: 99998 !important;
   }
 
-  .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel {
-    position: fixed !important;
-    top: 106px !important;
-    left: 50% !important;
-    transform: translateX(-50%) translateY(0) !important;
-    width: min(940px, 94vw) !important;
+  /* Unbeatable ID specificity: completely lock dropdown position directly underneath Services */
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074 > .elementskit-megamenu-panel,
+  html body #ekit-megamenu-panel-1074.elementskit-megamenu-panel,
+  .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel,
+  .elementskit-navbar-nav-default .elementskit-megamenu-panel {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    width: 880px !important;
+    max-width: min(880px, calc(100vw - 32px)) !important;
     background: #FFFFFF !important;
     border: 1px solid rgba(226, 232, 240, 0.95) !important;
     border-radius: 18px !important;
@@ -2364,27 +2374,36 @@ section.elementor-element-ac3f73a,
   /* When header becomes sticky on scroll */
   .elementor-sticky--active .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel,
   .elementor-sticky--active .elementskit-megamenu-panel {
-    top: 72px !important;
+    top: 100% !important;
   }
 
   /* Invisible hover bridge to eliminate gap dropouts */
-  .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel::before {
+  .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel::before,
+  #ekit-megamenu-panel-1074::before {
     content: '' !important;
     position: absolute !important;
-    top: -45px !important;
+    top: -30px !important;
     left: 0 !important;
     right: 0 !important;
-    height: 45px !important;
+    height: 30px !important;
     background: transparent !important;
   }
 
-  /* Show panel on hover, focus-within, or active state with zero delay */
+  /* Show panel on hover, focus-within, or active state with zero delay and no translateX drift */
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074:hover > .elementskit-megamenu-panel,
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074:focus-within > .elementskit-megamenu-panel,
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074.elementskit-dropdown-open > .elementskit-megamenu-panel,
+  html body .elementskit-navbar-nav-default.ekit-nav-dropdown-hover .elementskit-megamenu-has:hover > .elementskit-megamenu-panel,
+  html body .elementskit-navbar-nav-default .elementskit-megamenu-has:hover > .elementskit-megamenu-panel,
+  html body .elementskit-navbar-nav-default .elementskit-dropdown-open > .elementskit-megamenu-panel,
   .elementskit-navbar-nav > li.elementskit-dropdown-has:hover > .elementskit-megamenu-panel,
   .elementskit-navbar-nav > li.elementskit-dropdown-has:focus-within > .elementskit-megamenu-panel,
   .elementskit-navbar-nav > li.elementskit-dropdown-open > .elementskit-megamenu-panel {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    transform: none !important;
+    left: 0 !important;
     transition-delay: 0s !important;
   }
 
