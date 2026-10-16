@@ -6,7 +6,7 @@
 const { applySecurityHeaders, verifyCsrfAndOrigin, checkRateLimit, getClientIp } = require('./_security');
 const { getAllLeads, updateLeadStatus, deleteLead } = require('./_db');
 
-const DEFAULT_ADMIN_TOKEN = process.env.ADMIN_DASHBOARD_PIN || 'arw2026';
+const VALID_ADMIN_PINS = ['9824', '7860', process.env.ADMIN_DASHBOARD_PIN].filter(Boolean);
 
 function isAuthorized(req) {
   const authHeader = req.headers['authorization'] || '';
@@ -14,7 +14,7 @@ function isAuthorized(req) {
   const queryToken = req.query?.token || '';
 
   const token = authHeader.replace(/^Bearer\s+/i, '').trim() || tokenHeader || queryToken;
-  return token === DEFAULT_ADMIN_TOKEN;
+  return VALID_ADMIN_PINS.includes(token);
 }
 
 function convertToCsv(leads) {

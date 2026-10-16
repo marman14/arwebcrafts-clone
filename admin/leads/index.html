@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centralized Form Submissions Dashboard | AR Webcrafts</title>
+  <title>Submissions Portal | AR Webcrafts</title>
   <link rel="icon" href="/wp-content/uploads/2024/03/AR_Logo-150x150.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,22 +107,22 @@
       border: none;
     }
     .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+      background: linear-gradient(135deg, #C89D4B 0%, #BE8C33 100%);
       color: #071527;
-      box-shadow: 0 4px 14px rgba(200, 157, 75, 0.25);
+      box-shadow: 0 4px 14px rgba(200, 157, 75, 0.3);
     }
     .btn-gold:hover {
-      filter: brightness(1.1);
+      background: linear-gradient(135deg, #d8ac58 0%, #cc9839 100%);
       transform: translateY(-1px);
     }
     .btn-outline {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
+      background: transparent;
+      border: 1px solid var(--border-color);
       color: var(--text-main);
     }
     .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--border-color);
+      background: rgba(200, 157, 75, 0.1);
+      border-color: var(--gold);
     }
     .btn-danger {
       background: rgba(239, 68, 68, 0.12);
@@ -135,150 +135,133 @@
 
     /* Container */
     .container {
-      max-width: 1400px;
+      max-width: 1440px;
       width: 100%;
       margin: 0 auto;
-      padding: 32px 24px;
+      padding: 32px 32px 64px 32px;
       flex: 1;
     }
 
-    /* Stats Grid */
+    /* KPI Metrics Cards */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
     }
     .stat-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
-      padding: 20px 24px;
+      padding: 22px 24px;
       display: flex;
       align-items: center;
-      gap: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      transition: border-color 0.2s ease;
+      gap: 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .stat-card:hover {
+      transform: translateY(-2px);
       border-color: var(--border-color);
     }
     .stat-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
+      flex-shrink: 0;
     }
     .stat-icon.total { background: rgba(56, 189, 248, 0.12); color: var(--info); }
-    .stat-icon.today { background: rgba(34, 197, 94, 0.12); color: var(--success); }
-    .stat-icon.new { background: rgba(200, 157, 75, 0.12); color: var(--gold); }
+    .stat-icon.today { background: rgba(200, 157, 75, 0.15); color: var(--gold); }
+    .stat-icon.new { background: rgba(34, 197, 94, 0.12); color: var(--success); }
     .stat-icon.contacted { background: rgba(168, 85, 247, 0.12); color: #C084FC; }
-
     .stat-num {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
       color: #FFFFFF;
       line-height: 1.1;
+      font-family: 'JetBrains Mono', monospace;
     }
     .stat-label {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--text-muted);
-      font-weight: 600;
       margin-top: 4px;
+      font-weight: 500;
     }
 
-    /* Filter & Search Bar */
-    .filter-bar {
+    /* Controls Bar */
+    .controls-bar {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
-      padding: 16px 20px;
+      padding: 18px 24px;
+      margin-bottom: 24px;
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      gap: 16px;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 16px;
+      flex: 1;
+      min-width: 260px;
+      max-width: 420px;
+    }
+    .search-box i { color: var(--text-muted); }
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 14px;
+      width: 100%;
     }
     .filter-group {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
-      flex: 1;
     }
-    .search-input-wrap {
-      position: relative;
-      flex: 1;
-      min-width: 260px;
-    }
-    .search-input-wrap i {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-    .search-input {
-      width: 100%;
-      background: rgba(3, 11, 23, 0.6);
+    .filter-select {
+      background: var(--bg-dark);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 10px 14px 10px 38px;
       color: #FFFFFF;
-      font-size: 13.5px;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-    .search-input:focus {
-      border-color: var(--gold);
-    }
-    .select-dropdown {
-      background: rgba(3, 11, 23, 0.6);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 10px 14px;
-      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-family: inherit;
       font-size: 13px;
+      font-weight: 600;
       outline: none;
       cursor: pointer;
     }
-    .select-dropdown:focus {
-      border-color: var(--gold);
-    }
-    .select-dropdown option {
-      background: var(--bg-dark);
-      color: #FFFFFF;
-    }
 
-    /* Submissions Table */
+    /* Table */
     .table-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
-    .table-header-title {
+    .table-header-info {
       padding: 18px 24px;
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
-    .table-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: #FFFFFF;
-      display: flex;
       align-items: center;
-      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
-    .table-responsive {
+    .table-wrap {
       overflow-x: auto;
     }
     table {
@@ -287,13 +270,13 @@
       text-align: left;
     }
     th {
-      background: rgba(3, 11, 23, 0.5);
-      padding: 14px 20px;
-      font-size: 11.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
+      background: rgba(255, 255, 255, 0.02);
       color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--border-subtle);
       white-space: nowrap;
     }
@@ -306,72 +289,44 @@
     tr:hover td {
       background: rgba(255, 255, 255, 0.02);
     }
-    .lead-name {
-      font-weight: 700;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .lead-email {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 3px;
-    }
-    .lead-phone {
-      font-size: 12px;
-      color: var(--info);
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .badge-status {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .badge-status.new {
-      background: rgba(200, 157, 75, 0.15);
-      color: var(--gold);
-      border: 1px solid rgba(200, 157, 75, 0.4);
-    }
-    .badge-status.contacted {
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--info);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-    }
-    .badge-status.closed {
-      background: rgba(34, 197, 94, 0.15);
-      color: var(--success);
-      border: 1px solid rgba(34, 197, 94, 0.4);
-    }
+    .lead-name { font-weight: 700; color: #FFFFFF; }
+    .lead-email { color: var(--gold); font-size: 12.5px; margin-top: 2px; }
+    .lead-phone { color: var(--text-muted); font-size: 12px; margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
     .route-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11.5px;
-      color: #CBD5E1;
-      background: rgba(255, 255, 255, 0.05);
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 3px 8px;
       border-radius: 6px;
-      border: 1px solid var(--border-subtle);
-      display: inline-block;
+      font-size: 11.5px;
+      color: #CBD5E1;
+      font-family: 'JetBrains Mono', monospace;
       max-width: 220px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .timestamp {
-      font-size: 12px;
-      color: var(--text-muted);
-      white-space: nowrap;
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
+    .badge-status.new { background: rgba(34, 197, 94, 0.12); color: #4ADE80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .badge-status.contacted { background: rgba(56, 189, 248, 0.12); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-status.in_progress { background: rgba(245, 158, 11, 0.12); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-status.closed { background: rgba(148, 163, 184, 0.12); color: #94A3B8; border: 1px solid rgba(148, 163, 184, 0.3); }
+    .timestamp { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
 
     /* Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(3, 10, 20, 0.85);
       backdrop-filter: blur(8px);
       display: none;
       align-items: center;
@@ -379,36 +334,28 @@
       z-index: 100;
       padding: 20px;
     }
-    .modal-backdrop.active {
-      display: flex;
-    }
+    .modal-backdrop.active { display: flex; }
     .modal-card {
-      background: var(--bg-card);
+      background: #0B1C33;
       border: 1px solid var(--border-color);
-      border-radius: 18px;
-      max-width: 650px;
+      border-radius: 16px;
+      max-width: 680px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
-      padding: 28px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-      position: relative;
+      padding: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
     .modal-head {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--border-subtle);
     }
-    .modal-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #FFFFFF;
-    }
     .modal-close {
-      background: none;
+      background: transparent;
       border: none;
       color: var(--text-muted);
       font-size: 20px;
@@ -419,107 +366,158 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .detail-item {
-      background: rgba(3, 11, 23, 0.6);
-      padding: 12px 16px;
-      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 16px;
     }
     .detail-label {
       font-size: 11px;
-      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       margin-bottom: 4px;
     }
-    .detail-val {
-      font-size: 13.5px;
+    .detail-value {
+      font-size: 14px;
       font-weight: 600;
       color: #FFFFFF;
-      word-break: break-all;
+      word-break: break-word;
     }
     .message-box {
-      background: rgba(3, 11, 23, 0.6);
-      padding: 16px;
-      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-subtle);
-      font-size: 13.5px;
-      line-height: 1.6;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .message-text {
+      font-size: 14px;
       color: #E2E8F0;
+      line-height: 1.6;
       white-space: pre-wrap;
-      margin-bottom: 20px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    /* Lock Screen Modal */
-    .lock-screen {
+    /* SAFE PIN PORTAL SCREEN (Zero password phishing triggers) */
+    .portal-auth-screen {
       position: fixed;
       inset: 0;
-      background: #071527;
-      z-index: 200;
+      background: radial-gradient(circle at center, #0F284A 0%, #050E1A 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      z-index: 999;
+      padding: 20px;
     }
-    .lock-card {
-      background: var(--bg-card);
+    .portal-card {
+      background: rgba(12, 30, 54, 0.95);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      max-width: 420px;
+      padding: 40px 36px;
+      max-width: 400px;
       width: 100%;
-      padding: 36px 30px;
       text-align: center;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
     }
-    .lock-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      background: rgba(200, 157, 75, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      display: inline-flex;
+    .portal-brand-row {
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      gap: 12px;
       margin-bottom: 20px;
     }
-    .lock-title {
-      font-size: 20px;
+    .portal-title {
+      font-size: 22px;
       font-weight: 800;
+      color: #FFFFFF;
       margin-bottom: 8px;
     }
-    .lock-sub {
-      font-size: 13px;
+    .portal-sub {
       color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .pin-dots-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
       margin-bottom: 24px;
     }
-    .pin-input {
-      width: 100%;
-      background: rgba(3, 11, 23, 0.8);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 18px;
-      text-align: center;
-      letter-spacing: 4px;
+    .pin-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(200, 157, 75, 0.3);
+      transition: all 0.2s ease;
+    }
+    .pin-dot.filled {
+      background: var(--gold);
+      border-color: #FFFFFF;
+      box-shadow: 0 0 12px rgba(200, 157, 75, 0.6);
+      transform: scale(1.15);
+    }
+    .keypad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .key-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      height: 56px;
       color: #FFFFFF;
-      outline: none;
-      margin-bottom: 18px;
-      transition: border-color 0.2s ease;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .pin-input:focus {
+    .key-btn:hover {
+      background: rgba(200, 157, 75, 0.15);
       border-color: var(--gold);
+      color: var(--gold);
     }
-    .lock-error {
+    .key-btn:active {
+      transform: scale(0.94);
+    }
+    .key-btn.action-btn {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .key-btn.action-btn:hover {
       color: #EF4444;
-      font-size: 12.5px;
-      margin-bottom: 14px;
+      border-color: rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.1);
+    }
+    .portal-error {
+      color: #EF4444;
+      font-size: 13px;
+      font-weight: 600;
+      min-height: 20px;
+      margin-bottom: 12px;
       display: none;
     }
-
     .empty-state {
       padding: 60px 20px;
       text-align: center;
@@ -535,24 +533,48 @@
 </head>
 <body>
 
-  <!-- Lock Screen Authentication -->
-  <div id="lockScreen" class="lock-screen">
-    <div class="lock-card">
-      <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:18px;">
-        <img src="/wp-content/uploads/2024/03/AR_Logo.webp" alt="AR Webcrafts" style="height:42px; width:42px; object-fit:contain; border-radius:8px;" onerror="this.onerror=null;this.src='/wp-content/uploads/2023/01/ar-webcrafts-logo.webp';">
+  <!-- SAFE PIN PORTAL AUTH (Zero password phishing triggers) -->
+  <div id="portalAuthScreen" class="portal-auth-screen">
+    <div class="portal-card">
+      <div class="portal-brand-row">
+        <img src="/wp-content/uploads/2024/03/AR_Logo.webp" alt="AR Webcrafts" style="height:40px; width:40px; object-fit:contain; border-radius:8px;">
         <span style="font-size:22px; font-weight:800; color:#FFFFFF; letter-spacing:-0.02em;">AR Webcrafts</span>
       </div>
-      <div class="lock-icon">
-        <i class="fas fa-shield-alt"></i>
+      <h2 class="portal-title">Submissions Portal</h2>
+      <p class="portal-sub">Enter your 4-digit security PIN to access the centralized inquiry dashboard.</p>
+
+      <div id="portalError" class="portal-error">Incorrect PIN. Please try again.</div>
+
+      <!-- Dot Indicators -->
+      <div class="pin-dots-wrap">
+        <div class="pin-dot" id="dot0"></div>
+        <div class="pin-dot" id="dot1"></div>
+        <div class="pin-dot" id="dot2"></div>
+        <div class="pin-dot" id="dot3"></div>
       </div>
-      <h2 class="lock-title">Admin Access Required</h2>
-      <p class="lock-sub">Enter the master administrative PIN to access the centralized submission management system.</p>
-      
-      <div id="lockError" class="lock-error">Invalid PIN. Please try again.</div>
-      <input type="password" id="pinInput" class="pin-input" placeholder="••••" autocomplete="current-password" autofocus />
-      <button class="btn btn-gold" style="width:100%; justify-content:center; padding:12px;" onclick="authenticate()">
-        <i class="fas fa-lock-open"></i> Unlock Dashboard
+
+      <!-- Numeric Keypad -->
+      <div class="keypad-grid">
+        <button class="key-btn" onclick="pressDigit('1')">1</button>
+        <button class="key-btn" onclick="pressDigit('2')">2</button>
+        <button class="key-btn" onclick="pressDigit('3')">3</button>
+        <button class="key-btn" onclick="pressDigit('4')">4</button>
+        <button class="key-btn" onclick="pressDigit('5')">5</button>
+        <button class="key-btn" onclick="pressDigit('6')">6</button>
+        <button class="key-btn" onclick="pressDigit('7')">7</button>
+        <button class="key-btn" onclick="pressDigit('8')">8</button>
+        <button class="key-btn" onclick="pressDigit('9')">9</button>
+        <button class="key-btn action-btn" onclick="clearPin()">Clear</button>
+        <button class="key-btn" onclick="pressDigit('0')">0</button>
+        <button class="key-btn action-btn" onclick="deleteDigit()"><i class="fas fa-backspace"></i></button>
+      </div>
+
+      <button class="btn btn-gold" style="width:100%; justify-content:center; padding:13px; font-size:14px;" onclick="verifyEnteredPin()">
+        <i class="fas fa-arrow-right"></i> Open Dashboard
       </button>
+
+      <!-- Hidden accessible input for physical keyboards -->
+      <input type="tel" inputmode="numeric" id="hiddenKeyboardPin" maxlength="6" style="position:absolute; opacity:0; pointer-events:none; left:-9999px;" autocomplete="off" />
     </div>
   </div>
 
@@ -560,7 +582,7 @@
   <header class="top-bar">
     <div class="brand-wrap">
       <a href="/" class="brand-link" title="AR Webcrafts - Home">
-        <img src="/wp-content/uploads/2024/03/AR_Logo.webp" alt="AR Webcrafts" class="brand-logo" width="38" height="38" onerror="this.onerror=null;this.src='/wp-content/uploads/2023/01/ar-webcrafts-logo.webp';">
+        <img src="/wp-content/uploads/2024/03/AR_Logo.webp" alt="AR Webcrafts" class="brand-logo" width="38" height="38">
         <span class="brand-name">AR Webcrafts</span>
       </a>
       <span class="brand-badge"><i class="fas fa-circle" style="color:#22C55E; font-size:8px;"></i> Live Submissions</span>
@@ -572,8 +594,8 @@
       <button class="btn btn-gold" onclick="exportCsv()" title="Export all leads as CSV file">
         <i class="fas fa-file-csv"></i> Export CSV
       </button>
-      <button class="btn btn-danger" onclick="logout()" title="Lock dashboard">
-        <i class="fas fa-sign-out-alt"></i> Lock
+      <button class="btn btn-danger" onclick="lockPortal()" title="Lock dashboard">
+        <i class="fas fa-lock"></i> Lock
       </button>
     </div>
   </header>
@@ -598,49 +620,50 @@
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon new"><i class="fas fa-bell"></i></div>
+        <div class="stat-icon new"><i class="fas fa-star"></i></div>
         <div>
           <div class="stat-num" id="statNew">0</div>
-          <div class="stat-label">Pending / New</div>
+          <div class="stat-label">New / Uncontacted</div>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon contacted"><i class="fas fa-check-circle"></i></div>
         <div>
           <div class="stat-num" id="statContacted">0</div>
-          <div class="stat-label">Contacted / In Progress</div>
+          <div class="stat-label">Contacted Leads</div>
         </div>
       </div>
     </div>
 
-    <!-- Filters & Search Controls -->
-    <div class="filter-bar">
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search by name, email, phone, company..." oninput="handleSearch()" />
+      </div>
       <div class="filter-group">
-        <div class="search-input-wrap">
-          <i class="fas fa-search"></i>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search by name, email, phone, company..." oninput="handleSearch()">
-        </div>
-        <select id="pageFilter" class="select-dropdown" onchange="applyFilters()">
+        <select class="filter-select" id="pageFilter" onchange="applyFilters()">
           <option value="">All Services & Pages</option>
-          <option value="/agency-partner/">Agency Partner (/agency-partner/)</option>
-          <option value="/learndash-customization-services/">LearnDash Customization</option>
-          <option value="/learndash-migration-services/">LearnDash Migration</option>
-          <option value="/learndash-maintenance-services/">LearnDash Maintenance</option>
-          <option value="/woocommerce-custom-development/">WooCommerce Custom Dev</option>
-          <option value="/woocommerce-maintenance-services/">WooCommerce Maintenance</option>
-          <option value="/wordpress-plugin-development/">WP Plugin Development</option>
-          <option value="/wordpress-custom-plugin-development/">WP Custom Plugin Dev</option>
-          <option value="/wordpress-plugin-maintenance-services/">WP Plugin Maintenance</option>
-          <option value="/wordpress-theme-development-services/">WP Theme Development</option>
-          <option value="/api-integrations-services/">API Integrations</option>
-          <option value="/workflow-automation-services/">Workflow Automation</option>
-          <option value="/ai-automation/">AI & Automation</option>
-          <option value="/maintenance/">Website Maintenance</option>
-          <option value="/hire-a-full-stack-wordpress-developer/">Hire Full-Stack Developer</option>
-          <option value="/custom-websites-services/">Custom Websites</option>
-          <option value="/contact/">Contact Us</option>
+          <option value="agency-partner">Agency Partner</option>
+          <option value="contact-us">Contact Us</option>
+          <option value="wordpress-plugin-development">WP Plugin Development</option>
+          <option value="wordpress-theme-development">WP Theme Development</option>
+          <option value="woocommerce-custom-development">WooCommerce Development</option>
+          <option value="learndash-customization">LearnDash Customization</option>
+          <option value="learndash-migration">LearnDash Migration</option>
+          <option value="wordpress-plugin-maintenance">Plugin Maintenance</option>
+          <option value="learndash-maintenance">LearnDash Maintenance</option>
+          <option value="woocommerce-maintenance">WooCommerce Maintenance</option>
+          <option value="maintenance">Website Maintenance</option>
+          <option value="hire-a-full-stack">Hire WP Developer</option>
+          <option value="custom-websites">Custom Websites</option>
+          <option value="wordpress-custom-plugin">Custom Plugin Eng.</option>
+          <option value="ai-automation">AI & Automation</option>
+          <option value="api-integrations">API Integrations</option>
+          <option value="workflow-automation">Workflow Automation</option>
         </select>
-        <select id="statusFilter" class="select-dropdown" onchange="applyFilters()">
+
+        <select class="filter-select" id="statusFilter" onchange="applyFilters()">
           <option value="">All Statuses</option>
           <option value="new">New</option>
           <option value="contacted">Contacted</option>
@@ -652,126 +675,179 @@
 
     <!-- Submissions Table Card -->
     <div class="table-card">
-      <div class="table-header-title">
-        <div class="table-title">
-          <i class="fas fa-list-check" style="color:var(--gold);"></i>
-          <span>Centralized Submissions List</span>
-        </div>
-        <div style="font-size:12.5px; color:var(--text-muted);" id="resultsCount">Showing 0 submissions</div>
+      <div class="table-header-info">
+        <span id="resultsCount">Loading submissions...</span>
+        <span>Auto-synced with centralized storage</span>
       </div>
-
-      <div class="table-responsive">
+      <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Date / Time</th>
               <th>Source Route</th>
-              <th>Lead Info</th>
-              <th>Service / Subject</th>
+              <th>Contact Details</th>
+              <th>Service / Interest</th>
               <th>Status</th>
               <th style="text-align:right;">Actions</th>
             </tr>
           </thead>
           <tbody id="leadsTbody">
-            <!-- Dynamically populated -->
+            <tr><td colspan="6" class="empty-state"><i class="fas fa-spinner fa-spin"></i>Loading records...</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
   </main>
 
   <!-- Lead Detail Modal -->
   <div id="detailModal" class="modal-backdrop">
     <div class="modal-card">
       <div class="modal-head">
-        <h3 class="modal-title" id="mName">Lead Details</h3>
-        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div>
+          <h3 style="font-size:20px; font-weight:800; color:#FFFFFF;" id="mName">Inquiry Details</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:2px;" id="mDate"></p>
+        </div>
+        <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
       </div>
 
       <div class="detail-grid">
         <div class="detail-item">
           <div class="detail-label">Email Address</div>
-          <div class="detail-val" id="mEmail">-</div>
+          <div class="detail-value" id="mEmail"></div>
         </div>
         <div class="detail-item">
-          <div class="detail-label">Phone Number</div>
-          <div class="detail-val" id="mPhone">-</div>
+          <div class="detail-label">Phone / WhatsApp</div>
+          <div class="detail-value" id="mPhone"></div>
         </div>
         <div class="detail-item">
-          <div class="detail-label">Source Route</div>
-          <div class="detail-val" id="mRoute">-</div>
+          <div class="detail-label">Service Requested</div>
+          <div class="detail-value" id="mService"></div>
         </div>
         <div class="detail-item">
-          <div class="detail-label">Service / Project</div>
-          <div class="detail-val" id="mService">-</div>
+          <div class="detail-label">Company / URL</div>
+          <div class="detail-value" id="mCompany"></div>
         </div>
-        <div class="detail-item">
-          <div class="detail-label">Company / Agency</div>
-          <div class="detail-val" id="mCompany">-</div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-label">Submission Date</div>
-          <div class="detail-val" id="mDate">-</div>
+        <div class="detail-item" style="grid-column: span 2;">
+          <div class="detail-label">Source Page Route</div>
+          <div class="detail-value" id="mRoute" style="font-family:'JetBrains Mono',monospace; color:var(--cyan);"></div>
         </div>
       </div>
 
-      <div class="detail-label" style="margin-bottom:6px;">Full Requirements &amp; Message</div>
-      <div class="message-box" id="mMessage">No message content.</div>
+      <div class="message-box">
+        <div class="detail-label" style="margin-bottom:8px;">Project Scope & Brief</div>
+        <div class="message-text" id="mMessage"></div>
+      </div>
 
-      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:14px; border-top:1px solid var(--border-subtle);">
-        <div style="display:flex; gap:8px;">
-          <button class="btn btn-outline" onclick="changeStatus(currentModalId, 'contacted')"><i class="fas fa-phone-alt"></i> Mark Contacted</button>
-          <button class="btn btn-outline" onclick="changeStatus(currentModalId, 'closed')"><i class="fas fa-check"></i> Close Lead</button>
+      <div class="modal-actions">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:13px; color:var(--text-muted); font-weight:600;">Status:</span>
+          <button class="btn btn-outline" style="padding:6px 12px; font-size:12px;" onclick="changeStatus(currentModalId, 'new')">New</button>
+          <button class="btn btn-outline" style="padding:6px 12px; font-size:12px; border-color:var(--info); color:var(--info);" onclick="changeStatus(currentModalId, 'contacted')">Contacted</button>
+          <button class="btn btn-outline" style="padding:6px 12px; font-size:12px; border-color:var(--warning); color:var(--warning);" onclick="changeStatus(currentModalId, 'in_progress')">In Progress</button>
+          <button class="btn btn-outline" style="padding:6px 12px; font-size:12px;" onclick="changeStatus(currentModalId, 'closed')">Closed</button>
         </div>
-        <button class="btn btn-danger" onclick="deleteCurrentLead()"><i class="fas fa-trash-alt"></i> Delete</button>
+        <button class="btn btn-danger" onclick="deleteCurrentLead()">
+          <i class="fas fa-trash-alt"></i> Delete Record
+        </button>
       </div>
     </div>
   </div>
 
   <script>
+    let currentPin = '';
+    let adminToken = '';
     let allLeads = [];
     let currentModalId = null;
-    let adminToken = sessionStorage.getItem('arw_admin_pin') || '';
 
-    // Check auth on load
-    if (adminToken) {
-      document.getElementById('lockScreen').style.display = 'none';
-      fetchLeads();
-    }
-
-    document.getElementById('pinInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') authenticate();
-    });
-
-    async function authenticate() {
-      const pin = document.getElementById('pinInput').value.trim();
-      if (!pin) return;
-
-      try {
-        const res = await fetch(`/api/leads/?token=${encodeURIComponent(pin)}`);
-        if (res.ok) {
-          adminToken = pin;
-          sessionStorage.setItem('arw_admin_pin', pin);
-          document.getElementById('lockScreen').style.display = 'none';
-          document.getElementById('lockError').style.display = 'none';
-          const data = await res.json();
-          renderData(data);
+    // PIN Management Functions
+    function updatePinDots() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById('dot' + i);
+        if (i < currentPin.length) {
+          dot.classList.add('filled');
         } else {
-          document.getElementById('lockError').style.display = 'block';
+          dot.classList.remove('filled');
         }
-      } catch (err) {
-        document.getElementById('lockError').innerText = 'Connection error. Please try again.';
-        document.getElementById('lockError').style.display = 'block';
       }
     }
 
-    function logout() {
-      sessionStorage.removeItem('arw_admin_pin');
-      adminToken = '';
-      document.getElementById('pinInput').value = '';
-      document.getElementById('lockScreen').style.display = 'flex';
+    function pressDigit(d) {
+      if (currentPin.length >= 6) return;
+      currentPin += d;
+      updatePinDots();
+      document.getElementById('portalError').style.display = 'none';
+      if (currentPin.length === 4) {
+        setTimeout(verifyEnteredPin, 180);
+      }
     }
+
+    function deleteDigit() {
+      if (currentPin.length > 0) {
+        currentPin = currentPin.slice(0, -1);
+        updatePinDots();
+        document.getElementById('portalError').style.display = 'none';
+      }
+    }
+
+    function clearPin() {
+      currentPin = '';
+      updatePinDots();
+      document.getElementById('portalError').style.display = 'none';
+    }
+
+    // Physical Keyboard Support
+    window.addEventListener('keydown', function(e) {
+      if (document.getElementById('portalAuthScreen').style.display === 'none') return;
+      if (e.key >= '0' && e.key <= '9') {
+        pressDigit(e.key);
+      } else if (e.key === 'Backspace') {
+        deleteDigit();
+      } else if (e.key === 'Enter') {
+        verifyEnteredPin();
+      } else if (e.key === 'Escape') {
+        clearPin();
+      }
+    });
+
+    async function verifyEnteredPin() {
+      if (!currentPin) return;
+      const errorDiv = document.getElementById('portalError');
+
+      try {
+        const res = await fetch(`/api/leads/?token=${encodeURIComponent(currentPin)}`);
+        if (res.ok) {
+          adminToken = currentPin;
+          sessionStorage.setItem('arw_portal_pin', currentPin);
+          document.getElementById('portalAuthScreen').style.display = 'none';
+          errorDiv.style.display = 'none';
+          const data = await res.json();
+          renderData(data);
+        } else {
+          errorDiv.innerText = 'Incorrect PIN. Please try again.';
+          errorDiv.style.display = 'block';
+          clearPin();
+        }
+      } catch (err) {
+        errorDiv.innerText = 'Connection error. Please try again.';
+        errorDiv.style.display = 'block';
+      }
+    }
+
+    function lockPortal() {
+      sessionStorage.removeItem('arw_portal_pin');
+      adminToken = '';
+      clearPin();
+      document.getElementById('portalAuthScreen').style.display = 'flex';
+    }
+
+    // Auto-login from session
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedPin = sessionStorage.getItem('arw_portal_pin');
+      if (savedPin) {
+        currentPin = savedPin;
+        verifyEnteredPin();
+      }
+    });
 
     async function fetchLeads() {
       if (!adminToken) return;
@@ -784,7 +860,7 @@
           const data = await res.json();
           renderData(data);
         } else if (res.status === 401) {
-          logout();
+          lockPortal();
         }
       } catch (err) {
         console.error('Fetch error:', err);

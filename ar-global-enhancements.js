@@ -195,7 +195,8 @@
     }
 
     cleanupDuplicates();
-    setInterval(cleanupDuplicates, 500);
+    setTimeout(cleanupDuplicates, 1000);
+    setTimeout(cleanupDuplicates, 2500);
 
     // Dynamically adjust height if Calendly sends postMessage
     window.addEventListener('message', function (e) {
