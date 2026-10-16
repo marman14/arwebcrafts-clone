@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "lead_mvbdqh7a_frv5",
+    "timestamp": "2026-10-16T19:47:40.822Z",
+    "pageUrl": "/portal-verification/",
+    "pageTitle": "AR Webcrafts",
+    "name": "Portal Verification Test",
+    "email": "contact@arwebcrafts.com",
+    "phone": "+1234567890",
+    "service": "Centralized Dashboard Verification",
+    "budget": "Not specified",
+    "subject": "Inquiry from Website",
+    "message": "Testing live centralized submission on arwebcrafts.com portal.",
+    "company": "",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  }
+]

@@ -324,6 +324,26 @@
         });
 
         if (resp.ok) {
+          var respData = await resp.json().catch(function() { return {}; });
+          try {
+            var browserLeads = JSON.parse(localStorage.getItem('arw_browser_leads') || '[]');
+            browserLeads.unshift({
+              id: respData.leadId || ('lead_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6)),
+              timestamp: new Date().toISOString(),
+              pageUrl: payload.page_url || window.location.pathname,
+              pageTitle: payload.page_title || document.title,
+              name: payload.name || 'Anonymous',
+              email: payload.email || '',
+              phone: payload.phone || payload.input_text || '',
+              service: payload.service || 'General Inquiry',
+              budget: payload.budget || 'Not specified',
+              subject: payload.subject || 'Website Inquiry',
+              message: payload.message || '',
+              company: payload.company || '',
+              status: 'new'
+            });
+            localStorage.setItem('arw_browser_leads', JSON.stringify(browserLeads.slice(0, 100)));
+          } catch (e) {}
           renderSuccess(form, payload);
         } else {
           var errData = await resp.json().catch(function() { return {}; });

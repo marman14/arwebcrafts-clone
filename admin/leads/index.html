@@ -870,11 +870,33 @@
     }
 
     function renderData(data) {
-      allLeads = data.leads || [];
-      document.getElementById('statTotal').innerText = data.stats?.total || 0;
-      document.getElementById('statToday').innerText = data.stats?.today || 0;
-      document.getElementById('statNew').innerText = data.stats?.new || 0;
-      document.getElementById('statContacted').innerText = data.stats?.contacted || 0;
+      const serverLeads = data.leads || [];
+      let localLeads = [];
+      try {
+        localLeads = JSON.parse(localStorage.getItem('arw_browser_leads') || '[]');
+      } catch (e) {}
+
+      const leadMap = new Map();
+      serverLeads.forEach(l => { if (l && l.id) leadMap.set(l.id, l); });
+      localLeads.forEach(l => {
+        if (l && l.id && !leadMap.has(l.id)) {
+          leadMap.set(l.id, l);
+        }
+      });
+
+      allLeads = Array.from(leadMap.values());
+      allLeads.sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0));
+
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const totalCount = allLeads.length;
+      const todayCount = allLeads.filter(l => (l.timestamp || '').startsWith(todayStr)).length;
+      const newCount = allLeads.filter(l => l.status === 'new').length;
+      const contactedCount = allLeads.filter(l => l.status === 'contacted').length;
+
+      document.getElementById('statTotal').innerText = totalCount;
+      document.getElementById('statToday').innerText = todayCount;
+      document.getElementById('statNew').innerText = newCount;
+      document.getElementById('statContacted').innerText = contactedCount;
       applyFilters();
     }
 
