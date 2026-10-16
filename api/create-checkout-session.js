@@ -65,7 +65,7 @@ module.exports = async (req, res) => {
     const unitAmountCents = Math.round(numericAmount * 100);
 
     // Determine the base origin
-    const host = req.headers['x-forwarded-host'] || req.headers.host || 'arwebcrafts-clone.vercel.app';
+    const host = req.headers['x-forwarded-host'] || req.headers.host || 'www.arwebcrafts.com';
     const proto = req.headers['x-forwarded-proto'] || 'https';
     const origin = process.env.SITE_URL || `${proto}://${host}`;
 

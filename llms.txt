@@ -12,25 +12,25 @@
 
 ## Key Projects & Case Studies (Interactive Portfolios & Architecture Reviews)
 
-- **E V Landscape**: California CSLB Licensed Contractor #1071473 luxury outdoor living, hardscaping & masonry platform. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/ev-landscape/)
-- **Liberato's Landscaping**: San Diego County licensed synthetic turf, paver patios, retaining walls & outdoor living architecture. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/liberatos-landscaping/)
-- **Hernandez Concrete Pro**: San Jose & Bay Area premier structural concrete, driveways, foundations & stamped masonry contractor. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/hernandez-concrete/)
-- **Marshall Tree Service**: Fresno County CA licensed arborist (#1022937), emergency storm tree removal & Cal Fire defensible space. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/marshall-tree/)
-- **Serene Meadows Living**: San Antonio Bexar County residential group home and day habilitation for IDD adults. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/serene-meadows/)
-- **Humble Kings HVAC**: Miami-Dade County 24/7 emergency AC repair, heating, ventilation & commercial maintenance solutions. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/humble-kings-hvac/)
-- **J.N.A. Auto Service & Repair**: Brampton Ontario full-service automotive workshop, dealership-grade diagnostics & Ontario safety certifications. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/jna-auto/)
-- **Medvst Settlement Services**: Nationwide professional Medicare Set-Aside administration, lien resolution & special needs trusts ($500M+ administered). [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/medvst-settlement/)
-- **AAA Food Handler Training**: ANSI-accredited online food safety eLearning LMS portal with instant PDF certificate issuance (50,000+ certified). [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/aaa-food-handler/)
-- **MillerTime Mobile Detailing**: Hinesville GA showroom-grade mobile auto detailing, multi-stage paint correction & ceramic coatings. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/millertime-mobile-detailing/)
-- **Serene Meadows Senior Living**: Harmony Hills CA luxury assisted living, independent suites & accredited memory care campus. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/senior-care-web/)
-- **County Process Services**: San Jose & Santa Clara County licensed and bonded legal process serving, subpoenas & same-day court filing. [View Detailed Case Study](https://arwebcrafts-clone.vercel.app/portfolio/county-process-services/)
+- **E V Landscape**: California CSLB Licensed Contractor #1071473 luxury outdoor living, hardscaping & masonry platform. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/ev-landscape/)
+- **Liberato's Landscaping**: San Diego County licensed synthetic turf, paver patios, retaining walls & outdoor living architecture. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/liberatos-landscaping/)
+- **Hernandez Concrete Pro**: San Jose & Bay Area premier structural concrete, driveways, foundations & stamped masonry contractor. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/hernandez-concrete/)
+- **Marshall Tree Service**: Fresno County CA licensed arborist (#1022937), emergency storm tree removal & Cal Fire defensible space. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/marshall-tree/)
+- **Serene Meadows Living**: San Antonio Bexar County residential group home and day habilitation for IDD adults. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/serene-meadows/)
+- **Humble Kings HVAC**: Miami-Dade County 24/7 emergency AC repair, heating, ventilation & commercial maintenance solutions. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/humble-kings-hvac/)
+- **J.N.A. Auto Service & Repair**: Brampton Ontario full-service automotive workshop, dealership-grade diagnostics & Ontario safety certifications. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/jna-auto/)
+- **Medvst Settlement Services**: Nationwide professional Medicare Set-Aside administration, lien resolution & special needs trusts ($500M+ administered). [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/medvst-settlement/)
+- **AAA Food Handler Training**: ANSI-accredited online food safety eLearning LMS portal with instant PDF certificate issuance (50,000+ certified). [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/aaa-food-handler/)
+- **MillerTime Mobile Detailing**: Hinesville GA showroom-grade mobile auto detailing, multi-stage paint correction & ceramic coatings. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/millertime-mobile-detailing/)
+- **Serene Meadows Senior Living**: Harmony Hills CA luxury assisted living, independent suites & accredited memory care campus. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/senior-care-web/)
+- **County Process Services**: San Jose & Santa Clara County licensed and bonded legal process serving, subpoenas & same-day court filing. [View Detailed Case Study](https://www.arwebcrafts.com/portfolio/county-process-services/)
 
 ## Company Information
 
 - **Legal Entity**: AR Webcrafts LLC
 - **Headquarters**: Dubai, United Arab Emirates
 - **Global Coverage**: United States, United Kingdom, Australia, Germany
-- **Website**: https://arwebcrafts-clone.vercel.app/
+- **Website**: https://www.arwebcrafts.com/
 - **Contact Email**: contact@arwebcrafts.com
 - **Phone**: +1 307 278 4862
 - **Schedule Consultation**: https://calendly.com/arwebcrafts/30-mint

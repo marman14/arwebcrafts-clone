@@ -4,6 +4,28 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
+      "destination": "https://www.arwebcrafts.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^arwebcrafts\\.com$"
+        }
+      ],
+      "destination": "https://www.arwebcrafts.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/about",
       "destination": "/about-us/",
       "permanent": true
@@ -79,12 +101,47 @@
       "permanent": true
     },
     {
+      "source": "/sitemap.xml/",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap_index.xml/",
+      "destination": "/sitemap_index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/page-sitemap.xml/",
+      "destination": "/page-sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/post-sitemap.xml/",
+      "destination": "/post-sitemap.xml",
+      "permanent": true
+    },
+    {
       "source": "/robots.txt/",
       "destination": "/robots.txt",
       "permanent": true
     }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
@@ -137,6 +194,19 @@
         {
           "key": "Content-Type",
           "value": "application/rss+xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*sitemap.*\\.xml)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
         },
         {
           "key": "Cache-Control",

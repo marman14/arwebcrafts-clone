@@ -3,10 +3,11 @@ Allow: /
 Disallow: /api/
 Disallow: /my-account/
 Disallow: /checkout/
+Disallow: /portal/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /leads/
 
-Sitemap: https://www.arwebcrafts.com/sitemap.xml
 Sitemap: https://www.arwebcrafts.com/sitemap_index.xml
+Sitemap: https://www.arwebcrafts.com/sitemap.xml
 Sitemap: https://www.arwebcrafts.com/sitemap.rss
-Sitemap: https://arwebcrafts.com/sitemap.xml
-Sitemap: https://arwebcrafts.com/sitemap_index.xml
-Sitemap: https://arwebcrafts.com/sitemap.rss
