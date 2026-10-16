@@ -3068,6 +3068,365 @@ section.elementor-element-ac3f73a,
   }
 }
 
+/* ============================================================
+   STRICT ZERO-RISK MOBILE & TABLET RESPONSIVENESS & READABILITY
+   Applies exclusively to <= 768px viewports. Desktop is 100% untouched.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* 1. Prevent Horizontal Page Scroll & Body Stretching */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Top Header Announcement Bar Responsive Text */
+  .elementor-element-f3129dc .elementor-icon-list-text,
+  .elementor-element-011475a .elementor-icon-list-text {
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .elementor-element-011475a .elementor-container {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Hero Grids & Split Columns - Prevent Grid Item Blowout */
+  [class*="-hero-grid"],
+  [class*="-split-grid"],
+  .cwds-hero-grid,
+  .wcd-hero-grid,
+  .wpd-hero-grid,
+  .wtd-hero-grid,
+  .ld-hero-grid,
+  .ldm-hero-grid,
+  .wpm-hero-grid,
+  .ldms-hero-grid,
+  .wcms-hero-grid,
+  .wms-hero-grid,
+  .hfsd-hero-grid,
+  .wpcd-hero-grid,
+  .aia-hero-grid,
+  .api-hero-grid,
+  .was-hero-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 32px !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="-hero-grid"] > *,
+  [class*="-split-grid"] > *,
+  .cwds-hero-grid > *,
+  .wcd-hero-grid > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 4. Badges & Status Pills - Allow Text Wrapping */
+  [class*="-badge"],
+  [class*="-hero-badge"],
+  .cwds-badge,
+  .wcd-hero-badge,
+  .wpd-hero-badge,
+  .wtd-hero-badge,
+  .ld-badge,
+  .ldm-badge,
+  .wpm-badge,
+  .ldms-badge,
+  .wcms-badge,
+  .wms-badge,
+  .hfsd-badge,
+  .wpcd-badge,
+  .aia-badge,
+  .api-media-badge,
+  .was-badge {
+    white-space: normal !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+  }
+
+  /* 5. Fluid Responsive H1, H2 Headings */
+  h1,
+  [class*="-hero-h1"],
+  [class*="-sec-title"],
+  [class*="-hero-title"],
+  .cwds-hero-h1,
+  .wcd-sec-title,
+  .ld-sec-title,
+  .ldm-sec-title,
+  .wpm-sec-title,
+  .ldms-sec-title,
+  .wcms-sec-title,
+  .wms-hero-h1,
+  .hfsd-hero-h1,
+  .wpcd-hero-h1,
+  .aia-hero-h1,
+  .api-hero-title,
+  .was-hero-h1 {
+    font-size: clamp(23px, 6.2vw, 32px) !important;
+    line-height: 1.25 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* 6. Section Wrappers & Content Padding */
+  [class*="-wrap"],
+  .cwds-wrap,
+  .wcd-wrap,
+  .ld-wrap,
+  .wpd-wrap,
+  .wtd-wrap,
+  .ldm-wrap,
+  .wpm-wrap,
+  .ldms-wrap,
+  .wcms-wrap,
+  .wms-wrap,
+  .hfsd-wrap,
+  .wpcd-wrap,
+  .aia-wrap,
+  .api-wrap,
+  .was-wrap {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* 7. Proposal Form Cards - 100% Mobile Contained */
+  [class*="-form-card"],
+  [class*="-hero-card"],
+  .cwds-form-card,
+  .wcd-hero-card,
+  .wpd-hero-card,
+  .wtd-hero-card,
+  .ld-form-card,
+  .ldm-form-card,
+  .wpm-form-card,
+  .ldms-form-card,
+  .wcms-form-card,
+  .wms-form-card,
+  .hfsd-form-card,
+  .wpcd-form-card,
+  .aia-form-card,
+  .api-form-card,
+  .was-form-card,
+  .ar-ap-form-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 22px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  [class*="-form-card"] form,
+  [class*="-hero-card"] form,
+  .wcd-form,
+  .wpd-form,
+  .wtd-form {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="-form-card"] form > *,
+  [class*="-hero-card"] form > *,
+  .wcd-form > *,
+  .wpd-form > *,
+  .wtd-form > *,
+  .wcd-field,
+  .wpd-field,
+  .wtd-field,
+  .wcd-form-row,
+  .wpd-form-row,
+  .wtd-form-row,
+  [class*="-field"],
+  [class*="-form-row"],
+  [class*="-form-group"] {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 8. Form Rows & Input Fields */
+  [class*="-form-row"],
+  .cwds-form-row,
+  .wcd-form-row,
+  .wpd-form-row,
+  .wtd-form-row,
+  .ld-form-row,
+  .ff-t-cell {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="-form-group"] input,
+  [class*="-form-group"] select,
+  [class*="-form-group"] textarea,
+  [class*="-form-card"] input,
+  [class*="-form-card"] select,
+  [class*="-form-card"] textarea,
+  [class*="-form-card"] button,
+  [class*="-hero-card"] input,
+  [class*="-hero-card"] select,
+  [class*="-hero-card"] textarea,
+  [class*="-hero-card"] button,
+  .cwds-form-input,
+  .cwds-form-select,
+  .cwds-form-textarea,
+  .cwds-btn-submit,
+  .ld-input,
+  .ld-select,
+  .ld-textarea,
+  .ld-btn-submit,
+  .wcd-input,
+  .wcd-select,
+  .wcd-textarea,
+  .wcd-submit-btn,
+  .wpd-submit-btn,
+  .wtd-submit-btn,
+  .wcd-field input,
+  .wcd-field select,
+  .wcd-field textarea,
+  .wpd-field input,
+  .wpd-field select,
+  .wpd-field textarea,
+  .wtd-field input,
+  .wtd-field select,
+  .wtd-field textarea {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="-form-head"] h3,
+  [class*="-form-head"] p,
+  .cwds-form-head h3,
+  .cwds-form-head p,
+  .ld-form-head h3,
+  .ld-form-head p,
+  [class*="-form-title"],
+  [class*="-form-header"] {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  /* 9. FAQ Accordion Buttons & Questions - Override Native Button Nowrap */
+  [class*="-faq-btn"],
+  [class*="-faq-q"],
+  [class*="-faq-question"],
+  .ld-faq-btn,
+  .ld-faq-q,
+  .ldm-faq-btn,
+  .ldm-faq-q,
+  .wpm-faq-btn,
+  .wpm-faq-q,
+  .ldms-faq-btn,
+  .ldms-faq-q,
+  .wcms-faq-btn,
+  .wcms-faq-q,
+  .wms-faq-btn,
+  .wms-faq-q,
+  .hfsd-faq-btn,
+  .hfsd-faq-q,
+  .cwds-faq-btn,
+  .cwds-faq-q,
+  .wpcd-faq-btn,
+  .wpcd-faq-q,
+  .aia-faq-btn,
+  .aia-faq-q,
+  .api-faq-question,
+  .was-faq-btn,
+  .was-faq-q,
+  button[class*="faq"],
+  h3[class*="faq"],
+  summary[class*="faq"] {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 10. Process & Workflow Boxes (01 to 05) - Uniform Single Column */
+  [class*="-steps-grid"],
+  [class*="-process-grid"],
+  .cwds-steps-grid,
+  .ld-steps-grid,
+  .wcd-steps-grid,
+  .wpm-steps-grid,
+  .ldm-steps-grid,
+  .ldms-steps-grid,
+  .wcms-steps-grid,
+  .wms-steps-grid,
+  .hfsd-steps-grid,
+  .wpcd-steps-grid,
+  .aia-steps-grid,
+  .api-steps-grid,
+  .was-steps-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="-step-card"],
+  [class*="-process-card"],
+  .cwds-step-card,
+  .ld-step-card,
+  .wcd-step-card,
+  .wpm-step-card,
+  .ldm-step-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px 16px !important;
+  }
+
+  /* 11. Footer Newsletter Form Sizing */
+  .frm-fluent-form.fluent_form_2,
+  .fluent_form_2 {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .fluent_form_2 .ff-t-container,
+  .fluent_form_2 .ff-t-cell {
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+  .fluent_form_2 .ff-btn-submit {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
 
 
 
