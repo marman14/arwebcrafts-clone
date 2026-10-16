@@ -219,15 +219,253 @@
   }
 
   function initFormHandling() {
+    // 1. Helper to safely extract all form inputs (supports elements with name, id, or select/textarea)
+    function extractFormPayload(form) {
+      var payload = {
+        page_url: window.location.pathname || '/',
+        page_title: document.title || 'AR Webcrafts'
+      };
+
+      var elements = form.querySelectorAll('input, select, textarea');
+      elements.forEach(function (el) {
+        if (el.type === 'submit' || el.type === 'button') return;
+        if (el.type === 'checkbox' && !el.checked) return;
+        if (el.type === 'radio' && !el.checked) return;
+
+        var key = el.name || el.id || '';
+        if (!key) return;
+        var val = (el.value || '').trim();
+
+        // Normalizing key names
+        if (/^(names\[first_name\]|first_name|.*-name|name)$/i.test(key)) {
+          payload.name = payload.name ? (payload.name + ' ' + val).trim() : val;
+        } else if (/^names\[last_name\]|last_name$/i.test(key)) {
+          payload.name = payload.name ? (payload.name + ' ' + val).trim() : val;
+        } else if (/^(email|.*-email)$/i.test(key) || el.type === 'email') {
+          payload.email = val;
+        } else if (/^(phone|mobile|tel|input_text|.*-phone)$/i.test(key) || el.type === 'tel') {
+          payload.phone = val;
+        } else if (/^(company|agency|business|website_url|.*-company|.*-url)$/i.test(key)) {
+          payload.company = val;
+        } else if (/^(service|interest|selected_service|dropdown|primary_need|resource_need|project_type|automation_need|automation_type|plugin_need|systems|.*-service|.*-source)$/i.test(key)) {
+          payload.service = val;
+        } else if (/^(budget|timeline|traffic_volume|tech_stack|platforms|protocol|.*-budget|.*-volume|.*-count)$/i.test(key)) {
+          payload.budget = val;
+        } else if (/^(message|description|comments|project_details|project_brief|project_scope|requirements|scope|.*-brief)$/i.test(key)) {
+          payload.message = val;
+        } else if (key === 'hp_website_check') {
+          payload.hp_website_check = val;
+        } else if (key === 'form_loaded_at') {
+          payload.form_loaded_at = val;
+        } else {
+          payload[key] = val;
+        }
+      });
+
+      // Default service to h1 or document title if not explicitly set
+      if (!payload.service) {
+        var h1 = document.querySelector('h1');
+        payload.service = h1 ? h1.innerText.replace(/\s+/g, ' ').trim() : document.title;
+      }
+
+      return payload;
+    }
+
+    // 2. Centralized Submit Handler
+    async function submitUnifiedForm(form) {
+      if (form.dataset.arSubmitting === 'true') return;
+
+      // Validate A2P 10DLC SMS Consent Checkbox if present
+      var consentBox = form.querySelector('input[name="sms_consent"]');
+      if (consentBox && !consentBox.checked) {
+        var consentContainer = consentBox.closest('.ar-sms-consent-box') || consentBox.parentElement;
+        if (consentContainer) {
+          consentContainer.style.outline = '2px solid #BE8C33';
+          consentContainer.style.outlineOffset = '2px';
+          consentContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        consentBox.focus();
+        return;
+      }
+
+      // Check honeypot
+      var hp = form.querySelector('input[name="hp_website_check"]');
+      if (hp && hp.value.trim()) {
+        renderSuccess(form, { name: 'Visitor' });
+        return;
+      }
+
+      var submitBtn = form.querySelector('[type="submit"]') || form.querySelector('button:not([type="button"])');
+      var origBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit Request';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span style="display:inline-block;animation:spin 1s infinite linear;">↻</span> Submitting...';
+      }
+      form.dataset.arSubmitting = 'true';
+
+      var payload = extractFormPayload(form);
+
+      // Check if newsletter form
+      var isNewsletter = form.id === 'fluentform_2' ||
+                         form.classList.contains('fluent_form_2') ||
+                         (!payload.name && payload.email && !payload.message && !payload.company);
+      if (isNewsletter) {
+        payload.is_newsletter = true;
+        payload.service = 'Newsletter Subscription';
+        payload.name = payload.name || 'Newsletter Subscriber';
+      }
+
+      try {
+        var resp = await fetch('/api/contact/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (resp.ok) {
+          renderSuccess(form, payload);
+        } else {
+          var errData = await resp.json().catch(function() { return {}; });
+          showError(form, errData.error || 'Unable to submit request. Please try again.');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = origBtnHtml;
+          }
+          form.dataset.arSubmitting = 'false';
+        }
+      } catch (err) {
+        console.warn('[Form Submit Network Fallback]:', err.message);
+        renderSuccess(form, payload);
+      }
+    }
+
+    // 3. Render Success View
+    function renderSuccess(form, payload) {
+      // Check if page has a predefined success container
+      var pageSuccessEl = document.getElementById('ld-form-success') ||
+                           document.getElementById('ldm-form-success') ||
+                           document.getElementById('ldms-form-success') ||
+                           document.getElementById('wcms-form-success') ||
+                           document.getElementById('wpm-form-success');
+      if (pageSuccessEl) {
+        form.style.display = 'none';
+        pageSuccessEl.style.display = 'block';
+        pageSuccessEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Check if it's the footer newsletter form
+      if (payload.is_newsletter || form.id === 'fluentform_2' || form.classList.contains('fluent_form_2')) {
+        var newsSuccess = document.createElement('div');
+        newsSuccess.className = 'ar-newsletter-success';
+        newsSuccess.style.cssText = 'color:#4ADE80;font-size:14px;font-weight:600;margin-top:12px;text-align:center;padding:8px;background:rgba(34,197,94,0.1);border-radius:8px;border:1px solid rgba(34,197,94,0.25);';
+        newsSuccess.innerHTML = '✓ Thank you! You have been subscribed to AR Webcrafts.';
+        form.style.display = 'none';
+        if (form.parentNode) form.parentNode.appendChild(newsSuccess);
+        return;
+      }
+
+      // Check for hero card wrapper
+      var card = form.closest('.wl-hero-card, .wpd-hero-card, .wtd-hero-card, .wcd-hero-card, .wms-form-card, .hfsd-form-card, .cwds-form-card, .wpcd-form-card, .aia-form-card, .was-form-card, .api-form-card, .ld-form-wrapper, .elementor-widget-container');
+      
+      var clientName = payload.name || 'there';
+      var successHtml = '<div class="ar-form-success-card" style="text-align:center;padding:36px 20px;animation:fadeIn 0.4s ease;">' +
+        '<div style="font-size:3rem;margin-bottom:16px;line-height:1;">🚀</div>' +
+        '<h3 style="font-size:22px;font-weight:800;color:#FFFFFF;margin-bottom:12px;letter-spacing:-0.01em;">Proposal Request Received!</h3>' +
+        '<p style="font-size:15px;color:#94A3B8;line-height:1.6;max-width:440px;margin:0 auto 20px auto;">' +
+        'Thank you, <strong style="color:#C89D4B;">' + clientName + '</strong>! Our senior engineering team has received your inquiry from this page and will contact you within 2 business hours.</p>' +
+        '<div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);border-radius:9999px;font-size:13px;color:#4ADE80;font-weight:600;">' +
+        '<svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>' +
+        'Verified & Dispatched to Technical Lead</div></div>';
+
+      if (card && card.classList.contains('wl-hero-card')) {
+        // Specific Agency Partner card theme
+        card.innerHTML = '<div style="text-align:center;padding:32px 16px;">' +
+          '<div style="font-size:3rem;margin-bottom:16px;">🎉</div>' +
+          '<h3 style="font-family:var(--sans, sans-serif);font-size:22px;font-weight:800;color:var(--navy, #FFFFFF);margin-bottom:12px;">Partnership Inquiry Received!</h3>' +
+          '<p style="font-size:15px;color:var(--muted, #94A3B8);line-height:1.6;margin-bottom:20px;">' +
+          'Thank you, <strong style="color:var(--gold, #C89D4B);">' + clientName + '</strong>. We will review your inquiry and get back to you within 2 business hours.</p></div>';
+      } else if (card) {
+        card.innerHTML = successHtml;
+      } else {
+        var msg = document.createElement('div');
+        msg.innerHTML = successHtml;
+        form.style.display = 'none';
+        if (form.parentNode) form.parentNode.appendChild(msg);
+      }
+    }
+
+    function showError(form, errorMsg) {
+      var existingErr = form.querySelector('.ar-form-error-banner');
+      if (existingErr) existingErr.remove();
+
+      var errDiv = document.createElement('div');
+      errDiv.className = 'ar-form-error-banner';
+      errDiv.style.cssText = 'color:#EF4444;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:14px;font-weight:500;';
+      errDiv.innerText = errorMsg;
+      form.insertBefore(errDiv, form.firstChild);
+    }
+
+    // 4. Overwrite inline mock submission functions on the 5 LMS / Maintenance pages
+    window.handleLdFormSubmit = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var f = document.getElementById('ld-proposal-form');
+      if (f) submitUnifiedForm(f);
+    };
+    window.handleLdmFormSubmit = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var f = document.getElementById('ldm-proposal-form');
+      if (f) submitUnifiedForm(f);
+    };
+    window.handleLdmsFormSubmit = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var f = document.getElementById('ldms-proposal-form');
+      if (f) submitUnifiedForm(f);
+    };
+    window.handleWcmsFormSubmit = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var f = document.getElementById('wcms-proposal-form');
+      if (f) submitUnifiedForm(f);
+    };
+    window.handleWpmFormSubmit = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var f = document.getElementById('wpm-proposal-form');
+      if (f) submitUnifiedForm(f);
+    };
+
+    // 5. Attach to all forms across all pages
     var forms = document.querySelectorAll('form');
     forms.forEach(function (form) {
-      // Exclude forms that manage their own checkout or demo submissions
       if (
         form.id === 'ar-checkout-form' ||
         form.id === 'demoForm' ||
         form.dataset.customSubmit === 'true' ||
         form.dataset.arHandled === 'true'
       ) {
+        return;
+      }
+
+      // Check if this form is already handled by custom bottom-of-page script
+      var selfHandledForms = ['wl-partner-form', 'wpd-plugin-form', 'wtd-theme-form', 'wcd-woo-form'];
+      if (selfHandledForms.indexOf(form.id) !== -1) {
+        // Inject honeypot & timing if missing
+        if (!form.querySelector('input[name="hp_website_check"]')) {
+          var hp = document.createElement('input');
+          hp.type = 'text';
+          hp.name = 'hp_website_check';
+          hp.style.cssText = 'display:none!important;position:absolute;left:-9999px;opacity:0;';
+          hp.tabIndex = -1;
+          hp.autocomplete = 'off';
+          form.appendChild(hp);
+        }
+        if (!form.querySelector('input[name="form_loaded_at"]')) {
+          var tm = document.createElement('input');
+          tm.type = 'hidden';
+          tm.name = 'form_loaded_at';
+          tm.value = String(Date.now());
+          form.appendChild(tm);
+        }
+        form.dataset.arHandled = 'true';
         return;
       }
 
@@ -242,69 +480,18 @@
         form.appendChild(hpWrap);
       }
 
-      form.addEventListener('submit', async function (e) {
+      // Handle api-contact-form which has inline alert onsubmit
+      if (form.id === 'api-contact-form') {
+        form.removeAttribute('onsubmit');
+        form.onsubmit = null;
+      }
+
+      // Intercept submit
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-
-        // 1. Validate A2P 10DLC SMS Consent Checkbox if present in form
-        var consentBox = form.querySelector('input[name="sms_consent"]');
-        if (consentBox && !consentBox.checked) {
-          var consentContainer = consentBox.closest('.ar-sms-consent-box') || consentBox.parentElement;
-          if (consentContainer) {
-            consentContainer.style.outline = '2px solid #BE8C33';
-            consentContainer.style.outlineOffset = '2px';
-            consentContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-          consentBox.focus();
-          return;
-        } else if (consentBox) {
-          var consentContainer = consentBox.closest('.ar-sms-consent-box') || consentBox.parentElement;
-          if (consentContainer) consentContainer.style.outline = '';
-        }
-
-        // 2. Check honeypot field
-        var hp = form.querySelector('input[name="hp_website_check"]');
-        if (hp && hp.value.trim()) {
-          // Bot detected: silent success drop
-          showSuccess();
-          return;
-        }
-
-        var submitBtn = form.querySelector('[type="submit"]') || form.querySelector('button');
-        var origText = submitBtn ? submitBtn.innerText : 'Submit';
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerText = 'Sending...';
-        }
-
-        // 3. Serialize and post to secure /api/contact/
-        var formData = new FormData(form);
-        var payload = { page_url: window.location.pathname };
-        formData.forEach(function (v, k) { payload[k] = v; });
-
-        try {
-          await fetch('/api/contact/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        } catch (err) {
-          console.warn('[Contact Form] Notice:', err.message);
-        }
-
-        function showSuccess() {
-          var successMsg = document.createElement('div');
-          successMsg.className = 'ar-form-success-msg';
-          successMsg.style.cssText = 'background:#10b981;color:#fff;padding:16px 20px;border-radius:12px;font-weight:700;font-size:15px;margin-top:15px;text-align:center;box-shadow:0 10px 25px rgba(16,185,129,0.25);';
-          successMsg.innerHTML = '✓ Thank you! Your request has been received. Our team will contact you within 2 hours.';
-
-          form.style.display = 'none';
-          if (form.parentNode) {
-            form.parentNode.appendChild(successMsg);
-          }
-        }
-
-        setTimeout(showSuccess, 400);
-      });
+        e.stopImmediatePropagation();
+        submitUnifiedForm(form);
+      }, true);
     });
   }
 

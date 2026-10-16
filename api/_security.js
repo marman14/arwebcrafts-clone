@@ -131,7 +131,7 @@ function sanitizeInput(val, maxLength = 1000) {
 // Spam & Bot detection
 function isSpamSubmission(data) {
   // 1. Honeypot check
-  if (data.hp_website_check || data.confirm_hp || data.website_url) {
+  if (data.hp_website_check || data.confirm_hp || data.ak_hp_textarea || data.hp_check) {
     return { isSpam: true, reason: 'Honeypot field was filled' };
   }
 
