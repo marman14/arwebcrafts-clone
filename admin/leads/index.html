@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Centralized Form Submissions Dashboard | AR Webcrafts</title>
-  <link rel="icon" href="/wp-content/uploads/2023/01/ar-webcrafts-logo.webp">
+  <link rel="icon" href="/wp-content/uploads/2024/03/AR_Logo-150x150.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,11 +54,28 @@
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
     }
     .brand-logo {
       height: 38px;
-      width: auto;
+      width: 38px;
+      object-fit: contain;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      white-space: nowrap;
     }
     .brand-badge {
       background: rgba(200, 157, 75, 0.15);
@@ -521,6 +538,10 @@
   <!-- Lock Screen Authentication -->
   <div id="lockScreen" class="lock-screen">
     <div class="lock-card">
+      <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:18px;">
+        <img src="/wp-content/uploads/2024/03/AR_Logo.webp" alt="AR Webcrafts" style="height:42px; width:42px; object-fit:contain; border-radius:8px;" onerror="this.onerror=null;this.src='/wp-content/uploads/2023/01/ar-webcrafts-logo.webp';">
+        <span style="font-size:22px; font-weight:800; color:#FFFFFF; letter-spacing:-0.02em;">AR Webcrafts</span>
+      </div>
       <div class="lock-icon">
         <i class="fas fa-shield-alt"></i>
       </div>
@@ -538,7 +559,10 @@
   <!-- Top Navigation -->
   <header class="top-bar">
     <div class="brand-wrap">
-      <img src="/wp-content/uploads/2023/01/ar-webcrafts-logo.webp" alt="AR Webcrafts Logo" class="brand-logo">
+      <a href="/" class="brand-link" title="AR Webcrafts - Home">
+        <img src="/wp-content/uploads/2024/03/AR_Logo.webp" alt="AR Webcrafts" class="brand-logo" width="38" height="38" onerror="this.onerror=null;this.src='/wp-content/uploads/2023/01/ar-webcrafts-logo.webp';">
+        <span class="brand-name">AR Webcrafts</span>
+      </a>
       <span class="brand-badge"><i class="fas fa-circle" style="color:#22C55E; font-size:8px;"></i> Live Submissions</span>
     </div>
     <div class="top-actions">
