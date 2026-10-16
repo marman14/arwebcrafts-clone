@@ -107,10 +107,14 @@
     closeBtn.addEventListener('click', closeMenu, true);
     overlay.addEventListener('click', closeMenu, true);
 
-    // Close when clicking normal navigation links
-    var links = menuContainer.querySelectorAll('.elementskit-navbar-nav a:not(.elementskit-dropdown-has > a)');
+    // Close when clicking normal navigation links (ignore dropdown toggles)
+    var links = menuContainer.querySelectorAll('.elementskit-navbar-nav a');
     links.forEach(function (link) {
       link.addEventListener('click', function () {
+        // Do not close drawer if clicking dropdown triggers
+        if (link.closest('.elementskit-dropdown-has > a') || link.closest('.ar-cs-dropdown-parent > a') || link.matches('.ar-cs-dropdown-parent > a')) {
+          return;
+        }
         closeMenu();
       });
     });
@@ -574,6 +578,168 @@
     }
   }
 
+  /**
+   * Case Studies Header Dropdown & Smooth Section Anchoring
+   * - Attaches center-aligned dropdown beneath "Case Studies"
+   * - 4 Items (Top to Bottom):
+   *   1. LearnDash Plugins
+   *   2. WooCommerce Custom Solution
+   *   3. TutorLMS Plugins
+   *   4. LifterLMS Plugins
+   * - Smooth scrolling to sections with fixed-header offset
+   * - Supports both .elementskit-navbar-nav and .wl-nav-links
+   */
+  function initCaseStudiesDropdown() {
+    var navLinks = document.querySelectorAll(
+      '.elementskit-navbar-nav > li > a[href*="/products/"], ' +
+      '.elementskit-navbar-nav > li#menu-item-10197 > a, ' +
+      '.wl-nav-links > li > a[href*="products"]'
+    );
+
+    if (!navLinks.length) return;
+
+    navLinks.forEach(function (link) {
+      // Avoid footer or other non-header links
+      var parentLi = link.closest('li');
+      if (!parentLi) return;
+
+      // Avoid buttons outside main navbar
+      if (link.closest('.elementor-widget-button') || link.closest('.footer') || link.closest('footer')) return;
+
+      parentLi.classList.add('ar-cs-dropdown-parent');
+      link.setAttribute('target', '_self');
+      link.removeAttribute('rel');
+      link.setAttribute('aria-haspopup', 'true');
+      link.setAttribute('aria-expanded', 'false');
+
+      // Append Chevron Indicator if missing
+      if (!link.querySelector('.ar-cs-indicator')) {
+        var indicator = document.createElement('span');
+        indicator.className = 'ar-cs-indicator';
+        indicator.setAttribute('aria-hidden', 'true');
+        indicator.innerHTML = '<svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor"><path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06L6.53 8.78a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/></svg>';
+        link.appendChild(indicator);
+      }
+
+      // Check or create dropdown container
+      var dropdown = parentLi.querySelector('.ar-cs-dropdown');
+      if (!dropdown) {
+        dropdown = document.createElement('ul');
+        dropdown.className = 'ar-cs-dropdown';
+        dropdown.setAttribute('role', 'menu');
+        dropdown.setAttribute('aria-label', 'Case Studies submenu');
+        dropdown.innerHTML = 
+          '<li class="ar-cs-item" role="none"><a href="/products/#learndash-plugins" class="ar-cs-link" role="menuitem">LearnDash Plugins</a></li>' +
+          '<li class="ar-cs-item" role="none"><a href="/products/#woocommerce-custom-solution" class="ar-cs-link" role="menuitem">WooCommerce Custom Solution</a></li>' +
+          '<li class="ar-cs-item" role="none"><a href="/products/#tutorlms-plugins" class="ar-cs-link" role="menuitem">TutorLMS Plugins</a></li>' +
+          '<li class="ar-cs-item" role="none"><a href="/products/#lifterlms-plugins" class="ar-cs-link" role="menuitem">LifterLMS Plugins</a></li>';
+        parentLi.appendChild(dropdown);
+      }
+
+      // Desktop Hover Hold
+      var hoverTimer = null;
+      var isDesktop = function () {
+        return window.innerWidth >= 1025;
+      };
+
+      parentLi.addEventListener('mouseenter', function () {
+        if (!isDesktop()) return;
+        if (hoverTimer) clearTimeout(hoverTimer);
+        parentLi.classList.add('ar-cs-open');
+        link.setAttribute('aria-expanded', 'true');
+      });
+
+      parentLi.addEventListener('mouseleave', function () {
+        if (!isDesktop()) return;
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(function () {
+          parentLi.classList.remove('ar-cs-open');
+          link.setAttribute('aria-expanded', 'false');
+        }, 220);
+      });
+
+      // Mobile Tap Behavior: cleanly toggle dropdown accordion on mobile
+      link.addEventListener('click', function (e) {
+        if (isDesktop()) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var isOpen = parentLi.classList.toggle('ar-cs-mobile-open');
+        link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      // Smooth Anchor Click Navigation
+      var subLinks = dropdown.querySelectorAll('.ar-cs-link');
+      subLinks.forEach(function (sLink) {
+        sLink.addEventListener('click', function (e) {
+          var targetHref = sLink.getAttribute('href') || '';
+          var hashIdx = targetHref.indexOf('#');
+          if (hashIdx === -1) return;
+          var hash = targetHref.substring(hashIdx);
+
+          var currentCleanPath = window.location.pathname.replace(/\/+$/, '') || '/';
+          var isProductsPage = (currentCleanPath === '/products');
+
+          parentLi.classList.remove('ar-cs-open', 'ar-cs-mobile-open');
+          if (window.closeMobileDrawer) window.closeMobileDrawer();
+
+          if (isProductsPage) {
+            e.preventDefault();
+            smoothScrollToAnchor(hash);
+            try {
+              history.pushState(null, '', hash);
+            } catch (err) {}
+          }
+        });
+      });
+    });
+
+    // Hash Scroll Handling on /products/
+    handleInitialHashScroll();
+  }
+
+  function smoothScrollToAnchor(hash) {
+    if (!hash) return;
+    var rawId = hash.replace(/^#/, '');
+    
+    // Support aliases if needed
+    var target = document.getElementById(rawId);
+    if (!target) {
+      if (/learndash/i.test(rawId)) {
+        target = document.querySelector('#learndash-plugins, [data-id="8e23a08"]');
+      } else if (/woocommerce/i.test(rawId)) {
+        target = document.querySelector('#woocommerce-custom-solution, [data-id="6b38e8a"]');
+      } else if (/tutor/i.test(rawId)) {
+        target = document.querySelector('#tutorlms-plugins, [data-id="955b6e4"]');
+      } else if (/lifter/i.test(rawId)) {
+        target = document.querySelector('#lifterlms-plugins, [data-id="709e788"]');
+      }
+    }
+
+    if (target) {
+      var headerOffset = 95;
+      var elTop = target.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elTop - headerOffset),
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  function handleInitialHashScroll() {
+    var currentCleanPath = window.location.pathname.replace(/\/+$/, '') || '/';
+    if (currentCleanPath !== '/products') return;
+
+    if (window.location.hash) {
+      setTimeout(function () {
+        smoothScrollToAnchor(window.location.hash);
+      }, 180);
+    }
+
+    window.addEventListener('hashchange', function () {
+      smoothScrollToAnchor(window.location.hash);
+    });
+  }
+
   function init() {
     initTopBar();
     initMobileMenu();
@@ -581,6 +747,7 @@
     initFormHandling();
     initWhatsAppButton();
     initNavEnhancements();
+    initCaseStudiesDropdown();
     initScrollAnimations();
   }
 

@@ -2834,5 +2834,240 @@ section.elementor-element-ac3f73a,
   line-height: 1.5 !important;
 }
 
+/* ============================================================
+   CASE STUDIES HEADER DROPDOWN & SMOOTH ANCHOR NAVIGATION
+   ============================================================ */
+
+/* 1. Precise Section Scroll Offsets for Zero Fixed-Header Overlap */
+#learndash-plugins,
+#woocommerce-custom-solution,
+#tutorlms-plugins,
+#lifterlms-plugins,
+[data-id="8e23a08"],
+[data-id="6b38e8a"],
+[data-id="955b6e4"],
+[data-id="709e788"] {
+  scroll-margin-top: 100px !important;
+}
+
+/* 2. Parent Navigation Item Position */
+.elementskit-navbar-nav > li.ar-cs-dropdown-parent,
+.wl-nav-links > li.ar-cs-dropdown-parent {
+  position: relative !important;
+}
+
+/* Top Link Styling & Indicator */
+.elementskit-navbar-nav > li.ar-cs-dropdown-parent > a.ekit-menu-nav-link,
+.wl-nav-links > li.ar-cs-dropdown-parent > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+}
+
+.ar-cs-indicator {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-left: 2px !important;
+  pointer-events: none !important;
+}
+
+.ar-cs-indicator svg {
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  fill: currentColor !important;
+  opacity: 0.8 !important;
+}
+
+.ar-cs-dropdown-parent:hover .ar-cs-indicator,
+.ar-cs-dropdown-parent.ar-cs-open .ar-cs-indicator,
+.ar-cs-dropdown-parent.ar-cs-mobile-open .ar-cs-indicator {
+  transform: rotate(180deg) !important;
+}
+
+/* 3. Desktop Dropdown Menu Container (Center-Aligned Under Button) */
+@media (min-width: 1025px) {
+  .ar-cs-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(12px) !important;
+    background: #071527 !important;
+    border: 1px solid rgba(190, 140, 51, 0.35) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(190, 140, 51, 0.12) !important;
+    min-width: 260px !important;
+    padding: 8px !important;
+    margin: 10px 0 0 0 !important;
+    list-style: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
+    z-index: 999999 !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  /* Triangle Pointer Arrow */
+  .ar-cs-dropdown::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+    width: 10px !important;
+    height: 10px !important;
+    background: #071527 !important;
+    border-top: 1px solid rgba(190, 140, 51, 0.35) !important;
+    border-left: 1px solid rgba(190, 140, 51, 0.35) !important;
+    pointer-events: none !important;
+  }
+
+  /* Active / Hover Reveal */
+  .ar-cs-dropdown-parent:hover > .ar-cs-dropdown,
+  .ar-cs-dropdown-parent.ar-cs-open > .ar-cs-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  /* Dropdown List Items */
+  .ar-cs-dropdown .ar-cs-item {
+    list-style: none !important;
+    margin: 3px 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .ar-cs-dropdown .ar-cs-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 10px 14px !important;
+    color: #E2E8F0 !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+    border-left: 2px solid transparent !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .ar-cs-dropdown .ar-cs-link:hover,
+  .ar-cs-dropdown .ar-cs-link:focus {
+    background: rgba(190, 140, 51, 0.14) !important;
+    color: #BE8C33 !important;
+    border-left-color: #BE8C33 !important;
+    transform: translateX(4px) !important;
+    text-decoration: none !important;
+  }
+}
+
+/* 4. Mobile Drawer Responsive Accordion */
+@media (max-width: 1024px) {
+  .elementskit-navbar-nav > li.ar-cs-dropdown-parent,
+  .wl-nav-links > li.ar-cs-dropdown-parent {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .elementskit-navbar-nav > li.ar-cs-dropdown-parent > a.ekit-menu-nav-link,
+  .wl-nav-links > li.ar-cs-dropdown-parent > a {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .ar-cs-indicator {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+    color: #94A3B8 !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+  }
+
+  .ar-cs-dropdown-parent.ar-cs-mobile-open .ar-cs-indicator {
+    transform: rotate(180deg) !important;
+    color: #BE8C33 !important;
+  }
+
+  .ar-cs-dropdown-parent.ar-cs-mobile-open > a {
+    color: #BE8C33 !important;
+  }
+
+  .ar-cs-dropdown {
+    display: none !important;
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+    padding: 8px 16px 12px 22px !important;
+    margin: 0 !important;
+    background: #F8FAFC !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: 3px solid #BE8C33 !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .ar-cs-dropdown::before {
+    display: none !important;
+  }
+
+  .ar-cs-dropdown-parent.ar-cs-mobile-open > .ar-cs-dropdown {
+    display: block !important;
+  }
+
+  .ar-cs-dropdown .ar-cs-item {
+    list-style: none !important;
+    margin: 4px 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .ar-cs-dropdown .ar-cs-link {
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 12px !important;
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: color 0.15s ease, background 0.15s ease !important;
+  }
+
+  .ar-cs-dropdown .ar-cs-link:hover,
+  .ar-cs-dropdown .ar-cs-link:active {
+    color: #BE8C33 !important;
+    background: rgba(190, 140, 51, 0.08) !important;
+  }
+}
+
+
 
 
