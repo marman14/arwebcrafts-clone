@@ -2503,8 +2503,8 @@ section.elementor-element-ac3f73a,
 
   /* ── Header bar inside mega menu (Deep Navy with Gold Titles) ── */
   .elementskit-megamenu-panel .elementor-element-4bf31f5d {
-    background: linear-gradient(135deg, #011B39 0%, #0A2444 100%) !important;
-    padding: 14px 20px !important;
+    background: #011B39 !important;
+    padding: 14px 0 !important;
     min-height: 44px !important;
     box-sizing: border-box !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -2516,23 +2516,25 @@ section.elementor-element-ac3f73a,
     display: flex !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
-    justify-content: space-between !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-column,
-  .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-ds-hdr,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-7bf60c7a,
-  .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-9fccfc {
+  .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-9fccfc,
+  .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-ds-hdr {
     flex: 1 1 33.333% !important;
     max-width: 33.333% !important;
     width: 33.333% !important;
-    padding: 0 12px !important;
+    padding: 0 16px !important;
     margin: 0 !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-widget-wrap,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-populated,
@@ -2542,6 +2544,7 @@ section.elementor-element-ac3f73a,
     padding: 0 !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
     width: 100% !important;
   }
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-widget,
@@ -2550,6 +2553,8 @@ section.elementor-element-ac3f73a,
     padding: 0 !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
   }
   /* Perfect vertical alignment for all 3 top headings: SERVICES, MAINTENANCE, DIGITAL SOLUTIONS */
   .elementskit-megamenu-panel .elementor-element-4bf31f5d h2.elementor-heading-title,
@@ -2560,26 +2565,23 @@ section.elementor-element-ac3f73a,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-9a1bcf8 .elementor-heading-title,
   .elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-2c61c89f .elementor-heading-title {
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
-    font-size: 12px !important;
+    font-size: 13px !important;
     font-weight: 800 !important;
-    letter-spacing: 0.12em !important;
+    letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
     color: #BE8C33 !important;
     margin: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
     padding: 0 !important;
-    border: none !important;
     line-height: 1 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    vertical-align: middle !important;
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
   }
 
   /* ── Links content inside mega menu ── */
   .elementskit-megamenu-panel .elementor-element-2ae102a7 {
     background: #FFFFFF !important;
-    padding: 14px 16px 20px 16px !important;
+    padding: 16px 0 !important;
     margin: 0 !important;
   }
   .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-container {
@@ -2590,48 +2592,86 @@ section.elementor-element-ac3f73a,
     margin: 0 !important;
     padding: 0 !important;
   }
-  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-column {
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-column,
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-element-54e30697,
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-element-749e05bf,
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-element-ds-col {
     flex: 1 1 33.333% !important;
     max-width: 33.333% !important;
     width: 33.333% !important;
-    padding: 0 10px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
   .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-column + .elementor-column {
     border-left: 1px solid #F1F5F9 !important;
   }
-
-  /* Hide duplicate mobile headers in desktop mega menu */
-  .elementskit-megamenu-panel .elementor-hidden-desktop {
-    display: none !important;
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-widget-wrap,
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-element-populated,
+  .elementskit-megamenu-panel .elementor-element.elementor-element-ds-col > .elementor-element-populated,
+  .elementor-1638 .elementor-element.elementor-element-ds-col > .elementor-element-populated {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
   }
 
-  /* Menu Icon Box Items */
+  /* All Icon Box Widgets */
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-widget-icon-box {
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+  }
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-widget-icon-box:last-child {
+    margin-bottom: 0 !important;
+  }
+  .elementskit-megamenu-panel .elementor-element-2ae102a7 .elementor-widget-container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Item Wrappers & Links */
   .elementskit-megamenu-panel .elementor-icon-box-wrapper {
-    display: block !important;
-    padding: 8px 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 9px 12px !important;
+    min-height: 40px !important;
     border-radius: 8px !important;
-    margin: 0 0 3px 0 !important;
-    transition: background 0.16s ease, transform 0.16s ease !important;
-    text-decoration: none !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
   }
   .elementskit-megamenu-panel .elementor-icon-box-wrapper:hover {
     background: rgba(190, 140, 51, 0.08) !important;
-    transform: translateX(3px) !important;
+    transform: translateY(-1px) !important;
   }
-
+  .elementskit-megamenu-panel .elementor-icon-box-content {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .elementskit-megamenu-panel .elementor-icon-box-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    line-height: 1.35 !important;
+  }
   .elementskit-megamenu-panel .elementor-icon-box-title,
-  .elementskit-megamenu-panel .elementor-icon-box-title a {
+  .elementskit-megamenu-panel .elementor-icon-box-title a,
+  .elementor-1638 .elementor-element-ds-col .elementor-icon-box-title,
+  .elementor-1638 .elementor-element-ds-col .elementor-icon-box-title a {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 13px !important;
+    font-size: 13.5px !important;
     font-weight: 600 !important;
     color: #1E293B !important;
     text-decoration: none !important;
     line-height: 1.35 !important;
-    display: block !important;
+    display: inline-block !important;
+    text-align: center !important;
     transition: color 0.16s ease !important;
   }
   .elementskit-megamenu-panel .elementor-icon-box-wrapper:hover .elementor-icon-box-title,
-  .elementskit-megamenu-panel .elementor-icon-box-wrapper:hover .elementor-icon-box-title a {
+  .elementskit-megamenu-panel .elementor-icon-box-wrapper:hover .elementor-icon-box-title a,
+  .elementskit-megamenu-panel .elementor-element-ds-col .elementor-icon-box-wrapper:hover .elementor-icon-box-title a {
     color: #BE8C33 !important;
   }
 
@@ -2642,6 +2682,11 @@ section.elementor-element-ac3f73a,
   }
   .elementskit-megamenu-panel .elementor-widget { padding: 0 !important; }
   .elementskit-megamenu-panel .elementor-widget-container { padding: 0 !important; }
+
+  /* Hide duplicate mobile headers in desktop mega menu */
+  .elementskit-megamenu-panel .elementor-hidden-desktop {
+    display: none !important;
+  }
 }
 
 /* ============================================================
