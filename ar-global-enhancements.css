@@ -2866,50 +2866,206 @@ section.elementor-element-ac3f73a,
   align-items: center !important;
   width: 100% !important;
 }
-.wl-hero-card {
+/* ── Master White Label / Agency Partner Form System ── */
+.wl-hero-card,
+.wpd-hero-card {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
   padding: 24px 24px 20px !important;
-  width: 100% !important;
+  box-shadow: 0 24px 60px rgba(1, 27, 57, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  position: relative !important;
   box-sizing: border-box !important;
+  width: 100% !important;
+  transform: none !important;
+  text-align: left !important;
+  color: #0A1C2E !important;
 }
-.wl-card-title {
-  margin-bottom: 4px !important;
+.wl-hero-card::before,
+.wpd-hero-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -1px !important; left: -1px !important; right: -1px !important; bottom: -1px !important;
+  border-radius: 21px !important;
+  background: linear-gradient(135deg, rgba(190, 140, 51, 0.4) 0%, transparent 50%) !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
 }
-.wl-card-sub {
-  margin-bottom: 14px !important;
+.wl-card-title,
+.wpd-card-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  color: #011B39 !important;
+  margin: 0 0 4px !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+}
+.wl-card-sub,
+.wpd-card-sub {
+  font-family: 'Poppins', -apple-system, sans-serif !important;
+  font-size: 12.5px !important;
+  color: #64748B !important;
+  margin: 0 0 14px !important;
   padding-bottom: 12px !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
 }
-.wl-form {
+.wl-form,
+.wpd-form {
+  display: grid !important;
   gap: 9px !important;
+  text-align: left !important;
 }
-.wl-field input, .wl-field select, .wl-field textarea {
-  padding: 9px 12px !important;
+.wl-field,
+.wpd-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  text-align: left !important;
+}
+.wl-field label,
+.wpd-field label,
+#wpd-plugin-form label,
+#wl-partner-form label {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #64748B !important;
+  line-height: 1.2 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+.wl-field input,
+.wl-field select,
+.wl-field textarea,
+.wpd-field input,
+.wpd-field select,
+.wpd-field textarea,
+#wpd-plugin-form input,
+#wpd-plugin-form select,
+#wpd-plugin-form textarea {
+  font-family: 'Poppins', -apple-system, sans-serif !important;
   font-size: 13.5px !important;
+  color: #0A1C2E !important;
+  background: #F8FAFC !important;
+  background-color: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 9px 12px !important;
+  width: 100% !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
 }
-.wl-field textarea {
+.wl-field input:focus,
+.wl-field select:focus,
+.wl-field textarea:focus,
+.wpd-field input:focus,
+.wpd-field select:focus,
+.wpd-field textarea:focus,
+#wpd-plugin-form input:focus,
+#wpd-plugin-form select:focus,
+#wpd-plugin-form textarea:focus {
+  border-color: #BE8C33 !important;
+  box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15) !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+}
+.wl-field textarea,
+.wpd-field textarea {
+  resize: vertical !important;
   min-height: 64px !important;
 }
-.wl-submit-btn {
-  padding: 11px 20px !important;
+.wl-form-row,
+.wpd-form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+.wl-submit-btn,
+.wpd-submit-btn,
+#wpd-submit-btn,
+#wl-submit-btn {
+  width: 100% !important;
+  background: #011B39 !important;
+  background-color: #011B39 !important;
+  color: #FFFFFF !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 700 !important;
   font-size: 14.5px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  padding: 11px 20px !important;
+  border-radius: 9px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 2px !important;
+  box-shadow: 0 4px 14px rgba(1, 27, 57, 0.15) !important;
+}
+.wl-submit-btn:hover,
+.wpd-submit-btn:hover,
+#wpd-submit-btn:hover,
+#wl-submit-btn:hover {
+  background: #BE8C33 !important;
+  background-color: #BE8C33 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(190, 140, 51, 0.3) !important;
+  color: #FFFFFF !important;
+}
+.wl-form-trust,
+.wpd-form-trust {
+  text-align: center !important;
+  font-size: 11px !important;
+  color: #64748B !important;
+  margin-top: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  line-height: 1.3 !important;
+}
+.wl-form-trust i,
+.wpd-form-trust i {
+  color: #64748B !important;
+  font-size: 11px !important;
 }
 @media (max-width: 980px) {
   .wl-hero-grid {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
   }
-  .wl-hero-card {
+  .wl-hero-card,
+  .wpd-hero-card {
     max-width: 520px !important;
     margin: 0 auto !important;
   }
 }
 @media (max-width: 600px) {
-  .wl-hero-card {
+  .wl-hero-card,
+  .wpd-hero-card {
     padding: 20px 16px 18px !important;
     max-width: 100% !important;
   }
-  .wl-form-row {
+  .wl-form-row,
+  .wpd-form-row {
     grid-template-columns: 1fr !important;
     gap: 9px !important;
+  }
+  .wl-field input, .wl-field select, .wl-field textarea,
+  .wpd-field input, .wpd-field select, .wpd-field textarea {
+    padding: 9px 10px !important;
+    font-size: 13px !important;
   }
 }
 

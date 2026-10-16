@@ -956,9 +956,7 @@ section.elementor-element-ac3f73a,
     box-sizing: border-box;
     width: 100%;
     color: var(--wpd-ink);
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+    transform: none;
   }
   .wpd-hero-card::before {
     content: '';
@@ -2497,39 +2495,38 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
         </div>
       </div>
 
-      <!-- Right Column: Adapted Plugin Development Contact Form -->
+      <!-- Right Column: WordPress Plugin Development Contact Form (Agency Partner Design) -->
       <div>
-        <div class="wpd-hero-card wpd-3d-card" id="wpd-contact-form" data-tilt>
-          <p class="wpd-card-title">Request Custom Plugin Development</p>
-          <p class="wpd-card-sub">Tell us about your plugin requirements. Speak directly with senior WordPress engineers within 2 business hours.</p>
+        <div class="wl-hero-card" id="wpd-contact-form">
+          <p class="wl-card-title">Request Custom Plugin Development</p>
+          <p class="wl-card-sub">Tell us about your plugin requirements. Speak directly with senior WordPress engineers within 2 business hours.</p>
 
-          <form class="wpd-form" id="wpd-plugin-form" name="wpd-plugin-form" aria-label="WordPress plugin development inquiry form">
-            <div class="wpd-form-row">
-              <div class="wpd-field">
+          <form class="wl-form" id="wpd-plugin-form" name="wpd-plugin-form" aria-label="WordPress plugin development inquiry form">
+            <div class="wl-form-row">
+              <div class="wl-field">
                 <label for="wpd-name">Your Name</label>
                 <input type="text" id="wpd-name" name="name" placeholder="John Smith" required autocomplete="name">
               </div>
-              <div class="wpd-field">
-                <label for="wpd-company">Company / Website</label>
-                <input type="text" id="wpd-company" name="company" placeholder="example.com" required>
+              <div class="wl-field">
+                <label for="wpd-company">Agency / Company</label>
+                <input type="text" id="wpd-company" name="company" placeholder="Smith Agency" required>
               </div>
             </div>
 
-            <div class="wpd-form-row">
-              <div class="wpd-field">
-                <label for="wpd-email">Work Email</label>
-                <input type="email" id="wpd-email" name="email" placeholder="john@company.com" required autocomplete="email">
-              </div>
-              <div class="wpd-field">
-                <label for="wpd-phone">Phone / WhatsApp</label>
-                <input type="tel" id="wpd-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
-              </div>
+            <div class="wl-field">
+              <label for="wpd-email">Work Email</label>
+              <input type="email" id="wpd-email" name="email" placeholder="john@youragency.com" required autocomplete="email">
             </div>
 
-            <div class="wpd-field">
-              <label for="wpd-service">Plugin Category / Service Needed</label>
+            <div class="wl-field">
+              <label for="wpd-phone">Phone / WhatsApp</label>
+              <input type="tel" id="wpd-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+            </div>
+
+            <div class="wl-field">
+              <label for="wpd-service">What Do You Need?</label>
               <select id="wpd-service" name="service" required>
-                <option value="" disabled selected>Select plugin requirement...</option>
+                <option value="" disabled selected>Select a plugin service...</option>
                 <option value="Custom Plugin From Scratch">Custom Plugin (Built From Scratch)</option>
                 <option value="WooCommerce Custom Plugin">WooCommerce Plugin / Checkout Extender</option>
                 <option value="LearnDash / LMS Extension">LearnDash Extension / LMS Add-on</option>
@@ -2542,7 +2539,7 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
               </select>
             </div>
 
-            <div class="wpd-field">
+            <div class="wl-field">
               <label for="wpd-budget">Estimated Budget / Timeline</label>
               <select id="wpd-budget" name="budget" required>
                 <option value="" disabled selected>Select estimated scope...</option>
@@ -2554,19 +2551,19 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
               </select>
             </div>
 
-            <div class="wpd-field">
-              <label for="wpd-message">Project Brief / Technical Requirements</label>
-              <textarea id="wpd-message" name="message" placeholder="What workflow, feature, or integration do you need? Existing plugins causing issues, third-party APIs to connect, etc..."></textarea>
+            <div class="wl-field">
+              <label for="wpd-message">Project Brief (Optional)</label>
+              <textarea id="wpd-message" name="message" placeholder="Tell us about your typical projects, client volume, and what you're looking for in a development partner..."></textarea>
             </div>
 
-            <button type="submit" class="wpd-submit-btn" id="wpd-submit-btn">
+            <button type="submit" class="wl-submit-btn" id="wpd-submit-btn">
               <i class="fas fa-paper-plane" aria-hidden="true"></i>
-              Get Custom Plugin Proposal
+              Send Plugin Inquiry
             </button>
 
-            <div class="wpd-form-trust" aria-label="Trust indicators">
-              <i class="fas fa-lock" style="font-size:11px; color:var(--wpd-gold);" aria-hidden="true"></i>
-              <span>100% Code Ownership · Strict NDA · Reply within 2 business hours</span>
+            <div class="wl-form-trust" aria-label="Trust indicators">
+              <i class="fas fa-lock" style="font-size:11px;" aria-hidden="true"></i>
+              <span>NDA signed before project discussion · Reply within 2 business hours</span>
             </div>
           </form>
         </div>
@@ -3626,67 +3623,72 @@ Hire A Full Stack Developer						</a></h2></div></div></div></div></div></div><d
     reveals.forEach(function(el) { el.classList.add('visible'); });
   }
 
-  // 2. Interactive 3D Perspective Tilt on Mouse Move
-  var tiltCards = document.querySelectorAll('[data-tilt]');
-  tiltCards.forEach(function(card) {
-    card.addEventListener('mousemove', function(e) {
-      var rect = card.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      var centerX = rect.width / 2;
-      var centerY = rect.height / 2;
-      var rotateX = ((y - centerY) / centerY) * -5;
-      var rotateY = ((x - centerX) / centerX) * 5;
-      card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
-    });
-
-    card.addEventListener('mouseleave', function() {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-    });
-  });
-
-  // 3. Contact Form Submission Handling
+  // 2. Contact Form Submission Handling (Agency Partner standard + Dashboard Sync)
   var form = document.getElementById('wpd-plugin-form');
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       var btn = document.getElementById('wpd-submit-btn');
+      var origBtnHtml = btn ? btn.innerHTML : '<i class="fas fa-paper-plane"></i> Send Plugin Inquiry';
       if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing Proposal...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       }
 
       var formData = new FormData(form);
-      var payload = { page_url: window.location.pathname };
-      formData.forEach(function(v, k) { payload[k] = v; });
-
-      payload.subject = 'Custom WordPress Plugin Request: ' + (payload.company || payload.name || 'New Client');
-      payload.message = '[Custom WordPress Plugin Inquiry]\nClient Name: ' + (payload.name || 'N/A') +
-        '\nCompany: ' + (payload.company || 'N/A') +
-        '\nEmail: ' + (payload.email || 'N/A') +
-        '\nPhone/WhatsApp: ' + (payload.phone || 'N/A') +
-        '\nService / Plugin Type: ' + (payload.service || 'Custom Plugin') +
-        '\nBudget / Scope: ' + (payload.budget || 'Not specified') +
-        '\nProject Brief: ' + (payload.message || 'None provided');
+      var payload = {
+        name: formData.get('name') || '',
+        company: formData.get('company') || '',
+        email: formData.get('email') || '',
+        phone: formData.get('phone') || '',
+        service: formData.get('service') || 'WordPress Plugin Development',
+        budget: formData.get('budget') || 'Not specified',
+        message: formData.get('message') || '',
+        page_url: window.location.pathname || '/wordpress-plugin-development/',
+        page_title: document.title || 'WordPress Plugin Development Services - AR Webcrafts',
+        subject: 'Custom WordPress Plugin Request: ' + (formData.get('company') || formData.get('name') || 'New Client')
+      };
 
       try {
-        await fetch('/api/contact/', {
+        var resp = await fetch('/api/contact/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-      } catch (err) {}
 
-      var card = form.closest('.wpd-hero-card');
+        if (resp.ok) {
+          var respData = await resp.json().catch(function() { return {}; });
+          try {
+            var browserLeads = JSON.parse(localStorage.getItem('arw_browser_leads') || '[]');
+            browserLeads.unshift({
+              id: respData.leadId || ('lead_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6)),
+              timestamp: new Date().toISOString(),
+              pageUrl: payload.page_url,
+              pageTitle: payload.page_title,
+              name: payload.name,
+              email: payload.email,
+              phone: payload.phone,
+              service: payload.service,
+              budget: payload.budget,
+              subject: payload.subject,
+              message: payload.message,
+              company: payload.company,
+              status: 'new'
+            });
+            localStorage.setItem('arw_browser_leads', JSON.stringify(browserLeads.slice(0, 100)));
+          } catch (e) {}
+        }
+      } catch (err) {
+        console.warn('[Form Submit Fallback]:', err);
+      }
+
+      var card = form.closest('.wl-hero-card') || form.closest('.wpd-hero-card');
       if (card) {
-        card.innerHTML = '<div style="text-align:center; padding:36px 18px;">' +
-          '<div style="font-size:3rem; margin-bottom:16px;">🚀</div>' +
-          '<h3 style="font-family:var(--wpd-sans); font-size:22px; font-weight:800; color:var(--wpd-navy); margin-bottom:12px;">Plugin Proposal Request Received!</h3>' +
-          '<p style="color:var(--wpd-muted); font-size:14.5px; line-height:1.65; margin-bottom:20px;">Thank you for contacting us. A senior WordPress software architect will analyze your technical requirements and contact you within 2 business hours with initial questions and a proposal outline.</p>' +
-          '<div style="background:var(--wpd-panel); border:1px solid var(--wpd-rule); border-radius:10px; padding:14px; font-size:13px; color:var(--wpd-muted); margin-bottom:18px;">' +
-          '<i class="fas fa-shield-alt" style="color:var(--wpd-gold); margin-right:6px;"></i> NDA Protected: All shared details are under strict confidentiality.' +
-          '</div>' +
-          '<p style="font-size:13px; color:var(--wpd-muted);">Need immediate feedback? <a href="https://wa.me/13072784862" target="_blank" style="color:var(--wpd-gold); font-weight:700; text-decoration:underline;">Chat with us on WhatsApp</a></p>' +
+        card.innerHTML = '<div style="text-align:center; padding:32px 16px;">' +
+          '<div style="font-size:3rem; margin-bottom:16px;">🎉</div>' +
+          '<h3 style="font-family:\'Plus Jakarta Sans\', sans-serif; font-size:22px; font-weight:800; color:#011B39; margin-bottom:12px;">Plugin Proposal Request Received!</h3>' +
+          '<p style="color:#64748B; font-size:15px; line-height:1.65; margin-bottom:20px;">Thank you, <strong style="color:#BE8C33;">' + (payload.name || 'there') + '</strong>. Our senior WordPress engineers will review your plugin requirements and get back to you within 2 business hours with a proposal outline.</p>' +
+          '<p style="font-size:13px; color:#64748B;">Need faster? <a href="https://wa.me/13072784862" target="_blank" style="color:#BE8C33; font-weight:700;">WhatsApp us directly</a></p>' +
           '</div>';
       }
     });
