@@ -1667,6 +1667,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
+
+
+
 <style id="ar-master-audit-fix">
 /* ══════════════════════════════════════════════════════════════════════════
    MASTER AUDIT FIX: FORM STYLING, PROCESS BOXES, CONTRAST & RESPONSIVENESS
@@ -1852,6 +1855,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   text-align: center !important;
 }
 
+/* 3. UNIFORM FEATURE CARD TAG LABELS */
+.ld-why-step,
+.ldm-why-step,
+.wpm-why-step,
+.ldms-why-step,
+.wcms-why-step,
+.wcd-why-num,
+.wtd-why-num,
+.wpd-why-num,
+.wms-pillar-badge,
+.hfsd-pillar-badge,
+.cwds-pillar-badge,
+.wpcd-pillar-badge,
+.aia-pillar-badge,
+.api-pillar-number,
+.was-pillar-badge {
+  display: block !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: #BE8C33 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 0 10px !important;
+  box-shadow: none !important;
+  transform: none !important;
+  width: auto !important;
+  text-align: left !important;
+}
+
 
 /* High contrast on light why cards & showcase */
 .wtd-why-section { background: #F8FAFC !important; color: #011B39 !important; }
@@ -1871,7 +1909,7 @@ h3.wtd-why-title {
   color: #011B39 !important;
 }
 .wtd-why-card p,
-.wtd-why-card .wtd-why-desc,
+.wtd-why-card .wpd-why-desc,
 .wtd-why-section .wtd-why-card p,
 .wtd-why-section .wtd-why-card .wtd-why-desc,
 .wtd-why-desc,
@@ -1893,7 +1931,7 @@ p.wtd-why-desc {
 }
 
 
-/* 3. MOBILE RESPONSIVENESS & COLLAPSE */
+/* 4. MOBILE RESPONSIVENESS & COLLAPSE */
 @media (max-width: 1024px) {
   .wtd-how-grid {
     grid-template-columns: repeat(2, 1fr) !important;
