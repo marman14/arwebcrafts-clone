@@ -134,30 +134,55 @@
         });
       }
 
-      // Desktop Hover Hold & Mouse Leave Grace Period
-      var hoverTimer = null;
+      // Desktop Hover Intent & Mouse Leave Grace Period (Prevents accidental premature triggers)
+      var openTimer = null;
+      var closeTimer = null;
       var isDesktop = function () {
         return window.innerWidth >= 1025;
       };
 
       serviceItem.addEventListener('mouseenter', function () {
         if (!isDesktop()) return;
-        if (hoverTimer) clearTimeout(hoverTimer);
-        serviceItem.classList.add('elementskit-dropdown-open');
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        if (serviceItem.classList.contains('elementskit-dropdown-open')) return;
+        // 180ms deliberate hover dwell prevents accidental pop-ups when cursor merely passes by
+        openTimer = setTimeout(function () {
+          serviceItem.classList.add('elementskit-dropdown-open');
+        }, 180);
       });
 
       serviceItem.addEventListener('mouseleave', function () {
         if (!isDesktop()) return;
-        if (hoverTimer) clearTimeout(hoverTimer);
-        hoverTimer = setTimeout(function () {
+        if (openTimer) {
+          clearTimeout(openTimer);
+          openTimer = null;
+        }
+        closeTimer = setTimeout(function () {
           serviceItem.classList.remove('elementskit-dropdown-open');
-        }, 220);
+        }, 220); // 220ms grace period so cursor can transition cleanly into panel
       });
+
+      // Desktop Click toggle support
+      var serviceLink = serviceItem.querySelector(':scope > a.ekit-menu-nav-link');
+      if (serviceLink) {
+        serviceLink.addEventListener('click', function (e) {
+          if (!isDesktop()) return;
+          if (!serviceItem.classList.contains('elementskit-dropdown-open')) {
+            if (openTimer) clearTimeout(openTimer);
+            serviceItem.classList.add('elementskit-dropdown-open');
+          }
+        });
+      }
 
       // Instantly close on sub-page link click to allow smooth navigation
       var panelLinks = serviceItem.querySelectorAll('.elementskit-megamenu-panel a');
       panelLinks.forEach(function (pLink) {
         pLink.addEventListener('click', function () {
+          if (openTimer) clearTimeout(openTimer);
+          if (closeTimer) clearTimeout(closeTimer);
           serviceItem.classList.remove('elementskit-dropdown-open');
         });
       });
@@ -640,14 +665,36 @@
     if (servicesLi && ul.firstElementChild !== servicesLi) {
       ul.insertBefore(servicesLi, ul.firstElementChild);
     }
-    // Perfectly align the 3 mega menu category headers vertically on the same baseline
+    // Center-align the 3 mega menu category headers directly over each column
     try {
       var headerRow = document.querySelector('.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-container');
       if (headerRow) {
         headerRow.style.setProperty('display', 'flex', 'important');
         headerRow.style.setProperty('align-items', 'center', 'important');
-        headerRow.style.setProperty('justify-content', 'space-between', 'important');
+        headerRow.style.setProperty('justify-content', 'center', 'important');
+        headerRow.style.setProperty('width', '100%', 'important');
+        headerRow.style.setProperty('max-width', '100%', 'important');
+        headerRow.style.setProperty('margin', '0', 'important');
+        headerRow.style.setProperty('padding', '0', 'important');
       }
+      var headerCols = document.querySelectorAll(
+        '.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-column, ' +
+        '.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-7bf60c7a, ' +
+        '.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-9fccfc, ' +
+        '.elementskit-megamenu-panel .elementor-element-4bf31f5d .elementor-element-ds-hdr'
+      );
+      headerCols.forEach(function (col) {
+        col.style.setProperty('flex', '1 1 33.333%', 'important');
+        col.style.setProperty('max-width', '33.333%', 'important');
+        col.style.setProperty('width', '33.333%', 'important');
+        col.style.setProperty('display', 'flex', 'important');
+        col.style.setProperty('align-items', 'center', 'important');
+        col.style.setProperty('justify-content', 'center', 'important');
+        col.style.setProperty('text-align', 'center', 'important');
+        col.style.setProperty('padding', '0 16px', 'important');
+        col.style.setProperty('margin', '0', 'important');
+        col.style.setProperty('box-sizing', 'border-box', 'important');
+      });
       var catTitles = document.querySelectorAll(
         '.elementskit-megamenu-panel .elementor-element-4bf31f5d h2.elementor-heading-title, ' +
         '.elementskit-megamenu-panel .elementor-element-ds-hdr-title .elementor-heading-title, ' +
@@ -658,14 +705,14 @@
         title.style.setProperty('margin', '0', 'important');
         title.style.setProperty('padding', '0', 'important');
         title.style.setProperty('line-height', '1', 'important');
-        title.style.setProperty('font-size', '12px', 'important');
+        title.style.setProperty('font-size', '13px', 'important');
         title.style.setProperty('font-weight', '800', 'important');
-        title.style.setProperty('letter-spacing', '0.12em', 'important');
+        title.style.setProperty('letter-spacing', '0.1em', 'important');
         title.style.setProperty('text-transform', 'uppercase', 'important');
         title.style.setProperty('color', '#BE8C33', 'important');
-        title.style.setProperty('display', 'inline-flex', 'important');
-        title.style.setProperty('align-items', 'center', 'important');
-        title.style.setProperty('vertical-align', 'middle', 'important');
+        title.style.setProperty('display', 'block', 'important');
+        title.style.setProperty('text-align', 'center', 'important');
+        title.style.setProperty('width', '100%', 'important');
       });
     } catch (e) {}
   }

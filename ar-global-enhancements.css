@@ -2425,17 +2425,11 @@ section.elementor-element-ac3f73a,
   .elementskit-navbar-nav > li#menu-item-1074 > a.ekit-menu-nav-link {
     position: relative !important;
   }
+  /* Eliminate artificial ghost trigger zones around Services link */
   .elementskit-navbar-nav > li.elementskit-dropdown-has > a.ekit-menu-nav-link::after,
   .elementskit-navbar-nav > li#menu-item-1074 > a.ekit-menu-nav-link::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: -20px !important;
-    right: -20px !important;
-    height: 40px !important;
-    background: transparent !important;
-    pointer-events: auto !important;
-    z-index: 99998 !important;
+    display: none !important;
+    content: none !important;
   }
 
   /* Unbeatable ID specificity: completely lock dropdown position centered on header container */
@@ -2459,7 +2453,7 @@ section.elementor-element-ac3f73a,
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.22s, visibility 0.22s ease 0.22s !important;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, visibility 0.22s ease 0.18s !important;
     z-index: 99999 !important;
     display: block !important;
     overflow: hidden !important;
@@ -2471,34 +2465,46 @@ section.elementor-element-ac3f73a,
     top: 100% !important;
   }
 
-  /* Invisible hover bridge to eliminate gap dropouts */
+  /* Hover bridge active only when open or hovered to prevent premature triggers */
   .elementskit-navbar-nav > li.elementskit-dropdown-has > .elementskit-megamenu-panel::before,
   #ekit-megamenu-panel-1074::before {
     content: '' !important;
     position: absolute !important;
-    top: -30px !important;
+    top: -16px !important;
     left: 0 !important;
     right: 0 !important;
-    height: 30px !important;
+    height: 16px !important;
     background: transparent !important;
+    pointer-events: none !important;
+  }
+  .elementskit-navbar-nav > li.elementskit-dropdown-open > .elementskit-megamenu-panel::before,
+  #ekit-megamenu-panel-1074:hover::before {
+    pointer-events: auto !important;
   }
 
-  /* Show panel on hover, focus-within, or active state with zero delay */
-  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074:hover > .elementskit-megamenu-panel,
-  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074:focus-within > .elementskit-megamenu-panel,
+  /* Controlled open state: Driven by deliberate hover intent or click */
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074.elementskit-dropdown-open > .elementskit-megamenu-panel,
-  html body .elementskit-navbar-nav-default.ekit-nav-dropdown-hover .elementskit-megamenu-has:hover > .elementskit-megamenu-panel,
-  html body .elementskit-navbar-nav-default .elementskit-megamenu-has:hover > .elementskit-megamenu-panel,
   html body .elementskit-navbar-nav-default .elementskit-dropdown-open > .elementskit-megamenu-panel,
-  .elementskit-navbar-nav > li.elementskit-dropdown-has:hover > .elementskit-megamenu-panel,
-  .elementskit-navbar-nav > li.elementskit-dropdown-has:focus-within > .elementskit-megamenu-panel,
   .elementskit-navbar-nav > li.elementskit-dropdown-open > .elementskit-megamenu-panel {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%) translateY(0) !important;
     left: 50% !important;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease !important;
     transition-delay: 0s !important;
+  }
+
+  /* CSS Hover Intent fallback: requires 180ms hover dwell to open, avoiding accidental triggers */
+  html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074:hover > .elementskit-megamenu-panel,
+  html body .elementskit-navbar-nav-default.ekit-nav-dropdown-hover .elementskit-megamenu-has:hover > .elementskit-megamenu-panel,
+  .elementskit-navbar-nav > li.elementskit-dropdown-has:hover > .elementskit-megamenu-panel {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(0) !important;
+    left: 50% !important;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, visibility 0.22s ease 0.18s !important;
   }
 
   /* ── Header bar inside mega menu (Deep Navy with Gold Titles) ── */
