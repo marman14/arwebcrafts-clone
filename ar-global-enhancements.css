@@ -2242,18 +2242,111 @@ section.elementor-element-ac3f73a,
 
 @media (min-width: 1025px) {
 
-  /* Prevent nav wrapping & align items cleanly in single horizontal row */
+  /* ── Master Header Vertical Center Alignment ── */
+  /* 1. Header Section Container: Single flex row centered vertically */
+  .elementor-element-7ec6df1,
+  .elementor-element-7ec6df1 > .elementor-container,
+  .ekit-template-content-header .elementor-section:not(.elementor-element-011475a) > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* 2. All 3 Header Columns: Align items on the exact same vertical center axis */
+  .elementor-element-7ec6df1 .elementor-column,
+  .elementor-element-7ec6df1 .elementor-column > .elementor-widget-wrap,
+  .elementor-element-7ec6df1 .elementor-column > .elementor-element-populated {
+    display: flex !important;
+    align-items: center !important;
+    align-content: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 3. Logo Column: Left-aligned, vertically centered */
+  .elementor-element-7ec6df1 .elementor-column.elementor-element-b2cfcaf,
+  .elementor-element-7ec6df1 .elementor-element-b2cfcaf > .elementor-widget-wrap {
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+  .elementor-element-7ec6df1 .elementor-element-69491ab {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+  }
+  .elementor-element-7ec6df1 .elementor-element-69491ab a {
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .elementor-element-7ec6df1 .elementor-element-69491ab img {
+    display: block !important;
+    vertical-align: middle !important;
+  }
+
+  /* 4. Nav Menu Column: Centered vertically & horizontally */
+  .elementor-element-7ec6df1 .elementor-column.elementor-element-59ce085,
+  .elementor-element-7ec6df1 .elementor-element-59ce085 > .elementor-widget-wrap {
+    justify-content: center !important;
+    align-items: center !important;
+    align-content: center !important;
+  }
+
+  .elementor-element-7ec6df1 .elementor-widget-ekit-nav-menu,
+  .elementor-element-7ec6df1 .elementor-widget-ekit-nav-menu .elementor-widget-container,
+  .elementor-element-7ec6df1 .elementor-widget-ekit-nav-menu nav.ekit-wid-con,
+  .elementor-element-7ec6df1 .elementskit-menu-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    min-height: 48px !important;
+    margin: 0 !important;
+  }
+
+  /* Prevent nav wrapping & align items cleanly in single horizontal row on the center axis */
   .elementskit-navbar-nav {
     display: flex !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
+    height: 100% !important;
     gap: 2px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 5. Free Consultation Button Column: Right-aligned, vertically centered */
+  .elementor-element-7ec6df1 .elementor-column.elementor-element-f74cd7b,
+  .elementor-element-7ec6df1 .elementor-element-f74cd7b > .elementor-widget-wrap {
+    justify-content: flex-end !important;
+    align-items: center !important;
+    align-content: center !important;
+  }
+  .elementor-element-7ec6df1 .elementor-element-50114e71 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+  }
+  .elementor-element-7ec6df1 .elementor-element-50114e71 .elementor-button-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .elementor-element-7ec6df1 .elementor-element-50114e71 .elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .elementskit-navbar-nav > li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     flex: 0 0 auto !important;
     white-space: nowrap !important;
+    height: 100% !important;
     transform: none !important; /* Critical: prevent transform on li from overriding position:fixed coordinate space */
   }
 
@@ -2266,8 +2359,9 @@ section.elementor-element-ac3f73a,
     padding: 7px 10px !important;
     border-radius: 8px !important;
     transition: color 0.18s ease, background 0.18s ease !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
+    line-height: 1.2 !important;
     gap: 4px !important;
     white-space: nowrap !important;
     text-decoration: none !important;
