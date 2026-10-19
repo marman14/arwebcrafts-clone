@@ -1,5 +1,27 @@
 [
   {
+    "id": "lead_mvfm8sdi_lme7",
+    "timestamp": "2026-10-19T18:56:56.742Z",
+    "pageUrl": "/hire-a-full-stack-wordpress-developer/",
+    "pageTitle": "Staff Augmentation Services | AR Webcrafts",
+    "name": "Sarah Jenkins",
+    "email": "sarah.jenkins@enterprise-partner.org",
+    "phone": "+1 307 278 4862",
+    "service": "Staff Augmentation & Dedicated Team",
+    "budget": "$10,000+",
+    "subject": "Staff Augmentation Inquiry - Full Stack Team",
+    "message": "We require 2 senior WordPress full stack engineers for an ongoing enterprise project.",
+    "company": "Jenkins Digital Dynamics",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+
+  {
     "id": "lead_mvbdqh7a_frv5",
     "timestamp": "2026-10-16T19:47:40.822Z",
     "pageUrl": "/portal-verification/",

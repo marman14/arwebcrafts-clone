@@ -126,10 +126,15 @@ module.exports = async (req, res) => {
 
     console.log(`[Verified Lead Stored]: ID=${savedLead.id}, Name=${name}, Source=${pageUrl}`);
 
-    // 6. Trigger Instant Email Notification
-    sendEmailNotification(savedLead).catch(err => {
-      console.error('[Notification Background Error]:', err.message);
-    });
+    // 6. Trigger Instant Email Notification (safely bounded so client never lags)
+    try {
+      await Promise.race([
+        sendEmailNotification(savedLead),
+        new Promise(resolve => setTimeout(resolve, 3500))
+      ]);
+    } catch (err) {
+      console.error('[Notification Dispatch Warning]:', err.message);
+    }
 
     return res.status(200).json({
       success: true,

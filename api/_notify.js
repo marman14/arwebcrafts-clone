@@ -3,8 +3,7 @@
 
 'use strict';
 
-const PRIMARY_EMAIL = 'arman@arwebcrafts.com';
-const SECONDARY_EMAIL = 'contact@arwebcrafts.com';
+const NOTIFICATION_EMAIL = 'contact@arwebcrafts.com';
 
 async function sendEmailNotification(lead) {
   const subject = `[New Lead - ${lead.pageTitle || 'AR Webcrafts'}] ${lead.name} (${lead.service || 'Inquiry'})`;
@@ -12,8 +11,8 @@ async function sendEmailNotification(lead) {
   const emailBody = {
     _subject: subject,
     _replyto: lead.email,
-    _cc: SECONDARY_EMAIL,
     _template: 'table',
+    _captcha: 'false',
     'Lead Name': lead.name,
     'Email Address': lead.email,
     'Phone Number': lead.phone || 'Not provided',
@@ -27,33 +26,35 @@ async function sendEmailNotification(lead) {
   };
 
   try {
-    // Dispatch via FormSubmit headless AJAX API to avoid third-party redirect
-    const response = await fetch(`https://formsubmit.co/ajax/${PRIMARY_EMAIL}`, {
+    // Dispatch strictly and exclusively to contact@arwebcrafts.com via FormSubmit headless AJAX API
+    const response = await fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Origin': 'https://www.arwebcrafts.com',
+        'Referer': 'https://www.arwebcrafts.com/'
       },
       body: JSON.stringify(emailBody),
-      signal: AbortSignal.timeout(5000) // 5s timeout guard
+      signal: AbortSignal.timeout(15000) // 15s timeout guard
     });
 
+    const result = await response.json().catch(() => ({}));
     if (response.ok) {
-      console.log(`[Notification Success] Email delivered for lead: ${lead.name} (${lead.email})`);
-      return { sent: true };
+      console.log(`[Notification Success] Email gateway responded for ${NOTIFICATION_EMAIL}:`, result);
+      return { sent: true, recipient: NOTIFICATION_EMAIL, details: result };
     } else {
-      const errText = await response.text();
-      console.warn(`[Notification Warning] Gateway returned ${response.status}: ${errText}`);
-      return { sent: false, error: errText };
+      console.warn(`[Notification Warning] Gateway returned ${response.status}:`, result);
+      return { sent: false, error: result.message || 'Gateway error', recipient: NOTIFICATION_EMAIL };
     }
   } catch (err) {
     console.error(`[Notification Error] Could not dispatch email notification: ${err.message}`);
-    return { sent: false, error: err.message };
+    return { sent: false, error: err.message, recipient: NOTIFICATION_EMAIL };
   }
 }
 
 module.exports = {
   sendEmailNotification,
-  PRIMARY_EMAIL,
-  SECONDARY_EMAIL
+  NOTIFICATION_EMAIL
 };
+
