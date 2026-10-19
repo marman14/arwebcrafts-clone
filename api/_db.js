@@ -10,6 +10,14 @@ const os = require('os');
 
 // In-memory cache for fast access and resilience
 let memoryStore = [];
+try {
+  const seed = require('./data/leads.json');
+  if (Array.isArray(seed)) {
+    memoryStore = [...seed];
+  }
+} catch (err) {
+  memoryStore = [];
+}
 
 function getStoragePath() {
   // Primary local path
@@ -26,10 +34,16 @@ function getStoragePath() {
   } catch (err) {
     // Fallback to os.tmpdir() for serverless read-only root filesystems
     const tmpDir = path.join(os.tmpdir(), 'arwebcrafts_data');
+    const tmpFile = path.join(tmpDir, 'leads.json');
     if (!fs.existsSync(tmpDir)) {
       try { fs.mkdirSync(tmpDir, { recursive: true }); } catch (_) {}
     }
-    return path.join(tmpDir, 'leads.json');
+    if (!fs.existsSync(tmpFile) && memoryStore.length > 0) {
+      try {
+        fs.writeFileSync(tmpFile, JSON.stringify(memoryStore, null, 2), 'utf8');
+      } catch (_) {}
+    }
+    return tmpFile;
   }
 }
 
@@ -40,8 +54,12 @@ function getAllLeads() {
       const data = fs.readFileSync(filePath, 'utf8');
       const parsed = JSON.parse(data);
       if (Array.isArray(parsed)) {
-        memoryStore = parsed;
-        return parsed;
+        const map = new Map();
+        memoryStore.forEach(l => { if (l && l.id) map.set(l.id, l); });
+        parsed.forEach(l => { if (l && l.id) map.set(l.id, l); });
+        const merged = Array.from(map.values()).sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0));
+        memoryStore = merged;
+        return merged;
       }
     }
   } catch (err) {
