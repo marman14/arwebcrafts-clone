@@ -1063,4 +1063,19 @@
     <loc>https://www.arwebcrafts.com/workplace-policy/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.arwebcrafts.com/saas-web-app-solutions/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arwebcrafts.com/custom-web-applications/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arwebcrafts.com/enterprise-scalable-solutions/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

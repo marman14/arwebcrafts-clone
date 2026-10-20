@@ -7,3 +7,6 @@ server.py
 .env
 .env.*
 .DS_Store
+hostinger-package/
+*.zip
+scratch/
