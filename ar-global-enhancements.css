@@ -3196,10 +3196,10 @@ section.elementor-element-ac3f73a,
     top: 100% !important;
     left: 50% !important;
     transform: translateX(-50%) translateY(12px) !important;
-    background: #071527 !important;
-    border: 1px solid rgba(190, 140, 51, 0.35) !important;
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
     border-radius: 12px !important;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(190, 140, 51, 0.12) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
     min-width: 260px !important;
     padding: 8px !important;
     margin: 10px 0 0 0 !important;
@@ -3209,8 +3209,6 @@ section.elementor-element-ac3f73a,
     pointer-events: none !important;
     transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
     z-index: 999999 !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
   }
 
   /* Triangle Pointer Arrow */
@@ -3222,9 +3220,9 @@ section.elementor-element-ac3f73a,
     transform: translateX(-50%) rotate(45deg) !important;
     width: 10px !important;
     height: 10px !important;
-    background: #071527 !important;
-    border-top: 1px solid rgba(190, 140, 51, 0.35) !important;
-    border-left: 1px solid rgba(190, 140, 51, 0.35) !important;
+    background: #F3F4F6 !important;
+    border-top: 1px solid #E5E7EB !important;
+    border-left: 1px solid #E5E7EB !important;
     pointer-events: none !important;
   }
 
@@ -3250,7 +3248,7 @@ section.elementor-element-ac3f73a,
     align-items: center !important;
     justify-content: flex-start !important;
     padding: 10px 14px !important;
-    color: #E2E8F0 !important;
+    color: #0F172A !important;
     font-family: inherit !important;
     font-size: 14px !important;
     font-weight: 600 !important;
@@ -3265,7 +3263,7 @@ section.elementor-element-ac3f73a,
 
   .ar-cs-dropdown .ar-cs-link:hover,
   .ar-cs-dropdown .ar-cs-link:focus {
-    background: rgba(190, 140, 51, 0.14) !important;
+    background: #E5E7EB !important;
     color: #BE8C33 !important;
     border-left-color: #BE8C33 !important;
     transform: translateX(4px) !important;
@@ -3323,7 +3321,7 @@ section.elementor-element-ac3f73a,
     list-style: none !important;
     padding: 8px 16px 12px 22px !important;
     margin: 0 !important;
-    background: #F8FAFC !important;
+    background: #F3F4F6 !important;
     border-top: none !important;
     border-right: none !important;
     border-bottom: none !important;
@@ -3353,7 +3351,7 @@ section.elementor-element-ac3f73a,
     display: flex !important;
     align-items: center !important;
     padding: 9px 12px !important;
-    color: #334155 !important;
+    color: #0F172A !important;
     font-size: 14px !important;
     font-weight: 500 !important;
     line-height: 1.4 !important;
