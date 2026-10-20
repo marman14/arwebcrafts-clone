@@ -26,6 +26,16 @@
       "permanent": true
     },
     {
+      "source": "/hire-a-full-stack-wordpress-developer",
+      "destination": "/staff-augmentation/",
+      "permanent": true
+    },
+    {
+      "source": "/hire-a-full-stack-wordpress-developer/",
+      "destination": "/staff-augmentation/",
+      "permanent": true
+    },
+    {
       "source": "/about",
       "destination": "/about-us/",
       "permanent": true

@@ -105,7 +105,8 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
         aliases = {
             "contact": "contact-us",
             "about": "about-us",
-            "home": ""
+            "home": "",
+            "hire-a-full-stack-wordpress-developer": "staff-augmentation"
         }
         if clean_path in aliases:
             clean_path = aliases[clean_path]
