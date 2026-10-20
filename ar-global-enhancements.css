@@ -3196,9 +3196,6 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
 
 /* 3. Desktop Dropdown Menu Container (Center-Aligned Directly Under Case Studies) */
 @media (min-width: 1025px) {
-  html body .elementskit-navbar-nav > li#menu-item-10197 > .ar-cs-dropdown,
-  html body .elementskit-navbar-nav > li.ar-cs-dropdown-parent > .ar-cs-dropdown,
-  html body .ar-cs-dropdown,
   .ar-cs-dropdown {
     position: absolute !important;
     top: 100% !important;
@@ -3259,6 +3256,10 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
   }
 
   /* Active / Hover Reveal */
+  html body .elementskit-navbar-nav > li#menu-item-10197:hover > .ar-cs-dropdown,
+  html body .elementskit-navbar-nav > li#menu-item-10197.ar-cs-open > .ar-cs-dropdown,
+  html body .elementskit-navbar-nav > li.ar-cs-dropdown-parent:hover > .ar-cs-dropdown,
+  html body .elementskit-navbar-nav > li.ar-cs-dropdown-parent.ar-cs-open > .ar-cs-dropdown,
   .ar-cs-dropdown-parent:hover > .ar-cs-dropdown,
   .ar-cs-dropdown-parent.ar-cs-open > .ar-cs-dropdown,
   li#menu-item-10197:hover > .ar-cs-dropdown,
