@@ -2406,15 +2406,15 @@ section.elementor-element-ac3f73a,
   /* ── The Premium Mega Menu Panel ── */
   /* Center-align mega menu relative to header container */
   /* Ensure parent li NEVER has relative positioning or transform containing blocks, even when opened */
-  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li,
-  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.elementskit-dropdown-open,
+  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li:not(.ar-cs-dropdown-parent):not(#menu-item-10197),
+  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.elementskit-dropdown-open:not(.ar-cs-dropdown-parent):not(#menu-item-10197),
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074,
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074.elementskit-dropdown-open,
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li.elementskit-dropdown-has,
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li.elementskit-dropdown-has.elementskit-dropdown-open,
   .elementskit-navbar-nav > li.elementskit-dropdown-has,
   .elementskit-navbar-nav > li#menu-item-1074,
-  .elementskit-navbar-nav > li.elementskit-dropdown-open {
+  .elementskit-navbar-nav > li.elementskit-dropdown-open:not(.ar-cs-dropdown-parent):not(#menu-item-10197) {
     position: static !important;
     transform: none !important;
   }
@@ -3152,6 +3152,11 @@ section.elementor-element-ac3f73a,
 }
 
 /* 2. Parent Navigation Item Position */
+html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li#menu-item-10197,
+html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.ar-cs-dropdown-parent,
+html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-10197,
+html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent,
+.elementskit-navbar-nav > li#menu-item-10197,
 .elementskit-navbar-nav > li.ar-cs-dropdown-parent,
 .wl-nav-links > li.ar-cs-dropdown-parent {
   position: relative !important;
@@ -3189,29 +3194,52 @@ section.elementor-element-ac3f73a,
   transform: rotate(180deg) !important;
 }
 
-/* 3. Desktop Dropdown Menu Container (Center-Aligned Under Button) */
+/* 3. Desktop Dropdown Menu Container (Center-Aligned Directly Under Case Studies) */
 @media (min-width: 1025px) {
+  html body .elementskit-navbar-nav > li#menu-item-10197 > .ar-cs-dropdown,
+  html body .elementskit-navbar-nav > li.ar-cs-dropdown-parent > .ar-cs-dropdown,
+  html body .ar-cs-dropdown,
   .ar-cs-dropdown {
     position: absolute !important;
     top: 100% !important;
     left: 50% !important;
-    transform: translateX(-50%) translateY(12px) !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) translateY(10px) !important;
     background: #F3F4F6 !important;
+    background-color: #F3F4F6 !important;
     border: 1px solid #E5E7EB !important;
     border-radius: 12px !important;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
-    min-width: 260px !important;
+    min-width: 250px !important;
+    width: max-content !important;
+    max-width: 320px !important;
     padding: 8px !important;
-    margin: 10px 0 0 0 !important;
+    margin: 0 !important;
     list-style: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s !important;
     z-index: 999999 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Hover Bridge: ensures smooth cursor transit between parent button and dropdown */
+  .ar-cs-dropdown::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -14px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 14px !important;
+    background: transparent !important;
+    pointer-events: auto !important;
   }
 
   /* Triangle Pointer Arrow */
+  html body .ar-cs-dropdown::before,
   .ar-cs-dropdown::before {
     content: '' !important;
     position: absolute !important;
@@ -3221,18 +3249,24 @@ section.elementor-element-ac3f73a,
     width: 10px !important;
     height: 10px !important;
     background: #F3F4F6 !important;
+    background-color: #F3F4F6 !important;
     border-top: 1px solid #E5E7EB !important;
     border-left: 1px solid #E5E7EB !important;
+    border-right: none !important;
+    border-bottom: none !important;
     pointer-events: none !important;
+    z-index: 1 !important;
   }
 
   /* Active / Hover Reveal */
   .ar-cs-dropdown-parent:hover > .ar-cs-dropdown,
-  .ar-cs-dropdown-parent.ar-cs-open > .ar-cs-dropdown {
+  .ar-cs-dropdown-parent.ar-cs-open > .ar-cs-dropdown,
+  li#menu-item-10197:hover > .ar-cs-dropdown,
+  li#menu-item-10197.ar-cs-open > .ar-cs-dropdown {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    transform: translateX(-50%) translateY(0) !important;
+    transform: translateX(-50%) translateY(2px) !important;
   }
 
   /* Dropdown List Items */
@@ -3241,8 +3275,10 @@ section.elementor-element-ac3f73a,
     margin: 3px 0 !important;
     padding: 0 !important;
     display: block !important;
+    background: transparent !important;
   }
 
+  html body .ar-cs-dropdown .ar-cs-link,
   .ar-cs-dropdown .ar-cs-link {
     display: flex !important;
     align-items: center !important;
@@ -3261,9 +3297,12 @@ section.elementor-element-ac3f73a,
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
+  html body .ar-cs-dropdown .ar-cs-link:hover,
+  html body .ar-cs-dropdown .ar-cs-link:focus,
   .ar-cs-dropdown .ar-cs-link:hover,
   .ar-cs-dropdown .ar-cs-link:focus {
     background: #E5E7EB !important;
+    background-color: #E5E7EB !important;
     color: #BE8C33 !important;
     border-left-color: #BE8C33 !important;
     transform: translateX(4px) !important;
