@@ -553,125 +553,25 @@
         <div class="pin-dot" id="dot3"></div>
       </div>
 
-      <!-- Numeric Keypad -->
+            <!-- Numeric Keypad -->
       <div class="keypad-grid" id="pinKeypad">
-        <button type="button" class="key-btn" data-digit="1" onclick="pressDigit('1')">1</button>
-        <button type="button" class="key-btn" data-digit="2" onclick="pressDigit('2')">2</button>
-        <button type="button" class="key-btn" data-digit="3" onclick="pressDigit('3')">3</button>
-        <button type="button" class="key-btn" data-digit="4" onclick="pressDigit('4')">4</button>
-        <button type="button" class="key-btn" data-digit="5" onclick="pressDigit('5')">5</button>
-        <button type="button" class="key-btn" data-digit="6" onclick="pressDigit('6')">6</button>
-        <button type="button" class="key-btn" data-digit="7" onclick="pressDigit('7')">7</button>
-        <button type="button" class="key-btn" data-digit="8" onclick="pressDigit('8')">8</button>
-        <button type="button" class="key-btn" data-digit="9" onclick="pressDigit('9')">9</button>
-        <button type="button" class="key-btn action-btn" data-action="clear" onclick="clearPin()">Clear</button>
-        <button type="button" class="key-btn" data-digit="0" onclick="pressDigit('0')">0</button>
-        <button type="button" class="key-btn action-btn" data-action="delete" onclick="deleteDigit()"><i class="fas fa-backspace"></i></button>
+        <button type="button" class="key-btn" onclick="pressDigit('1')">1</button>
+        <button type="button" class="key-btn" onclick="pressDigit('2')">2</button>
+        <button type="button" class="key-btn" onclick="pressDigit('3')">3</button>
+        <button type="button" class="key-btn" onclick="pressDigit('4')">4</button>
+        <button type="button" class="key-btn" onclick="pressDigit('5')">5</button>
+        <button type="button" class="key-btn" onclick="pressDigit('6')">6</button>
+        <button type="button" class="key-btn" onclick="pressDigit('7')">7</button>
+        <button type="button" class="key-btn" onclick="pressDigit('8')">8</button>
+        <button type="button" class="key-btn" onclick="pressDigit('9')">9</button>
+        <button type="button" class="key-btn action-btn" onclick="clearPin()">Clear</button>
+        <button type="button" class="key-btn" onclick="pressDigit('0')">0</button>
+        <button type="button" class="key-btn action-btn" onclick="deleteDigit()"><i class="fas fa-backspace"></i></button>
       </div>
 
       <button type="button" id="openDashboardBtn" class="btn btn-gold" style="width:100%; justify-content:center; padding:13px; font-size:14px;" onclick="verifyEnteredPin()">
         <i class="fas fa-arrow-right"></i> Open Dashboard
       </button>
-
-      <script>
-        (function() {
-          window.currentPin = '';
-
-          window.updatePinDots = function() {
-            for (var i = 0; i < 4; i++) {
-              var dot = document.getElementById('dot' + i);
-              if (dot) {
-                if (i < window.currentPin.length) {
-                  dot.classList.add('filled');
-                } else {
-                  dot.classList.remove('filled');
-                }
-              }
-            }
-          };
-
-          window.pressDigit = function(d) {
-            if (window.currentPin.length >= 6) return;
-            window.currentPin += String(d);
-            window.updatePinDots();
-            var err = document.getElementById('portalError');
-            if (err) err.style.display = 'none';
-            if (window.currentPin.length === 4) {
-              setTimeout(function() {
-                if (typeof window.verifyEnteredPin === 'function') {
-                  window.verifyEnteredPin();
-                }
-              }, 180);
-            }
-          };
-
-          window.deleteDigit = function() {
-            if (window.currentPin.length > 0) {
-              window.currentPin = window.currentPin.slice(0, -1);
-              window.updatePinDots();
-              var err = document.getElementById('portalError');
-              if (err) err.style.display = 'none';
-            }
-          };
-
-          window.clearPin = function() {
-            window.currentPin = '';
-            window.updatePinDots();
-            var err = document.getElementById('portalError');
-            if (err) err.style.display = 'none';
-          };
-
-          function attachKeypadEvents() {
-            var keypad = document.getElementById('pinKeypad');
-            if (keypad) {
-              keypad.addEventListener('click', function(e) {
-                var btn = e.target.closest('.key-btn');
-                if (!btn) return;
-                var digit = btn.getAttribute('data-digit');
-                var action = btn.getAttribute('data-action');
-                if (digit !== null) {
-                  window.pressDigit(digit);
-                } else if (action === 'clear') {
-                  window.clearPin();
-                } else if (action === 'delete') {
-                  window.deleteDigit();
-                }
-              });
-            }
-
-            var submitBtn = document.getElementById('openDashboardBtn');
-            if (submitBtn) {
-              submitBtn.addEventListener('click', function() {
-                if (typeof window.verifyEnteredPin === 'function') {
-                  window.verifyEnteredPin();
-                }
-              });
-            }
-
-            window.addEventListener('keydown', function(e) {
-              var authScreen = document.getElementById('portalAuthScreen');
-              if (!authScreen || authScreen.style.display === 'none') return;
-              if (e.key >= '0' && e.key <= '9') {
-                window.pressDigit(e.key);
-              } else if (e.key === 'Backspace') {
-                window.deleteDigit();
-              } else if (e.key === 'Enter') {
-                if (typeof window.verifyEnteredPin === 'function') {
-                  window.verifyEnteredPin();
-                }
-              } else if (e.key === 'Escape') {
-                window.clearPin();
-              }
-            });
-          }
-
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', attachKeypadEvents);
-          } else {
-            attachKeypadEvents();
-          }
-        })();
-      </script>
 
       <!-- Hidden accessible input for physical keyboards -->
       <input type="tel" inputmode="numeric" id="hiddenKeyboardPin" maxlength="6" style="position:absolute; opacity:0; pointer-events:none; left:-9999px;" autocomplete="off" />
@@ -859,23 +759,26 @@
     let allLeads = [];
     let currentModalId = null;
 
-    // PIN Management Functions
+    // PIN Management Functions - Strictly Sequential Single-Digit Entry (Max 4 digits)
     function updatePinDots() {
       for (let i = 0; i < 4; i++) {
         const dot = document.getElementById('dot' + i);
-        if (i < currentPin.length) {
-          dot.classList.add('filled');
-        } else {
-          dot.classList.remove('filled');
+        if (dot) {
+          if (i < currentPin.length) {
+            dot.classList.add('filled');
+          } else {
+            dot.classList.remove('filled');
+          }
         }
       }
     }
 
     function pressDigit(d) {
-      if (currentPin.length >= 6) return;
-      currentPin += d;
+      if (currentPin.length >= 4) return;
+      currentPin += String(d);
       updatePinDots();
-      document.getElementById('portalError').style.display = 'none';
+      const errorDiv = document.getElementById('portalError');
+      if (errorDiv) errorDiv.style.display = 'none';
       if (currentPin.length === 4) {
         setTimeout(verifyEnteredPin, 180);
       }
@@ -885,19 +788,22 @@
       if (currentPin.length > 0) {
         currentPin = currentPin.slice(0, -1);
         updatePinDots();
-        document.getElementById('portalError').style.display = 'none';
+        const errorDiv = document.getElementById('portalError');
+        if (errorDiv) errorDiv.style.display = 'none';
       }
     }
 
     function clearPin() {
       currentPin = '';
       updatePinDots();
-      document.getElementById('portalError').style.display = 'none';
+      const errorDiv = document.getElementById('portalError');
+      if (errorDiv) errorDiv.style.display = 'none';
     }
 
     // Physical Keyboard Support
     window.addEventListener('keydown', function(e) {
-      if (document.getElementById('portalAuthScreen').style.display === 'none') return;
+      const authScreen = document.getElementById('portalAuthScreen');
+      if (!authScreen || authScreen.style.display === 'none') return;
       if (e.key >= '0' && e.key <= '9') {
         pressDigit(e.key);
       } else if (e.key === 'Backspace') {
@@ -910,32 +816,33 @@
     });
 
     async function verifyEnteredPin() {
-      const pin = window.currentPin || currentPin;
-      if (!pin) return;
+      if (!currentPin) return;
       const errorDiv = document.getElementById('portalError');
 
       try {
-        const res = await fetch('/api/contact/?token=' + encodeURIComponent(pin));
+        const res = await fetch('/api/contact/?token=' + encodeURIComponent(currentPin));
         if (res.ok) {
-          adminToken = pin;
-          sessionStorage.setItem('arw_portal_pin', pin);
+          adminToken = currentPin;
+          sessionStorage.setItem('arw_portal_pin', currentPin);
           document.getElementById('portalAuthScreen').style.display = 'none';
-          errorDiv.style.display = 'none';
+          if (errorDiv) errorDiv.style.display = 'none';
           const data = await res.json();
           renderData(data);
           syncLocalLeadsToServer(data.leads || []);
         } else {
-          errorDiv.innerText = 'Incorrect PIN. Please try again.';
-          errorDiv.style.display = 'block';
+          if (errorDiv) {
+            errorDiv.innerText = 'Incorrect PIN. Please try again.';
+            errorDiv.style.display = 'block';
+          }
           clearPin();
         }
       } catch (err) {
-        errorDiv.innerText = 'Connection error. Please try again.';
-        errorDiv.style.display = 'block';
+        if (errorDiv) {
+          errorDiv.innerText = 'Connection error. Please try again.';
+          errorDiv.style.display = 'block';
+        }
       }
     }
-
-    window.verifyEnteredPin = verifyEnteredPin;
 
     function lockPortal() {
       sessionStorage.removeItem('arw_portal_pin');
