@@ -1,6 +1,7 @@
-// Hostinger SMTP Notification Dispatcher for AR Webcrafts LLC
+// Hostinger SMTP Notification & Auto-Reply Dispatcher for AR Webcrafts LLC
 // Directly authenticates with Hostinger Outgoing Mail Server (smtp.hostinger.com)
-// Strictly delivers lead notifications to contact@arwebcrafts.com
+// 1. Delivers lead alerts to contact@arwebcrafts.com
+// 2. Dispatches branded automated confirmation to the client
 
 'use strict';
 
@@ -11,6 +12,9 @@ const SMTP_USER = process.env.SMTP_USER || 'contact@arwebcrafts.com';
 const SMTP_HOST = process.env.SMTP_HOST || 'smtp.hostinger.com';
 const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
 const SMTP_SECURE = process.env.SMTP_PORT === '587' ? false : true;
+
+const CLIENT_AUTOREPLY_SUBJECT = 'Thank you for contacting AR Webcrafts';
+const CLIENT_AUTOREPLY_TEXT = 'Thank you for contacting AR Webcrafts. A senior WooCommerce core architect will review your store requirements and reach out within 2 business hours with technical recommendations and next steps.';
 
 function getTransporter() {
   const pass = process.env.SMTP_PASS || process.env.SMTP_PASSWORD;
@@ -59,6 +63,9 @@ function formatCleanService(rawService) {
   return clean.length <= 40 ? clean : clean.substring(0, 40).trim();
 }
 
+/**
+ * Admin Lead Notification Template (for contact@arwebcrafts.com)
+ */
 function buildHtmlTemplate(lead) {
   const name = lead.name || 'Anonymous Inquiry';
   const email = lead.email || 'Not provided';
@@ -75,6 +82,7 @@ function buildHtmlTemplate(lead) {
   <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #071527; margin: 0; padding: 24px; color: #E2E8F0; }
       .container { max-width: 600px; margin: 0 auto; background: #0A192F; border: 1px solid rgba(200, 157, 75, 0.35); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
@@ -156,27 +164,103 @@ function buildHtmlTemplate(lead) {
   `;
 }
 
+/**
+ * Client Automated Confirmation Auto-Reply Template
+ * Uses the exact wording specified by client.
+ */
+function buildClientAutoReplyHtml(lead) {
+  const clientName = (lead.name || '').trim();
+
+  return `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #071527; margin: 0; padding: 24px; color: #E2E8F0; }
+      .container { max-width: 600px; margin: 0 auto; background: #0A192F; border: 1px solid rgba(200, 157, 75, 0.35); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+      .header { background: linear-gradient(135deg, #011B39 0%, #071527 100%); padding: 28px 24px; border-bottom: 2px solid #C89D4B; text-align: center; }
+      .header h1 { margin: 0 0 6px 0; font-size: 22px; color: #FFFFFF; letter-spacing: 0.5px; font-weight: 700; }
+      .header p { margin: 0; font-size: 13px; color: #C89D4B; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+      .content { padding: 32px 28px; line-height: 1.7; font-size: 15px; color: #E2E8F0; }
+      .greeting { font-size: 16px; font-weight: 600; color: #FFFFFF; margin-bottom: 18px; }
+      .message-card { background: rgba(1, 27, 57, 0.7); border-left: 3px solid #C89D4B; padding: 20px 22px; border-radius: 6px; margin: 20px 0; color: #F8FAFC; font-size: 15px; line-height: 1.7; }
+      .footer { background: #011427; padding: 18px 24px; text-align: center; font-size: 13px; color: #94A3B8; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>AR Webcrafts</h1>
+        <p>Enterprise WordPress & WooCommerce Architecture</p>
+      </div>
+      <div class="content">
+        ${clientName && clientName !== 'Anonymous' && clientName !== 'Newsletter Subscriber' ? `<div class="greeting">Hi ${clientName},</div>` : ''}
+        <div class="message-card">
+          ${CLIENT_AUTOREPLY_TEXT}
+        </div>
+      </div>
+      <div class="footer">
+        &copy; AR Webcrafts LLC. All rights reserved.
+      </div>
+    </div>
+  </body>
+  </html>
+  `;
+}
+
 async function sendEmailNotification(lead) {
   const clientName = (lead.name || 'Anonymous').trim();
   const serviceInterest = formatCleanService(lead.service);
-  const subject = `New Lead: ${clientName} - ${serviceInterest}`;
-  const htmlBody = buildHtmlTemplate(lead);
+  const adminSubject = `New Lead: ${clientName} - ${serviceInterest}`;
+  const adminHtml = buildHtmlTemplate(lead);
 
   const transporter = getTransporter();
 
   // Primary Path: Direct Hostinger SMTP via Nodemailer
   if (transporter) {
     try {
-      const info = await transporter.sendMail({
+      // 1. Dispatch internal admin lead alert to contact@arwebcrafts.com
+      const adminPromise = transporter.sendMail({
         from: `"AR Webcrafts Website" <${SMTP_USER}>`,
         to: NOTIFICATION_EMAIL,
         replyTo: lead.email,
-        subject: subject,
-        html: htmlBody
+        subject: adminSubject,
+        html: adminHtml
       });
 
-      console.log(`[Hostinger SMTP Success] Message sent to ${NOTIFICATION_EMAIL}. MessageId: ${info.messageId}`);
-      return { sent: true, method: 'hostinger_smtp', recipient: NOTIFICATION_EMAIL, messageId: info.messageId };
+      // 2. Dispatch automated confirmation email (auto-reply) to the client
+      const hasValidClientEmail = lead.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email);
+      let autoReplyPromise = Promise.resolve(null);
+
+      if (hasValidClientEmail) {
+        autoReplyPromise = transporter.sendMail({
+          from: `"AR Webcrafts" <${SMTP_USER}>`,
+          to: lead.email,
+          replyTo: NOTIFICATION_EMAIL,
+          subject: CLIENT_AUTOREPLY_SUBJECT,
+          text: CLIENT_AUTOREPLY_TEXT,
+          html: buildClientAutoReplyHtml(lead)
+        }).then(info => {
+          console.log(`[Hostinger SMTP Success] Client auto-reply dispatched to ${lead.email}. MessageId: ${info.messageId}`);
+          return info;
+        }).catch(err => {
+          console.warn(`[Auto-Reply Warning] Could not deliver client auto-reply to ${lead.email}: ${err.message}`);
+          return null;
+        });
+      }
+
+      const [adminResult] = await Promise.all([adminPromise, autoReplyPromise]);
+
+      console.log(`[Hostinger SMTP Success] Admin lead alert dispatched for ${lead.name}. MessageId: ${adminResult.messageId}`);
+      return {
+        sent: true,
+        method: 'hostinger_smtp',
+        recipient: NOTIFICATION_EMAIL,
+        messageId: adminResult.messageId,
+        autoReplySent: hasValidClientEmail
+      };
     } catch (smtpErr) {
       console.error(`[Hostinger SMTP Error] Failed: ${smtpErr.message}. Attempting fallback gateway...`);
     }
@@ -195,7 +279,7 @@ async function sendEmailNotification(lead) {
         'Referer': 'https://www.arwebcrafts.com/'
       },
       body: JSON.stringify({
-        _subject: subject,
+        _subject: adminSubject,
         _replyto: lead.email,
         _template: 'table',
         _captcha: 'false',
@@ -230,6 +314,9 @@ module.exports = {
   sendEmailNotification,
   getTransporter,
   formatCleanService,
+  buildClientAutoReplyHtml,
+  CLIENT_AUTOREPLY_SUBJECT,
+  CLIENT_AUTOREPLY_TEXT,
   NOTIFICATION_EMAIL,
   SMTP_CONFIG: {
     host: SMTP_HOST,
