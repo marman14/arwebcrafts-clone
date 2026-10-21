@@ -108,7 +108,7 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Please provide a valid email address.' });
     }
 
-    // 5. Save lead to Centralized Persistent Database
+    // 5. Save lead to Centralized Persistent Database FIRST
     const savedLead = saveLead({
       name,
       email,
@@ -126,12 +126,14 @@ module.exports = async (req, res) => {
 
     console.log(`[Verified Lead Stored]: ID=${savedLead.id}, Name=${name}, Source=${pageUrl}`);
 
-    // 6. Trigger Instant Email Notification (safely bounded so client never lags)
+    // 6. Trigger Instant Dual Email Notification (Admin Alert + Client Auto-Reply via Hostinger SMTP)
+    let emailResult = null;
     try {
-      await Promise.race([
+      emailResult = await Promise.race([
         sendEmailNotification(savedLead),
-        new Promise(resolve => setTimeout(resolve, 8000))
+        new Promise((_, reject) => setTimeout(() => reject(new Error('SMTP dispatch timeout (15s)')), 15000))
       ]);
+      console.log(`[Notification Result for ${savedLead.id}]:`, emailResult?.method || 'dispatched');
     } catch (err) {
       console.error('[Notification Dispatch Warning]:', err.message);
     }
@@ -139,7 +141,8 @@ module.exports = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: 'Thank you! Your message has been received. Our team will contact you within 2 business hours.',
-      leadId: savedLead.id
+      leadId: savedLead.id,
+      emailDispatched: emailResult?.sent ?? false
     });
   } catch (err) {
     console.error('Contact Form Error:', err.message);

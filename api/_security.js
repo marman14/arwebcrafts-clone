@@ -103,9 +103,13 @@ function verifyCsrfAndOrigin(req) {
     }
   }
 
-  // Allow requests without Origin/Referer only in local development / direct CLI
-  const host = req.headers['host'] || '';
-  return host.includes('localhost') || host.includes('127.0.0.1');
+  // Allow requests where Host matches allowed domains, or in local development
+  const host = (req.headers['host'] || '').toLowerCase();
+  const isAllowedHost = /^(www\.)?arwebcrafts\.com$/i.test(host) ||
+                        /^[a-z0-9-]+\.vercel\.app$/i.test(host) ||
+                        host.includes('localhost') ||
+                        host.includes('127.0.0.1');
+  return isAllowedHost;
 }
 
 // SQL injection & XSS Sanitizer
@@ -135,13 +139,14 @@ function isSpamSubmission(data) {
   }
 
   // 1. Multi-Field Honeypot Trap
-  // Checks both primary and disguised secondary honeypots
+  // Checks our hidden honeypot fields.
+  // These fields are completely invisible to humans (styled with position: absolute; left: -9999px; opacity: 0; pointer-events: none).
+  // Real humans will NEVER fill them. Automated spam bots scanning the HTML DOM will blindly fill them.
   const honeypotValues = [
     data.hp_website_check,
     data.company_fax,
     data.website_address_confirm,
     data.confirm_hp,
-    data.ak_hp_textarea,
     data.hp_check,
     data.bot_trap,
     data.phone_secondary
@@ -153,30 +158,7 @@ function isSpamSubmission(data) {
     }
   }
 
-  // 2. Behavioral Render-to-Submit Timing Check
-  // Humans take at least 2.0s to read, fill, and submit an inquiry
-  const loadedAt = parseInt(data._ar_loaded_at || data.form_loaded_at, 10);
-  if (!isNaN(loadedAt)) {
-    const elapsed = Date.now() - loadedAt;
-    if (elapsed < 2000) {
-      return { isSpam: true, reason: `Sub-2s automated submission detected (${elapsed}ms)` };
-    }
-    // Stale replay attack: submission initiated more than 3 days ago
-    if (elapsed > 259200000) {
-      return { isSpam: true, reason: 'Expired or replayed form submission' };
-    }
-  }
-
-  // 3. Human Keystroke Interaction Verification
-  // If the form specifically reported 0 keystrokes and is not a 1-field newsletter, reject
-  if (data._ar_keystrokes !== undefined) {
-    const keystrokes = parseInt(data._ar_keystrokes, 10);
-    if (!isNaN(keystrokes) && keystrokes === 0 && !data.is_newsletter) {
-      return { isSpam: true, reason: 'Zero human keystroke interaction detected' };
-    }
-  }
-
-  // 4. Fake / Disposable / Malicious Email Domain Filter
+  // 2. Fake / Disposable / Malicious Burner Email Domain Filter
   const email = (data.email || '').toLowerCase().trim();
   if (email) {
     const disposableDomains = [
@@ -188,28 +170,24 @@ function isSpamSubmission(data) {
     if (domain && disposableDomains.includes(domain)) {
       return { isSpam: true, reason: `Disposable spam email domain detected (@${domain})` };
     }
-
-    if (/^(test|admin|asdf|qwerty|123456)@(test|example|testmail)\./i.test(email)) {
-      return { isSpam: true, reason: 'Fictitious test email pattern' };
-    }
   }
 
-  // 5. Excessive Link Spam Filter (SEO blast scripts frequently include 3+ URLs)
+  // 3. Excessive Link Spam Filter (SEO blast scripts frequently include 5+ URLs)
   const messageText = String(data.message || data.description || data.comments || '');
   const linkMatches = messageText.match(/https?:\/\/|www\./gi) || [];
-  if (linkMatches.length >= 3) {
+  if (linkMatches.length >= 5) {
     return { isSpam: true, reason: `Excessive URL link density (${linkMatches.length} links found)` };
   }
 
-  // 6. Signature Spam & Malicious Marketing Keywords
+  // 4. Signature Spam & Malicious Marketing Keywords
   const spamKeywords = [
-    /casino/i, /crypto(currency)?\s+giveaway/i, /viagra/i, /cialis/i,
-    /slot\s+online/i, /poker\s+online/i, /baccarat/i, /telegram\s*:/i,
-    /whatsapp\s*:\s*\+/i, /http:\/\/[a-z0-9-]+\.ru/i, /dating\s+site/i,
-    /buy\s+backlinks/i, /guest\s+post\s+outreach/i, /sponsored\s+post\s+pricing/i,
-    /boost\s+your\s+domain\s+authority/i, /rank\s+#1\s+on\s+google/i,
-    /seo\s+audit\s+report/i, /financial\s+freedom/i, /click\s+here\s+to\s+claim/i,
-    /bulk\s+email\s+sending/i, /we\s+can\s+provide\s+you\s+with\s+leads/i
+    /\b(casino|cialis|viagra)\b/i,
+    /crypto(currency)?\s+giveaway/i,
+    /slot\s+online/i, /poker\s+online/i, /baccarat/i,
+    /http:\/\/[a-z0-9-]+\.ru/i,
+    /buy\s+backlinks/i, /guest\s+post\s+outreach/i,
+    /boost\s+your\s+domain\s+authority/i,
+    /rank\s+#1\s+on\s+google/i
   ];
 
   const fullContent = `${data.name || ''} ${data.company || ''} ${data.business || ''} ${messageText}`;

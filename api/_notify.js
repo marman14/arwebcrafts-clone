@@ -222,44 +222,45 @@ async function sendEmailNotification(lead) {
   if (transporter) {
     try {
       // 1. Dispatch internal admin lead alert to contact@arwebcrafts.com
-      const adminPromise = transporter.sendMail({
+      const adminResult = await transporter.sendMail({
         from: `"AR Webcrafts Website" <${SMTP_USER}>`,
         to: NOTIFICATION_EMAIL,
         replyTo: lead.email,
         subject: adminSubject,
         html: adminHtml
       });
+      console.log(`[Hostinger SMTP Success] Admin lead alert dispatched for ${lead.name}. MessageId: ${adminResult.messageId}`);
 
       // 2. Dispatch automated confirmation email (auto-reply) to the client
       const hasValidClientEmail = lead.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email);
-      let autoReplyPromise = Promise.resolve(null);
+      let autoReplySent = false;
+      let autoReplyMessageId = null;
 
       if (hasValidClientEmail) {
-        autoReplyPromise = transporter.sendMail({
-          from: `"AR Webcrafts" <${SMTP_USER}>`,
-          to: lead.email,
-          replyTo: NOTIFICATION_EMAIL,
-          subject: CLIENT_AUTOREPLY_SUBJECT,
-          text: CLIENT_AUTOREPLY_TEXT,
-          html: buildClientAutoReplyHtml(lead)
-        }).then(info => {
-          console.log(`[Hostinger SMTP Success] Client auto-reply dispatched to ${lead.email}. MessageId: ${info.messageId}`);
-          return info;
-        }).catch(err => {
-          console.warn(`[Auto-Reply Warning] Could not deliver client auto-reply to ${lead.email}: ${err.message}`);
-          return null;
-        });
+        try {
+          const autoReplyResult = await transporter.sendMail({
+            from: `"AR Webcrafts" <${SMTP_USER}>`,
+            to: lead.email,
+            replyTo: NOTIFICATION_EMAIL,
+            subject: CLIENT_AUTOREPLY_SUBJECT,
+            text: CLIENT_AUTOREPLY_TEXT,
+            html: buildClientAutoReplyHtml(lead)
+          });
+          autoReplySent = true;
+          autoReplyMessageId = autoReplyResult?.messageId;
+          console.log(`[Hostinger SMTP Success] Client auto-reply dispatched to ${lead.email}. MessageId: ${autoReplyMessageId}`);
+        } catch (autoErr) {
+          console.warn(`[Auto-Reply Warning] Could not deliver client auto-reply to ${lead.email}: ${autoErr.message}`);
+        }
       }
 
-      const [adminResult] = await Promise.all([adminPromise, autoReplyPromise]);
-
-      console.log(`[Hostinger SMTP Success] Admin lead alert dispatched for ${lead.name}. MessageId: ${adminResult.messageId}`);
       return {
         sent: true,
         method: 'hostinger_smtp',
         recipient: NOTIFICATION_EMAIL,
         messageId: adminResult.messageId,
-        autoReplySent: hasValidClientEmail
+        autoReplySent: autoReplySent,
+        autoReplyMessageId: autoReplyMessageId
       };
     } catch (smtpErr) {
       console.error(`[Hostinger SMTP Error] Failed: ${smtpErr.message}. Attempting fallback gateway...`);

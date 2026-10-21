@@ -549,42 +549,6 @@
       }
 
       form.dataset.arHandled = 'true';
-      if (false) {
-        var trapWrap = document.createElement('div');
-        trapWrap.className = 'ar-security-trap';
-        trapWrap.style.cssText = 'position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;';
-        trapWrap.setAttribute('aria-hidden', 'true');
-        trapWrap.innerHTML = [
-          '<input type="text" name="hp_website_check" tabindex="-1" autocomplete="new-password" aria-hidden="true">',
-          '<input type="text" name="company_fax" tabindex="-1" autocomplete="off" aria-hidden="true">',
-          '<input type="text" name="website_address_confirm" tabindex="-1" autocomplete="off" aria-hidden="true">',
-          '<input type="hidden" name="_ar_loaded_at" value="' + Date.now() + '">',
-          '<input type="hidden" name="form_loaded_at" value="' + Date.now() + '">',
-          '<input type="hidden" name="_ar_interacted" value="0">',
-          '<input type="hidden" name="_ar_keystrokes" value="0">'
-        ].join('');
-        form.appendChild(trapWrap);
-
-        // Track human keyboard and focus interaction
-        var keyCount = 0;
-        form.addEventListener('keydown', function() {
-          keyCount++;
-          var keyInput = form.querySelector('input[name="_ar_keystrokes"]');
-          if (keyInput) keyInput.value = String(keyCount);
-          var intInput = form.querySelector('input[name="_ar_interacted"]');
-          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
-        }, { passive: true });
-
-        form.addEventListener('focusin', function() {
-          var intInput = form.querySelector('input[name="_ar_interacted"]');
-          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
-        }, { passive: true });
-
-        form.addEventListener('pointerdown', function() {
-          var intInput = form.querySelector('input[name="_ar_interacted"]');
-          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
-        }, { passive: true });
-      }
 
       // Handle api-contact-form which has inline alert onsubmit
       if (form.id === 'api-contact-form') {
@@ -1077,7 +1041,7 @@
       critStyle.id = 'ar-about-dropdown-critical-css';
       critStyle.textContent = 
         'li#menu-item-159, .ar-about-dropdown-parent { position: relative !important; }' +
-        '@media (min-width: 1025px) { .ar-about-dropdown { position: absolute !important; top: 100% !important; left: 50% !important; right: auto !important; transform: translateX(-50%) translateY(10px) !important; background: #FFFFFF !important; background-color: #FFFFFF !important; border: 1px solid #E5E7EB !important; border-radius: 12px !important; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05) !important; min-width: 200px !important; width: max-content !important; z-index: 999999 !important; } .ar-about-dropdown::before { background: #FFFFFF !important; background-color: #FFFFFF !important; border-top: 1px solid #E5E7EB !important; border-left: 1px solid #E5E7EB !important; } html body .elementskit-navbar-nav > li#menu-item-159:hover > .ar-about-dropdown, html body .elementskit-navbar-nav > li#menu-item-159.ar-about-open > .ar-about-dropdown, html body .elementskit-navbar-nav > li.ar-about-dropdown-parent:hover > .ar-about-dropdown, html body .elementskit-navbar-nav > li.ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown, .ar-about-dropdown-parent:hover > .ar-about-dropdown, .ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown, li#menu-item-159:hover > .ar-about-dropdown, li#menu-item-159.ar-about-open > .ar-about-dropdown { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateX(-50%) translateY(2px) !important; } .ar-about-dropdown .ar-about-item { text-align: left !important; } .ar-about-dropdown .ar-about-link { display: flex !important; align-items: center !important; justify-content: flex-start !important; text-align: left !important; padding: 10px 14px !important; color: #333333 !important; border-left: 2px solid transparent !important; } .ar-about-dropdown .ar-about-link:hover { color: #BE8C33 !important; background: #F3F4F6 !important; border-left-color: #BE8C33 !important; transform: translateX(4px) !important; } }';
+        '@media (min-width: 1025px) { .ar-about-dropdown { position: absolute !important; top: 100% !important; left: 50% !important; right: auto !important; transform: translateX(-50%) translateY(10px) !important; background: #FFFFFF !important; background-color: #FFFFFF !important; border: 1px solid #E5E7EB !important; border-radius: 12px !important; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05) !important; min-width: 200px !important; width: max-content !important; z-index: 999999 !important; } .ar-about-dropdown::before { background: #FFFFFF !important; background-color: #FFFFFF !important; border-top: 1px solid #E5E7EB !important; border-left: 1px solid #E5E7EB !important; } html body .elementskit-navbar-nav > li#menu-item-159:hover > .ar-about-dropdown, html body .elementskit-navbar-nav > li#menu-item-159.ar-about-open > .ar-about-dropdown, html body .elementskit-navbar-nav > li.ar-about-dropdown-parent:hover > .ar-about-dropdown, html body .elementskit-navbar-nav > li.ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown, .ar-about-dropdown-parent:hover > .ar-about-dropdown, .ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown, li#menu-item-159:hover > .ar-about-dropdown, li#menu-item-159.ar-about-open > .ar-about-dropdown { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateX(-50%) translateY(2px) !important; } .ar-about-dropdown .ar-about-item { text-align: center !important; width: 100% !important; } .ar-about-dropdown .ar-about-link { display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; box-sizing: border-box !important; color: #333333 !important; } .ar-about-dropdown .ar-about-link:hover { color: #BE8C33 !important; background: #F3F4F6 !important; transform: none !important; } }';
       document.head.appendChild(critStyle);
     }
 
