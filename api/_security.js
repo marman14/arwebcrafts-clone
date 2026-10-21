@@ -128,32 +128,94 @@ function sanitizeInput(val, maxLength = 1000) {
   return str.trim();
 }
 
-// Spam & Bot detection
+// Robust Multi-Layer Anti-Spam & Bot Detection Engine
 function isSpamSubmission(data) {
-  // 1. Honeypot check
-  if (data.hp_website_check || data.confirm_hp || data.ak_hp_textarea || data.hp_check) {
-    return { isSpam: true, reason: 'Honeypot field was filled' };
+  if (!data || typeof data !== 'object') {
+    return { isSpam: true, reason: 'Invalid or empty submission payload' };
   }
 
-  // 2. Submission timing check (less than 1.2s since render)
-  if (data.form_loaded_at) {
-    const loadedAt = parseInt(data.form_loaded_at, 10);
-    if (!isNaN(loadedAt) && Date.now() - loadedAt < 1200) {
-      return { isSpam: true, reason: 'Form submitted faster than humanly possible' };
+  // 1. Multi-Field Honeypot Trap
+  // Checks both primary and disguised secondary honeypots
+  const honeypotValues = [
+    data.hp_website_check,
+    data.company_fax,
+    data.website_address_confirm,
+    data.confirm_hp,
+    data.ak_hp_textarea,
+    data.hp_check,
+    data.bot_trap,
+    data.phone_secondary
+  ];
+
+  for (const hp of honeypotValues) {
+    if (typeof hp === 'string' && hp.trim().length > 0) {
+      return { isSpam: true, reason: 'Honeypot trap triggered by automated bot' };
     }
   }
 
-  // 3. Known casino / pharmacy / crypto spam signatures
+  // 2. Behavioral Render-to-Submit Timing Check
+  // Humans take at least 2.0s to read, fill, and submit an inquiry
+  const loadedAt = parseInt(data._ar_loaded_at || data.form_loaded_at, 10);
+  if (!isNaN(loadedAt)) {
+    const elapsed = Date.now() - loadedAt;
+    if (elapsed < 2000) {
+      return { isSpam: true, reason: `Sub-2s automated submission detected (${elapsed}ms)` };
+    }
+    // Stale replay attack: submission initiated more than 3 days ago
+    if (elapsed > 259200000) {
+      return { isSpam: true, reason: 'Expired or replayed form submission' };
+    }
+  }
+
+  // 3. Human Keystroke Interaction Verification
+  // If the form specifically reported 0 keystrokes and is not a 1-field newsletter, reject
+  if (data._ar_keystrokes !== undefined) {
+    const keystrokes = parseInt(data._ar_keystrokes, 10);
+    if (!isNaN(keystrokes) && keystrokes === 0 && !data.is_newsletter) {
+      return { isSpam: true, reason: 'Zero human keystroke interaction detected' };
+    }
+  }
+
+  // 4. Fake / Disposable / Malicious Email Domain Filter
+  const email = (data.email || '').toLowerCase().trim();
+  if (email) {
+    const disposableDomains = [
+      'mailinator.com', 'guerrillamail.com', '10minutemail.com', 'tempmail.com',
+      'throwawaymail.com', 'sharklasers.com', 'yopmail.com', 'dispostable.com',
+      'trashmail.com', 'getairmail.com', 'fakemailgenerator.com'
+    ];
+    const domain = email.split('@')[1];
+    if (domain && disposableDomains.includes(domain)) {
+      return { isSpam: true, reason: `Disposable spam email domain detected (@${domain})` };
+    }
+
+    if (/^(test|admin|asdf|qwerty|123456)@(test|example|testmail)\./i.test(email)) {
+      return { isSpam: true, reason: 'Fictitious test email pattern' };
+    }
+  }
+
+  // 5. Excessive Link Spam Filter (SEO blast scripts frequently include 3+ URLs)
+  const messageText = String(data.message || data.description || data.comments || '');
+  const linkMatches = messageText.match(/https?:\/\/|www\./gi) || [];
+  if (linkMatches.length >= 3) {
+    return { isSpam: true, reason: `Excessive URL link density (${linkMatches.length} links found)` };
+  }
+
+  // 6. Signature Spam & Malicious Marketing Keywords
   const spamKeywords = [
     /casino/i, /crypto(currency)?\s+giveaway/i, /viagra/i, /cialis/i,
     /slot\s+online/i, /poker\s+online/i, /baccarat/i, /telegram\s*:/i,
-    /whatsapp\s*:\s*\+/i, /http:\/\/[a-z0-9-]+\.ru/i, /dating\s+site/i
+    /whatsapp\s*:\s*\+/i, /http:\/\/[a-z0-9-]+\.ru/i, /dating\s+site/i,
+    /buy\s+backlinks/i, /guest\s+post\s+outreach/i, /sponsored\s+post\s+pricing/i,
+    /boost\s+your\s+domain\s+authority/i, /rank\s+#1\s+on\s+google/i,
+    /seo\s+audit\s+report/i, /financial\s+freedom/i, /click\s+here\s+to\s+claim/i,
+    /bulk\s+email\s+sending/i, /we\s+can\s+provide\s+you\s+with\s+leads/i
   ];
 
-  const contentToCheck = `${data.name || ''} ${data.business || ''} ${data.message || ''} ${data.reference || ''}`;
+  const fullContent = `${data.name || ''} ${data.company || ''} ${data.business || ''} ${messageText}`;
   for (const pattern of spamKeywords) {
-    if (pattern.test(contentToCheck)) {
-      return { isSpam: true, reason: 'Spam signature matched' };
+    if (pattern.test(fullContent)) {
+      return { isSpam: true, reason: 'Spam signature pattern matched' };
     }
   }
 

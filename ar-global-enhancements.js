@@ -289,10 +289,10 @@
           payload.budget = val;
         } else if (/^(message|description|comments|project_details|project_brief|project_scope|requirements|scope|.*-brief)$/i.test(key)) {
           payload.message = val;
-        } else if (key === 'hp_website_check') {
-          payload.hp_website_check = val;
-        } else if (key === 'form_loaded_at') {
-          payload.form_loaded_at = val;
+        } else if (key === 'hp_website_check' || key === 'company_fax' || key === 'website_address_confirm') {
+          payload[key] = val;
+        } else if (key === 'form_loaded_at' || key === '_ar_loaded_at' || key === '_ar_interacted' || key === '_ar_keystrokes') {
+          payload[key] = val;
         } else {
           payload[key] = val;
         }
@@ -324,9 +324,11 @@
         return;
       }
 
-      // Check honeypot
-      var hp = form.querySelector('input[name="hp_website_check"]');
-      if (hp && hp.value.trim()) {
+      // Check multi-field honeypot trap
+      var hp1 = form.querySelector('input[name="hp_website_check"]');
+      var hp2 = form.querySelector('input[name="company_fax"]');
+      var hp3 = form.querySelector('input[name="website_address_confirm"]');
+      if ((hp1 && hp1.value.trim()) || (hp2 && hp2.value.trim()) || (hp3 && hp3.value.trim())) {
         renderSuccess(form, { name: 'Visitor' });
         return;
       }
@@ -527,13 +529,42 @@
 
       form.dataset.arHandled = 'true';
 
-      // Inject hidden anti-spam honeypot & timestamp if not already present
-      if (!form.querySelector('input[name="hp_website_check"]')) {
-        var hpWrap = document.createElement('div');
-        hpWrap.style.cssText = 'display:none!important;position:absolute;left:-9999px;opacity:0;';
-        hpWrap.setAttribute('aria-hidden', 'true');
-        hpWrap.innerHTML = '<input type="text" name="hp_website_check" tabindex="-1" autocomplete="off"><input type="hidden" name="form_loaded_at" value="' + Date.now() + '">';
-        form.appendChild(hpWrap);
+      // Inject multi-layer hidden anti-spam honeypot & behavioral tracking
+      if (!form.querySelector('.ar-security-trap')) {
+        var trapWrap = document.createElement('div');
+        trapWrap.className = 'ar-security-trap';
+        trapWrap.style.cssText = 'position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;';
+        trapWrap.setAttribute('aria-hidden', 'true');
+        trapWrap.innerHTML = [
+          '<input type="text" name="hp_website_check" tabindex="-1" autocomplete="new-password" aria-hidden="true">',
+          '<input type="text" name="company_fax" tabindex="-1" autocomplete="off" aria-hidden="true">',
+          '<input type="text" name="website_address_confirm" tabindex="-1" autocomplete="off" aria-hidden="true">',
+          '<input type="hidden" name="_ar_loaded_at" value="' + Date.now() + '">',
+          '<input type="hidden" name="form_loaded_at" value="' + Date.now() + '">',
+          '<input type="hidden" name="_ar_interacted" value="0">',
+          '<input type="hidden" name="_ar_keystrokes" value="0">'
+        ].join('');
+        form.appendChild(trapWrap);
+
+        // Track human keyboard and focus interaction
+        var keyCount = 0;
+        form.addEventListener('keydown', function() {
+          keyCount++;
+          var keyInput = form.querySelector('input[name="_ar_keystrokes"]');
+          if (keyInput) keyInput.value = String(keyCount);
+          var intInput = form.querySelector('input[name="_ar_interacted"]');
+          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
+        }, { passive: true });
+
+        form.addEventListener('focusin', function() {
+          var intInput = form.querySelector('input[name="_ar_interacted"]');
+          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
+        }, { passive: true });
+
+        form.addEventListener('pointerdown', function() {
+          var intInput = form.querySelector('input[name="_ar_interacted"]');
+          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
+        }, { passive: true });
       }
 
       // Handle api-contact-form which has inline alert onsubmit
