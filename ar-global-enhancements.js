@@ -1132,7 +1132,6 @@
     initWhatsAppButton();
     initNavEnhancements();
     initCaseStudiesDropdown();
-    initAboutDropdown();
     initScrollAnimations();
   }
 
