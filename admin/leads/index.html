@@ -822,6 +822,7 @@
           errorDiv.style.display = 'none';
           const data = await res.json();
           renderData(data);
+          syncLocalLeadsToServer(data.leads || []);
         } else {
           errorDiv.innerText = 'Incorrect PIN. Please try again.';
           errorDiv.style.display = 'block';
@@ -859,6 +860,7 @@
         if (res.ok) {
           const data = await res.json();
           renderData(data);
+          syncLocalLeadsToServer(data.leads || []);
         } else if (res.status === 401) {
           lockPortal();
         }
@@ -867,6 +869,24 @@
       } finally {
         icon.classList.remove('fa-spin');
       }
+    }
+
+    
+    async function syncLocalLeadsToServer(serverLeads) {
+      if (!adminToken) return;
+      try {
+        let localLeads = JSON.parse(localStorage.getItem('arw_browser_leads') || '[]');
+        if (!localLeads || localLeads.length === 0) return;
+        const serverIds = new Set((serverLeads || []).map(l => l.id));
+        const unsynced = localLeads.filter(l => l && l.id && !serverIds.has(l.id));
+        if (unsynced.length > 0) {
+          await fetch(/api/leads/?token=, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'sync', leads: unsynced })
+          });
+        }
+      } catch (e) {}
     }
 
     function renderData(data) {

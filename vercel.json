@@ -272,5 +272,11 @@
       ]
     }
   ],
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/api/leads/:match*",
+      "destination": "/api/contact.js"
+    }
+  ]
 }

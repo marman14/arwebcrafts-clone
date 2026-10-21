@@ -1,5 +1,25 @@
 [
-
+  {
+    "id": "lead_mviooi2w_e91h",
+    "timestamp": "2026-10-21T22:28:27.656Z",
+    "pageUrl": "/",
+    "pageTitle": "AR Webcrafts",
+    "name": "Test Client Jane",
+    "email": "jane@enterprise-wp.com",
+    "phone": "",
+    "service": "WooCommerce Custom Development",
+    "budget": "Not specified",
+    "subject": "Inquiry from Website",
+    "message": "Need complete custom checkout and subscription architecture.",
+    "company": "",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
   {
     "id": "lead_mvfm8sdi_lme7",
     "timestamp": "2026-10-19T18:56:56.742Z",
