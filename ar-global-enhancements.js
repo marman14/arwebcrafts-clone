@@ -8,6 +8,16 @@
 (function () {
   'use strict';
 
+  // Instant Anti-FOUC & Zero Blank Screen Guarantee
+  try {
+    var preInv = document.querySelectorAll('.elementor-invisible');
+    for (var pi = 0; pi < preInv.length; pi++) {
+      preInv[pi].classList.remove('elementor-invisible');
+      preInv[pi].style.visibility = 'visible';
+      preInv[pi].style.opacity = '1';
+    }
+  } catch (e) {}
+
   if (window.__AR_GLOBAL_ENHANCEMENTS_INIT__) return;
   window.__AR_GLOBAL_ENHANCEMENTS_INIT__ = true;
 
@@ -771,6 +781,11 @@
    */
   function initScrollAnimations() {
     var targets = document.querySelectorAll('.elementor-invisible, [data-settings*="animation"]');
+    for (var k = 0; k < targets.length; k++) {
+      targets[k].classList.remove('elementor-invisible');
+      targets[k].style.visibility = 'visible';
+      targets[k].style.opacity = '1';
+    }
     if (!targets.length) return;
 
     function applyAnimation(el) {

@@ -35,6 +35,30 @@ function getTransporter() {
   });
 }
 
+/**
+ * Normalizes raw service / interest strings into short, clean descriptors for the subject line.
+ * E.g., "Scale Teams & Speed Delivery with Staff Augmentation" -> "Staff Augmentation"
+ */
+function formatCleanService(rawService) {
+  if (!rawService) return 'General Inquiry';
+  const s = String(rawService).trim();
+
+  if (/staff augmentation/i.test(s)) return 'Staff Augmentation';
+  if (/woocommerce/i.test(s)) return 'WooCommerce Custom Development';
+  if (/plugin/i.test(s)) return 'WordPress Plugin Development';
+  if (/learndash/i.test(s)) return 'LearnDash Customization';
+  if (/speed|optimization|core web/i.test(s)) return 'Speed Optimization';
+  if (/maintenance/i.test(s)) return 'WordPress Maintenance';
+  if (/api|cloud|integration/i.test(s)) return 'API & Integrations';
+  if (/newsletter/i.test(s)) return 'Newsletter Subscription';
+  if (/saas|web app/i.test(s)) return 'SaaS & Web App Solutions';
+  if (/hire/i.test(s)) return 'Dedicated Developer';
+
+  // Clean up any pipe, colon, or dashes if raw string has long SEO suffixes
+  const clean = s.split(/[|:-]/)[0].trim();
+  return clean.length <= 40 ? clean : clean.substring(0, 40).trim();
+}
+
 function buildHtmlTemplate(lead) {
   const name = lead.name || 'Anonymous Inquiry';
   const email = lead.email || 'Not provided';
@@ -65,7 +89,7 @@ function buildHtmlTemplate(lead) {
       td.value { color: #FFFFFF; font-size: 14px; }
       td.value a { color: #00E5FF; text-decoration: none; font-weight: 600; }
       .message-box { background: rgba(1, 27, 57, 0.6); border-left: 3px solid #C89D4B; padding: 14px 18px; border-radius: 4px; margin: 16px 0; color: #F1F5F9; font-size: 14px; line-height: 1.6; }
-      .footer { background: #011427; padding: 16px 24px; text-align: center; font-size: 12px; color: #64748B; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+      .footer { background: #011427; padding: 18px 24px; text-align: center; font-size: 13px; color: #94A3B8; border-top: 1px solid rgba(255, 255, 255, 0.08); }
       .badge { display: inline-block; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.4); color: #4ADE80; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; }
     </style>
   </head>
@@ -124,7 +148,7 @@ function buildHtmlTemplate(lead) {
         </div>
       </div>
       <div class="footer">
-        Strictly dispatched via Hostinger Outgoing Mail Server (${SMTP_HOST}:${SMTP_PORT}) &bull; AR Webcrafts LLC
+        &copy; AR Webcrafts LLC. All rights reserved.
       </div>
     </div>
   </body>
@@ -133,7 +157,9 @@ function buildHtmlTemplate(lead) {
 }
 
 async function sendEmailNotification(lead) {
-  const subject = `[New Lead - ${lead.pageTitle || 'AR Webcrafts'}] ${lead.name} (${lead.service || 'Inquiry'})`;
+  const clientName = (lead.name || 'Anonymous').trim();
+  const serviceInterest = formatCleanService(lead.service);
+  const subject = `New Lead: ${clientName} - ${serviceInterest}`;
   const htmlBody = buildHtmlTemplate(lead);
 
   const transporter = getTransporter();
@@ -203,6 +229,7 @@ async function sendEmailNotification(lead) {
 module.exports = {
   sendEmailNotification,
   getTransporter,
+  formatCleanService,
   NOTIFICATION_EMAIL,
   SMTP_CONFIG: {
     host: SMTP_HOST,

@@ -2743,8 +2743,10 @@ section.elementor-element-ac3f73a,
    on all service pages and static templates.
    ============================================================ */
 
+/* Zero Blank Screen Guarantee: Prevent content from hiding behind uninitialized JS animations */
 .elementor-invisible {
-  visibility: hidden;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .animated {

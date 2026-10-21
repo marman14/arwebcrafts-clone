@@ -80,6 +80,9 @@ module.exports = async (req, res) => {
             <h2 style="color: #C89D4B;">Hostinger SMTP Operational</h2>
             <p>Your website on Vercel has successfully connected to Hostinger SMTP and delivered this email to <strong>${user}</strong>.</p>
             <p><strong>Host:</strong> ${host}:${port}<br><strong>User:</strong> ${user}<br><strong>Time:</strong> ${new Date().toISOString()}</p>
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #94A3B8; text-align: center;">
+              &copy; AR Webcrafts LLC. All rights reserved.
+            </div>
           </div>
         `
       });
