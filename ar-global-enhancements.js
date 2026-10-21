@@ -993,6 +993,22 @@
 
       dropdown.style.setProperty('background', '#FFFFFF', 'important');
       dropdown.style.setProperty('background-color', '#FFFFFF', 'important');
+      // Global Capture Listener: Guarantees clicking 'Sales team' always redirects to https://www.arwebcrafts.com/sales-team/
+      if (!window.__arSalesTeamClickBound) {
+        window.__arSalesTeamClickBound = true;
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest('a');
+          if (a && a.classList.contains('ar-about-link') && /sales\s*team/i.test(a.textContent || '')) {
+            e.preventDefault();
+            e.stopPropagation();
+            var targetUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+              ? '/sales-team/'
+              : 'https://www.arwebcrafts.com/sales-team/';
+            window.location.href = targetUrl;
+          }
+        }, true);
+      }
+
 
       // Desktop Hover Hold
       var hoverTimer = null;
@@ -1117,7 +1133,7 @@
         dropdown.setAttribute('aria-label', 'Other submenu');
         dropdown.innerHTML = 
           '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="/sales-team/" class="ar-about-link" role="menuitem">Sales team</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/sales-team/" class="ar-about-link" role="menuitem">Sales team</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>';
         parentLi.appendChild(dropdown);
@@ -1138,8 +1154,8 @@
           if (aboutLi) dropdown.appendChild(aboutLi);
           if (salesLi) {
             var salesA = salesLi.querySelector('a');
-            if (salesA && (!salesA.getAttribute('href') || salesA.getAttribute('href') === '#' || salesA.getAttribute('href') === '')) {
-              salesA.setAttribute('href', '/sales-team/');
+            if (salesA) {
+              salesA.setAttribute('href', 'https://www.arwebcrafts.com/sales-team/');
             }
             dropdown.appendChild(salesLi);
           }
