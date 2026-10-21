@@ -1,5 +1,26 @@
 [
   {
+    "id": "lead_mvip0885_t8qn",
+    "timestamp": "2026-10-21T22:37:34.757Z",
+    "pageUrl": "/contact-us/",
+    "pageTitle": "Contact Us | AR Webcrafts",
+    "name": "Dr. Sarah Jenkins",
+    "email": "contact@arwebcrafts.com",
+    "phone": "+1 (555) 789-2345",
+    "service": "WordPress Architecture & Scaling",
+    "budget": ",000 - ,000",
+    "subject": "Inquiry from /contact-us/",
+    "message": "Testing live persistence and dashboard lead recording pipeline.",
+    "company": "Jenkins Health Global",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
     "id": "lead_mviooi2w_e91h",
     "timestamp": "2026-10-21T22:28:27.656Z",
     "pageUrl": "/",

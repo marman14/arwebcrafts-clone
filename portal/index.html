@@ -814,7 +814,7 @@
       const errorDiv = document.getElementById('portalError');
 
       try {
-        const res = await fetch(`/api/leads/?token=${encodeURIComponent(currentPin)}`);
+        const res = await fetch(`/api/contact/?token=${encodeURIComponent(currentPin)}`);
         if (res.ok) {
           adminToken = currentPin;
           sessionStorage.setItem('arw_portal_pin', currentPin);
@@ -856,7 +856,7 @@
       icon.classList.add('fa-spin');
 
       try {
-        const res = await fetch(`/api/leads/?token=${encodeURIComponent(adminToken)}`);
+        const res = await fetch(`/api/contact/?token=${encodeURIComponent(adminToken)}`);
         if (res.ok) {
           const data = await res.json();
           renderData(data);
@@ -880,7 +880,7 @@
         const serverIds = new Set((serverLeads || []).map(l => l.id));
         const unsynced = localLeads.filter(l => l && l.id && !serverIds.has(l.id));
         if (unsynced.length > 0) {
-          await fetch(/api/leads/?token=, {
+          await fetch('/api/contact/?token=' + encodeURIComponent(adminToken), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'sync', leads: unsynced })
@@ -1011,7 +1011,7 @@
     async function changeStatus(id, newStatus) {
       if (!id || !adminToken) return;
       try {
-        const res = await fetch(`/api/leads/?token=${encodeURIComponent(adminToken)}`, {
+        const res = await fetch(`/api/contact/?token=${encodeURIComponent(adminToken)}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id, status: newStatus })
@@ -1032,7 +1032,7 @@
       if (!confirm('Are you sure you want to delete this submission record?')) return;
 
       try {
-        const res = await fetch(`/api/leads/?token=${encodeURIComponent(adminToken)}&id=${encodeURIComponent(currentModalId)}`, {
+        const res = await fetch(`/api/contact/?token=${encodeURIComponent(adminToken)}&id=${encodeURIComponent(currentModalId)}`, {
           method: 'DELETE'
         });
         if (res.ok) {
@@ -1047,7 +1047,7 @@
 
     function exportCsv() {
       if (!adminToken) return;
-      window.location.href = `/api/leads/?token=${encodeURIComponent(adminToken)}&format=csv`;
+      window.location.href = `/api/contact/?token=${encodeURIComponent(adminToken)}&format=csv`;
     }
 
     function escapeHtml(str) {
