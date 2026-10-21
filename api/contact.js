@@ -130,7 +130,7 @@ module.exports = async (req, res) => {
     try {
       await Promise.race([
         sendEmailNotification(savedLead),
-        new Promise(resolve => setTimeout(resolve, 3500))
+        new Promise(resolve => setTimeout(resolve, 8000))
       ]);
     } catch (err) {
       console.error('[Notification Dispatch Warning]:', err.message);

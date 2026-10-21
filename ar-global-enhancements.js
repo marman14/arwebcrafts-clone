@@ -1057,10 +1057,29 @@
         dropdown.setAttribute('aria-label', 'Other submenu');
         dropdown.innerHTML = 
           '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Sales team</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Sales team</a></li>';
+          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>';
         parentLi.appendChild(dropdown);
+      } else {
+        var items = Array.from(dropdown.querySelectorAll(':scope > li'));
+        if (items.length) {
+          var findItem = function(pattern) {
+            return items.find(function(li) {
+              var a = li.querySelector('a');
+              return a && pattern.test((a.textContent || '').trim());
+            });
+          };
+          var aboutLi = findItem(/^about$/i);
+          var salesLi = findItem(/^sales\s+team$/i);
+          var careerLi = findItem(/^career$/i);
+          var blogLi = findItem(/^blog$/i);
+
+          if (aboutLi) dropdown.appendChild(aboutLi);
+          if (salesLi) dropdown.appendChild(salesLi);
+          if (careerLi) dropdown.appendChild(careerLi);
+          if (blogLi) dropdown.appendChild(blogLi);
+        }
       }
 
       dropdown.style.setProperty('background', '#FFFFFF', 'important');
