@@ -3196,6 +3196,7 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
 
 /* 3. Desktop Dropdown Menu Container (Center-Aligned Directly Under Case Studies) */
 @media (min-width: 1025px) {
+  html body .ar-cs-dropdown,
   .ar-cs-dropdown {
     position: absolute !important;
     top: 100% !important;
@@ -3203,8 +3204,8 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
     right: auto !important;
     bottom: auto !important;
     transform: translateX(-50%) translateY(10px) !important;
-    background: #F3F4F6 !important;
-    background-color: #F3F4F6 !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
     border-radius: 12px !important;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
@@ -3245,8 +3246,8 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
     transform: translateX(-50%) rotate(45deg) !important;
     width: 10px !important;
     height: 10px !important;
-    background: #F3F4F6 !important;
-    background-color: #F3F4F6 !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     border-top: 1px solid #E5E7EB !important;
     border-left: 1px solid #E5E7EB !important;
     border-right: none !important;
@@ -3302,8 +3303,8 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
   html body .ar-cs-dropdown .ar-cs-link:focus,
   .ar-cs-dropdown .ar-cs-link:hover,
   .ar-cs-dropdown .ar-cs-link:focus {
-    background: #E5E7EB !important;
-    background-color: #E5E7EB !important;
+    background: #F3F4F6 !important;
+    background-color: #F3F4F6 !important;
     color: #BE8C33 !important;
     border-left-color: #BE8C33 !important;
     transform: translateX(4px) !important;
@@ -3348,6 +3349,7 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
     color: #BE8C33 !important;
   }
 
+  html body .ar-cs-dropdown,
   .ar-cs-dropdown {
     display: none !important;
     position: static !important;
@@ -3361,7 +3363,8 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
     list-style: none !important;
     padding: 8px 16px 12px 22px !important;
     margin: 0 !important;
-    background: #F3F4F6 !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     border-top: none !important;
     border-right: none !important;
     border-bottom: none !important;
