@@ -594,7 +594,13 @@
     }
 
     // 3. Locate or create "Agency Partner" nav item at the END of the navigation menu
-    var partnerLi = ul.querySelector(':scope > li.ar-nav-partner-item');
+    var partnerLis = ul.querySelectorAll(':scope > li.ar-nav-partner-item');
+    if (partnerLis.length > 1) {
+      for (var p = 1; p < partnerLis.length; p++) {
+        partnerLis[p].remove();
+      }
+    }
+    var partnerLi = partnerLis.length ? partnerLis[0] : null;
     if (!partnerLi) {
       var topLis2 = ul.querySelectorAll(':scope > li');
       for (var j = 0; j < topLis2.length; j++) {
@@ -625,26 +631,33 @@
       }
     }
 
-    // Move Agency Partner to the very END of visible items (before hidden Hire Us, or append to ul)
+    // Move Agency Partner and Other to the very END of visible items (before hidden Hire Us, or append to ul)
+    var otherLi = ul.querySelector(':scope > li#menu-item-159, :scope > li.ar-about-dropdown-parent');
     if (topHireLi) {
       ul.insertBefore(partnerLi, topHireLi);
+      if (otherLi) {
+        ul.insertBefore(otherLi, topHireLi);
+      }
     } else {
       ul.appendChild(partnerLi);
+      if (otherLi) {
+        ul.appendChild(otherLi);
+      }
     }
 
-    // 4. Rename "About Us" → "About" and "Contact Us" → "Contact" on TOP-LEVEL items only
+    // 4. Rename "Contact Us" → "Contact" and "About Us" / "About" → "Other" on TOP-LEVEL items only
     var navItems = ul.querySelectorAll(':scope > li > a.ekit-menu-nav-link');
     navItems.forEach(function(link) {
       var text = (link.textContent || '').trim();
       var li = link.parentElement;
 
-      // Rename "About Us" → "About"
-      if (/^about\s+us$/i.test(text)) {
+      // Rename top-level "About Us" / "About" → "Other" (for the dropdown trigger)
+      if (/^(about\s+us|about)$/i.test(text) && (li.id === 'menu-item-159' || li.classList.contains('ar-about-dropdown-parent'))) {
         var textNode = findTextNode(link, text);
         if (textNode) {
-          textNode.textContent = 'About';
+          textNode.textContent = 'Other';
         } else {
-          link.textContent = 'About';
+          link.textContent = 'Other';
         }
         li.classList.add('ar-nav-renamed');
       }
@@ -1009,7 +1022,15 @@
       link.setAttribute('aria-expanded', 'false');
 
       if (!link.querySelector('.ar-about-indicator')) {
-        link.innerHTML = 'About<span class="ar-about-indicator" aria-hidden="true"><svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor"><path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06L6.53 8.78a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/></svg></span>';
+        link.innerHTML = 'Other<span class="ar-about-indicator" aria-hidden="true"><svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor"><path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06L6.53 8.78a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/></svg></span>';
+      } else {
+        for (var n = 0; n < link.childNodes.length; n++) {
+          var node = link.childNodes[n];
+          if (node.nodeType === 3 && /about/i.test(node.textContent)) {
+            node.textContent = 'Other';
+            break;
+          }
+        }
       }
 
       var dropdown = parentLi.querySelector('.ar-about-dropdown');
@@ -1017,12 +1038,12 @@
         dropdown = document.createElement('ul');
         dropdown.className = 'ar-about-dropdown';
         dropdown.setAttribute('role', 'menu');
-        dropdown.setAttribute('aria-label', 'About submenu');
+        dropdown.setAttribute('aria-label', 'Other submenu');
         dropdown.innerHTML = 
+          '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Sales team</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>';
+          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Sales team</a></li>';
         parentLi.appendChild(dropdown);
       }
 
