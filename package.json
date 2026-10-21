@@ -8,6 +8,7 @@
     "build": "echo Static build ready"
   },
   "dependencies": {
+    "nodemailer": "^10.2.0",
     "stripe": "^14.25.0"
   }
 }
