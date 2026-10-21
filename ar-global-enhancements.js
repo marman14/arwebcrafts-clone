@@ -503,34 +503,53 @@
         return;
       }
 
+      // Inject multi-layer hidden anti-spam honeypot & behavioral tracking into ALL forms
+      if (!form.querySelector('.ar-security-trap')) {
+        var trapWrap = document.createElement('div');
+        trapWrap.className = 'ar-security-trap';
+        trapWrap.style.cssText = 'position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;';
+        trapWrap.setAttribute('aria-hidden', 'true');
+        trapWrap.innerHTML = [
+          '<input type="text" name="hp_website_check" tabindex="-1" autocomplete="new-password" aria-hidden="true">',
+          '<input type="text" name="company_fax" tabindex="-1" autocomplete="off" aria-hidden="true">',
+          '<input type="text" name="website_address_confirm" tabindex="-1" autocomplete="off" aria-hidden="true">',
+          '<input type="hidden" name="_ar_loaded_at" value="' + Date.now() + '">',
+          '<input type="hidden" name="form_loaded_at" value="' + Date.now() + '">',
+          '<input type="hidden" name="_ar_interacted" value="0">',
+          '<input type="hidden" name="_ar_keystrokes" value="0">'
+        ].join('');
+        form.appendChild(trapWrap);
+
+        // Track human keyboard and focus interaction
+        var keyCount = 0;
+        form.addEventListener('keydown', function() {
+          keyCount++;
+          var keyInput = form.querySelector('input[name="_ar_keystrokes"]');
+          if (keyInput) keyInput.value = String(keyCount);
+          var intInput = form.querySelector('input[name="_ar_interacted"]');
+          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
+        }, { passive: true });
+
+        form.addEventListener('focusin', function() {
+          var intInput = form.querySelector('input[name="_ar_interacted"]');
+          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
+        }, { passive: true });
+
+        form.addEventListener('pointerdown', function() {
+          var intInput = form.querySelector('input[name="_ar_interacted"]');
+          if (intInput && intInput.value === '0') intInput.value = String(Date.now());
+        }, { passive: true });
+      }
+
       // Check if this form is already handled by custom bottom-of-page script
       var selfHandledForms = ['wl-partner-form', 'wpd-plugin-form', 'wtd-theme-form', 'wcd-woo-form'];
       if (selfHandledForms.indexOf(form.id) !== -1) {
-        // Inject honeypot & timing if missing
-        if (!form.querySelector('input[name="hp_website_check"]')) {
-          var hp = document.createElement('input');
-          hp.type = 'text';
-          hp.name = 'hp_website_check';
-          hp.style.cssText = 'display:none!important;position:absolute;left:-9999px;opacity:0;';
-          hp.tabIndex = -1;
-          hp.autocomplete = 'off';
-          form.appendChild(hp);
-        }
-        if (!form.querySelector('input[name="form_loaded_at"]')) {
-          var tm = document.createElement('input');
-          tm.type = 'hidden';
-          tm.name = 'form_loaded_at';
-          tm.value = String(Date.now());
-          form.appendChild(tm);
-        }
         form.dataset.arHandled = 'true';
         return;
       }
 
       form.dataset.arHandled = 'true';
-
-      // Inject multi-layer hidden anti-spam honeypot & behavioral tracking
-      if (!form.querySelector('.ar-security-trap')) {
+      if (false) {
         var trapWrap = document.createElement('div');
         trapWrap.className = 'ar-security-trap';
         trapWrap.style.cssText = 'position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;z-index:-1!important;';
