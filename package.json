@@ -4,7 +4,8 @@
   "description": "AR Webcrafts LLC Official Website",
   "scripts": {
     "start": "npx serve . -p 3000",
-    "serve": "python server.py 3000"
+    "serve": "python server.py 3000",
+    "build": "echo Static build ready"
   },
   "dependencies": {
     "stripe": "^14.25.0"
