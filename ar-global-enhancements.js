@@ -541,10 +541,41 @@
         }, { passive: true });
       }
 
-      // Check if this form is already handled by custom bottom-of-page script
+      // For self-handled forms, attach companion listener to guarantee immediate local dashboard sync
       var selfHandledForms = ['wl-partner-form', 'wpd-plugin-form', 'wtd-theme-form', 'wcd-woo-form'];
       if (selfHandledForms.indexOf(form.id) !== -1) {
         form.dataset.arHandled = 'true';
+        form.addEventListener('submit', function () {
+          setTimeout(function () {
+            try {
+              var payload = extractFormPayload(form);
+              if (payload && (payload.name || payload.email)) {
+                var browserLeads = JSON.parse(localStorage.getItem('arw_browser_leads') || '[]');
+                var exists = browserLeads.some(function(l) {
+                  return l.email === payload.email && (Date.now() - new Date(l.timestamp || 0).getTime() < 10000);
+                });
+                if (!exists) {
+                  browserLeads.unshift({
+                    id: 'lead_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6),
+                    timestamp: new Date().toISOString(),
+                    pageUrl: payload.page_url || window.location.pathname,
+                    pageTitle: payload.page_title || document.title,
+                    name: payload.name || 'Anonymous',
+                    email: payload.email || '',
+                    phone: payload.phone || '',
+                    service: payload.service || 'General Inquiry',
+                    budget: payload.budget || 'Not specified',
+                    subject: payload.subject || 'Website Inquiry',
+                    message: payload.message || '',
+                    company: payload.company || '',
+                    status: 'new'
+                  });
+                  localStorage.setItem('arw_browser_leads', JSON.stringify(browserLeads.slice(0, 100)));
+                }
+              }
+            } catch (e) {}
+          }, 300);
+        }, true);
         return;
       }
 
@@ -1086,7 +1117,7 @@
         dropdown.setAttribute('aria-label', 'Other submenu');
         dropdown.innerHTML = 
           '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Sales team</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="/sales-team/" class="ar-about-link" role="menuitem">Sales team</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>';
         parentLi.appendChild(dropdown);
@@ -1105,7 +1136,13 @@
           var blogLi = findItem(/^blog$/i);
 
           if (aboutLi) dropdown.appendChild(aboutLi);
-          if (salesLi) dropdown.appendChild(salesLi);
+          if (salesLi) {
+            var salesA = salesLi.querySelector('a');
+            if (salesA && (!salesA.getAttribute('href') || salesA.getAttribute('href') === '#' || salesA.getAttribute('href') === '')) {
+              salesA.setAttribute('href', '/sales-team/');
+            }
+            dropdown.appendChild(salesLi);
+          }
           if (careerLi) dropdown.appendChild(careerLi);
           if (blogLi) dropdown.appendChild(blogLi);
         }
