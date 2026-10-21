@@ -612,36 +612,52 @@
       }
     }
 
-    if (!partnerLi) {
-      partnerLi = document.createElement('li');
-      partnerLi.className = 'menu-item menu-item-type-post_type menu-item-object-page nav-item elementskit-mobile-builder-content ar-nav-partner-item' + (isPartnerPage ? ' current-menu-item active' : '');
-      partnerLi.setAttribute('data-vertical-menu', '750px');
-      partnerLi.innerHTML = '<a href="/agency-partner/" class="ekit-menu-nav-link"' + (isPartnerPage ? ' aria-current="page"' : '') + '>Agency Partner</a>';
+    var otherLi = ul.querySelector(':scope > li#menu-item-159, :scope > li.ar-about-dropdown-parent');
+
+    if (isPartnerPage) {
+      // ON AGENCY PARTNER PAGE ONLY: Clean up extra items
+      // 1. Remove Agency Partner link from the nav (page already has prominent 'Become a Partner' CTA button)
+      if (partnerLi) {
+        partnerLi.remove();
+      }
+      // 2. Remove Portfolio from nav on this page
+      var portfolioLi = ul.querySelector(':scope > li#menu-item-2443, :scope > li.menu-item-2443');
+      if (portfolioLi) {
+        portfolioLi.remove();
+      }
+      // 3. Move Other to the very END (after Contact, before hidden Hire Us)
+      if (topHireLi && otherLi) {
+        ul.insertBefore(otherLi, topHireLi);
+      } else if (otherLi) {
+        ul.appendChild(otherLi);
+      }
     } else {
-      partnerLi.classList.remove('ar-nav-hidden-hire');
-      partnerLi.style.removeProperty('display');
-      partnerLi.classList.add('ar-nav-partner-item');
-      var partnerA = partnerLi.querySelector(':scope > a');
-      if (partnerA) {
-        partnerA.setAttribute('href', '/agency-partner/');
-        if (isPartnerPage) {
-          partnerLi.classList.add('current-menu-item', 'active');
-          partnerA.setAttribute('aria-current', 'page');
+      // ON ALL OTHER PAGES: Maintain global menu with Agency Partner placed before Other
+      if (!partnerLi) {
+        partnerLi = document.createElement('li');
+        partnerLi.className = 'menu-item menu-item-type-post_type menu-item-object-page nav-item elementskit-mobile-builder-content ar-nav-partner-item';
+        partnerLi.setAttribute('data-vertical-menu', '750px');
+        partnerLi.innerHTML = '<a href="/agency-partner/" class="ekit-menu-nav-link">Agency Partner</a>';
+      } else {
+        partnerLi.classList.remove('ar-nav-hidden-hire');
+        partnerLi.style.removeProperty('display');
+        partnerLi.classList.add('ar-nav-partner-item');
+        var partnerA = partnerLi.querySelector(':scope > a');
+        if (partnerA) {
+          partnerA.setAttribute('href', '/agency-partner/');
         }
       }
-    }
 
-    // Move Agency Partner and Other to the very END of visible items (before hidden Hire Us, or append to ul)
-    var otherLi = ul.querySelector(':scope > li#menu-item-159, :scope > li.ar-about-dropdown-parent');
-    if (topHireLi) {
-      ul.insertBefore(partnerLi, topHireLi);
-      if (otherLi) {
-        ul.insertBefore(otherLi, topHireLi);
-      }
-    } else {
-      ul.appendChild(partnerLi);
-      if (otherLi) {
-        ul.appendChild(otherLi);
+      if (topHireLi) {
+        ul.insertBefore(partnerLi, topHireLi);
+        if (otherLi) {
+          ul.insertBefore(otherLi, topHireLi);
+        }
+      } else {
+        ul.appendChild(partnerLi);
+        if (otherLi) {
+          ul.appendChild(otherLi);
+        }
       }
     }
 
