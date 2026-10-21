@@ -2406,15 +2406,15 @@ section.elementor-element-ac3f73a,
   /* ── The Premium Mega Menu Panel ── */
   /* Center-align mega menu relative to header container */
   /* Ensure parent li NEVER has relative positioning or transform containing blocks, even when opened */
-  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li:not(.ar-cs-dropdown-parent):not(#menu-item-10197),
-  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.elementskit-dropdown-open:not(.ar-cs-dropdown-parent):not(#menu-item-10197),
+  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li:not(.ar-cs-dropdown-parent):not(#menu-item-10197):not(.ar-about-dropdown-parent):not(#menu-item-159),
+  html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.elementskit-dropdown-open:not(.ar-cs-dropdown-parent):not(#menu-item-10197):not(.ar-about-dropdown-parent):not(#menu-item-159),
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074,
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-1074.elementskit-dropdown-open,
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li.elementskit-dropdown-has,
   html body #ekit-megamenu-menu .elementskit-navbar-nav > li.elementskit-dropdown-has.elementskit-dropdown-open,
   .elementskit-navbar-nav > li.elementskit-dropdown-has,
   .elementskit-navbar-nav > li#menu-item-1074,
-  .elementskit-navbar-nav > li.elementskit-dropdown-open:not(.ar-cs-dropdown-parent):not(#menu-item-10197) {
+  .elementskit-navbar-nav > li.elementskit-dropdown-open:not(.ar-cs-dropdown-parent):not(#menu-item-10197):not(.ar-about-dropdown-parent):not(#menu-item-159) {
     position: static !important;
     transform: none !important;
   }
@@ -3402,6 +3402,268 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-cs-dropdown-parent
 
   .ar-cs-dropdown .ar-cs-link:hover,
   .ar-cs-dropdown .ar-cs-link:active {
+    color: #BE8C33 !important;
+    background: rgba(190, 140, 51, 0.08) !important;
+  }
+}
+
+
+
+/* ==========================================================================
+   ABOUT DROPDOWN MENU ENHANCEMENT (SOLID PURE WHITE #FFFFFF)
+   ========================================================================== */
+
+/* 1. Parent Navigation Item Position */
+html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li#menu-item-159,
+html body .elementskit-navbar-nav-default .elementskit-navbar-nav > li.ar-about-dropdown-parent,
+html body #ekit-megamenu-menu .elementskit-navbar-nav > li#menu-item-159,
+html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-about-dropdown-parent,
+.elementskit-navbar-nav > li#menu-item-159,
+.elementskit-navbar-nav > li.ar-about-dropdown-parent,
+.wl-nav-links > li.ar-about-dropdown-parent {
+  position: relative !important;
+}
+
+/* Top Link Styling & Indicator */
+.elementskit-navbar-nav > li.ar-about-dropdown-parent > a.ekit-menu-nav-link,
+.wl-nav-links > li.ar-about-dropdown-parent > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+}
+
+.ar-about-indicator {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-left: 2px !important;
+  pointer-events: none !important;
+}
+
+.ar-about-indicator svg {
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  fill: currentColor !important;
+  opacity: 0.8 !important;
+}
+
+.ar-about-dropdown-parent:hover .ar-about-indicator,
+.ar-about-dropdown-parent.ar-about-open .ar-about-indicator,
+.ar-about-dropdown-parent.ar-about-mobile-open .ar-about-indicator {
+  transform: rotate(180deg) !important;
+}
+
+/* 2. Desktop Dropdown Menu Container (Center-Aligned Directly Under About) */
+@media (min-width: 1025px) {
+  html body .elementskit-navbar-nav > li#menu-item-159 > .ar-about-dropdown,
+  html body .elementskit-navbar-nav > li.ar-about-dropdown-parent > .ar-about-dropdown,
+  html body .ar-about-dropdown,
+  .ar-about-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) translateY(10px) !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+    min-width: 200px !important;
+    width: max-content !important;
+    max-width: 280px !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    list-style: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s !important;
+    z-index: 999999 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Hover Bridge */
+  .ar-about-dropdown::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -14px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 14px !important;
+    background: transparent !important;
+    pointer-events: auto !important;
+  }
+
+  /* Triangle Pointer Arrow */
+  html body .ar-about-dropdown::before,
+  .ar-about-dropdown::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+    width: 10px !important;
+    height: 10px !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border-top: 1px solid #E5E7EB !important;
+    border-left: 1px solid #E5E7EB !important;
+    pointer-events: none !important;
+  }
+
+  /* Active / Hover Reveal */
+  html body .elementskit-navbar-nav > li#menu-item-159:hover > .ar-about-dropdown,
+  html body .elementskit-navbar-nav > li#menu-item-159.ar-about-open > .ar-about-dropdown,
+  html body .elementskit-navbar-nav > li.ar-about-dropdown-parent:hover > .ar-about-dropdown,
+  html body .elementskit-navbar-nav > li.ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown,
+  .ar-about-dropdown-parent:hover > .ar-about-dropdown,
+  .ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown,
+  li#menu-item-159:hover > .ar-about-dropdown,
+  li#menu-item-159.ar-about-open > .ar-about-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(2px) !important;
+  }
+
+  /* Dropdown List Items */
+  .ar-about-dropdown .ar-about-item {
+    list-style: none !important;
+    margin: 3px 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    background: transparent !important;
+  }
+
+  html body .ar-about-dropdown .ar-about-link,
+  .ar-about-dropdown .ar-about-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 10px 16px !important;
+    color: #333333 !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+    border-left: 2px solid transparent !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  html body .ar-about-dropdown .ar-about-link:hover,
+  html body .ar-about-dropdown .ar-about-link:focus,
+  .ar-about-dropdown .ar-about-link:hover,
+  .ar-about-dropdown .ar-about-link:focus {
+    background: #F3F4F6 !important;
+    background-color: #F3F4F6 !important;
+    color: #BE8C33 !important;
+    border-left-color: #BE8C33 !important;
+    transform: translateX(4px) !important;
+    text-decoration: none !important;
+  }
+}
+
+/* 3. Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .elementskit-navbar-nav > li.ar-about-dropdown-parent,
+  .wl-nav-links > li.ar-about-dropdown-parent {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .elementskit-navbar-nav > li.ar-about-dropdown-parent > a.ekit-menu-nav-link,
+  .wl-nav-links > li.ar-about-dropdown-parent > a {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .ar-about-indicator {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+    color: #94A3B8 !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+  }
+
+  .ar-about-dropdown-parent.ar-about-mobile-open .ar-about-indicator {
+    transform: rotate(180deg) !important;
+    color: #BE8C33 !important;
+  }
+
+  .ar-about-dropdown-parent.ar-about-mobile-open > a {
+    color: #BE8C33 !important;
+  }
+
+  .ar-about-dropdown {
+    display: none !important;
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+    padding: 8px 16px 12px 22px !important;
+    margin: 0 !important;
+    background: #FFFFFF !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: 3px solid #BE8C33 !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .ar-about-dropdown::before {
+    display: none !important;
+  }
+
+  .ar-about-dropdown-parent.ar-about-mobile-open > .ar-about-dropdown {
+    display: block !important;
+  }
+
+  .ar-about-dropdown .ar-about-item {
+    list-style: none !important;
+    margin: 4px 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .ar-about-dropdown .ar-about-link {
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 12px !important;
+    color: #333333 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: color 0.15s ease, background 0.15s ease !important;
+  }
+
+  .ar-about-dropdown .ar-about-link:hover,
+  .ar-about-dropdown .ar-about-link:active {
     color: #BE8C33 !important;
     background: rgba(190, 140, 51, 0.08) !important;
   }
