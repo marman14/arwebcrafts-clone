@@ -3584,17 +3584,16 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-about-dropdown-par
     padding: 0 !important;
     display: block !important;
     background: transparent !important;
-    text-align: center !important;
-    width: 100% !important;
+    text-align: left !important;
   }
 
   html body .ar-about-dropdown .ar-about-link,
   .ar-about-dropdown .ar-about-link {
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 10px 16px !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 10px 14px !important;
     color: #333333 !important;
     font-family: inherit !important;
     font-size: 14px !important;
@@ -3604,9 +3603,7 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-about-dropdown-par
     border-radius: 8px !important;
     white-space: nowrap !important;
     background: transparent !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    border-left: none !important;
+    border-left: 2px solid transparent !important;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
@@ -3617,8 +3614,8 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-about-dropdown-par
     background: #F3F4F6 !important;
     background-color: #F3F4F6 !important;
     color: #BE8C33 !important;
-    border-left-color: transparent !important;
-    transform: none !important;
+    border-left-color: #BE8C33 !important;
+    transform: translateX(4px) !important;
     text-decoration: none !important;
   }
 }
@@ -3702,10 +3699,8 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-about-dropdown-par
   .ar-about-dropdown .ar-about-link {
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
     padding: 9px 12px !important;
     color: #333333 !important;
     font-size: 14px !important;
