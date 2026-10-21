@@ -594,7 +594,13 @@
     }
 
     // 3. Locate or create "Agency Partner" nav item at the END of the navigation menu
-    var partnerLi = ul.querySelector(':scope > li.ar-nav-partner-item');
+    var partnerLis = ul.querySelectorAll(':scope > li.ar-nav-partner-item');
+    if (partnerLis.length > 1) {
+      for (var p = 1; p < partnerLis.length; p++) {
+        partnerLis[p].remove();
+      }
+    }
+    var partnerLi = partnerLis.length ? partnerLis[0] : null;
     if (!partnerLi) {
       var topLis2 = ul.querySelectorAll(':scope > li');
       for (var j = 0; j < topLis2.length; j++) {
@@ -625,26 +631,33 @@
       }
     }
 
-    // Move Agency Partner to the very END of visible items (before hidden Hire Us, or append to ul)
+    // Move Agency Partner and Other to the very END of visible items (before hidden Hire Us, or append to ul)
+    var otherLi = ul.querySelector(':scope > li#menu-item-159, :scope > li.ar-about-dropdown-parent');
     if (topHireLi) {
       ul.insertBefore(partnerLi, topHireLi);
+      if (otherLi) {
+        ul.insertBefore(otherLi, topHireLi);
+      }
     } else {
       ul.appendChild(partnerLi);
+      if (otherLi) {
+        ul.appendChild(otherLi);
+      }
     }
 
-    // 4. Rename "About Us" → "About" and "Contact Us" → "Contact" on TOP-LEVEL items only
+    // 4. Rename "Contact Us" → "Contact" and "About Us" / "About" → "Other" on TOP-LEVEL items only
     var navItems = ul.querySelectorAll(':scope > li > a.ekit-menu-nav-link');
     navItems.forEach(function(link) {
       var text = (link.textContent || '').trim();
       var li = link.parentElement;
 
-      // Rename "About Us" → "About"
-      if (/^about\s+us$/i.test(text)) {
+      // Rename top-level "About Us" / "About" → "Other" (for the dropdown trigger)
+      if (/^(about\s+us|about)$/i.test(text) && (li.id === 'menu-item-159' || li.classList.contains('ar-about-dropdown-parent'))) {
         var textNode = findTextNode(link, text);
         if (textNode) {
-          textNode.textContent = 'About';
+          textNode.textContent = 'Other';
         } else {
-          link.textContent = 'About';
+          link.textContent = 'Other';
         }
         li.classList.add('ar-nav-renamed');
       }
@@ -965,6 +978,107 @@
 
     // Hash Scroll Handling on /products/
     handleInitialHashScroll();
+  }
+
+  /**
+   * ABOUT DROPDOWN ENHANCEMENT
+   * - Converts "About" menu item into a clean dropdown
+   * - 4 Items:
+   *   1. Blog (href="#")
+   *   2. Career (href="#")
+   *   3. Sales team (href="#")
+   *   4. About (href="/about-us/")
+   * - Pure white background (#FFFFFF) with dark text (#333333)
+   */
+  function initAboutDropdown() {
+    if (!document.getElementById('ar-about-dropdown-critical-css')) {
+      var critStyle = document.createElement('style');
+      critStyle.id = 'ar-about-dropdown-critical-css';
+      critStyle.textContent = 
+        'li#menu-item-159, .ar-about-dropdown-parent { position: relative !important; }' +
+        '@media (min-width: 1025px) { .ar-about-dropdown { position: absolute !important; top: 100% !important; left: 50% !important; right: auto !important; transform: translateX(-50%) translateY(10px) !important; background: #FFFFFF !important; background-color: #FFFFFF !important; border: 1px solid #E5E7EB !important; border-radius: 12px !important; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05) !important; min-width: 200px !important; width: max-content !important; z-index: 999999 !important; } .ar-about-dropdown::before { background: #FFFFFF !important; background-color: #FFFFFF !important; border-top: 1px solid #E5E7EB !important; border-left: 1px solid #E5E7EB !important; } html body .elementskit-navbar-nav > li#menu-item-159:hover > .ar-about-dropdown, html body .elementskit-navbar-nav > li#menu-item-159.ar-about-open > .ar-about-dropdown, html body .elementskit-navbar-nav > li.ar-about-dropdown-parent:hover > .ar-about-dropdown, html body .elementskit-navbar-nav > li.ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown, .ar-about-dropdown-parent:hover > .ar-about-dropdown, .ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown, li#menu-item-159:hover > .ar-about-dropdown, li#menu-item-159.ar-about-open > .ar-about-dropdown { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateX(-50%) translateY(2px) !important; } .ar-about-dropdown .ar-about-link { color: #333333 !important; } .ar-about-dropdown .ar-about-link:hover { color: #BE8C33 !important; background: #F3F4F6 !important; } }';
+      document.head.appendChild(critStyle);
+    }
+
+    var navLinks = document.querySelectorAll(
+      '.elementskit-navbar-nav > li > a[href*="/about-us/"], ' +
+      '.elementskit-navbar-nav > li#menu-item-159 > a, ' +
+      '.wl-nav-links > li > a[href*="about-us"], ' +
+      '.wl-nav-links > li > a[href*="/about/"]'
+    );
+
+    if (!navLinks.length) return;
+
+    navLinks.forEach(function (link) {
+      var parentLi = link.closest('li');
+      if (!parentLi) return;
+      if (link.closest('.elementor-widget-button') || link.closest('.footer') || link.closest('footer')) return;
+
+      parentLi.classList.add('ar-about-dropdown-parent');
+      parentLi.style.setProperty('position', 'relative', 'important');
+      link.setAttribute('target', '_self');
+      link.removeAttribute('rel');
+      link.setAttribute('aria-haspopup', 'true');
+      link.setAttribute('aria-expanded', 'false');
+
+      if (!link.querySelector('.ar-about-indicator')) {
+        link.innerHTML = 'Other<span class="ar-about-indicator" aria-hidden="true"><svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor"><path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06L6.53 8.78a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/></svg></span>';
+      } else {
+        for (var n = 0; n < link.childNodes.length; n++) {
+          var node = link.childNodes[n];
+          if (node.nodeType === 3 && /about/i.test(node.textContent)) {
+            node.textContent = 'Other';
+            break;
+          }
+        }
+      }
+
+      var dropdown = parentLi.querySelector('.ar-about-dropdown');
+      if (!dropdown) {
+        dropdown = document.createElement('ul');
+        dropdown.className = 'ar-about-dropdown';
+        dropdown.setAttribute('role', 'menu');
+        dropdown.setAttribute('aria-label', 'Other submenu');
+        dropdown.innerHTML = 
+          '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Sales team</a></li>';
+        parentLi.appendChild(dropdown);
+      }
+
+      dropdown.style.setProperty('background', '#FFFFFF', 'important');
+      dropdown.style.setProperty('background-color', '#FFFFFF', 'important');
+
+      var hoverTimer = null;
+      var isDesktop = function () {
+        return window.innerWidth >= 1025;
+      };
+
+      parentLi.addEventListener('mouseenter', function () {
+        if (!isDesktop()) return;
+        clearTimeout(hoverTimer);
+        parentLi.classList.add('ar-about-open');
+        link.setAttribute('aria-expanded', 'true');
+      });
+
+      parentLi.addEventListener('mouseleave', function () {
+        if (!isDesktop()) return;
+        hoverTimer = setTimeout(function () {
+          parentLi.classList.remove('ar-about-open');
+          link.setAttribute('aria-expanded', 'false');
+        }, 120);
+      });
+
+      link.addEventListener('click', function (e) {
+        if (!isDesktop()) {
+          e.preventDefault();
+          e.stopPropagation();
+          var isOpen = parentLi.classList.toggle('ar-about-mobile-open');
+          link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+      });
+    });
   }
 
   function smoothScrollToAnchor(hash) {
