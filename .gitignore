@@ -9,3 +9,5 @@ scratch/
 
 hostinger-package/
 hostinger-api-package.zip
+.vercel
+.env*
