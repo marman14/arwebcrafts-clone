@@ -4599,3 +4599,64 @@ h2.ar-hero-subheading {
 #fluentform_7 .ff-btn-submit:hover {
   background-color: #a47625 !important;
 }
+
+
+/* ============================================================
+   EMERGENCY CRITICAL FIX: DROPDOWN CLICK & POINTER-EVENTS
+   Guarantees that the "Other" dropdown, list items, and Blog
+   link are 100% interactive, never blocked by overlays, and
+   register clicks instantly with maximum z-index.
+   ============================================================ */
+
+/* 1. Maximum Z-Index Stacking Context on Header & Nav */
+.elementor-element-7ec6df1,
+.elementor-element-59ce085,
+.elementor-widget-ekit-nav-menu,
+.elementskit-menu-container,
+.elementskit-navbar-nav,
+.ar-about-dropdown-parent,
+li#menu-item-159 {
+  z-index: 9999999 !important;
+  pointer-events: auto !important;
+}
+
+/* 2. Unconditional Interactivity on Dropdown & Links */
+.ar-about-dropdown {
+  z-index: 99999999 !important;
+}
+
+.ar-about-dropdown:hover,
+.ar-about-dropdown-parent:hover > .ar-about-dropdown,
+.ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown,
+html body .ar-about-dropdown-parent:hover > .ar-about-dropdown,
+html body .ar-about-dropdown-parent.ar-about-open > .ar-about-dropdown,
+li#menu-item-159:hover > .ar-about-dropdown,
+li#menu-item-159.ar-about-open > .ar-about-dropdown {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.ar-about-dropdown .ar-about-item {
+  position: relative !important;
+  z-index: 99999999 !important;
+  pointer-events: auto !important;
+}
+
+.ar-about-dropdown .ar-about-link,
+.ar-about-dropdown a,
+.ar-about-dropdown a[href*="blog"] {
+  position: relative !important;
+  z-index: 999999999 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+/* 3. Neutralize any transparent overlay or pseudo-element blocking clicks */
+.elementskit-menu-overlay:not(.active) {
+  display: none !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}

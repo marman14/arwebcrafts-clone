@@ -1039,12 +1039,21 @@
       // Global Capture Listener: Guarantees clicking 'Blog' always redirects to https://www.arwebcrafts.com/blog/
       if (!window.__arBlogClickBound) {
         window.__arBlogClickBound = true;
-        document.addEventListener('click', function (e) {
-          var a = e.target.closest('a');
+        function handleBlogClick(e) {
+          var a = e.target && e.target.closest('a');
+          if (a && (/blog/i.test((a.textContent || '').trim()) || (a.getAttribute('href') && a.getAttribute('href').indexOf('/blog') !== -1))) {
+            if (a.closest('.ar-about-dropdown') || a.classList.contains('ar-about-link')) {
+              e.preventDefault();
+              e.stopPropagation();
+              window.location.assign('https://www.arwebcrafts.com/blog/');
+            }
+          }
+        }
+        document.addEventListener('click', handleBlogClick, true);
+        document.addEventListener('pointerup', function(e) {
+          var a = e.target && e.target.closest('a');
           if (a && a.classList.contains('ar-about-link') && /blog/i.test((a.textContent || '').trim())) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = 'https://www.arwebcrafts.com/blog/';
+            handleBlogClick(e);
           }
         }, true);
       }
@@ -1175,7 +1184,7 @@
           '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
           '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/sales-team/" class="ar-about-link" role="menuitem">Sales team</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/blog/" class="ar-about-link" role="menuitem">Blog</a></li>';
+          '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/blog/" class="ar-about-link" role="menuitem" target="_self">Blog</a></li>';
         parentLi.appendChild(dropdown);
       } else {
         var items = Array.from(dropdown.querySelectorAll(':scope > li'));
@@ -1204,6 +1213,11 @@
             var blogA = blogLi.querySelector('a');
             if (blogA) {
               blogA.setAttribute('href', 'https://www.arwebcrafts.com/blog/');
+              blogA.setAttribute('target', '_self');
+              blogA.style.setProperty('pointer-events', 'auto', 'important');
+              blogA.style.setProperty('cursor', 'pointer', 'important');
+              blogA.style.setProperty('z-index', '99999999', 'important');
+              blogA.style.setProperty('position', 'relative', 'important');
             }
             dropdown.appendChild(blogLi);
           }
