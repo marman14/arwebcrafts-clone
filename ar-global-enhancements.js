@@ -1036,6 +1036,19 @@
         }, true);
       }
 
+      // Global Capture Listener: Guarantees clicking 'Blog' always redirects to https://www.arwebcrafts.com/blog/
+      if (!window.__arBlogClickBound) {
+        window.__arBlogClickBound = true;
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest('a');
+          if (a && a.classList.contains('ar-about-link') && /blog/i.test((a.textContent || '').trim())) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'https://www.arwebcrafts.com/blog/';
+          }
+        }, true);
+      }
+
 
       // Desktop Hover Hold
       var hoverTimer = null;
@@ -1162,7 +1175,7 @@
           '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
           '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/sales-team/" class="ar-about-link" role="menuitem">Sales team</a></li>' +
           '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Blog</a></li>';
+          '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/blog/" class="ar-about-link" role="menuitem">Blog</a></li>';
         parentLi.appendChild(dropdown);
       } else {
         var items = Array.from(dropdown.querySelectorAll(':scope > li'));
@@ -1187,7 +1200,13 @@
             dropdown.appendChild(salesLi);
           }
           if (careerLi) dropdown.appendChild(careerLi);
-          if (blogLi) dropdown.appendChild(blogLi);
+          if (blogLi) {
+            var blogA = blogLi.querySelector('a');
+            if (blogA) {
+              blogA.setAttribute('href', 'https://www.arwebcrafts.com/blog/');
+            }
+            dropdown.appendChild(blogLi);
+          }
         }
       }
 
