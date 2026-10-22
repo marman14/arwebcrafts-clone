@@ -139,7 +139,7 @@ function isSpamSubmission(data) {
   }
 
   // 1. Multi-Field Honeypot Trap
-  // Checks our hidden honeypot fields.
+  // Checks hidden honeypot fields.
   // These fields are completely invisible to humans (styled with position: absolute; left: -9999px; opacity: 0; pointer-events: none).
   // Real humans will NEVER fill them. Automated spam bots scanning the HTML DOM will blindly fill them.
   const honeypotValues = [
@@ -149,7 +149,8 @@ function isSpamSubmission(data) {
     data.confirm_hp,
     data.hp_check,
     data.bot_trap,
-    data.phone_secondary
+    data.phone_secondary,
+    data.ak_hp_textarea
   ];
 
   for (const hp of honeypotValues) {
@@ -158,13 +159,26 @@ function isSpamSubmission(data) {
     }
   }
 
-  // 2. Fake / Disposable / Malicious Burner Email Domain Filter
+  // 2. Sub-Human Submission Timing Check (Time-to-Submit)
+  // Humans take at least 2-3 seconds to read, fill, and submit a multi-field form.
+  // Automated scripts and headless bots submit in under 1.2 seconds.
+  const loadedAt = parseInt(data.form_loaded_at || data._ar_loaded_at, 10);
+  if (!isNaN(loadedAt) && loadedAt > 0) {
+    const elapsedMs = Date.now() - loadedAt;
+    if (elapsedMs < 1200 && elapsedMs > 0) {
+      return { isSpam: true, reason: `Sub-human submission speed (${elapsedMs}ms)` };
+    }
+  }
+
+  // 3. Fake / Disposable / Malicious Burner Email Domain Filter
   const email = (data.email || '').toLowerCase().trim();
   if (email) {
     const disposableDomains = [
       'mailinator.com', 'guerrillamail.com', '10minutemail.com', 'tempmail.com',
       'throwawaymail.com', 'sharklasers.com', 'yopmail.com', 'dispostable.com',
-      'trashmail.com', 'getairmail.com', 'fakemailgenerator.com'
+      'trashmail.com', 'getairmail.com', 'fakemailgenerator.com', 'temp-mail.org',
+      'generator.email', 'disposablemail.com', 'crazymailing.com', 'nada.ltd',
+      'trashmail.net', 'mytempemail.com', 'emailondeck.com', 'burnermail.io'
     ];
     const domain = email.split('@')[1];
     if (domain && disposableDomains.includes(domain)) {
@@ -172,22 +186,24 @@ function isSpamSubmission(data) {
     }
   }
 
-  // 3. Excessive Link Spam Filter (SEO blast scripts frequently include 5+ URLs)
+  // 4. Excessive Link Spam Filter (SEO blast scripts frequently include 4+ URLs)
   const messageText = String(data.message || data.description || data.comments || '');
   const linkMatches = messageText.match(/https?:\/\/|www\./gi) || [];
-  if (linkMatches.length >= 5) {
+  if (linkMatches.length >= 4) {
     return { isSpam: true, reason: `Excessive URL link density (${linkMatches.length} links found)` };
   }
 
-  // 4. Signature Spam & Malicious Marketing Keywords
+  // 5. Signature Spam & Malicious Marketing Keywords
   const spamKeywords = [
-    /\b(casino|cialis|viagra)\b/i,
+    /\b(casino|cialis|viagra|porn|xxx)\b/i,
     /crypto(currency)?\s+giveaway/i,
     /slot\s+online/i, /poker\s+online/i, /baccarat/i,
     /http:\/\/[a-z0-9-]+\.ru/i,
     /buy\s+backlinks/i, /guest\s+post\s+outreach/i,
     /boost\s+your\s+domain\s+authority/i,
-    /rank\s+#1\s+on\s+google/i
+    /rank\s+#1\s+on\s+google/i,
+    /da90\b/i,
+    /telegram:\s*@/i
   ];
 
   const fullContent = `${data.name || ''} ${data.company || ''} ${data.business || ''} ${messageText}`;
@@ -195,6 +211,12 @@ function isSpamSubmission(data) {
     if (pattern.test(fullContent)) {
       return { isSpam: true, reason: 'Spam signature pattern matched' };
     }
+  }
+
+  // 6. Non-English Script Blast Check (Cyrillic spam blasts in English agency forms)
+  const cyrillicMatches = messageText.match(/[\u0400-\u04FF]/g) || [];
+  if (cyrillicMatches.length > 25) {
+    return { isSpam: true, reason: 'Automated foreign language spam blast detected' };
   }
 
   return { isSpam: false };

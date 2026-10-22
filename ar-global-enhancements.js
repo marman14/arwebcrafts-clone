@@ -1277,6 +1277,12 @@
     initNavEnhancements();
     initCaseStudiesDropdown();
     initScrollAnimations();
+
+    // Re-check for dynamically injected forms (e.g. Elementor modals/popups/late FluentForms)
+    setTimeout(initFormHandling, 1000);
+    window.addEventListener('load', function() {
+      initFormHandling();
+    }, { once: true });
   }
 
   if (document.readyState === 'loading') {
