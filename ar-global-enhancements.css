@@ -4313,3 +4313,18 @@ html body #ekit-megamenu-menu .elementskit-navbar-nav > li.ar-about-dropdown-par
 .elementskit-megamenu-panel .elementor-inner-section {
   padding: 0 !important;
 }
+
+/* Heading Hierarchy Fix: Hero Subheading visually identical to H5 */
+h2.ar-hero-subheading {
+  color: var(--e-global-color-secondary, #54595F) !important;
+  font-family: var(--e-global-typography-7044a64-font-family, "Inter"), Sans-serif !important;
+  font-size: var(--e-global-typography-7044a64-font-size, 1.25rem) !important;
+  font-weight: var(--e-global-typography-7044a64-font-weight, 500) !important;
+  line-height: var(--e-global-typography-7044a64-line-height, 1.2) !important;
+  letter-spacing: var(--e-global-typography-7044a64-letter-spacing, normal) !important;
+  word-spacing: var(--e-global-typography-7044a64-word-spacing, normal) !important;
+  margin-block-start: 0.5rem !important;
+  margin-block-end: 1rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
