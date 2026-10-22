@@ -47,6 +47,9 @@ function formatCleanService(rawService) {
   if (!rawService) return 'General Inquiry';
   const s = String(rawService).trim();
 
+  // If specific engineering role, keep the role clean and professional
+  if (/architect/i.test(s)) return s;
+  if (/full-stack.*engineer|wordpress engineer/i.test(s)) return s;
   if (/staff augmentation/i.test(s)) return 'Staff Augmentation';
   if (/woocommerce/i.test(s)) return 'WooCommerce Custom Development';
   if (/plugin/i.test(s)) return 'WordPress Plugin Development';

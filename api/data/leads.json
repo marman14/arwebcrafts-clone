@@ -1,5 +1,26 @@
 [
   {
+    "id": "lead_mvjprx20_crwy",
+    "timestamp": "2026-10-22T15:46:52.824Z",
+    "pageUrl": "/staff-augmentation/",
+    "pageTitle": "Staff Augmentation Services | AR Webcrafts",
+    "name": "Architect Test",
+    "email": "architect.test@example.com",
+    "phone": "+1 555 123 4567",
+    "service": "Staff Augmentation",
+    "budget": "Not specified",
+    "subject": "Inquiry from /staff-augmentation/",
+    "message": "",
+    "company": "Testing Firm",
+    "status": "new",
+    "ip": "39.46.100.180",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
     "id": "lead_mvip0885_t8qn",
     "timestamp": "2026-10-21T22:37:34.757Z",
     "pageUrl": "/contact-us/",
@@ -42,6 +63,27 @@
     }
   },
   {
+    "id": "lead_mviktcmy_4b9y",
+    "timestamp": "2026-10-21T20:40:16.778Z",
+    "pageUrl": "/staff-augmentation/",
+    "pageTitle": "Staff Augmentation Services | Hire Dedicated Developers | AR Webcrafts",
+    "name": "Ahmad",
+    "email": "ahmadshakeel7u5@gmail.com",
+    "phone": "7776777767",
+    "service": "Scale Teams & Speed Delivery with Staff Augmentation",
+    "budget": "Not specified",
+    "subject": "Website Inquiry",
+    "message": "Request Staff Augmentation Talent",
+    "company": "Shakeel",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
     "id": "lead_mvfm8sdi_lme7",
     "timestamp": "2026-10-19T18:56:56.742Z",
     "pageUrl": "/hire-a-full-stack-wordpress-developer/",
@@ -54,6 +96,48 @@
     "subject": "Staff Augmentation Inquiry - Full Stack Team",
     "message": "We require 2 senior WordPress full stack engineers for an ongoing enterprise project.",
     "company": "Jenkins Digital Dynamics",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
+    "id": "lead_mvbfm07o_6twx",
+    "timestamp": "2026-10-16T20:40:11.933Z",
+    "pageUrl": "/learndash-maintenance-services/",
+    "pageTitle": "LearnDash Maintenance Services - AR Webcrafts",
+    "name": "Arman",
+    "email": "arwebcrafts002@gmail.com",
+    "phone": "+927776777767",
+    "service": "monthly-maintenance",
+    "budget": "500-2500",
+    "subject": "Website Inquiry",
+    "message": "LearnDash Maintenance\nServices & LMS Support",
+    "company": "https://www.arwebcrafts.com/",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
+    "id": "lead_mvbf5435_taol",
+    "timestamp": "2026-10-16T20:27:03.834Z",
+    "pageUrl": "/contact-us/",
+    "pageTitle": "Contact Us | Hire Dedicated WordPress Developers & Software Team | AR Webcrafts LLC",
+    "name": "Ahmad Shakeel",
+    "email": "ahmadshakeel7u5@gmail.com",
+    "phone": "08372933849",
+    "service": "Contact Us",
+    "budget": "Not specified",
+    "subject": "Custom WordPress Theme Development Services",
+    "message": "Custom WordPress\nTheme Development Services details",
+    "company": "",
     "status": "new",
     "ip": "127.0.0.1",
     "antiSpam": {

@@ -716,10 +716,14 @@
           <div class="detail-value" id="mService"></div>
         </div>
         <div class="detail-item">
+          <div class="detail-label">Budget / Duration</div>
+          <div class="detail-value" id="mBudget" style="color:var(--gold); font-weight:700;"></div>
+        </div>
+        <div class="detail-item">
           <div class="detail-label">Company / URL</div>
           <div class="detail-value" id="mCompany"></div>
         </div>
-        <div class="detail-item" style="grid-column: span 2;">
+        <div class="detail-item">
           <div class="detail-label">Source Page Route</div>
           <div class="detail-value" id="mRoute" style="font-family:'JetBrains Mono',monospace; color:var(--cyan);"></div>
         </div>
@@ -883,6 +887,10 @@
       allLeads = Array.from(leadMap.values());
       allLeads.sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0));
 
+      try {
+        localStorage.setItem('arw_browser_leads', JSON.stringify(allLeads.slice(0, 100)));
+      } catch (e) {}
+
       const todayStr = new Date().toISOString().slice(0, 10);
       const totalCount = allLeads.length;
       const todayCount = allLeads.filter(l => (l.timestamp || '').startsWith(todayStr)).length;
@@ -947,6 +955,7 @@
             </td>
             <td>
               <div style="font-weight:600; color:#F1F5F9;">${escapeHtml(l.service || l.subject || 'Inquiry')}</div>
+              ${l.budget && l.budget !== 'Not specified' ? `<div style="font-size:12px; color:var(--gold); font-weight:600; margin-top:2px;"><i class="fas fa-tag" style="font-size:10px; margin-right:4px;"></i>${escapeHtml(l.budget)}</div>` : ''}
               ${l.company ? `<div style="font-size:12px; color:var(--text-muted);">${escapeHtml(l.company)}</div>` : ''}
             </td>
             <td>
@@ -973,6 +982,8 @@
       document.getElementById('mRoute').innerText = lead.pageUrl || '/';
       document.getElementById('mService').innerText = lead.service || lead.subject || 'General Inquiry';
       document.getElementById('mCompany').innerText = lead.company || 'Not provided';
+      const mBudgetEl = document.getElementById('mBudget');
+      if (mBudgetEl) mBudgetEl.innerText = lead.budget || 'Not specified';
       document.getElementById('mDate').innerText = new Date(lead.timestamp).toLocaleString();
       document.getElementById('mMessage').innerText = lead.message || 'No additional message provided.';
 

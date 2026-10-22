@@ -271,29 +271,56 @@
         var key = el.name || el.id || '';
         if (!key) return;
         var val = (el.value || '').trim();
+        var ph = (el.placeholder || '').toLowerCase();
+        var keyLower = key.toLowerCase();
 
-        // Normalizing key names
-        if (/^(names\[first_name\]|first_name|.*-name|name)$/i.test(key)) {
+        // Always preserve raw field key-value
+        payload[key] = val;
+
+        // Normalizing key names intelligently
+        if (/^(names\[first_name\]|first_name|.*-name|name|author)$/i.test(key) || ph.includes('your name') || ph.includes('first name')) {
           payload.name = payload.name ? (payload.name + ' ' + val).trim() : val;
-        } else if (/^names\[last_name\]|last_name$/i.test(key)) {
+        } else if (/^names\[last_name\]|last_name$/i.test(key) || ph.includes('last name')) {
           payload.name = payload.name ? (payload.name + ' ' + val).trim() : val;
-        } else if (/^(email|.*-email)$/i.test(key) || el.type === 'email') {
+        } else if (/^(email|email_1|.*-email)$/i.test(key) || el.type === 'email' || ph.includes('email')) {
           payload.email = val;
-        } else if (/^(phone|mobile|tel|input_text|.*-phone)$/i.test(key) || el.type === 'tel') {
+        } else if (
+          /^(phone|mobile|tel|.*-phone)$/i.test(key) ||
+          el.type === 'tel' ||
+          (/numeric_field/i.test(key) && (ph.includes('phone') || ph.includes('number'))) ||
+          (keyLower === 'input_text' && (ph.includes('phone') || ph.includes('mobile') || ph.includes('tel')))
+        ) {
           payload.phone = val;
-        } else if (/^(company|agency|business|website_url|.*-company|.*-url)$/i.test(key)) {
+        } else if (
+          /^(company|agency|business|website_url|.*-company|.*-url)$/i.test(key) ||
+          (keyLower === 'input_text' && (ph.includes('company') || ph.includes('business') || ph.includes('agency'))) ||
+          key.includes('field_a412e07')
+        ) {
           payload.company = val;
-        } else if (/^(service|interest|selected_service|dropdown|primary_need|resource_need|project_type|automation_need|automation_type|plugin_need|systems|.*-service|.*-source)$/i.test(key)) {
-          payload.service = val;
-        } else if (/^(budget|timeline|traffic_volume|tech_stack|platforms|protocol|.*-budget|.*-volume|.*-count)$/i.test(key)) {
+        } else if (
+          /^(engineering_role|sa_skill|hfsd-role|role|skill|.*-role|.*-skill)$/i.test(key)
+        ) {
+          if (val) {
+            payload.service = val;
+            payload.engineering_role = val;
+          }
+        } else if (
+          /^(service|interest|selected_service|dropdown|dropdown_[0-9]|primary_need|resource_need|project_type|automation_need|automation_type|plugin_need|systems|plan|.*-service|.*-source)$/i.test(key) ||
+          key.includes('field_a88ad9d')
+        ) {
+          if (!payload.service || payload.service === 'General Inquiry') {
+            payload.service = val;
+          }
+        } else if (
+          /^(budget|timeline|engagement_duration|sa_duration|hfsd-duration|duration|traffic_volume|software_stack|platforms|protocol|.*-budget|.*-volume|.*-count|.*-duration|.*-timeline)$/i.test(key) ||
+          (/numeric_field/i.test(key) && (ph.includes('budget') || ph.includes('amount') || ph.includes('store') || ph.includes('site') || ph.includes('volume')))
+        ) {
           payload.budget = val;
-        } else if (/^(message|description|comments|project_details|project_brief|project_scope|requirements|scope|.*-brief)$/i.test(key)) {
+        } else if (/^(message|description|comments|project_details|project_brief|project_scope|requirements|scope|notes|comment|.*-brief)$/i.test(key)) {
           payload.message = val;
         } else if (key === 'hp_website_check' || key === 'company_fax' || key === 'website_address_confirm') {
           payload[key] = val;
         } else if (key === 'form_loaded_at' || key === '_ar_loaded_at' || key === '_ar_interacted' || key === '_ar_keystrokes') {
-          payload[key] = val;
-        } else {
           payload[key] = val;
         }
       });

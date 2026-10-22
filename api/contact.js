@@ -214,25 +214,44 @@ module.exports = async (req, res) => {
     let name = sanitizeInput(
       rawData.name ||
       `${rawData['names[first_name]'] || ''} ${rawData['names[last_name]'] || ''}`.trim() ||
-      rawData.first_name || '',
+      rawData.first_name || rawData.author || '',
       100
     );
-    const email = sanitizeInput(rawData.email || '', 120);
-    const phone = sanitizeInput(rawData.phone || rawData.input_text || rawData.mobile || '', 30);
+    const email = sanitizeInput(rawData.email || rawData.email_1 || '', 120);
+    const phone = sanitizeInput(
+      rawData.phone || rawData.mobile || rawData.tel ||
+      (rawData.numeric_field && /^[0-9+() -]{6,}$/.test(String(rawData.numeric_field).trim()) ? String(rawData.numeric_field).trim() : '') ||
+      (rawData.input_text && /(^\+?[0-9\s()-]{7,}$)/.test(String(rawData.input_text).trim()) ? String(rawData.input_text).trim() : '') ||
+      rawData['sa_phone'] || rawData['hfsd-phone'] || rawData['wl-phone'] || '',
+      30
+    );
     const company = sanitizeInput(
-      rawData.company || rawData.agency || rawData.business || rawData.website_url || rawData.url || '',
+      rawData.company || rawData.agency || rawData.business || rawData.website_url || rawData.url ||
+      rawData['sa_company'] || rawData['hfsd-company'] || rawData['wl-company'] ||
+      (rawData.input_text && !phone.includes(String(rawData.input_text).trim()) ? String(rawData.input_text).trim() : '') || '',
       120
     );
     const service = sanitizeInput(
-      rawData.service || rawData.interest || rawData.selected_service ||
-      rawData.primary_need || rawData.resource_need || rawData.project_type ||
-      rawData.automation_need || rawData.automation_type || rawData.plugin_need ||
-      rawData.dropdown || rawData.systems || (rawData.is_newsletter ? 'Newsletter Subscription' : 'Custom Development'),
+      rawData.engineering_role || rawData.service || rawData.role || rawData.skill ||
+      rawData.selected_service || rawData.primary_need || rawData.resource_need ||
+      rawData.project_type || rawData.automation_need || rawData.automation_type ||
+      rawData.plugin_need || rawData.dropdown || rawData.dropdown_1 || rawData.dropdown_2 ||
+      rawData.systems || rawData.plan || rawData['sa_skill'] || rawData['hfsd-role'] ||
+      rawData['wl-service'] || rawData['wcd-service'] || rawData['wtd-service'] || rawData['wpd-service'] ||
+      rawData['wcms-service'] || rawData['wpm-service'] || rawData['ldm-service'] || rawData['ld-service'] ||
+      rawData['cwds-service'] || rawData['was-service'] || rawData['wpcd-service'] || rawData['wms-service'] ||
+      (rawData.is_newsletter ? 'Newsletter Subscription' : 'General Inquiry'),
       100
     );
     const budget = sanitizeInput(
-      rawData.budget || rawData.timeline || rawData.traffic_volume ||
-      rawData.tech_stack || rawData.platforms || rawData.protocol || rawData.user_count || '',
+      rawData.engagement_duration || rawData.budget || rawData.duration ||
+      rawData.timeline || rawData.software_stack || rawData.traffic_volume ||
+      rawData.tech_stack || rawData.platforms || rawData.protocol || rawData.user_count ||
+      rawData['sa_duration'] || rawData['hfsd-duration'] ||
+      rawData['wpm-count'] || rawData['wcms-count'] || rawData['ldm-count'] || rawData['wms-count'] ||
+      rawData['was-volume'] || rawData['ld-budget'] || rawData['wpd-budget'] || rawData['wtd-budget'] ||
+      rawData['wcd-budget'] || rawData['cwds-budget'] || rawData['wpcd-budget'] ||
+      (rawData.numeric_field && !phone.includes(String(rawData.numeric_field).trim()) ? String(rawData.numeric_field).trim() : '') || '',
       80
     );
     const subject = sanitizeInput(rawData.subject || `Inquiry from ${rawData.page_url || 'Website'}`, 150);
