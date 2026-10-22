@@ -1,5 +1,26 @@
 [
   {
+    "id": "lead_mvjqwmbo_es54",
+    "timestamp": "2026-10-22T16:18:31.812Z",
+    "pageUrl": "/staff-augmentation/",
+    "pageTitle": "Scale Teams & Speed Delivery with Staff Augmentation | AR Webcrafts",
+    "name": "Jonathan Vance",
+    "email": "jonathan.vance@enterprise-corp.com",
+    "phone": "+1 (555) 789-4321",
+    "service": "Senior WooCommerce Architect",
+    "budget": "6-12 Months",
+    "subject": "Inquiry from /staff-augmentation/",
+    "message": "Inquiry regarding hiring dedicated WooCommerce architects for an ongoing store migration.",
+    "company": "Vance Capital Partners",
+    "status": "new",
+    "ip": "39.46.100.180",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
     "id": "lead_mvjq3ttm_wf1b",
     "timestamp": "2026-10-22T15:56:08.506Z",
     "pageUrl": "/woocommerce-custom-development/",
