@@ -1384,7 +1384,51 @@
     }
   }
 
+  /* ------------------------------------------------------------
+     FORM LAYOUT & ANTI-OVERLAP CONTROLLER
+     Guarantees clean, sequential DOM structure without sticky
+     clones, spacer ghosts, or overlapping stacked containers.
+     ------------------------------------------------------------ */
+  function initFormLayouts() {
+    function sanitizeFormDom() {
+      // 1. Remove any cloned ghost spacers that contain form fields
+      var spacers = document.querySelectorAll('.sticky-spacer, .elementor-sticky__spacer, [class*="sticky-spacer"]');
+      for (var i = 0; i < spacers.length; i++) {
+        var sp = spacers[i];
+        if (sp.querySelector('form, .fluentform, input, select, textarea, .ff-el-group')) {
+          sp.remove();
+        } else {
+          sp.style.setProperty('display', 'none', 'important');
+          sp.style.setProperty('visibility', 'hidden', 'important');
+          sp.style.setProperty('height', '0', 'important');
+          sp.style.setProperty('pointer-events', 'none', 'important');
+        }
+      }
+
+      // 2. Prevent sticky hijacking on form sections
+      var formSecs = document.querySelectorAll('.elementor-element-12b9e6a, .elementor-widget-fluent-form-widget');
+      for (var j = 0; j < formSecs.length; j++) {
+        var el = formSecs[j];
+        var innerSec = el.closest('.elementor-section, .elementor-inner-section') || el;
+        innerSec.classList.remove('elementor-sticky--active', 'sticky-active');
+        if (innerSec.style.position === 'fixed' || innerSec.style.position === 'absolute') {
+          innerSec.style.position = 'relative';
+          innerSec.style.top = 'auto';
+          innerSec.style.left = 'auto';
+          innerSec.style.width = '100%';
+        }
+      }
+    }
+
+    sanitizeFormDom();
+    setTimeout(sanitizeFormDom, 250);
+    setTimeout(sanitizeFormDom, 1000);
+    window.addEventListener('scroll', sanitizeFormDom, { passive: true });
+    window.addEventListener('resize', sanitizeFormDom, { passive: true });
+  }
+
   function init() {
+    initFormLayouts();
     initBotSecurityWidgets();
     initTopBar();
     initMobileMenu();
@@ -1397,10 +1441,12 @@
 
     // Re-check for dynamically injected forms (e.g. Elementor modals/popups/late FluentForms)
     setTimeout(function() {
+      initFormLayouts();
       initFormHandling();
       initBotSecurityWidgets();
     }, 1000);
     window.addEventListener('load', function() {
+      initFormLayouts();
       initFormHandling();
       initBotSecurityWidgets();
     }, { once: true });
