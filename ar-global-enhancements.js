@@ -1183,7 +1183,7 @@
         dropdown.innerHTML = 
           '<li class="ar-about-item" role="none"><a href="/about-us/" class="ar-about-link" role="menuitem">About</a></li>' +
           '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/sales-team/" class="ar-about-link" role="menuitem">Sales team</a></li>' +
-          '<li class="ar-about-item" role="none"><a href="#" class="ar-about-link" role="menuitem">Career</a></li>' +
+          '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/career/" class="ar-about-link" role="menuitem" target="_self">Career</a></li>' +
           '<li class="ar-about-item" role="none"><a href="https://www.arwebcrafts.com/blog/" class="ar-about-link" role="menuitem" target="_self">Blog</a></li>';
         parentLi.appendChild(dropdown);
       } else {
