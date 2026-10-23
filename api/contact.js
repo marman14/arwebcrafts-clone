@@ -196,7 +196,16 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const rawData = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+    let rawData;
+    if (typeof req.body === 'string') {
+      try {
+        rawData = JSON.parse(req.body);
+      } catch (parseErr) {
+        return res.status(400).json({ error: 'Malformed JSON payload.' });
+      }
+    } else {
+      rawData = req.body || {};
+    }
 
     // 3. Robust Anti-Bot & Honeypot Spam Protection Engine
     const spamCheck = isSpamSubmission(rawData, req);
