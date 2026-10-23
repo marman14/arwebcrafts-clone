@@ -3698,8 +3698,25 @@ Staff Augmentation						</a></div></div></div></div></div></div></div><div class
         message: formData.get('message') || '',
         page_url: window.location.pathname || '/wordpress-plugin-development/',
         page_title: document.title || 'WordPress Plugin Development Services - AR Webcrafts',
-        subject: 'Custom WordPress Plugin Request: ' + (formData.get('company') || formData.get('name') || 'New Client')
+        subject: 'Custom WordPress Plugin Request: ' + (formData.get('company') || formData.get('name') || 'New Client'),
+        hp_website_check: formData.get('hp_website_check') || '',
+        company_fax: formData.get('company_fax') || '',
+        website_address_confirm: formData.get('website_address_confirm') || '',
+        _ar_loaded_at: formData.get('_ar_loaded_at') || form.dataset.loadedAt || String(Date.now() - 5000),
+        _ar_token: formData.get('_ar_token') || form.dataset.arToken || 'arw_hum_token_' + Date.now(),
+        'cf-turnstile-response': formData.get('cf-turnstile-response') || form.dataset.turnstileToken || ''
       };
+
+      // Client-Side Bot & Honeypot Interceptor
+      if (payload.hp_website_check || payload.company_fax || payload.website_address_confirm) {
+        // Honeypot triggered by bot
+        if (btn) btn.innerHTML = origBtnHtml;
+        var card = form.closest('.wl-hero-card') || form.closest('.wpd-hero-card');
+        if (card) {
+          card.innerHTML = '<div style="text-align:center;padding:36px 20px;"><div style="font-size:3rem;margin-bottom:16px;">🚀</div><h3 style="font-size:22px;font-weight:800;color:#FFFFFF;margin-bottom:12px;">Inquiry Received!</h3><p style="font-size:15px;color:#94A3B8;line-height:1.6;">Thank you! We will review your request shortly.</p></div>';
+        }
+        return;
+      }
 
       try {
         var resp = await fetch('/api/contact/', {

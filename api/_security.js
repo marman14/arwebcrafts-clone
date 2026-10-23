@@ -133,16 +133,97 @@ function sanitizeInput(val, maxLength = 1000) {
   return str.trim();
 }
 
+// Heuristic Gibberish String Detector
+// Catches automated bot strings (e.g. 'wARBhBuZnkELpXMnVGoV', 'Lcvaicspbm')
+function isGibberishString(str) {
+  if (!str || typeof str !== 'string') return false;
+  const s = str.trim();
+  if (s.length < 4) return false;
+
+  // 1. Pure digits or punctuation in name/company
+  if (/^[0-9\s\-_+()]+$/.test(s)) return true;
+
+  // 2. Check individual words
+  const words = s.split(/\s+/);
+  for (const w of words) {
+    const letters = w.replace(/[^a-zA-Z]/g, '');
+    if (letters.length >= 8) {
+      // Mixed-case alternating chaos (e.g. 'wARBhBuZnkELpXMnVGoV')
+      const upper = (letters.match(/[A-Z]/g) || []).length;
+      const lower = (letters.match(/[a-z]/g) || []).length;
+      if (upper >= 3 && lower >= 3) {
+        let transitions = 0;
+        for (let i = 0; i < letters.length - 1; i++) {
+          const isCurrUpper = letters[i] >= 'A' && letters[i] <= 'Z';
+          const isNextUpper = letters[i + 1] >= 'A' && letters[i + 1] <= 'Z';
+          if (isCurrUpper !== isNextUpper) transitions++;
+        }
+        if (transitions >= 5) return true;
+      }
+
+      // 5+ consecutive consonants (e.g. 'Lcvaicspbm')
+      if (/[bcdfghjklmnpqrstvwxz]{5,}/i.test(letters)) return true;
+
+      // High consonant-to-letter ratio (> 85%) on words longer than 7 letters
+      const vowels = (letters.match(/[aeiouy]/gi) || []).length;
+      const consonantRatio = (letters.length - vowels) / letters.length;
+      if (consonantRatio > 0.85 && letters.length >= 8) return true;
+    }
+  }
+
+  return false;
+}
+
+// Check for pure numeric / code-like inquiry details (e.g. '7694127162')
+function isNumericOnlyMessage(msg) {
+  if (!msg || typeof msg !== 'string') return false;
+  const trimmed = msg.trim();
+  if (!trimmed) return false;
+  // If message contains 6+ characters and consists solely of digits/hyphens/spaces
+  return /^[0-9\s\-_+()]{6,}$/.test(trimmed);
+}
+
+// Check for abusive Gmail dot-trick burner patterns (e.g. 'ta.t.e.ziw4.23@gmail.com')
+function isDotAbuseEmail(email) {
+  if (!email || typeof email !== 'string') return false;
+  const parts = email.toLowerCase().trim().split('@');
+  if (parts.length !== 2) return false;
+  const [username, domain] = parts;
+  if (domain === 'gmail.com' || domain === 'googlemail.com') {
+    // 3 or more dots in username
+    const dotCount = (username.match(/\./g) || []).length;
+    if (dotCount >= 3) return true;
+    // Single-character dot segments (e.g. .t.e.)
+    if (/\.[a-z0-9]\.[a-z0-9]\./.test(username)) return true;
+  }
+  return false;
+}
+
+// Check for automated headless scraping/script User-Agents
+function isAutomatedBotAgent(userAgent) {
+  if (!userAgent || typeof userAgent !== 'string') return true;
+  const ua = userAgent.toLowerCase();
+  const botSignatures = [
+    'curl', 'python', 'requests', 'aiohttp', 'urllib', 'wget', 'httpie',
+    'go-http-client', 'postman', 'headlesschrome', 'phantomjs', 'puppeteer',
+    'playwright', 'selenium', 'scrapy', 'insomnia', 'apache-httpclient'
+  ];
+  return botSignatures.some(sig => ua.includes(sig));
+}
+
 // Robust Multi-Layer Anti-Spam & Bot Detection Engine
-function isSpamSubmission(data) {
+function isSpamSubmission(data, req) {
   if (!data || typeof data !== 'object') {
     return { isSpam: true, reason: 'Invalid or empty submission payload' };
   }
 
-  // 1. Multi-Field Honeypot Trap
-  // Checks hidden honeypot fields.
-  // These fields are completely invisible to humans (styled with position: absolute; left: -9999px; opacity: 0; pointer-events: none).
-  // Real humans will NEVER fill them. Automated spam bots scanning the HTML DOM will blindly fill them.
+  // 1. User-Agent Bot Screening
+  const userAgent = (req && req.headers ? req.headers['user-agent'] : '') || '';
+  if (isAutomatedBotAgent(userAgent)) {
+    return { isSpam: true, reason: 'Automated script / headless User-Agent detected' };
+  }
+
+  // 2. Multi-Field Honeypot Trap
   const honeypotValues = [
     data.hp_website_check,
     data.company_fax,
@@ -160,20 +241,30 @@ function isSpamSubmission(data) {
     }
   }
 
-  // 2. Sub-Human Submission Timing Check (Time-to-Submit)
-  // Humans take at least 2-3 seconds to read, fill, and submit a multi-field form.
-  // Automated scripts and headless bots submit in under 1.2 seconds.
-  const loadedAt = parseInt(data.form_loaded_at || data._ar_loaded_at, 10);
-  if (!isNaN(loadedAt) && loadedAt > 0) {
-    const elapsedMs = Date.now() - loadedAt;
-    if (elapsedMs < 1200 && elapsedMs > 0) {
-      return { isSpam: true, reason: `Sub-human submission speed (${elapsedMs}ms)` };
-    }
+  // 3. Gibberish Name / Company Detection (Blocks 'wARBhBuZnkELpXMnVGoV' and 'Lcvaicspbm')
+  const clientName = String(data.name || data.author || '').trim();
+  if (isGibberishString(clientName)) {
+    return { isSpam: true, reason: 'Random gibberish string detected in name field' };
   }
 
-  // 3. Fake / Disposable / Malicious Burner Email Domain Filter
+  const companyName = String(data.company || data.agency || data.business || '').trim();
+  if (isGibberishString(companyName)) {
+    return { isSpam: true, reason: 'Random gibberish string detected in company field' };
+  }
+
+  // 4. Numeric-Only Inquiry Details / Message Defense (Blocks '7694127162')
+  const rawMessage = String(data.message || data.description || data.comments || data.project_details || '').trim();
+  if (isNumericOnlyMessage(rawMessage)) {
+    return { isSpam: true, reason: 'Purely numeric gibberish inquiry details' };
+  }
+
+  // 5. Abusive Gmail Dot-Trick / Disposable Burner Email Filter
   const email = (data.email || '').toLowerCase().trim();
   if (email) {
+    if (isDotAbuseEmail(email)) {
+      return { isSpam: true, reason: 'Automated Gmail dot-trick burner address detected' };
+    }
+
     const disposableDomains = [
       'mailinator.com', 'guerrillamail.com', '10minutemail.com', 'tempmail.com',
       'throwawaymail.com', 'sharklasers.com', 'yopmail.com', 'dispostable.com',
@@ -187,14 +278,30 @@ function isSpamSubmission(data) {
     }
   }
 
-  // 4. Excessive Link Spam Filter (SEO blast scripts frequently include 4+ URLs)
+  // 6. Sub-Human Submission Timing & Browser Handshake Check
+  // Legitimate users take at least 1.8 seconds to fill out an inquiry form.
+  // Direct headless API calls omit the loaded timestamp or submit in milliseconds.
+  const loadedAt = parseInt(data.form_loaded_at || data._ar_loaded_at, 10);
+  const hasCaptchaToken = Boolean(data['cf-turnstile-response'] || data['g-recaptcha-response'] || data._ar_token);
+
+  if (!isNaN(loadedAt) && loadedAt > 0) {
+    const elapsedMs = Date.now() - loadedAt;
+    if (elapsedMs < 1800 && elapsedMs > 0) {
+      return { isSpam: true, reason: `Sub-human submission speed (${elapsedMs}ms)` };
+    }
+  } else if (!hasCaptchaToken && !data.is_newsletter) {
+    // If no load timestamp AND no security token is present, it's a raw script invocation
+    return { isSpam: true, reason: 'Direct automated submission without browser handshake' };
+  }
+
+  // 7. Excessive Link Spam Filter (SEO blast scripts frequently include 4+ URLs)
   const messageText = String(data.message || data.description || data.comments || '');
   const linkMatches = messageText.match(/https?:\/\/|www\./gi) || [];
   if (linkMatches.length >= 4) {
     return { isSpam: true, reason: `Excessive URL link density (${linkMatches.length} links found)` };
   }
 
-  // 5. Signature Spam & Malicious Marketing Keywords
+  // 8. Signature Spam & Malicious Marketing Keywords
   const spamKeywords = [
     /\b(casino|cialis|viagra|porn|xxx)\b/i,
     /crypto(currency)?\s+giveaway/i,
@@ -214,7 +321,7 @@ function isSpamSubmission(data) {
     }
   }
 
-  // 6. Non-English Script Blast Check (Cyrillic spam blasts in English agency forms)
+  // 9. Non-English Script Blast Check
   const cyrillicMatches = messageText.match(/[\u0400-\u04FF]/g) || [];
   if (cyrillicMatches.length > 25) {
     return { isSpam: true, reason: 'Automated foreign language spam blast detected' };

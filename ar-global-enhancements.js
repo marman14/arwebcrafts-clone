@@ -255,6 +255,42 @@
   }
 
   function initFormHandling() {
+    // Client-Side Bot & Gibberish Heuristics
+    function isClientGibberish(str) {
+      if (!str || typeof str !== 'string') return false;
+      var s = str.trim();
+      if (s.length < 4) return false;
+      if (/^[0-9\s\-_+()]+$/.test(s)) return true;
+      var words = s.split(/\s+/);
+      for (var i = 0; i < words.length; i++) {
+        var letters = words[i].replace(/[^a-zA-Z]/g, '');
+        if (letters.length >= 8) {
+          var upper = (letters.match(/[A-Z]/g) || []).length;
+          var lower = (letters.match(/[a-z]/g) || []).length;
+          if (upper >= 3 && lower >= 3) {
+            var trans = 0;
+            for (var j = 0; j < letters.length - 1; j++) {
+              var isCurrUp = letters[j] >= 'A' && letters[j] <= 'Z';
+              var isNextUp = letters[j + 1] >= 'A' && letters[j + 1] <= 'Z';
+              if (isCurrUp !== isNextUp) trans++;
+            }
+            if (trans >= 5) return true;
+          }
+          if (/[bcdfghjklmnpqrstvwxz]{5,}/i.test(letters)) return true;
+          var vowels = (letters.match(/[aeiouy]/gi) || []).length;
+          if ((letters.length - vowels) / letters.length > 0.85 && letters.length >= 8) return true;
+        }
+      }
+      return false;
+    }
+
+    function isClientNumericMsg(msg) {
+      if (!msg || typeof msg !== 'string') return false;
+      var trimmed = msg.trim();
+      if (!trimmed) return false;
+      return /^[0-9\s\-_+()]{6,}$/.test(trimmed);
+    }
+
     // 1. Helper to safely extract all form inputs (supports elements with name, id, or select/textarea)
     function extractFormPayload(form) {
       var payload = {
@@ -357,6 +393,15 @@
       var hp3 = form.querySelector('input[name="website_address_confirm"]');
       if ((hp1 && hp1.value.trim()) || (hp2 && hp2.value.trim()) || (hp3 && hp3.value.trim())) {
         renderSuccess(form, { name: 'Visitor' });
+        return;
+      }
+
+      var payload = extractFormPayload(form);
+
+      // Client-Side Heuristic Bot Interceptor (Blocks 'wARBhBuZnkELpXMnVGoV' and '7694127162')
+      if (isClientGibberish(payload.name) || isClientGibberish(payload.company) || isClientNumericMsg(payload.message)) {
+        console.warn('[Client Bot Shield]: Dropping automated bot spam payload');
+        renderSuccess(form, payload);
         return;
       }
 
@@ -1308,10 +1353,66 @@
    * Google reCAPTCHA / hCaptcha across all submission forms site-wide.
    */
   function initBotSecurityWidgets() {
+    // 1. Inject Invisible Cloudflare Turnstile & reCAPTCHA into EVERY form site-wide
+    var allForms = document.querySelectorAll('form');
+    allForms.forEach(function(form) {
+      if (!form.querySelector('.ar-turnstile-container')) {
+        var turnWrap = document.createElement('div');
+        turnWrap.className = 'ar-turnstile-container';
+        turnWrap.style.cssText = 'position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;';
+        turnWrap.setAttribute('aria-hidden', 'true');
+        form.appendChild(turnWrap);
+
+        // Inject hidden token inputs if not already present
+        if (!form.querySelector('input[name="cf-turnstile-response"]')) {
+          var tInp = document.createElement('input');
+          tInp.type = 'hidden';
+          tInp.name = 'cf-turnstile-response';
+          tInp.value = '';
+          form.appendChild(tInp);
+        }
+        if (!form.querySelector('input[name="_ar_token"]')) {
+          var tokInp = document.createElement('input');
+          tokInp.type = 'hidden';
+          tokInp.name = '_ar_token';
+          tokInp.value = 'arw_hum_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 9);
+          form.appendChild(tokInp);
+        }
+      }
+    });
+
+    // 2. Load Cloudflare Turnstile API Script seamlessly
+    if (!document.getElementById('cf-turnstile-api-script')) {
+      var cfScript = document.createElement('script');
+      cfScript.id = 'cf-turnstile-api-script';
+      cfScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      cfScript.async = true;
+      cfScript.defer = true;
+      cfScript.onload = function() {
+        if (window.turnstile && typeof window.turnstile.render === 'function') {
+          document.querySelectorAll('.ar-turnstile-container').forEach(function(wrap) {
+            try {
+              var parentForm = wrap.closest('form');
+              window.turnstile.render(wrap, {
+                sitekey: '0x4AAAAAAAi9r9XfVb3B3n8N',
+                size: 'invisible',
+                callback: function(token) {
+                  if (parentForm) {
+                    var inp = parentForm.querySelector('input[name="cf-turnstile-response"]');
+                    if (inp) inp.value = token;
+                  }
+                }
+              });
+            } catch (e) {}
+          });
+        }
+      };
+      document.head.appendChild(cfScript);
+    }
+
     var targets = document.querySelectorAll(
       '.g-recaptcha, .ff-el-recaptcha, [data-sitekey], [id*="fluentform-recaptcha"]'
     );
-    if (!targets.length) return;
 
     // Define global callbacks expected by FluentForms & reCAPTCHA
     if (typeof window.fluentFormrecaptchaSuccessCallback !== 'function') {

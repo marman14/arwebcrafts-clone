@@ -187,7 +187,7 @@ module.exports = async (req, res) => {
 
   // 2. IP Rate Limiting (max 10 submissions per 10 minutes per IP)
   const clientIp = getClientIp(req);
-  const rateCheck = checkRateLimit(`contact_${clientIp}`, 10, 10 * 60 * 1000);
+  const rateCheck = checkRateLimit(`contact_${clientIp}`, 4, 15 * 60 * 1000);
   if (rateCheck.limited) {
     res.setHeader('Retry-After', String(rateCheck.retryAfter));
     return res.status(429).json({
@@ -199,7 +199,7 @@ module.exports = async (req, res) => {
     const rawData = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
 
     // 3. Robust Anti-Bot & Honeypot Spam Protection Engine
-    const spamCheck = isSpamSubmission(rawData);
+    const spamCheck = isSpamSubmission(rawData, req);
     if (spamCheck.isSpam) {
       console.warn(`[Spam Blocked] IP: ${clientIp}, Reason: ${spamCheck.reason}`);
       // Return 200 OK with mock success so bots believe their payload succeeded
