@@ -1439,7 +1439,7 @@
       }
 
       // 2. Prevent sticky hijacking on form sections
-      var formSecs = document.querySelectorAll('.elementor-element-12b9e6a, .elementor-widget-fluent-form-widget');
+      var formSecs = document.querySelectorAll('.elementor-element-12b9e6a, .elementor-widget-fluent-form-widget, .elementor-element-0464f4c .elementor-element-2f4528e');
       for (var j = 0; j < formSecs.length; j++) {
         var el = formSecs[j];
         var innerSec = el.closest('.elementor-section, .elementor-inner-section') || el;
@@ -1449,6 +1449,21 @@
           innerSec.style.top = 'auto';
           innerSec.style.left = 'auto';
           innerSec.style.width = '100%';
+        }
+        if (innerSec.style.height && innerSec.style.height !== 'auto') {
+          innerSec.style.height = 'auto';
+        }
+      }
+
+      // 3. Reset any hardcoded equal-height on onboarding form wrapper & widgets
+      var onboardingWidgets = document.querySelectorAll('.elementor-element-0464f4c .elementor-widget, .elementor-element-12b9e6a .elementor-widget-wrap, .fluentform, .frm-fluent-form');
+      for (var k = 0; k < onboardingWidgets.length; k++) {
+        var ow = onboardingWidgets[k];
+        if (ow.style.height && ow.style.height !== 'auto') {
+          ow.style.height = 'auto';
+        }
+        if (ow.style.minHeight && ow.style.minHeight !== 'auto' && ow.style.minHeight !== '0px') {
+          ow.style.minHeight = 'auto';
         }
       }
     }
