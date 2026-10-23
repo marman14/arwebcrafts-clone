@@ -4680,14 +4680,139 @@ label.ff-el-form-check-label,
   resize: vertical !important;
 }
 
+/* ============================================================
+   FIX SMS CONSENT BOX, CHECKBOX SIZING & CAPTCHA CONTAINMENT
+   Guarantees zero overflow, pristine text wrap, and natural
+   natively contained widgets without breaking form bounds.
+   ============================================================ */
 .ar-sms-consent-box,
 #fluentform_7 .ar-sms-consent-box,
 #fluentform_5 .ar-sms-consent-box {
   position: relative !important;
   display: block !important;
   width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
   clear: both !important;
-  margin: 6px 0 !important;
+  float: none !important;
+  margin: 14px 0 !important;
+  padding: 12px 14px !important;
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+}
+
+.ar-sms-consent-box label,
+#fluentform_7 .ar-sms-consent-box label,
+#fluentform_5 .ar-sms-consent-box label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  font-weight: 400 !important;
+  color: #1e293b !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  box-sizing: border-box !important;
+  float: none !important;
+  clear: none !important;
+}
+
+.ar-sms-consent-box input[type="checkbox"],
+.ar-sms-consent-box input[name="sms_consent"],
+#fluentform_7 input[type="checkbox"],
+#fluentform_5 input[type="checkbox"],
+input[type="checkbox"][name="sms_consent"],
+.fluentform input[type="checkbox"],
+.frm-fluent-form input[type="checkbox"] {
+  display: inline-block !important;
+  width: 17px !important;
+  min-width: 17px !important;
+  max-width: 17px !important;
+  height: 17px !important;
+  min-height: 17px !important;
+  max-height: 17px !important;
+  margin: 3px 0 0 0 !important;
+  padding: 0 !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-radius: 4px !important;
+  background-color: #ffffff !important;
+  accent-color: #BE8C33 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  flex: 0 0 17px !important;
+  flex-shrink: 0 !important;
+  vertical-align: top !important;
+  position: static !important;
+  cursor: pointer !important;
+}
+
+.ar-sms-consent-box span,
+.ar-sms-consent-box label span,
+#fluentform_7 .ar-sms-consent-box span,
+#fluentform_5 .ar-sms-consent-box span {
+  display: block !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  color: #334155 !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Captcha & Turnstile Containers: Clean Native Flow with Zero Overflow */
+.ar-turnstile-container,
+.cf-turnstile,
+.g-recaptcha,
+.ff-el-recaptcha,
+[id*="recaptcha"] {
+  display: block !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  clear: both !important;
+  float: none !important;
+  margin: 8px 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+.ar-turnstile-container:empty,
+.ar-turnstile-container[aria-hidden="true"] {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ar-turnstile-container iframe,
+.cf-turnstile iframe,
+.g-recaptcha iframe,
+.ff-el-recaptcha iframe,
+[id*="recaptcha"] iframe {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
 }
 
 .ff_submit_btn_wrapper,

@@ -1352,63 +1352,86 @@
    * Fixes "This content is blocked" and guarantees clean rendering of
    * Google reCAPTCHA / hCaptcha across all submission forms site-wide.
    */
+  function sanitizeConsentBoxes() {
+    var boxes = document.querySelectorAll('.ar-sms-consent-box');
+    for (var i = 0; i < boxes.length; i++) {
+      var box = boxes[i];
+      box.style.setProperty('display', 'block', 'important');
+      box.style.setProperty('width', '100%', 'important');
+      box.style.setProperty('max-width', '100%', 'important');
+      box.style.setProperty('box-sizing', 'border-box', 'important');
+      box.style.setProperty('clear', 'both', 'important');
+      box.style.setProperty('float', 'none', 'important');
+      box.style.setProperty('margin', '14px 0', 'important');
+      box.style.setProperty('padding', '12px 14px', 'important');
+
+      var label = box.querySelector('label');
+      if (label) {
+        label.style.setProperty('display', 'flex', 'important');
+        label.style.setProperty('flex-direction', 'row', 'important');
+        label.style.setProperty('align-items', 'flex-start', 'important');
+        label.style.setProperty('justify-content', 'flex-start', 'important');
+        label.style.setProperty('gap', '10px', 'important');
+        label.style.setProperty('width', '100%', 'important');
+        label.style.setProperty('max-width', '100%', 'important');
+        label.style.setProperty('box-sizing', 'border-box', 'important');
+        label.style.setProperty('margin', '0', 'important');
+        label.style.setProperty('padding', '0', 'important');
+      }
+
+      var chk = box.querySelector('input[type="checkbox"]');
+      if (chk) {
+        chk.style.setProperty('display', 'inline-block', 'important');
+        chk.style.setProperty('width', '17px', 'important');
+        chk.style.setProperty('min-width', '17px', 'important');
+        chk.style.setProperty('max-width', '17px', 'important');
+        chk.style.setProperty('height', '17px', 'important');
+        chk.style.setProperty('min-height', '17px', 'important');
+        chk.style.setProperty('max-height', '17px', 'important');
+        chk.style.setProperty('flex', '0 0 17px', 'important');
+        chk.style.setProperty('flex-shrink', '0', 'important');
+        chk.style.setProperty('margin', '3px 0 0 0', 'important');
+        chk.style.setProperty('padding', '0', 'important');
+        chk.style.setProperty('box-sizing', 'border-box', 'important');
+      }
+
+      var span = box.querySelector('span');
+      if (span) {
+        span.style.setProperty('display', 'block', 'important');
+        span.style.setProperty('flex', '1 1 auto', 'important');
+        span.style.setProperty('min-width', '0', 'important');
+        span.style.setProperty('font-size', '13px', 'important');
+        span.style.setProperty('line-height', '1.55', 'important');
+        span.style.setProperty('white-space', 'normal', 'important');
+        span.style.setProperty('word-break', 'normal', 'important');
+        span.style.setProperty('overflow-wrap', 'break-word', 'important');
+        span.style.setProperty('margin', '0', 'important');
+      }
+    }
+  }
+
   function initBotSecurityWidgets() {
-    // 1. Inject Invisible Cloudflare Turnstile & reCAPTCHA into EVERY form site-wide
+    // 1. Inject hidden security token inputs into ALL forms site-wide without DOM distortion
     var allForms = document.querySelectorAll('form');
     allForms.forEach(function(form) {
-      if (!form.querySelector('.ar-turnstile-container')) {
-        var turnWrap = document.createElement('div');
-        turnWrap.className = 'ar-turnstile-container';
-        turnWrap.style.cssText = 'position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;';
-        turnWrap.setAttribute('aria-hidden', 'true');
-        form.appendChild(turnWrap);
-
-        // Inject hidden token inputs if not already present
-        if (!form.querySelector('input[name="cf-turnstile-response"]')) {
-          var tInp = document.createElement('input');
-          tInp.type = 'hidden';
-          tInp.name = 'cf-turnstile-response';
-          tInp.value = '';
-          form.appendChild(tInp);
-        }
-        if (!form.querySelector('input[name="_ar_token"]')) {
-          var tokInp = document.createElement('input');
-          tokInp.type = 'hidden';
-          tokInp.name = '_ar_token';
-          tokInp.value = 'arw_hum_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 9);
-          form.appendChild(tokInp);
-        }
+      if (!form.querySelector('input[name="cf-turnstile-response"]')) {
+        var tInp = document.createElement('input');
+        tInp.type = 'hidden';
+        tInp.name = 'cf-turnstile-response';
+        tInp.value = '';
+        form.appendChild(tInp);
+      }
+      if (!form.querySelector('input[name="_ar_token"]')) {
+        var tokInp = document.createElement('input');
+        tokInp.type = 'hidden';
+        tokInp.name = '_ar_token';
+        tokInp.value = 'arw_hum_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 9);
+        form.appendChild(tokInp);
       }
     });
 
-    // 2. Load Cloudflare Turnstile API Script seamlessly
-    if (!document.getElementById('cf-turnstile-api-script')) {
-      var cfScript = document.createElement('script');
-      cfScript.id = 'cf-turnstile-api-script';
-      cfScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-      cfScript.async = true;
-      cfScript.defer = true;
-      cfScript.onload = function() {
-        if (window.turnstile && typeof window.turnstile.render === 'function') {
-          document.querySelectorAll('.ar-turnstile-container').forEach(function(wrap) {
-            try {
-              var parentForm = wrap.closest('form');
-              window.turnstile.render(wrap, {
-                sitekey: '0x4AAAAAAAi9r9XfVb3B3n8N',
-                size: 'invisible',
-                callback: function(token) {
-                  if (parentForm) {
-                    var inp = parentForm.querySelector('input[name="cf-turnstile-response"]');
-                    if (inp) inp.value = token;
-                  }
-                }
-              });
-            } catch (e) {}
-          });
-        }
-      };
-      document.head.appendChild(cfScript);
-    }
+    // 2. Enforce clean, un-squished consent boxes site-wide
+    sanitizeConsentBoxes();
 
     var targets = document.querySelectorAll(
       '.g-recaptcha, .ff-el-recaptcha, [data-sitekey], [id*="fluentform-recaptcha"]'
