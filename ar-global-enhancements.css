@@ -4790,3 +4790,85 @@ li#menu-item-159.ar-about-open > .ar-about-dropdown {
   pointer-events: none !important;
   z-index: -1 !important;
 }
+
+
+/* ============================================================
+   FIX HOMEPAGE STAT LEAD PARAGRAPH OVERLAPPING & LINE-HEIGHT
+   Resolves the severe 14px line-height bug on 19px text beneath
+   the platform logos (WooCommerce/LearnDash/PMPro/LifterLMS).
+   ============================================================ */
+.elementor-element.elementor-element-9b7c7a0 {
+  position: relative !important;
+  display: flex !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  margin: 24px auto 12px auto !important;
+  padding: 10px 20px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  clear: both !important;
+  float: none !important;
+}
+
+.elementor-element.elementor-element-9b7c7a0 > .e-con-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 1140px !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.elementor-element.elementor-element-e47d15e,
+.elementor-element-e47d15e > .elementor-widget-container,
+.elementor-element-e47d15e .ar-stat-lead,
+h3.ar-stat-lead,
+.ar-stat-lead {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+  font-family: inherit !important;
+  font-size: 19px !important;
+  line-height: 1.65 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px !important;
+  color: var(--e-global-color-secondary, #54595F) !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.ar-stat-lead strong {
+  font-weight: 600 !important;
+  line-height: inherit !important;
+  display: inline !important;
+}
+
+@media (max-width: 768px) {
+  .elementor-element.elementor-element-9b7c7a0 {
+    margin: 16px auto 6px auto !important;
+    padding: 10px 15px !important;
+  }
+  .elementor-element.elementor-element-e47d15e,
+  .elementor-element-e47d15e > .elementor-widget-container,
+  .elementor-element-e47d15e .ar-stat-lead,
+  h3.ar-stat-lead,
+  .ar-stat-lead {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+}
