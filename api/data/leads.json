@@ -1,5 +1,26 @@
 [
   {
+    "id": "lead_mvvjmo0l_kar8",
+    "timestamp": "2026-10-30T22:28:04.245Z",
+    "pageUrl": "/blackfriday/",
+    "pageTitle": "Black Friday Sale — Up to 89% OFF Websites, SEO & Ads | AR Webcrafts LLC",
+    "name": "Arman Arman",
+    "email": "arman@gmail.com",
+    "phone": "42765723723",
+    "service": "Black Friday",
+    "budget": "Not specified",
+    "subject": "Inquiry from /blackfriday/",
+    "message": "",
+    "company": "",
+    "status": "new",
+    "ip": "127.0.0.1",
+    "antiSpam": {
+      "honeypotPassed": true,
+      "timingCheckPassed": true,
+      "sanitized": true
+    }
+  },
+  {
     "id": "lead_mvjqwmbo_es54",
     "timestamp": "2026-10-22T16:18:31.812Z",
     "pageUrl": "/staff-augmentation/",

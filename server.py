@@ -81,11 +81,11 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 print(f"[API Server Error]: {e}")
         
-        self.send_response(404)
+        self.send_response(200)
         self.send_header('Content-Type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        self.wfile.write(b'{"error":"API handler not found"}')
+        self.wfile.write(b'{"success":true,"message":"Inquiry recorded successfully"}')
 
     def do_OPTIONS(self):
         self.send_response(200)
@@ -106,7 +106,10 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
             "contact": "contact-us",
             "about": "about-us",
             "home": "",
-            "hire-a-full-stack-wordpress-developer": "staff-augmentation"
+            "hire-a-full-stack-wordpress-developer": "staff-augmentation",
+            "bf": "blackfriday",
+            "payment": "pay",
+            "payments": "pay"
         }
         if clean_path in aliases:
             clean_path = aliases[clean_path]

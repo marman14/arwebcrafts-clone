@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Direct Payment — AR Webcrafts LLC</title>
+  <meta name="description" content="Secure direct Stripe payment portal for AR Webcrafts LLC clients. Enter the custom amount discussed with your project manager.">
+  <link rel="canonical" href="https://www.arwebcrafts.com/pay/">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Direct Payment | AR Webcrafts LLC">
+  <meta property="og:description" content="Secure custom Stripe payment link for AR Webcrafts LLC project invoices and deposits.">
+  <meta property="og:url" content="https://www.arwebcrafts.com/pay/">
+  <meta property="og:image" content="https://www.arwebcrafts.com/wp-content/uploads/2023/05/AR_Webcrafts_brand_white.webp">
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" href="/wp-content/uploads/2023/05/cropped-file-1-32x32.webp" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+  <style>
+    :root {
+      --navy:         #011B39;
+      --navy-dark:    #020E1D;
+      --navy-card:    #071F3D;
+      --gold:         #BE8C33;
+      --gold-light:   #DFB25B;
+      --gold-glow:    rgba(190, 140, 51, 0.35);
+      --stripe:       #635BFF;
+      --stripe-hover: #534BE8;
+      --sans:         'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --body:         'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(ellipse at 50% 20%, #082952 0%, #011B39 60%, #010C1B 100%);
+      color: #FFFFFF;
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── HEADER NAVBAR ── */
+    .ar-pay-nav {
+      background: rgba(1, 27, 57, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .ar-pay-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ar-pay-logo img {
+      height: 34px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+    }
+    .ar-pay-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: #94A3B8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── MAIN CONTENT ── */
+    .ar-pay-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+    .ar-pay-card {
+      width: 100%;
+      max-width: 580px;
+      background: rgba(7, 31, 61, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 40px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(190, 140, 51, 0.2);
+      text-align: center;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .ar-pay-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(190, 140, 51, 0.16);
+      border: 1px solid rgba(190, 140, 51, 0.4);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .ar-pay-title {
+      font-family: var(--sans);
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .ar-pay-info-box {
+      background: rgba(1, 14, 29, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 22px 0 28px;
+      text-align: left;
+    }
+    .ar-pay-info-box p {
+      font-size: 14px;
+      color: #CBD5E1;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .ar-pay-info-box p:last-child {
+      margin-bottom: 0;
+    }
+    .ar-pay-info-box strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+    .ar-pay-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 13.5px;
+      color: #CBD5E1;
+    }
+    .ar-pay-info-item:last-child {
+      margin-bottom: 0;
+    }
+    .ar-pay-info-item i {
+      color: var(--gold-light);
+      font-size: 14px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Primary Stripe Action Button */
+    .btn-pay-stripe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: var(--gold);
+      color: #000000 !important;
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 900;
+      padding: 18px 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px var(--gold-glow), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+    .btn-pay-stripe:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(190, 140, 51, 0.5);
+    }
+
+    /* WhatsApp Button */
+    .btn-pay-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #FFFFFF;
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-pay-wa:hover {
+      background: rgba(37, 211, 102, 0.15);
+      border-color: #25D366;
+      color: #25D366;
+    }
+
+    /* Payment Methods Icons */
+    .ar-pay-methods {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+      color: #94A3B8;
+      font-size: 12.5px;
+    }
+    .ar-pay-methods span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── GOOGLE & CLUTCH VERIFIED BADGES (Exact layout from user screenshot) ── */
+    .ar-reviews-bar {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .ar-review-col {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .ar-review-col:hover {
+      transform: translateY(-2px);
+    }
+    .ar-review-stars-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .ar-stars-yellow {
+      color: #F59E0B;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    /* Clutch SVG / Wordmark */
+    .clutch-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+    }
+    .clutch-brand-text {
+      font-family: var(--sans);
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+    .clutch-dot-red {
+      color: #FF5A5F;
+    }
+
+    /* ── FOOTER ── */
+    .ar-pay-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(1, 14, 29, 0.8);
+      padding: 16px 20px;
+      text-align: center;
+      font-size: 12.5px;
+      color: #64748B;
+    }
+    .ar-pay-footer a {
+      color: #94A3B8;
+      margin: 0 8px;
+    }
+    .ar-pay-footer a:hover {
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 600px) {
+      .ar-pay-card {
+        padding: 28px 18px;
+      }
+      .btn-pay-stripe {
+        font-size: 15.5px;
+        padding: 16px 18px;
+      }
+      .ar-reviews-bar {
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="ar-pay-nav">
+    <div class="ar-pay-nav-inner">
+      <a href="/" class="ar-pay-logo" aria-label="AR Webcrafts LLC">
+        <img src="/wp-content/uploads/2023/05/AR_Webcrafts_brand_white.webp" alt="AR Webcrafts LLC" width="160" height="38" onerror="this.onerror=null;this.src='/wp-content/uploads/2023/05/AR_Webcrafts_brand_white.png';">
+      </a>
+      <div class="ar-pay-nav-badge">
+        <i class="fas fa-lock" style="color: #4ADE80;"></i> 256-Bit SSL Secure
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CARD -->
+  <main class="ar-pay-main">
+    <div class="ar-pay-card">
+      <div class="ar-pay-tag">
+        <i class="fab fa-stripe" style="color: #635BFF; font-size: 14px;"></i> OFFICIAL STRIPE CUSTOM CHECKOUT
+      </div>
+
+      <h1 class="ar-pay-title">
+        Direct Project Payment
+      </h1>
+
+      <div class="ar-pay-info-box">
+        <div class="ar-pay-info-item">
+          <i class="fas fa-info-circle"></i>
+          <div>
+            <strong>How this custom payment link works:</strong>
+          </div>
+        </div>
+        <div class="ar-pay-info-item">
+          <i class="fas fa-check-circle"></i>
+          <div>
+            Click the button below to open our official Stripe checkout portal.
+          </div>
+        </div>
+        <div class="ar-pay-info-item">
+          <i class="fas fa-edit"></i>
+          <div>
+            <strong>Enter the exact price or invoice amount</strong> agreed upon with your AR Webcrafts project manager or support representative.
+          </div>
+        </div>
+        <div class="ar-pay-info-item">
+          <i class="fas fa-receipt"></i>
+          <div>
+            Pay securely with any credit/debit card, Apple Pay, or Google Pay. You will receive an immediate official tax invoice and receipt.
+          </div>
+        </div>
+      </div>
+
+      <!-- DIRECT STRIPE BUTTON -->
+      <a href="https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j" target="_blank" rel="noopener" class="btn-pay-stripe">
+        <span>Pay Securely via Stripe</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+      <!-- WHATSAPP SUPPORT CONCIERGE -->
+      <a href="https://wa.me/13072784862?text=Hello%20Arman%2C%20I%20am%20on%20the%20direct%20payment%20page%20and%20want%20to%20confirm%20my%20invoice%20amount." target="_blank" rel="noopener" class="btn-pay-wa">
+        <i class="fab fa-whatsapp" style="color: #25D366; font-size: 17px;"></i>
+        <span>Need Help? Confirm Amount on WhatsApp</span>
+      </a>
+
+      <div class="ar-pay-methods">
+        <span><i class="fas fa-shield-alt" style="color: var(--gold-light);"></i> Stripe Verified</span>
+        <span><i class="fab fa-cc-visa"></i> Visa</span>
+        <span><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+        <span><i class="fab fa-apple-pay"></i> Apple Pay</span>
+        <span><i class="fab fa-google-pay"></i> GPay</span>
+      </div>
+
+      <!-- GOOGLE & CLUTCH VERIFIED BADGES (Clickable profile links as shown in user screenshot) -->
+      <div class="ar-reviews-bar">
+        <!-- Google Profile Link -->
+        <a href="https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVc1MFpqWTFiWGhvGAo" target="_blank" rel="noopener noreferrer" class="ar-review-col" aria-label="Open AR Webcrafts Google Reviews">
+          <div style="height: 24px; display: flex; align-items: center;">
+            <svg viewBox="0 0 74 24" height="22" aria-hidden="true">
+              <path fill="#4285F4" d="M12.3 14.2v-2.8h7.9c.1.5.1 1 .1 1.7 0 2-.6 4.5-2.5 6.3-1.8 1.9-4.2 2.9-7.3 2.9C5.3 22.3 0 17.3 0 11.2S5.3.1 10.5.1c3.1 0 5.4 1.2 7.1 2.8l-2 2c-1.2-1.1-2.8-1.9-5.1-1.9-4.2 0-7.5 3.4-7.5 7.6s3.3 7.6 7.5 7.6c2.7 0 4.3-1.1 5.3-2.1.8-.8 1.3-1.9 1.5-3.5h-5v-2.4z"/>
+              <path fill="#EA4335" d="M29.5 14.5c0 4.1-3.2 7.2-7.2 7.2s-7.2-3.1-7.2-7.2c0-4.2 3.2-7.2 7.2-7.2s7.2 3 7.2 7.2zm-3.1 0c0-2.6-1.9-4.4-4.1-4.4s-4.1 1.8-4.1 4.4c0 2.5 1.9 4.4 4.1 4.4s4.1-1.9 4.1-4.4z"/>
+              <path fill="#FBBC05" d="M44.8 14.5c0 4.1-3.2 7.2-7.2 7.2s-7.2-3.1-7.2-7.2c0-4.2 3.2-7.2 7.2-7.2s7.2 3 7.2 7.2zm-3.1 0c0-2.6-1.9-4.4-4.1-4.4s-4.1 1.8-4.1 4.4c0 2.5 1.9 4.4 4.1 4.4s4.1-1.9 4.1-4.4z"/>
+              <path fill="#4285F4" d="M59.4 7.6v13.3c0 5.5-3.2 7.7-7 7.7-3.6 0-5.7-2.4-6.5-4.4l2.8-1.2c.5 1.2 1.7 2.7 3.7 2.7 2.4 0 3.9-1.5 3.9-4.3v-1.1h-.1c-.7.9-2.1 1.7-3.9 1.7-3.7 0-7.1-3.2-7.1-7.3 0-4.2 3.4-7.4 7.1-7.4 1.8 0 3.2.8 3.9 1.7h.1V7.6h3.1zm-2.9 6.9c0-2.6-1.7-4.4-3.9-4.4s-4 1.8-4 4.4c0 2.5 1.8 4.4 4 4.4 2.2 0 3.9-1.9 3.9-4.4z"/>
+              <path fill="#34A853" d="M64.4.9v20.8h-3.1V.9h3.1z"/>
+              <path fill="#EA4335" d="M73.5 17.2l2.5 1.7c-.8 1.2-2.7 3.4-6.1 3.4-4.1 0-7.2-3.2-7.2-7.2 0-4.3 3.1-7.2 6.8-7.2 3.8 0 5.7 2.9 6.3 4.6l.3.8-9.8 4.1c.8 1.5 1.9 2.2 3.6 2.2 1.6 0 2.8-.8 3.6-2.4zm-7.6-3c.7-1.1 2-1.9 3.2-1.9 1.6 0 2.6.8 3 1.6l-6.2 2.6c0-1 .7-2.3 0-2.3z"/>
+            </svg>
+          </div>
+          <div class="ar-review-stars-wrap">
+            <span class="ar-stars-yellow">★★★★★</span>
+            <span>4.7/5</span>
+          </div>
+        </a>
+
+        <!-- Clutch Profile Link -->
+        <a href="https://clutch.co/profile/ar-webcrafts" target="_blank" rel="noopener noreferrer" class="ar-review-col" aria-label="Open AR Webcrafts Clutch Profile">
+          <div class="clutch-logo-wrap">
+            <span class="clutch-brand-text">Clutch<span class="clutch-dot-red">.</span></span>
+          </div>
+          <div class="ar-review-stars-wrap">
+            <span class="ar-stars-yellow">★★★★★</span>
+            <span>5/5</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="ar-pay-footer">
+    <div>&copy; 2026 AR Webcrafts LLC. Registered in Wyoming, USA. All rights reserved.</div>
+    <div style="margin-top: 6px;">
+      <a href="/">Home</a> •
+      <a href="/portfolio/">Portfolio</a> •
+      <a href="/privacy-policy/">Privacy Policy</a> •
+      <a href="/terms-and-conditions/">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+</html>

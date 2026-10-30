@@ -15,6 +15,16 @@
       "permanent": true
     },
     {
+      "source": "/payment",
+      "destination": "/pay/",
+      "permanent": true
+    },
+    {
+      "source": "/payment/",
+      "destination": "/pay/",
+      "permanent": true
+    },
+    {
       "source": "/hire-a-full-stack-wordpress-developer",
       "destination": "/staff-augmentation/",
       "permanent": true
@@ -92,6 +102,26 @@
     {
       "source": "/white-label-development-partner/",
       "destination": "/agency-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/medspa",
+      "destination": "/health-and-wellness/",
+      "permanent": true
+    },
+    {
+      "source": "/medspa/",
+      "destination": "/health-and-wellness/",
+      "permanent": true
+    },
+    {
+      "source": "/aesthetics",
+      "destination": "/health-and-wellness/",
+      "permanent": true
+    },
+    {
+      "source": "/aesthetics/",
+      "destination": "/health-and-wellness/",
       "permanent": true
     },
     {
