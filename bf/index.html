@@ -1946,6 +1946,9 @@
               <button type="button" class="btn-card-cta" id="btnCtaRebuild" onclick="launchPlanWithAddon('rebuild')">
                 <i class="fas fa-check"></i> Choose Plan — $99
               </button>
+              <a href="https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j" target="_blank" rel="noopener noreferrer" style="display: block; text-align: center; margin-top: 8px; font-size: 12px; color: #635BFF; font-weight: 700; text-decoration: none;">
+                <i class="fab fa-stripe-s"></i> Or Pay via Stripe Direct Hosted Link ↗
+              </a>
 
               <!-- Optional Add-ons Group (Hosting & Maintenance) -->
               <div class="ar-addons-group">
@@ -2002,6 +2005,9 @@
               <button type="button" class="btn-card-cta" id="btnCtaNew" onclick="launchPlanWithAddon('new')">
                 <i class="fas fa-arrow-right"></i> Choose Plan — $199
               </button>
+              <a href="https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j" target="_blank" rel="noopener noreferrer" style="display: block; text-align: center; margin-top: 8px; font-size: 12px; color: #635BFF; font-weight: 700; text-decoration: none;">
+                <i class="fab fa-stripe-s"></i> Or Pay via Stripe Direct Hosted Link ↗
+              </a>
 
               <!-- Optional Add-ons Group -->
               <div class="ar-addons-group">
@@ -2385,6 +2391,16 @@
         <div class="ar-faq-container">
           <details class="ar-faq-item" open>
             <summary>
+              <span>What kind of website will you build for me, and why does it rank faster?</span>
+              <span class="ar-faq-icon"><i class="fas fa-plus"></i></span>
+            </summary>
+            <p>
+              We build a <strong>100% bespoke, custom-coded website</strong> tailored specifically for your business. Unlike bloated WordPress page builders, Wix, or slow generic templates that drag down your page speed and frustrate users, our custom-coded websites are built with lean semantic HTML5, modern CSS, lightweight JavaScript, and structured schema tags. Google heavily rewards fast, clean code — which is why our <strong>custom code websites rank significantly faster on Google Search and Google 3-Pack Maps</strong>, driving real organic phone calls and customer inquiries.
+            </p>
+          </details>
+
+          <details class="ar-faq-item">
+            <summary>
               <span>How does the "Live in 1 Business Day" process work?</span>
               <span class="ar-faq-icon"><i class="fas fa-plus"></i></span>
             </summary>
@@ -2760,24 +2776,18 @@
     }
 
     function launchPlanWithAddon(planType) {
-      const state = planAddons[planType];
-      const planName = planType === 'rebuild' ? 'Website Rebuild & Redesign' : 'Brand New Custom Website';
-      let title = planName;
-      let badge = 'Live in 1 Business Day';
-
+      const state = planAddons[planType] || { basePrice: 99, extraPrice: 0, selected: 'none' };
+      const planKey = (planType === 'new' || planType === 'custom') ? 'custom' : 'rebuild';
+      let url = `/checkout/?plan=${planKey}&amount=${state.basePrice}`;
       if (state.selected === 'hosting') {
-        title += ' (+ $27/mo Hosting & Domain)';
-        badge += ' • Hosting Add-on';
+        url += '&addon=hosting&addon_price=27';
       } else if (state.selected === 'maint') {
-        title += ' (+ $67/mo Hosting & Maintenance)';
-        badge += ' • Full Care Add-on';
+        url += '&addon=maint&addon_price=67';
       }
-
-      const cycleStr = state.extraPrice > 0 ? `One-Time $${state.basePrice} + $${state.extraPrice}/mo` : 'One-Time Flat';
-      openCheckoutModal(title, state.basePrice, cycleStr, badge);
+      window.location.href = url;
     }
 
-    // Modal Controller
+    // Modal / Checkout Controller
     let currentSelectedPlan = {
       name: 'Website Rebuild & Redesign',
       price: 99,
@@ -2789,24 +2799,8 @@
     const checkoutModal = document.getElementById('checkoutModal');
 
     function openCheckoutModal(name, price, cycle, badge) {
-      currentSelectedPlan = { name, price, cycle, badge };
-
-      document.getElementById('mPlanName').textContent = name;
-      document.getElementById('mPlanBadge').textContent = badge;
-      document.getElementById('mPlanPrice').textContent = '$' + price + (cycle.includes('/mo') ? ' + mo' : '');
-      document.getElementById('btnPayText').textContent = `Pay Securely Now ($${price}) & Enter Details`;
-
-      // Reset to Step 1
-      document.getElementById('modalStep1').style.display = 'block';
-      document.getElementById('modalStep2').style.display = 'none';
-      document.getElementById('modalBar1').classList.add('active');
-      document.getElementById('modalBar2').classList.remove('active');
-
-      if (typeof checkoutModal.showModal === 'function') {
-        checkoutModal.showModal();
-      } else {
-        checkoutModal.setAttribute('open', '');
-      }
+      const planKey = (name && name.toLowerCase().includes('brand new')) ? 'custom' : 'rebuild';
+      window.location.href = `/checkout/?plan=${planKey}&amount=${price}&service=${encodeURIComponent(name)}`;
     }
 
     function closeCheckoutModal() {
@@ -2830,38 +2824,13 @@
       const form = document.getElementById('directPayForm');
       const formData = new FormData(form);
 
-      customerData = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        plan: currentSelectedPlan.name,
-        price: currentSelectedPlan.price,
-        cycle: currentSelectedPlan.cycle,
-        pageUrl: window.location.href,
-        step: 'Step 1 - Direct Payment First Initiated'
-      };
+      const name = encodeURIComponent(formData.get('name') || '');
+      const email = encodeURIComponent(formData.get('email') || '');
+      const phone = encodeURIComponent(formData.get('phone') || '');
+      const planKey = (currentSelectedPlan && currentSelectedPlan.name && currentSelectedPlan.name.toLowerCase().includes('brand new')) ? 'custom' : 'rebuild';
+      const price = (currentSelectedPlan && currentSelectedPlan.price) ? currentSelectedPlan.price : 99;
 
-      const btn = document.getElementById('btnPayTrigger');
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
-
-      fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(customerData)
-      }).catch(err => console.warn('Sync fallback', err))
-        .finally(() => {
-          // Open official Stripe custom payment link in a new tab
-          window.open('https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j', '_blank');
-          setTimeout(() => {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-lock"></i> Pay Securely Now';
-            // Move to Step 2
-            document.getElementById('modalStep1').style.display = 'none';
-            document.getElementById('modalStep2').style.display = 'block';
-            document.getElementById('modalBar2').classList.add('active');
-          }, 400);
-        });
+      window.location.href = `/checkout/?plan=${planKey}&amount=${price}&name=${name}&email=${email}&phone=${phone}`;
     }
 
     // Step 2: Project Details Submit

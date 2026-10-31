@@ -569,6 +569,10 @@
       if (
         form.id === 'ar-checkout-form' ||
         form.id === 'demoForm' ||
+        form.id === 'directPayForm' ||
+        form.id === 'ckCustomerForm' ||
+        form.dataset.noAjax === 'true' ||
+        form.getAttribute('data-no-ajax') === 'true' ||
         form.dataset.customSubmit === 'true' ||
         form.dataset.arHandled === 'true'
       ) {

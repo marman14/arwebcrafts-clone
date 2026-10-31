@@ -322,6 +322,54 @@
   "outputDirectory": ".",
   "rewrites": [
     {
+      "source": "/api/contact",
+      "destination": "/api/contact.js"
+    },
+    {
+      "source": "/api/contact/",
+      "destination": "/api/contact.js"
+    },
+    {
+      "source": "/api/create-checkout-session",
+      "destination": "/api/create-checkout-session.js"
+    },
+    {
+      "source": "/api/create-checkout-session/",
+      "destination": "/api/create-checkout-session.js"
+    },
+    {
+      "source": "/api/create-payment-intent",
+      "destination": "/api/create-payment-intent.js"
+    },
+    {
+      "source": "/api/create-payment-intent/",
+      "destination": "/api/create-payment-intent.js"
+    },
+    {
+      "source": "/api/config",
+      "destination": "/api/config.js"
+    },
+    {
+      "source": "/api/config/",
+      "destination": "/api/config.js"
+    },
+    {
+      "source": "/api/submit-demo",
+      "destination": "/api/submit-demo.js"
+    },
+    {
+      "source": "/api/submit-demo/",
+      "destination": "/api/submit-demo.js"
+    },
+    {
+      "source": "/api/webhook",
+      "destination": "/api/webhook.js"
+    },
+    {
+      "source": "/api/webhook/",
+      "destination": "/api/webhook.js"
+    },
+    {
       "source": "/api/leads",
       "destination": "/api/contact.js"
     },

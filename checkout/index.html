@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
-  <meta property="og:title" content="AR Webcrafts LLC">
-  <meta property="og:description" content="Custom Software, WordPress &amp; SaaS Development">
-  <meta property="og:image" content="https://www.arwebcrafts.com/wp-content/uploads/2024/03/AR_Logo.webp">
-<style id="ar-critical-initial-render">.screen-reader-text,.skip-link:not(:focus){position:absolute!important;clip:rect(1px,1px,1px,1px)!important;clip-path:inset(50%)!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;border:0!important;word-wrap:normal!important;white-space:nowrap!important;}.elementor-invisible{visibility:visible!important;opacity:1!important;}html,body{visibility:visible!important;opacity:1!important;}.elementor,.elementor-section,.elementor-column,.elementor-widget-wrap{visibility:visible!important;opacity:1!important;}</style><link rel="preload" href="/ar-global-enhancements.css" as="style" />
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reserve Build Slot &amp; Checkout | AR Webcrafts</title>
-<meta name="description" content="Reserve Build Slot & Checkout - Custom WordPress plugin development, scalable systems, and engineering solutions from AR Webcrafts LLC." />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://www.arwebcrafts.com/wp-content/uploads/2024/03/AR_Logo.webp" />
-<meta property="og:site_name" content="AR Webcrafts" />
-
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Secure Checkout — AR Webcrafts LLC</title>
+  <meta name="description" content="Secure checkout for AR Webcrafts LLC Black Friday website packages. Bespoke custom-coded websites delivered in 1 business day.">
   <link rel="canonical" href="https://www.arwebcrafts.com/checkout/">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Secure Checkout | AR Webcrafts LLC">
+  <meta property="og:description" content="Lock in your Black Friday website package. 100% custom-coded, mobile responsive, live in 1 business day.">
+  <meta property="og:image" content="https://www.arwebcrafts.com/wp-content/uploads/2024/03/AR_Logo.webp">
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" href="/wp-content/uploads/2023/05/cropped-file-1-32x32.webp" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
   <style>
     :root {
-      --bg: #F8FAFC;
-      --navy: #081420;
-      --navy-card: #0A1C2E;
-      --accent: #BE8C33;
-      --accent-hover: #D4A043;
-      --accent-glow: rgba(190, 140, 51, 0.25);
-      --text: #0F172A;
-      --text-muted: #64748B;
-      --border: #E2E8F0;
-      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-head: 'Fraunces', Georgia, serif;
+      --navy:         #011B39;
+      --navy-dark:    #020E1D;
+      --navy-card:    #071F3D;
+      --gold:         #BE8C33;
+      --gold-hover:   #A97825;
+      --gold-light:   #F9F4EB;
+      --gold-glow:    rgba(190, 140, 51, 0.25);
+      --red:          #DC2626;
+      --green:        #16A34A;
+      --green-light:  #DCFCE7;
+      --bg:           #F8FAFC;
+      --card-bg:      #FFFFFF;
+      --text:         #0F172A;
+      --text-muted:   #64748B;
+      --border:       #E2E8F0;
+      --sans:         'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --body:         'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font-body);
-      line-height: 1.5;
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+
     a { color: inherit; text-decoration: none; }
 
     /* Top Strip */
@@ -50,20 +65,25 @@
       background: var(--navy);
       color: #CBD5E1;
       font-size: 12.5px;
-      padding: 8px 16px;
+      font-weight: 500;
+      padding: 10px 16px;
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .ck-top-strip strong { color: #FFFFFF; }
     .ck-badge-special {
-      background: var(--accent);
+      background: var(--red);
       color: #FFFFFF;
-      padding: 2px 7px;
-      border-radius: 3px;
-      font-weight: 700;
-      font-size: 11px;
-      margin-right: 6px;
-      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 100px;
+      font-weight: 800;
+      font-size: 10.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     /* Navbar */
@@ -71,16 +91,20 @@
       background: #FFFFFF;
       border-bottom: 1px solid var(--border);
       padding: 14px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 8px rgba(1, 27, 57, 0.03);
     }
     .ck-header-inner {
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .ck-logo img {
-      height: 44px;
+      height: 36px;
       width: auto;
       display: block;
     }
@@ -88,318 +112,529 @@
       display: flex;
       align-items: center;
       gap: 18px;
+    }
+    .ck-back-link {
       font-size: 13.5px;
       font-weight: 600;
       color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
     }
-    .ck-header-links a:hover { color: var(--accent); }
+    .ck-back-link:hover { color: var(--navy); }
     .ck-secure-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: #16A34A;
-      font-size: 12px;
-      background: #F0FDF4;
-      padding: 4px 10px;
-      border-radius: 4px;
-      border: 1px solid #BBF7D0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-light);
+      padding: 5px 12px;
+      border-radius: 100px;
     }
 
     /* Main Container */
-    .ck-wrap {
-      max-width: 1140px;
-      margin: 36px auto;
+    .ck-main-wrap {
+      flex: 1;
+      max-width: 1180px;
+      margin: 32px auto 60px auto;
       padding: 0 20px;
+      width: 100%;
     }
-    .ck-grid {
+
+    .ck-checkout-grid {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 36px;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 32px;
       align-items: start;
     }
-    @media (max-width: 860px) {
-      .ck-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-    }
 
-    /* Left Column: Plan Summary */
-    .ck-summary-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 4px 20px rgba(10,28,46,0.04);
-    }
-    .ck-summary-card h2 {
-      font-family: var(--font-head);
-      font-size: 1.5rem;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .ck-plan-picker {
+    /* Left Column - Cart & Inputs */
+    .ck-left-col {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin: 20px 0;
-    }
-    .ck-plan-option {
-      border: 2px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      background: #FAFAFA;
-      transition: all 0.2s ease;
-    }
-    .ck-plan-option:hover {
-      border-color: #CBD5E1;
-      background: #FFFFFF;
-    }
-    .ck-plan-option.active {
-      border-color: var(--accent);
-      background: #FEF9EE;
-      box-shadow: 0 4px 14px var(--accent-glow);
-    }
-    .ck-plan-info strong {
-      display: block;
-      font-size: 14.5px;
-      color: var(--navy);
-    }
-    .ck-plan-info span {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .ck-plan-price-num {
-      text-align: right;
-    }
-    .ck-plan-price-num .amt {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-    .ck-plan-price-num .sub {
-      font-size: 11px;
-      color: var(--text-muted);
-      display: block;
+      gap: 24px;
     }
 
-    .ck-feature-checklist {
-      list-style: none;
-      margin: 22px 0 0;
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
+    .ck-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 26px;
+      box-shadow: 0 4px 20px rgba(1, 27, 57, 0.04);
+    }
+
+    .ck-card-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ck-card-subtitle {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* Plan Selection Radio Cards */
+    .ck-plans-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
-    }
-    .ck-feature-checklist li {
-      font-size: 13.5px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: #334155;
-    }
-    .ck-feature-checklist li i {
-      color: var(--accent);
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-
-    /* Right Column: Checkout Intake Form */
-    .ck-form-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px 28px;
-      box-shadow: 0 6px 24px rgba(10,28,46,0.06);
-    }
-    .ck-form-card h1 {
-      font-family: var(--font-head);
-      font-size: 1.7rem;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .ck-form-desc {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    .ck-form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    @media (max-width: 580px) {
-      .ck-form-row { grid-template-columns: 1fr; }
-    }
-    .ck-field {
-      margin-bottom: 16px;
-    }
-    .ck-field label {
-      display: block;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 6px;
-    }
-    .ck-field input, .ck-field select, .ck-field textarea {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid #CBD5E1;
-      border-radius: 6px;
-      font-size: 14px;
-      font-family: var(--font-body);
-      color: var(--text);
-      background: #FFFFFF;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .ck-field input:focus, .ck-field select:focus, .ck-field textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(190,140,51,0.15);
-    }
-
-    /* FCC SMS Consent Container */
-    .ck-sms-box {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 6px;
-      padding: 14px 16px;
       margin-bottom: 20px;
     }
-    .ck-sms-box label {
+
+    .ck-plan-choice {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 12.5px;
-      color: #334155;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
       cursor: pointer;
-      line-height: 1.45;
+      transition: all 0.2s ease;
+      background: #FFFFFF;
     }
-    .ck-sms-box input[type="checkbox"] {
-      margin-top: 3px;
-      accent-color: var(--accent);
-      width: 16px;
-      height: 16px;
+
+    .ck-plan-choice:hover {
+      border-color: var(--gold);
+      background: #FDFAF5;
+    }
+
+    .ck-plan-choice.active {
+      border-color: var(--gold);
+      background: var(--gold-light);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+
+    .ck-plan-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ck-radio-custom {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      transition: all 0.2s;
     }
-    .ck-sms-box a {
-      color: var(--accent);
-      text-decoration: underline;
+
+    .ck-plan-choice.active .ck-radio-custom {
+      border-color: var(--gold);
+    }
+
+    .ck-plan-choice.active .ck-radio-custom::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .ck-plan-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .ck-badge-discount {
+      background: #FEE2E2;
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    .ck-plan-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .ck-plan-pricing {
+      text-align: right;
+    }
+
+    .ck-price-strike {
+      font-size: 12px;
+      color: #94A3B8;
+      text-decoration: line-through;
       font-weight: 600;
     }
 
-    /* Submit Button */
-    .ck-submit-btn {
-      width: 100%;
-      background: var(--accent);
-      color: #FFFFFF;
-      border: none;
-      border-radius: 6px;
-      padding: 16px 24px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      box-shadow: 0 6px 20px var(--accent-glow);
-      transition: all 0.2s ease;
-    }
-    .ck-submit-btn:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-    .ck-submit-btn .sub-text {
-      font-size: 11.5px;
-      font-weight: 500;
-      opacity: 0.9;
+    .ck-price-current {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--navy);
     }
 
-    .ck-guarantees {
+    .ck-price-cycle {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Urgency Banner */
+    .ck-urgency-banner {
+      background: linear-gradient(135deg, #011B39 0%, #0A2E5C 100%);
+      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .ck-urgency-banner i { color: #F59E0B; font-size: 15px; }
+
+    /* Custom Code Benefits Checklist */
+    .ck-benefits-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+      padding: 16px;
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      border-radius: 10px;
+    }
+    .ck-benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: #334155;
+      line-height: 1.4;
+    }
+    .ck-benefit-item i {
+      color: var(--green);
+      margin-top: 2px;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* Form Fields */
+    .ck-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .ck-field-full {
+      grid-column: span 2;
+    }
+    .ck-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .ck-field input,
+    .ck-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: var(--sans);
+      color: var(--navy);
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .ck-field input:focus,
+    .ck-field textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(190, 140, 51, 0.15);
+    }
+
+    /* Right Column - Order Summary */
+    .ck-summary-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 24px;
+      box-shadow: 0 8px 30px rgba(1, 27, 57, 0.06);
+      position: sticky;
+      top: 86px;
+    }
+
+    .ck-summary-head {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 18px;
-      font-size: 12px;
-      color: var(--text-muted);
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .ck-guarantees span {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
     }
 
-    /* Success Panel */
-    .ck-done-box {
-      background: var(--navy);
-      color: #FFFFFF;
-      padding: 36px 28px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      text-align: center;
-    }
-    .ck-done-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(190,140,51,0.2);
-      color: var(--accent);
-      font-size: 26px;
-      display: inline-flex;
+    .ck-summary-row {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-    .ck-done-box h2 {
-      font-family: var(--font-head);
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-    }
-    .ck-done-box p {
-      color: #CBD5E1;
       font-size: 14px;
-      max-width: 480px;
-      margin: 0 auto 20px;
+      color: #475569;
+      margin-bottom: 12px;
     }
-    .ck-done-btn {
-      display: inline-flex;
+    .ck-summary-row strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    /* Add-on Options in Summary */
+    .ck-addons-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 18px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ck-addon-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      background: #F8FAFC;
+      transition: all 0.2s;
+    }
+    .ck-addon-item:hover {
+      background: #FFFFFF;
+      border-color: var(--gold);
+    }
+    .ck-addon-item.selected {
+      background: var(--gold-light);
+      border-color: var(--gold);
+    }
+    .ck-addon-item input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--gold);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .ck-addon-text {
+      flex: 1;
+    }
+    .ck-addon-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+    }
+    .ck-addon-price {
+      color: var(--gold-hover);
+      font-weight: 800;
+    }
+    .ck-addon-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Savings Strip */
+    .ck-savings-strip {
+      background: var(--green-light);
+      color: #15803D;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
       align-items: center;
       gap: 8px;
-      background: var(--accent);
-      color: #FFFFFF;
-      padding: 12px 28px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 14.5px;
+      margin: 18px 0;
     }
 
-    /* Footer */
-    .ck-footer {
+    .ck-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+
+    .ck-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+    .ck-total-label {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .ck-total-val {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    /* Primary Pay Button */
+    .ck-pay-btn {
+      width: 100%;
+      background: var(--gold);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(190, 140, 51, 0.4);
+      margin-bottom: 12px;
+    }
+    .ck-pay-btn:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(1, 27, 57, 0.25);
+    }
+
+    /* Stripe Direct Link Button */
+    .ck-stripe-link-btn {
+      width: 100%;
+      background: #FFFFFF;
+      color: #635BFF;
+      border: 1.5px solid #635BFF;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+    }
+    .ck-stripe-link-btn:hover {
+      background: #F4F3FF;
+      transform: translateY(-1px);
+    }
+
+    /* WhatsApp Button */
+    .ck-wa-btn {
+      width: 100%;
+      background: #FFFFFF;
+      color: #16A34A;
+      border: 1px solid #BBF7D0;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      margin-bottom: 18px;
+    }
+    .ck-wa-btn:hover {
+      background: #F0FDF4;
+      border-color: #16A34A;
+    }
+
+    /* Guarantees Box */
+    .ck-guarantees-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #64748B;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
-      padding: 24px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 60px;
+    }
+    .ck-guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .ck-header {
+        padding: 10px 16px;
+      }
+      .ck-logo img {
+        height: 28px;
+      }
+      .ck-header-links {
+        gap: 10px;
+      }
+      .ck-back-link {
+        font-size: 12.5px;
+      }
+      .ck-back-link span {
+        display: none;
+      }
+      .ck-secure-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+      }
+      .ck-checkout-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .ck-left-col {
+        order: 1;
+      }
+      .ck-summary-box {
+        position: static;
+        order: 2;
+      }
+      .ck-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .ck-field-full {
+        grid-column: span 1;
+      }
+      .ck-benefits-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Announcement Strip -->
+  <!-- Top Strip -->
   <div class="ck-top-strip">
-    <span class="ck-badge-special">Q4 SPECIAL</span>
-    <strong>$0 Upfront Build Fee</strong> &middot; Your live custom demo ready in 24 hours &middot; Review on your phone before spending a dollar.
+    <span class="ck-badge-special">BLACK FRIDAY EXCLUSIVE</span>
+    <span>Get your custom website built in <strong>$99</strong> — we make it <strong>live in 1 business day</strong>.</span>
   </div>
 
   <!-- Header -->
@@ -409,215 +644,470 @@
         <img src="/wp-content/uploads/2023/05/AR_Webcrafts-_500x120-removebg-preview-1.webp" alt="AR Webcrafts">
       </a>
       <div class="ck-header-links">
-        <a href="/offer/">&larr; Back to Offer</a>
-        <span class="ck-secure-badge"><i class="fas fa-lock"></i> 256-Bit SSL Encrypted</span>
+        <a href="/bf/" class="ck-back-link">
+          <i class="fas fa-arrow-left"></i> <span>Back to Black Friday Deals</span>
+        </a>
+        <span class="ck-secure-badge"><i class="fas fa-shield-alt"></i> 256-Bit SSL Encrypted</span>
       </div>
     </div>
   </header>
 
   <!-- Checkout Grid Container -->
-  <main class="ck-wrap">
-    <div class="ck-grid">
+  <main class="ck-main-wrap">
+    <div class="ck-checkout-grid">
       
-      <!-- Left Column: Package Overview & Plan Switcher -->
-      <aside class="ck-summary-card">
-        <div role="heading" aria-level="2">Your Website Package</div>
-        <p style="font-size: 13.5px; color: var(--text-muted);">Select your preferred pricing structure below:</p>
+      <!-- LEFT COLUMN: CART & CUSTOMER INPUTS -->
+      <div class="ck-left-col">
+        
+        <!-- Cart & Package Selection Card -->
+        <section class="ck-card">
+          <h1 class="ck-card-title">
+            <i class="fas fa-shopping-cart" style="color: var(--gold); font-size: 18px;"></i>
+            Your Cart &amp; Website Architecture
+          </h1>
+          <p class="ck-card-subtitle">Select your Black Friday deal below to configure your build:</p>
 
-        <div class="ck-plan-picker">
-          <!-- Monthly -->
-          <div class="ck-plan-option active" data-plan="monthly" onclick="selectPlan('monthly')">
-            <div class="ck-plan-info">
-              <strong>Monthly Subscription <span style="background:#FEE2E2; color:#DC2626; font-size:10px; font-weight:700; padding:1px 6px; border-radius:3px;">70% OFF</span></strong>
-              <span>$0 Upfront &middot; Most Popular &middot; Cancel Anytime</span>
+          <div class="ck-plans-list">
+            <!-- Plan 1: Rebuild & Redesign ($99) -->
+            <div class="ck-plan-choice active" id="planChoiceRebuild" onclick="setCheckoutPlan('rebuild')">
+              <div class="ck-plan-left">
+                <div class="ck-radio-custom"></div>
+                <div>
+                  <div class="ck-plan-name">
+                    <span>Website Rebuild &amp; Redesign</span>
+                    <span class="ck-badge-discount">89% OFF</span>
+                  </div>
+                  <div class="ck-plan-sub">For existing websites needing a modern executive look &amp; faster speed</div>
+                </div>
+              </div>
+              <div class="ck-plan-pricing">
+                <div class="ck-price-strike">$899</div>
+                <div class="ck-price-current">$99</div>
+                <div class="ck-price-cycle">One-Time Flat</div>
+              </div>
             </div>
-            <div class="ck-plan-price-num">
-              <span style="text-decoration:line-through; font-size:12px; color:#94A3B8; font-weight:600;">$299</span>
-              <span class="amt">$99</span>
-              <span class="sub">/month</span>
+
+            <!-- Plan 2: Brand New Custom Website ($199) -->
+            <div class="ck-plan-choice" id="planChoiceCustom" onclick="setCheckoutPlan('custom')">
+              <div class="ck-plan-left">
+                <div class="ck-radio-custom"></div>
+                <div>
+                  <div class="ck-plan-name">
+                    <span>Brand New Custom Website</span>
+                    <span class="ck-badge-discount" style="background: #FEF3C7; color: #B45309;">87% OFF</span>
+                  </div>
+                  <div class="ck-plan-sub">Up to 5 custom-coded pages, bespoke design &amp; sales copywriting</div>
+                </div>
+              </div>
+              <div class="ck-plan-pricing">
+                <div class="ck-price-strike">$1,499</div>
+                <div class="ck-price-current">$199</div>
+                <div class="ck-price-cycle">One-Time Flat</div>
+              </div>
             </div>
           </div>
 
-          <!-- Annual -->
-          <div class="ck-plan-option" data-plan="annual" onclick="selectPlan('annual')">
-            <div class="ck-plan-info">
-              <strong>Annual Plan <span style="background:#DCFCE7; color:#16A34A; font-size:10px; font-weight:700; padding:1px 6px; border-radius:3px;">Save $1,201</span></strong>
-              <span>$0 Upfront &middot; 2 Months Free &middot; Priority Builds</span>
-            </div>
-            <div class="ck-plan-price-num">
-              <span style="text-decoration:line-through; font-size:12px; color:#94A3B8; font-weight:600;">$2,000</span>
-              <span class="amt">$799</span>
-              <span class="sub">/year</span>
+          <!-- Urgency Banner -->
+          <div class="ck-urgency-banner">
+            <i class="fas fa-bolt"></i>
+            <div>
+              <strong>Lowest price of the year.</strong> Once your order is placed, our engineering desk begins building immediately — live in 24 hours.
             </div>
           </div>
 
-          <!-- One-Time Buyout -->
-          <div class="ck-plan-option" data-plan="buyout" onclick="selectPlan('buyout')">
-            <div class="ck-plan-info">
-              <strong>One-Time Lifetime Buyout <span style="background:#DBEAFE; color:#2563EB; font-size:10px; font-weight:700; padding:1px 6px; border-radius:3px;">Save $2,001</span></strong>
-              <span>$0 Upfront &middot; 100% Code Ownership &middot; No Monthly Fee</span>
+          <!-- Included Custom-Code Value Checklist -->
+          <div class="ck-benefits-list">
+            <div class="ck-benefit-item">
+              <i class="fas fa-check-circle"></i>
+              <span><strong>100% Bespoke Custom Code:</strong> Clean architecture that Google loves — ranks faster organically.</span>
             </div>
-            <div class="ck-plan-price-num">
-              <span style="text-decoration:line-through; font-size:12px; color:#94A3B8; font-weight:600;">$3,000</span>
-              <span class="amt">$999</span>
-              <span class="sub">one-time</span>
+            <div class="ck-benefit-item">
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Mobile-First Design:</strong> 100% pixel-perfect on iPhones, Androids, and tablets.</span>
             </div>
+            <div class="ck-benefit-item">
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Sub-Second Load Speed:</strong> Core Web Vitals 95+ score. No bloated builders.</span>
+            </div>
+            <div class="ck-benefit-item">
+              <i class="fas fa-check-circle"></i>
+              <span><strong>High-Converting Contact Form:</strong> Quotes &amp; customer leads sent to your email &amp; WhatsApp.</span>
+            </div>
+            <div class="ck-benefit-item">
+              <i class="fas fa-check-circle"></i>
+              <span><strong>SEO-Ready Foundation:</strong> Structured schema tags, sitemap, and Google Search Console ready.</span>
+            </div>
+            <div class="ck-benefit-item">
+              <i class="fas fa-check-circle"></i>
+              <span><strong>100% Full Ownership:</strong> You own all files, code, and graphics with zero vendor lock-in.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Customer Information Card -->
+        <section class="ck-card">
+          <h2 class="ck-card-title">
+            <i class="fas fa-user-check" style="color: var(--gold); font-size: 18px;"></i>
+            1. Your Contact &amp; Business Information
+          </h2>
+          <p class="ck-card-subtitle">
+            Enter your details so we can assign your engineering lead and deliver your live demo:
+          </p>
+
+          <form id="ckCustomerForm" onsubmit="event.preventDefault(); processCheckoutPayment();">
+            <div class="ck-form-grid">
+              <div class="ck-field">
+                <label for="ck_name">Full Name *</label>
+                <input type="text" id="ck_name" name="name" required placeholder="e.g. David Miller">
+              </div>
+
+              <div class="ck-field">
+                <label for="ck_email">Business Email *</label>
+                <input type="email" id="ck_email" name="email" required placeholder="e.g. david@millerroofing.com">
+              </div>
+
+              <div class="ck-field">
+                <label for="ck_phone">Mobile / WhatsApp Number *</label>
+                <input type="tel" id="ck_phone" name="phone" required placeholder="e.g. (555) 000-0000">
+              </div>
+
+              <div class="ck-field">
+                <label for="ck_website">Existing Website or Domain (Optional)</label>
+                <input type="text" id="ck_website" name="website" placeholder="e.g. millerroofing.com or Starting Fresh">
+              </div>
+
+              <div class="ck-field ck-field-full">
+                <label for="ck_notes">Project Notes or Specific Requests (Optional)</label>
+                <textarea id="ck_notes" name="notes" rows="2" placeholder="e.g. Need modern design, contact quote form, and fast loading on mobile"></textarea>
+              </div>
+            </div>
+          </form>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN: ORDER SUMMARY (STICKY) -->
+      <aside class="ck-summary-box">
+        <div class="ck-summary-head">
+          <span>Order summary</span>
+          <span style="font-size: 12px; font-weight: 700; color: var(--gold);">BLACK FRIDAY</span>
+        </div>
+
+        <div class="ck-summary-row">
+          <span id="summaryPlanName">Website Rebuild &amp; Redesign</span>
+          <strong id="summaryPlanPrice">$99.00</strong>
+        </div>
+
+        <div class="ck-summary-row" id="rowOriginalPrice" style="color: #94A3B8; font-size: 12.5px;">
+          <span>Regular Value</span>
+          <span style="text-decoration: line-through;">$899.00</span>
+        </div>
+
+        <!-- Optional Add-ons -->
+        <div class="ck-addons-title">
+          <i class="fas fa-sliders-h"></i> Optional Add-ons (If Needed)
+        </div>
+
+        <!-- Add-on 1: Hosting -->
+        <label class="ck-addon-item" id="addonBoxHosting">
+          <input type="checkbox" id="chkAddonHosting" onchange="toggleAddon('hosting')">
+          <div class="ck-addon-text">
+            <div class="ck-addon-name">
+              <span>Hosting Provided + Domain</span>
+              <span class="ck-addon-price">+$27/mo</span>
+            </div>
+            <div class="ck-addon-sub">Optional if you already have hosting</div>
+          </div>
+        </label>
+
+        <!-- Add-on 2: Maintenance -->
+        <label class="ck-addon-item" id="addonBoxMaint">
+          <input type="checkbox" id="chkAddonMaint" onchange="toggleAddon('maint')">
+          <div class="ck-addon-text">
+            <div class="ck-addon-name">
+              <span>Hosting + Monthly Maintenance</span>
+              <span class="ck-addon-price">+$67/mo</span>
+            </div>
+            <div class="ck-addon-sub">Domain, high-speed hosting &amp; monthly edits</div>
+          </div>
+        </label>
+
+        <!-- Savings Badge -->
+        <div class="ck-savings-strip" id="ckSavingsStrip">
+          <i class="fas fa-tag"></i>
+          <span>You're saving $800 today (89% OFF)</span>
+        </div>
+
+        <div class="ck-summary-row" style="margin-bottom: 6px;">
+          <span>Taxes &amp; Setup Fee</span>
+          <strong style="color: var(--green);">$0.00</strong>
+        </div>
+
+        <div class="ck-divider"></div>
+
+        <div class="ck-total-row">
+          <span class="ck-total-label">Total Due Today:</span>
+          <span class="ck-total-val" id="summaryTotal">$99.00</span>
+        </div>
+
+        <!-- Main Pay Button -->
+        <button type="button" id="btnPaySubmit" class="ck-pay-btn" onclick="processCheckoutPayment()">
+          <span>Pay Securely Now ($99) →</span>
+        </button>
+
+        <!-- Secondary Direct Stripe Link -->
+        <a href="https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j" target="_blank" rel="noopener noreferrer" class="ck-stripe-link-btn">
+          <i class="fab fa-stripe-s" style="font-weight: 900;"></i>
+          <span>Or Pay via Stripe Direct Hosted Link ↗</span>
+        </a>
+
+        <!-- WhatsApp Support Link -->
+        <a href="https://wa.me/13072784862?text=Hello%20Arman%2C%20I%20am%20at%20checkout%20and%20want%20to%20complete%20my%20order." target="_blank" rel="noopener noreferrer" class="ck-wa-btn">
+          <i class="fab fa-whatsapp" style="font-size: 15px;"></i>
+          <span>Need Help? Chat &amp; Pay via WhatsApp</span>
+        </a>
+
+        <!-- Guarantees Footer -->
+        <div class="ck-guarantees-grid">
+          <div class="ck-guarantee-item">
+            <i class="fas fa-shield-alt" style="color: var(--green);"></i>
+            <span>30-Day Guarantee</span>
+          </div>
+          <div class="ck-guarantee-item">
+            <i class="fas fa-clock" style="color: #F59E0B;"></i>
+            <span>Live in 1 Business Day</span>
+          </div>
+          <div class="ck-guarantee-item">
+            <i class="fas fa-lock" style="color: var(--navy);"></i>
+            <span>Stripe Verified 256-Bit</span>
+          </div>
+          <div class="ck-guarantee-item">
+            <i class="fas fa-star" style="color: #F59E0B;"></i>
+            <span>Clutch 5.0 Rated</span>
           </div>
         </div>
 
-        <ul class="ck-feature-checklist">
-          <li><i class="fas fa-check-circle"></i> <span><strong>Live in 24 Hours:</strong> Custom coded for your trade and area.</span></li>
-          <li><i class="fas fa-check-circle"></i> <span><strong>Dedicated Town SEO Pages:</strong> Reach homeowners across your whole service territory.</span></li>
-          <li><i class="fas fa-check-circle"></i> <span><strong>Spanish Version Included:</strong> Fully translated to unlock bilingual homeowners.</span></li>
-          <li><i class="fas fa-check-circle"></i> <span><strong>Estimate Intake Engine:</strong> Inbound leads email and text you immediately.</span></li>
-          <li><i class="fas fa-check-circle"></i> <span><strong>Google Reviews Live Feed:</strong> Automatically synced from your Google profile.</span></li>
-          <li><i class="fas fa-check-circle"></i> <span><strong>Hosting, SSL, Backups &amp; Domain:</strong> Included with zero hidden fees.</span></li>
-          <li><i class="fas fa-check-circle"></i> <span><strong>Unlimited Edits:</strong> Text or WhatsApp us updates anytime for free.</span></li>
-        </ul>
       </aside>
-
-      <!-- Right Column: Instant Reservation & Intake Form -->
-      <section class="ck-form-card">
-        <h1>Reserve Your Build Slot</h1>
-        <p class="ck-form-desc">Zero upfront fee today. Enter your details below to schedule your 10-minute confirmation touchpoint and kick off your custom demo.</p>
-
-        <form id="ckIntakeForm">
-          <input type="hidden" name="plan" id="formPlanInput" value="monthly">
-          
-          <div class="ck-form-row">
-            <div class="ck-field" style="margin-bottom:0;">
-              <label for="c_name">Full Name *</label>
-              <input type="text" id="c_name" name="name" required placeholder="John Miller">
-            </div>
-            <div class="ck-field" style="margin-bottom:0;">
-              <label for="c_phone">Cell Phone (for Demo Link) *</label>
-              <input type="tel" id="c_phone" name="phone" required placeholder="(555) 000-0000">
-            </div>
-          </div>
-
-          <div class="ck-form-row">
-            <div class="ck-field" style="margin-bottom:0;">
-              <label for="c_email">Work Email *</label>
-              <input type="email" id="c_email" name="email" required placeholder="john@millerroofing.com">
-            </div>
-            <div class="ck-field" style="margin-bottom:0;">
-              <label for="c_biz">Business Name &amp; Trade *</label>
-              <input type="text" id="c_biz" name="biz" required placeholder="Miller Roofing &amp; Siding">
-            </div>
-          </div>
-
-          <div class="ck-field">
-            <label for="c_city">Primary Service Towns / Counties *</label>
-            <input type="text" id="c_city" name="city" required placeholder="e.g. San Jose, Santa Clara &amp; surrounding 30 miles">
-          </div>
-
-          <div class="ck-field">
-            <label for="c_existing">Existing Website or Domain (Optional)</label>
-            <input type="text" id="c_existing" name="notes" placeholder="e.g. millerroofing.com or starting fresh">
-          </div>
-
-          <!-- Compliant A2P 10DLC SMS Consent Box -->
-          <div class="ck-sms-box">
-            <label>
-              <input type="checkbox" name="sms_consent" id="c_sms_consent" required>
-              <span>By submitting this form, you agree to receive marketing and promotional text messages from AR Webcrafts LLC at the number you provided. Consent is not a condition of purchase. Msg frequency varies. Msg and data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="/terms-and-conditions/" target="_blank">Terms</a>.</span>
-            </label>
-          </div>
-
-          <button type="submit" class="ck-submit-btn" id="ckSubmitBtn">
-            <span>Confirm Build Slot &amp; Book 10-Min Kickoff Call &rarr;</span>
-            <span class="sub-text">$0 Upfront &middot; Demo in 24 Hours &middot; Zero Obligation</span>
-          </button>
-
-          <div class="ck-guarantees">
-            <span><i class="fas fa-shield-alt" style="color:#16A34A;"></i> 100% Risk-Free Guarantee</span>
-            <span><i class="fas fa-clock" style="color:#F59E0B;"></i> 24-Hour Live Turnaround</span>
-            <span><i class="fab fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/13072784862?text=Hi%20Arman%2C%20I%20have%20a%20question%20about%20the%20website%20checkout" target="_blank" rel="noopener" style="text-decoration:underline;">Chat on WhatsApp</a></span>
-          </div>
-        </form>
-
-        <!-- Success Message -->
-        <div class="ck-done-box" id="ckDoneBox" hidden>
-          <div class="ck-done-icon"><i class="fas fa-calendar-check"></i></div>
-          <h2>Build Slot Reserved!</h2>
-          <p>Redirecting you to Arman's calendar to lock in your 10-minute kickoff touchpoint. If not redirected automatically, click below:</p>
-          <a href="https://calendly.com/arwebcrafts/30-mint" class="ck-done-btn">
-            Open Calendly Calendar &rarr;
-          </a>
-        </div>
-      </section>
 
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="ck-footer">
-    <p>&copy; 2026 AR Webcrafts LLC &middot; Casper, WY, USA &middot; <a href="/privacy-policy/" style="text-decoration:underline;">Privacy Policy</a> &middot; <a href="/terms-and-conditions/" style="text-decoration:underline;">Terms of Service</a> &middot; <a href="/offer/" style="text-decoration:underline;">Offer Details</a></p>
-  </footer>
-
   <script>
-    // Handle URL Plan Parameter (?plan=annual / ?plan=buyout / ?plan=monthly)
-    var urlParams = new URLSearchParams(window.location.search);
-    var requestedPlan = urlParams.get('plan') || 'monthly';
+    // State Management
+    const PLANS = {
+      rebuild: {
+        id: 'rebuild',
+        name: 'Website Rebuild & Redesign',
+        basePrice: 99,
+        regularPrice: 899,
+        savingsText: "You're saving $800 today (89% OFF)"
+      },
+      custom: {
+        id: 'custom',
+        name: 'Brand New Custom Website',
+        basePrice: 199,
+        regularPrice: 1499,
+        savingsText: "You're saving $1,300 today (87% OFF)"
+      }
+    };
 
-    function selectPlan(planKey) {
-      document.querySelectorAll('.ck-plan-option').forEach(function(opt) {
-        if(opt.getAttribute('data-plan') === planKey) {
-          opt.classList.add('active');
+    let currentPlan = 'rebuild';
+    let selectedAddon = 'none'; // 'none', 'hosting', or 'maint'
+
+    // Parse URL Query Params on Load
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const planParam = params.get('plan');
+      const addonParam = params.get('addon');
+      const nameParam = params.get('name');
+      const emailParam = params.get('email');
+      const phoneParam = params.get('phone');
+
+      if (planParam === 'custom' || planParam === 'new') {
+        currentPlan = 'custom';
+      } else {
+        currentPlan = 'rebuild';
+      }
+
+      if (addonParam === 'hosting') {
+        selectedAddon = 'hosting';
+        document.getElementById('chkAddonHosting').checked = true;
+      } else if (addonParam === 'maint') {
+        selectedAddon = 'maint';
+        document.getElementById('chkAddonMaint').checked = true;
+      }
+
+      if (nameParam) document.getElementById('ck_name').value = nameParam;
+      if (emailParam) document.getElementById('ck_email').value = emailParam;
+      if (phoneParam) document.getElementById('ck_phone').value = phoneParam;
+
+      renderCheckoutState();
+    });
+
+    function setCheckoutPlan(planKey) {
+      currentPlan = planKey;
+      renderCheckoutState();
+    }
+
+    function toggleAddon(addonKey) {
+      const chkHosting = document.getElementById('chkAddonHosting');
+      const chkMaint = document.getElementById('chkAddonMaint');
+
+      if (addonKey === 'hosting') {
+        if (chkHosting.checked) {
+          selectedAddon = 'hosting';
+          chkMaint.checked = false;
         } else {
-          opt.classList.remove('active');
+          selectedAddon = 'none';
         }
-      });
-      var planInput = document.getElementById('formPlanInput');
-      if(planInput) planInput.value = planKey;
+      } else if (addonKey === 'maint') {
+        if (chkMaint.checked) {
+          selectedAddon = 'maint';
+          chkHosting.checked = false;
+        } else {
+          selectedAddon = 'none';
+        }
+      }
+      renderCheckoutState();
     }
 
-    if(requestedPlan) {
-      selectPlan(requestedPlan);
+    function renderCheckoutState() {
+      // Toggle plan active classes
+      document.getElementById('planChoiceRebuild').classList.toggle('active', currentPlan === 'rebuild');
+      document.getElementById('planChoiceCustom').classList.toggle('active', currentPlan === 'custom');
+
+      // Toggle addon box active classes
+      document.getElementById('addonBoxHosting').classList.toggle('selected', selectedAddon === 'hosting');
+      document.getElementById('addonBoxMaint').classList.toggle('selected', selectedAddon === 'maint');
+
+      const planData = PLANS[currentPlan];
+      let addonPrice = 0;
+      let addonLabel = '';
+
+      if (selectedAddon === 'hosting') {
+        addonPrice = 27;
+        addonLabel = ' + $27/mo Hosting';
+      } else if (selectedAddon === 'maint') {
+        addonPrice = 67;
+        addonLabel = ' + $67/mo Care';
+      }
+
+      const totalToday = planData.basePrice; // Today's payment is the one-time flat base price, subscriptions start after delivery
+
+      // Update Summary UI
+      document.getElementById('summaryPlanName').textContent = planData.name + addonLabel;
+      document.getElementById('summaryPlanPrice').textContent = '$' + planData.basePrice + '.00';
+      document.getElementById('rowOriginalPrice').querySelector('span:last-child').textContent = '$' + planData.regularPrice + '.00';
+      document.getElementById('ckSavingsStrip').querySelector('span').textContent = planData.savingsText;
+      document.getElementById('summaryTotal').textContent = '$' + totalToday + '.00';
+
+      // Update Pay Button
+      document.getElementById('btnPaySubmit').innerHTML = `<span>Pay Securely Now ($${totalToday}) →</span>`;
     }
 
-    // Handle Form Submission
-    var f = document.getElementById('ckIntakeForm');
-    var done = document.getElementById('ckDoneBox');
-    var btn = document.getElementById('ckSubmitBtn');
+    async function processCheckoutPayment() {
+      const nameInput = document.getElementById('ck_name');
+      const emailInput = document.getElementById('ck_email');
+      const phoneInput = document.getElementById('ck_phone');
+      const websiteInput = document.getElementById('ck_website');
+      const notesInput = document.getElementById('ck_notes');
 
-    if(f) {
-      f.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        var smsConsent = document.getElementById('c_sms_consent');
-        if(smsConsent && !smsConsent.checked) {
-          alert('Please agree to the SMS terms to receive your demo link.');
-          return;
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const website = websiteInput ? websiteInput.value.trim() : '';
+      const notes = notesInput ? notesInput.value.trim() : '';
+
+      if (!name) {
+        alert('Please enter your full name.');
+        nameInput.focus();
+        return;
+      }
+
+      if (!email || !email.includes('@')) {
+        alert('Please enter a valid business email address.');
+        emailInput.focus();
+        return;
+      }
+
+      if (!phone) {
+        alert('Please enter your mobile or WhatsApp phone number.');
+        phoneInput.focus();
+        return;
+      }
+
+      const btn = document.getElementById('btnPaySubmit');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting to Stripe Checkout...';
+
+      const planData = PLANS[currentPlan];
+      const payload = {
+        name,
+        email,
+        phone,
+        company: website || 'Client Business',
+        service: 'Black Friday: ' + planData.name,
+        budget: '$' + planData.basePrice,
+        message: `Plan: ${planData.name} ($${planData.basePrice}) | Add-on: ${selectedAddon} | Notes: ${notes}`,
+        page_url: window.location.href,
+        page_title: 'Checkout — ' + planData.name
+      };
+
+      // 1. Log lead in background (never blocks checkout)
+      try {
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(e => console.warn('Sync log notice', e));
+      } catch (e) {}
+
+      // 2. Route directly to Stripe Checkout
+      // Direct Stripe custom link with customer prefill or dynamic checkout session
+      const stripePaymentUrl = 'https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j';
+
+      try {
+        const response = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            serviceName: planData.name + (selectedAddon !== 'none' ? ` (${selectedAddon})` : ''),
+            amount: planData.basePrice,
+            customerName: name,
+            customerEmail: email,
+            customerPhone: phone,
+            notes: notes
+          })
+        });
+
+        if (response.ok) {
+          const session = await response.json();
+          if (session && session.url) {
+            window.location.href = session.url;
+            return;
+          }
         }
+      } catch (err) {
+        console.warn('Fallback to direct Stripe hosted payment link:', err);
+      }
 
-        if(btn) {
-          btn.disabled = true;
-          btn.innerHTML = 'Securing Your Build Slot...';
-        }
-
-        var formData = new FormData(f);
-        var data = {};
-        formData.forEach(function(v, k) { data[k] = v; });
-
-        try {
-          await fetch('/api/submit-demo/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-        } catch(err) {
-          console.warn('[Checkout]', err.message);
-        }
-
-        f.hidden = true;
-        if(done) done.hidden = false;
-
-        // Redirect to Calendly for appointment scheduling
-        setTimeout(function() {
-          window.location.href = 'https://calendly.com/arwebcrafts/30-mint';
-        }, 1500);
-      });
+      // Seamless direct fallback to official Stripe link
+      window.location.href = stripePaymentUrl;
     }
   </script>
+
+  <!-- Global Footer -->
+  <footer style="background: var(--navy); color: #94A3B8; font-size: 13px; padding: 24px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>Copyright &copy; 2019 - 2026 <strong>AR Webcrafts LLC</strong>. Registered in Wyoming, USA. All rights reserved.</div>
+      <div style="display: flex; gap: 16px;">
+        <a href="/bf/" style="color: #CBD5E1;">Black Friday</a>
+        <a href="/portfolio/" style="color: #CBD5E1;">Portfolio</a>
+        <a href="/privacy-policy/" style="color: #CBD5E1;">Privacy Policy</a>
+        <a href="/terms-and-conditions/" style="color: #CBD5E1;">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
