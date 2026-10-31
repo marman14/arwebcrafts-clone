@@ -2650,1053 +2650,1073 @@ Staff Augmentation						</a></div></div></div></div></div></div></div><div class
     </div>
 </div>
 
-<div class="ar-portfolio-grid-wrapper ar-portfolio-alt-layout" id="ar-portfolio-container">
-    <!-- Project 1: Preheim Pools & Luxury Living -->
-    <div class="ar-portfolio-row" id="proj-preheim-pools-luxury" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://preheim-pools-luxury.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Preheim Pools &amp; Luxury Living">
-                <img src="/wp-content/uploads/portfolio/preheim-pools-luxury.webp" alt="Preheim Pools &amp; Luxury Living | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Preheim Pools &amp; Luxury Living</text></svg>';" />
+
+<style id="ar-card-grid-custom-styles">
+.ar-portfolio-grid-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 36px 32px !important;
+    max-width: 1240px !important;
+    margin: 40px auto 80px auto !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+    clear: both !important;
+}
+
+@media (max-width: 1080px) {
+    .ar-portfolio-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 28px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ar-portfolio-grid-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        padding: 0 16px !important;
+        margin: 24px auto 60px auto !important;
+    }
+}
+
+.ar-portfolio-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 4px 20px rgba(1, 27, 57, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+}
+
+.ar-portfolio-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(1, 27, 57, 0.12), 0 4px 12px rgba(190, 140, 51, 0.15) !important;
+    border-color: #BE8C33 !important;
+}
+
+.ar-card-thumb-wrap {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    background: #0A192F !important;
+    overflow: hidden !important;
+}
+
+.ar-card-thumb-link {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ar-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+    transition: transform 0.4s ease !important;
+}
+
+.ar-portfolio-card:hover .ar-card-img {
+    transform: scale(1.04) !important;
+}
+
+.ar-card-info-wrap {
+    padding: 24px 24px 20px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    box-sizing: border-box !important;
+}
+
+.ar-card-category {
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: #BE8C33 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
+
+.ar-card-title {
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #011B39 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.ar-card-title a {
+    color: #011B39 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.ar-card-title a:hover {
+    color: #BE8C33 !important;
+}
+
+.ar-card-subline {
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+    color: #64748B !important;
+    margin: 0 0 20px 0 !important;
+    flex: 1 1 auto !important;
+}
+
+.ar-card-action-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding-top: 18px !important;
+    border-top: 1px solid #F1F5F9 !important;
+    margin-top: auto !important;
+}
+
+.ar-card-primary-cta {
+    background: #BE8C33 !important;
+    color: #FFFFFF !important;
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 10px 18px !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+    white-space: nowrap !important;
+    box-shadow: 0 4px 14px rgba(190, 140, 51, 0.25) !important;
+}
+
+.ar-card-primary-cta:hover {
+    background: #a07324 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(190, 140, 51, 0.35) !important;
+    color: #FFFFFF !important;
+}
+
+.ar-card-quick-btn {
+    background: #FFFFFF !important;
+    color: #011B39 !important;
+    border: 1px solid #CBD5E1 !important;
+    font-family: 'Poppins', -apple-system, sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 9px 15px !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+}
+
+.ar-card-quick-btn:hover {
+    background: #F8FAFC !important;
+    border-color: #011B39 !important;
+    color: #011B39 !important;
+    transform: translateY(-2px) !important;
+}
+
+@media (max-width: 480px) {
+    .ar-card-action-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    .ar-card-primary-cta,
+    .ar-card-quick-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+</style>
+
+<div class="ar-portfolio-grid-wrapper" id="ar-portfolio-container">
+    <!-- Card 1: Preheim Pools & Luxury Living -->
+    <div class="ar-portfolio-card" id="proj-preheim-pools-luxury" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://preheim-pools-luxury.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Preheim Pools &amp; Luxury Living">
+                <img src="/wp-content/uploads/portfolio/preheim-pools-luxury.webp" alt="Preheim Pools &amp; Luxury Living | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Preheim Pools &amp; Luxury Living</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Luxury Living &amp; Custom Pools</span>
+            <h3 class="ar-card-title">
                 <a href="https://preheim-pools-luxury.vercel.app/" target="_blank" rel="noopener noreferrer">Preheim Pools &amp; Luxury Living</a>
             </h3>
-            <p class="ar-row-desc">Custom luxury swimming pool architecture, gunite construction, cascading waterfalls, resort cabanas, and smart outdoor entertainment systems.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Luxury Living &amp; Custom Pools</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('preheim-pools-luxury')" title="Quick View Summary" aria-label="Quick View for Preheim Pools &amp; Luxury Living">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://preheim-pools-luxury.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Custom luxury swimming pool architecture, gunite construction, cascading waterfalls, resort cabanas, and smart outdoor entertainment systems.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://preheim-pools-luxury.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Preheim Pools &amp; Luxury Living">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('preheim-pools-luxury')" title="Quick View Summary" aria-label="Quick View for Preheim Pools &amp; Luxury Living">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 2: Alpine Living Peißenberg -->
-    <div class="ar-portfolio-row" id="proj-alpine-living-peissenberg" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://alpine-living-peissenberg.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Alpine Living Peißenberg">
-                <img src="/wp-content/uploads/portfolio/alpine-living-peissenberg.webp" alt="Alpine Living Peißenberg | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Alpine Living Peißenberg</text></svg>';" />
+    <!-- Card 2: Alpine Living Peißenberg -->
+    <div class="ar-portfolio-card" id="proj-alpine-living-peissenberg" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://alpine-living-peissenberg.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Alpine Living Peißenberg">
+                <img src="/wp-content/uploads/portfolio/alpine-living-peissenberg.webp" alt="Alpine Living Peißenberg | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Alpine Living Peißenberg</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Luxury Real Estate &amp; Living</span>
+            <h3 class="ar-card-title">
                 <a href="https://alpine-living-peissenberg.vercel.app/" target="_blank" rel="noopener noreferrer">Alpine Living Peißenberg</a>
             </h3>
-            <p class="ar-row-desc">Offizielles Investoren-Dossier: Alpine Living Peißenberg Wohnung 23. 86,17 m², 3 Zimmer im 4. OG, KfW QNG40 Effizienzhaus mit Alpenblick. Kaufpreis 482.552 € (5.600 €/m²).</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Luxury Real Estate &amp; Living</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('alpine-living-peissenberg')" title="Quick View Summary" aria-label="Quick View for Alpine Living Peißenberg">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://alpine-living-peissenberg.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Offizielles Investoren-Dossier: Alpine Living Peißenberg Wohnung 23. 86,17 m², 3 Zimmer im 4. OG, KfW QNG40 Effizienzhaus mit Alpenblick. Kaufpreis 482.552 € (5.600 €/m²).</p>
+            <div class="ar-card-action-bar">
+                <a href="https://alpine-living-peissenberg.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Alpine Living Peißenberg">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('alpine-living-peissenberg')" title="Quick View Summary" aria-label="Quick View for Alpine Living Peißenberg">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 3: The Hatch Kitchen -->
-    <div class="ar-portfolio-row" id="proj-the-hatch-kitchen" data-category="web-development">
-        <div class="ar-row-media">
-            <a href="https://www.thehatchkitchen.com/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="The Hatch Kitchen">
-                <img src="/wp-content/uploads/2026/10/the-hatch-kitchen-mockup.webp" alt="The Hatch Kitchen | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>The Hatch Kitchen</text></svg>';" />
+    <!-- Card 3: The Hatch Kitchen -->
+    <div class="ar-portfolio-card" id="proj-the-hatch-kitchen" data-category="web-development">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://www.thehatchkitchen.com/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="The Hatch Kitchen">
+                <img src="/wp-content/uploads/2026/10/the-hatch-kitchen-mockup.webp" alt="The Hatch Kitchen | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>The Hatch Kitchen</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Culinary &amp; Food Service Platform</span>
+            <h3 class="ar-card-title">
                 <a href="https://www.thehatchkitchen.com/" target="_blank" rel="noopener noreferrer">The Hatch Kitchen</a>
             </h3>
-            <p class="ar-row-desc">Family-run, certified-kosher kitchen on Pico Blvd serving rotisserie chicken, superfood smoothies, and community catering.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Culinary &amp; Food Service Platform</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('the-hatch-kitchen')" title="Quick View Summary" aria-label="Quick View for The Hatch Kitchen">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://www.thehatchkitchen.com/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Family-run, certified-kosher kitchen on Pico Blvd serving rotisserie chicken, superfood smoothies, and community catering.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://www.thehatchkitchen.com/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for The Hatch Kitchen">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('the-hatch-kitchen')" title="Quick View Summary" aria-label="Quick View for The Hatch Kitchen">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 4: Lumière Med Spa -->
-    <div class="ar-portfolio-row" id="proj-lumiere-med-spa-omega" data-category="healthcare">
-        <div class="ar-row-media">
-            <a href="https://lumiere-med-spa-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Lumière Med Spa">
-                <img src="/wp-content/uploads/portfolio/lumiere-med-spa-omega.webp" alt="Lumière Med Spa | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Lumière Med Spa</text></svg>';" />
+    <!-- Card 4: Lumière Med Spa -->
+    <div class="ar-portfolio-card" id="proj-lumiere-med-spa-omega" data-category="healthcare">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://lumiere-med-spa-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Lumière Med Spa">
+                <img src="/wp-content/uploads/portfolio/lumiere-med-spa-omega.webp" alt="Lumière Med Spa | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Lumière Med Spa</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Aesthetics &amp; Medical Spa</span>
+            <h3 class="ar-card-title">
                 <a href="https://lumiere-med-spa-omega.vercel.app/" target="_blank" rel="noopener noreferrer">Lumière Med Spa</a>
             </h3>
-            <p class="ar-row-desc">Discover personalized aesthetic treatments, advanced skin rejuvenation, and thoughtful clinical skincare in a welcoming, refined Beverly Hills sanctuary.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Aesthetics &amp; Medical Spa</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('lumiere-med-spa-omega')" title="Quick View Summary" aria-label="Quick View for Lumière Med Spa">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://lumiere-med-spa-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Discover personalized aesthetic treatments, advanced skin rejuvenation, and thoughtful clinical skincare in a welcoming, refined Beverly Hills sanctuary.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://lumiere-med-spa-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Lumière Med Spa">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('lumiere-med-spa-omega')" title="Quick View Summary" aria-label="Quick View for Lumière Med Spa">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 5: Monster Project Group -->
-    <div class="ar-portfolio-row" id="proj-monsterprojectgroup" data-category="contractors">
-        <div class="ar-row-media">
-            <a href="https://monsterprojectgroup.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Monster Project Group">
-                <img src="/wp-content/uploads/portfolio/monsterprojectgroup.webp" alt="Monster Project Group | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Monster Project Group</text></svg>';" />
+    <!-- Card 5: Monster Project Group -->
+    <div class="ar-portfolio-card" id="proj-monsterprojectgroup" data-category="contractors">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://monsterprojectgroup.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Monster Project Group">
+                <img src="/wp-content/uploads/portfolio/monsterprojectgroup.webp" alt="Monster Project Group | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Monster Project Group</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Luxury Construction Management</span>
+            <h3 class="ar-card-title">
                 <a href="https://monsterprojectgroup.vercel.app/" target="_blank" rel="noopener noreferrer">Monster Project Group</a>
             </h3>
-            <p class="ar-row-desc">MPG delivers executive-level construction project management for high-end residential and commercial builds across South Florida. 10+ years working alongside GCs. We know where projects go wrong.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Luxury Construction Management</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('monsterprojectgroup')" title="Quick View Summary" aria-label="Quick View for Monster Project Group">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://monsterprojectgroup.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">MPG delivers executive-level construction project management for high-end residential and commercial builds across South Florida. 10+ years working alongside GCs. We know where projects go wrong.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://monsterprojectgroup.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Monster Project Group">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('monsterprojectgroup')" title="Quick View Summary" aria-label="Quick View for Monster Project Group">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 6: Aurelia Clinic KL -->
-    <div class="ar-portfolio-row" id="proj-quote-custom-system-clinic" data-category="healthcare">
-        <div class="ar-row-media">
-            <a href="https://quote-custom-system-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Aurelia Clinic KL">
-                <img src="/wp-content/uploads/portfolio/quote-custom-system-clinic.webp" alt="Aurelia Clinic KL | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Aurelia Clinic KL</text></svg>';" />
+    <!-- Card 6: Aurelia Clinic KL -->
+    <div class="ar-portfolio-card" id="proj-quote-custom-system-clinic" data-category="healthcare">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://quote-custom-system-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Aurelia Clinic KL">
+                <img src="/wp-content/uploads/portfolio/quote-custom-system-clinic.webp" alt="Aurelia Clinic KL | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Aurelia Clinic KL</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Medical Aesthetics &amp; Longevity</span>
+            <h3 class="ar-card-title">
                 <a href="https://quote-custom-system-clinic.vercel.app/" target="_blank" rel="noopener noreferrer">Aurelia Clinic KL</a>
             </h3>
-            <p class="ar-row-desc">AURELIA CLINIC KL: Prestigious medical aesthetics, MOH LCP-certified aesthetic physicians, Pico laser, Rejuran, Profhilo, HIFU &amp; cellular longevity in Bangsar &amp; Damansara Heights, Kuala Lumpur.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Medical Aesthetics &amp; Longevity</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('quote-custom-system-clinic')" title="Quick View Summary" aria-label="Quick View for Aurelia Clinic KL">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://quote-custom-system-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">AURELIA CLINIC KL: Prestigious medical aesthetics, MOH LCP-certified aesthetic physicians, Pico laser, Rejuran, Profhilo, HIFU &amp; cellular longevity in Bangsar &amp; Damansara Heights, Kuala Lumpur.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://quote-custom-system-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Aurelia Clinic KL">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('quote-custom-system-clinic')" title="Quick View Summary" aria-label="Quick View for Aurelia Clinic KL">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 7: Prestige Serves -->
-    <div class="ar-portfolio-row" id="proj-prestige-serves" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://www.prestigeserves.com/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Prestige Serves">
-                <img src="/wp-content/uploads/2026/10/prestige-serves-mockup.webp" alt="Prestige Serves | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Prestige Serves</text></svg>';" />
+    <!-- Card 7: Prestige Serves -->
+    <div class="ar-portfolio-card" id="proj-prestige-serves" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://www.prestigeserves.com/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Prestige Serves">
+                <img src="/wp-content/uploads/2026/10/prestige-serves-mockup.webp" alt="Prestige Serves | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Prestige Serves</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Legal &amp; Process Serving Platform</span>
+            <h3 class="ar-card-title">
                 <a href="https://www.prestigeserves.com/" target="_blank" rel="noopener noreferrer">Prestige Serves</a>
             </h3>
-            <p class="ar-row-desc">Licensed and bonded Los Angeles process serving platform featuring rush same-day service, geotagged attempt tracking, and court-ready proof of service.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Legal &amp; Process Serving Platform</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('prestige-serves')" title="Quick View Summary" aria-label="Quick View for Prestige Serves">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://www.prestigeserves.com/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Licensed and bonded Los Angeles process serving platform featuring rush same-day service, geotagged attempt tracking, and court-ready proof of service.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://www.prestigeserves.com/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Prestige Serves">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('prestige-serves')" title="Quick View Summary" aria-label="Quick View for Prestige Serves">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 8: Summit Ridge Roofing 3D -->
-    <div class="ar-portfolio-row" id="proj-summit-ridge-roofing-3d" data-category="contractors">
-        <div class="ar-row-media">
-            <a href="https://summit-ridge-roofing-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Summit Ridge Roofing 3D">
-                <img src="/wp-content/uploads/portfolio/summit-ridge-roofing-3d.webp" alt="Summit Ridge Roofing 3D | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Summit Ridge Roofing 3D</text></svg>';" />
+    <!-- Card 8: Summit Ridge Roofing 3D -->
+    <div class="ar-portfolio-card" id="proj-summit-ridge-roofing-3d" data-category="contractors">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://summit-ridge-roofing-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Summit Ridge Roofing 3D">
+                <img src="/wp-content/uploads/portfolio/summit-ridge-roofing-3d.webp" alt="Summit Ridge Roofing 3D | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Summit Ridge Roofing 3D</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Roofing &amp; 3D Visualizer</span>
+            <h3 class="ar-card-title">
                 <a href="https://summit-ridge-roofing-3d.vercel.app/" target="_blank" rel="noopener noreferrer">Summit Ridge Roofing 3D</a>
             </h3>
-            <p class="ar-row-desc">Licensed Southern California roofing contractor (CA Lic. #1146231). Emergency leak repair, tile and shingle replacement, and free roof inspections in Orange County, LA, Riverside, and San Diego.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Roofing &amp; 3D Visualizer</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('summit-ridge-roofing-3d')" title="Quick View Summary" aria-label="Quick View for Summit Ridge Roofing 3D">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://summit-ridge-roofing-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Licensed Southern California roofing contractor (CA Lic. #1146231). Emergency leak repair, tile and shingle replacement, and free roof inspections in Orange County, LA, Riverside, and San Diego.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://summit-ridge-roofing-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Summit Ridge Roofing 3D">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('summit-ridge-roofing-3d')" title="Quick View Summary" aria-label="Quick View for Summit Ridge Roofing 3D">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 9: Nakatomi Custom Landscape -->
-    <div class="ar-portfolio-row" id="proj-nakatomi-custom-landscape" data-category="contractors">
-        <div class="ar-row-media">
-            <a href="https://nakatomi-custom-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Nakatomi Custom Landscape">
-                <img src="/wp-content/uploads/portfolio/nakatomi-custom-landscape.webp" alt="Nakatomi Custom Landscape | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Nakatomi Custom Landscape</text></svg>';" />
+    <!-- Card 9: Nakatomi Custom Landscape -->
+    <div class="ar-portfolio-card" id="proj-nakatomi-custom-landscape" data-category="contractors">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://nakatomi-custom-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Nakatomi Custom Landscape">
+                <img src="/wp-content/uploads/portfolio/nakatomi-custom-landscape.webp" alt="Nakatomi Custom Landscape | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Nakatomi Custom Landscape</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Landscape Architecture &amp; Construction</span>
+            <h3 class="ar-card-title">
                 <a href="https://nakatomi-custom-landscape.vercel.app/" target="_blank" rel="noopener noreferrer">Nakatomi Custom Landscape</a>
             </h3>
-            <p class="ar-row-desc">Nakatomi Custom Landscape, owned by Robert. CSLB Licensed Contractor #974034. Premier custom hardscaping, paving, lawn care, irrigation &amp; complete yard renovations in Sacramento and Northern California. Call (916) 801-5002 for a free estimate.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Landscape Architecture &amp; Construction</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('nakatomi-custom-landscape')" title="Quick View Summary" aria-label="Quick View for Nakatomi Custom Landscape">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://nakatomi-custom-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Nakatomi Custom Landscape, owned by Robert. CSLB Licensed Contractor #974034. Premier custom hardscaping, paving, lawn care, irrigation &amp; complete yard renovations in Sacramento and Northern California. Call (916) 801-5002 for a free estimate.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://nakatomi-custom-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Nakatomi Custom Landscape">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('nakatomi-custom-landscape')" title="Quick View Summary" aria-label="Quick View for Nakatomi Custom Landscape">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 10: ArialFlow Master Roofing -->
-    <div class="ar-portfolio-row" id="proj-arialflow-roofing" data-category="contractors">
-        <div class="ar-row-media">
-            <a href="https://arialflow-roofing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="ArialFlow Master Roofing">
-                <img src="/wp-content/uploads/portfolio/arialflow-roofing.webp" alt="ArialFlow Master Roofing | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>ArialFlow Master Roofing</text></svg>';" />
+    <!-- Card 10: ArialFlow Master Roofing -->
+    <div class="ar-portfolio-card" id="proj-arialflow-roofing" data-category="contractors">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://arialflow-roofing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="ArialFlow Master Roofing">
+                <img src="/wp-content/uploads/portfolio/arialflow-roofing.webp" alt="ArialFlow Master Roofing | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>ArialFlow Master Roofing</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Roofing &amp; Construction</span>
+            <h3 class="ar-card-title">
                 <a href="https://arialflow-roofing.vercel.app/" target="_blank" rel="noopener noreferrer">ArialFlow Master Roofing</a>
             </h3>
-            <p class="ar-row-desc">Top-rated Austin roofing contractor specializing in architectural shingle replacement, standing seam metal roofs, storm damage restoration, and 24/7 emergency leak dispatch. Call (555) 014-7821.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Roofing &amp; Construction</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('arialflow-roofing')" title="Quick View Summary" aria-label="Quick View for ArialFlow Master Roofing">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://arialflow-roofing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Top-rated Austin roofing contractor specializing in architectural shingle replacement, standing seam metal roofs, storm damage restoration, and 24/7 emergency leak dispatch. Call (555) 014-7821.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://arialflow-roofing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for ArialFlow Master Roofing">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('arialflow-roofing')" title="Quick View Summary" aria-label="Quick View for ArialFlow Master Roofing">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 11: IV Clinic LA -->
-    <div class="ar-portfolio-row" id="proj-iv-clinic-la" data-category="healthcare">
-        <div class="ar-row-media">
-            <a href="https://iv-clinic-la.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="IV Clinic LA">
-                <img src="/wp-content/uploads/portfolio/iv-clinic-la.webp" alt="IV Clinic LA | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>IV Clinic LA</text></svg>';" />
+    <!-- Card 11: IV Clinic LA -->
+    <div class="ar-portfolio-card" id="proj-iv-clinic-la" data-category="healthcare">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://iv-clinic-la.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="IV Clinic LA">
+                <img src="/wp-content/uploads/portfolio/iv-clinic-la.webp" alt="IV Clinic LA | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>IV Clinic LA</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Medical Wellness &amp; Mobile IV</span>
+            <h3 class="ar-card-title">
                 <a href="https://iv-clinic-la.vercel.app/" target="_blank" rel="noopener noreferrer">IV Clinic LA</a>
             </h3>
-            <p class="ar-row-desc">Premium mobile IV therapy delivered to your door in Los Angeles by Registered Nurse Sharlot Golchian, BSN, RN. In-home Myers Cocktail, NAD+ IV, Hangover recovery, Iron infusions, and Peptide injections.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Medical Wellness &amp; Mobile IV</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('iv-clinic-la')" title="Quick View Summary" aria-label="Quick View for IV Clinic LA">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://iv-clinic-la.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Premium mobile IV therapy delivered to your door in Los Angeles by Registered Nurse Sharlot Golchian, BSN, RN. In-home Myers Cocktail, NAD+ IV, Hangover recovery, Iron infusions, and Peptide injections.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://iv-clinic-la.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for IV Clinic LA">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('iv-clinic-la')" title="Quick View Summary" aria-label="Quick View for IV Clinic LA">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 12: J.N.A. Auto Service & Repair -->
-    <div class="ar-portfolio-row" id="proj-jna-auto-service-repair" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="J.N.A. Auto Service &amp; Repair">
-                <img src="/wp-content/uploads/portfolio/jna-auto-service-repair.webp" alt="J.N.A. Auto Service &amp; Repair | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>J.N.A. Auto Service &amp; Repair</text></svg>';" />
+    <!-- Card 12: J.N.A. Auto Service & Repair -->
+    <div class="ar-portfolio-card" id="proj-jna-auto-service-repair" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="J.N.A. Auto Service &amp; Repair">
+                <img src="/wp-content/uploads/portfolio/jna-auto-service-repair.webp" alt="J.N.A. Auto Service &amp; Repair | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>J.N.A. Auto Service &amp; Repair</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Auto Repair &amp; Mechanical Diagnostics</span>
+            <h3 class="ar-card-title">
                 <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener noreferrer">J.N.A. Auto Service &amp; Repair</a>
             </h3>
-            <p class="ar-row-desc">J. N. A. Auto Service &amp; Repair is Brampton&#x27;s trusted auto garage at 95 Kennedy Rd S, Brampton, ON L6W 3G2, Canada. Licensed technicians, dealer-grade diagnostics, brake service, and warranty maintenance. Call 3072784862.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Auto Repair &amp; Mechanical Diagnostics</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('jna-auto-service-repair')" title="Quick View Summary" aria-label="Quick View for J.N.A. Auto Service &amp; Repair">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">J. N. A. Auto Service &amp; Repair is Brampton&#x27;s trusted auto garage at 95 Kennedy Rd S, Brampton, ON L6W 3G2, Canada. Licensed technicians, dealer-grade diagnostics, brake service, and warranty maintenance. Call 3072784862.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://jna-auto-service-repair.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for J.N.A. Auto Service &amp; Repair">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('jna-auto-service-repair')" title="Quick View Summary" aria-label="Quick View for J.N.A. Auto Service &amp; Repair">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 13: MillerTime Mobile Detailing -->
-    <div class="ar-portfolio-row" id="proj-millertime-mobile-detailing" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://millertime-mobile-detailing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="MillerTime Mobile Detailing">
-                <img src="/wp-content/uploads/portfolio/millertime-mobile-detailing.webp" alt="MillerTime Mobile Detailing | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>MillerTime Mobile Detailing</text></svg>';" />
+    <!-- Card 13: MillerTime Mobile Detailing -->
+    <div class="ar-portfolio-card" id="proj-millertime-mobile-detailing" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://millertime-mobile-detailing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="MillerTime Mobile Detailing">
+                <img src="/wp-content/uploads/portfolio/millertime-mobile-detailing.webp" alt="MillerTime Mobile Detailing | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>MillerTime Mobile Detailing</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Automotive Detailing &amp; Ceramic Coating</span>
+            <h3 class="ar-card-title">
                 <a href="https://millertime-mobile-detailing.vercel.app/" target="_blank" rel="noopener noreferrer">MillerTime Mobile Detailing</a>
             </h3>
-            <p class="ar-row-desc">Showroom-clean results delivered by Jeffrey to your driveway. Professional mobile auto detailing, paint correction, ceramic coating, and interior deep cleans in Hinesville, GA &amp; Fort Stewart. Call (912) 848-8417.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Automotive Detailing &amp; Ceramic Coating</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('millertime-mobile-detailing')" title="Quick View Summary" aria-label="Quick View for MillerTime Mobile Detailing">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://millertime-mobile-detailing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Showroom-clean results delivered by Jeffrey to your driveway. Professional mobile auto detailing, paint correction, ceramic coating, and interior deep cleans in Hinesville, GA &amp; Fort Stewart. Call (912) 848-8417.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://millertime-mobile-detailing.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for MillerTime Mobile Detailing">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('millertime-mobile-detailing')" title="Quick View Summary" aria-label="Quick View for MillerTime Mobile Detailing">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 14: Liberato's Landscaping — CSLB Contractor -->
-    <div class="ar-portfolio-row" id="proj-liberatos-landscaping" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Liberato&#x27;s Landscaping — CSLB Contractor">
-                <img src="/wp-content/uploads/2024/05/liberatos-landscaping-mockup.webp" alt="Liberato&#x27;s Landscaping — CSLB Contractor | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Liberato&#x27;s Landscaping</text></svg>';" />
+    <!-- Card 14: Liberato's Landscaping — CSLB Contractor -->
+    <div class="ar-portfolio-card" id="proj-liberatos-landscaping" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Liberato&#x27;s Landscaping — CSLB Contractor">
+                <img src="/wp-content/uploads/2024/05/liberatos-landscaping-mockup.webp" alt="Liberato&#x27;s Landscaping — CSLB Contractor | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Liberato&#x27;s Landscaping</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Landscape &amp; Hardscape Contractor</span>
+            <h3 class="ar-card-title">
                 <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener noreferrer">Liberato&#x27;s Landscaping — CSLB Contractor</a>
             </h3>
-            <p class="ar-row-desc">Licensed outdoor contractor specializing in premium synthetic turf, paver patios, putting greens, retaining walls and landscape lighting across San Diego County.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Landscape &amp; Hardscape Contractor</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('liberatos-landscaping')" title="Quick View Summary" aria-label="Quick View for Liberato&#x27;s Landscaping — CSLB Contractor">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Licensed outdoor contractor specializing in premium synthetic turf, paver patios, putting greens, retaining walls and landscape lighting across San Diego County.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://liberatos-landscaping.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Liberato&#x27;s Landscaping — CSLB Contractor">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('liberatos-landscaping')" title="Quick View Summary" aria-label="Quick View for Liberato&#x27;s Landscaping — CSLB Contractor">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 15: Hernandez Concrete Pro — San Jose Contractor -->
-    <div class="ar-portfolio-row" id="proj-hernandez-concrete" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Hernandez Concrete Pro — San Jose Contractor">
-                <img src="/wp-content/uploads/2024/05/hernandez-concrete-mockup.webp" alt="Hernandez Concrete Pro — San Jose Contractor | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Hernandez Concrete Pro</text></svg>';" />
+    <!-- Card 15: Hernandez Concrete Pro — San Jose Contractor -->
+    <div class="ar-portfolio-card" id="proj-hernandez-concrete" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Hernandez Concrete Pro — San Jose Contractor">
+                <img src="/wp-content/uploads/2024/05/hernandez-concrete-mockup.webp" alt="Hernandez Concrete Pro — San Jose Contractor | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Hernandez Concrete Pro</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Concrete Contractor &amp; Driveways</span>
+            <h3 class="ar-card-title">
                 <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener noreferrer">Hernandez Concrete Pro — San Jose Contractor</a>
             </h3>
-            <p class="ar-row-desc">Family-owned concrete contractor serving San Jose &amp; the South Bay with expert driveways, patios, foundations and walkways. Free on-site estimates.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Concrete Contractor &amp; Driveways</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('hernandez-concrete')" title="Quick View Summary" aria-label="Quick View for Hernandez Concrete Pro — San Jose Contractor">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Family-owned concrete contractor serving San Jose &amp; the South Bay with expert driveways, patios, foundations and walkways. Free on-site estimates.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://hernandez-concrete-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Hernandez Concrete Pro — San Jose Contractor">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('hernandez-concrete')" title="Quick View Summary" aria-label="Quick View for Hernandez Concrete Pro — San Jose Contractor">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 16: E V Landscape — CSLB Contractor -->
-    <div class="ar-portfolio-row" id="proj-ev-landscape" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="E V Landscape — CSLB Contractor">
-                <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.webp" alt="E V Landscape — CSLB Contractor | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>E V Landscape</text></svg>';" />
+    <!-- Card 16: E V Landscape — CSLB Contractor -->
+    <div class="ar-portfolio-card" id="proj-ev-landscape" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="E V Landscape — CSLB Contractor">
+                <img src="/wp-content/uploads/2024/05/ev-landscape-mockup.webp" alt="E V Landscape — CSLB Contractor | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>E V Landscape</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Landscape Architecture &amp; Construction</span>
+            <h3 class="ar-card-title">
                 <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer">E V Landscape — CSLB Contractor</a>
             </h3>
-            <p class="ar-row-desc">High-performance contractor web platform featuring custom hardscaping showcase, instant cost estimator, and verified licensing integration.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Landscape Architecture &amp; Construction</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('ev-landscape')" title="Quick View Summary" aria-label="Quick View for E V Landscape — CSLB Contractor">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">High-performance contractor web platform featuring custom hardscaping showcase, instant cost estimator, and verified licensing integration.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://ev-landscape.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for E V Landscape — CSLB Contractor">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('ev-landscape')" title="Quick View Summary" aria-label="Quick View for E V Landscape — CSLB Contractor">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 17: Marshall Tree Service — Auberry CA -->
-    <div class="ar-portfolio-row" id="proj-marshall-tree-service" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Marshall Tree Service — Auberry CA">
-                <img src="/wp-content/uploads/portfolio/marshall-tree-service.webp" alt="Marshall Tree Service — Auberry CA | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Marshall Tree Service</text></svg>';" />
+    <!-- Card 17: Marshall Tree Service — Auberry CA -->
+    <div class="ar-portfolio-card" id="proj-marshall-tree-service" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Marshall Tree Service — Auberry CA">
+                <img src="/wp-content/uploads/portfolio/marshall-tree-service.webp" alt="Marshall Tree Service — Auberry CA | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Marshall Tree Service</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Arborist &amp; Defensible Space</span>
+            <h3 class="ar-card-title">
                 <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer">Marshall Tree Service — Auberry CA</a>
             </h3>
-            <p class="ar-row-desc">Auberry&#x27;s premier licensed tree service led by Joseph &#x27;Joe&#x27; Marshall (CA Lic #1022937, BuildZoom Score 93). Expert hazard tree removal, precision trimming, stump grinding, wood chips &amp; Cal Fire defensible space across Fresno County. Call (559) 313-2762.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Arborist &amp; Defensible Space</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('marshall-tree-service')" title="Quick View Summary" aria-label="Quick View for Marshall Tree Service — Auberry CA">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Auberry&#x27;s premier licensed tree service led by Joseph &#x27;Joe&#x27; Marshall (CA Lic #1022937, BuildZoom Score 93). Expert hazard tree removal, precision trimming, stump grinding, wood chips &amp; Cal Fire defensible space across Fresno County. Call (559) 313-2762.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://marshall-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Marshall Tree Service — Auberry CA">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('marshall-tree-service')" title="Quick View Summary" aria-label="Quick View for Marshall Tree Service — Auberry CA">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 18: Wilson's Tree Service -->
-    <div class="ar-portfolio-row" id="proj-wilsons-tree-service" data-category="contractors">
-        <div class="ar-row-media">
-            <a href="https://wilsons-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Wilson&#x27;s Tree Service">
-                <img src="/wp-content/uploads/portfolio/wilsons-tree-service.webp" alt="Wilson&#x27;s Tree Service | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Wilson&#x27;s Tree Service</text></svg>';" />
+    <!-- Card 18: Wilson's Tree Service -->
+    <div class="ar-portfolio-card" id="proj-wilsons-tree-service" data-category="contractors">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://wilsons-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Wilson&#x27;s Tree Service">
+                <img src="/wp-content/uploads/portfolio/wilsons-tree-service.webp" alt="Wilson&#x27;s Tree Service | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Wilson&#x27;s Tree Service</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Tree Care &amp; Removal Specialist</span>
+            <h3 class="ar-card-title">
                 <a href="https://wilsons-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer">Wilson&#x27;s Tree Service</a>
             </h3>
-            <p class="ar-row-desc">Wilson&#x27;s Tree Service provides licensed tree removal, wildfire defensible space, tree pruning, stump grinding, and 24/7 emergency storm response in Olympic Valley, Tahoe City, Truckee, and North Lake Tahoe. CSLB Lic #1108893. Call (530) 412-2604.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Tree Care &amp; Removal Specialist</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('wilsons-tree-service')" title="Quick View Summary" aria-label="Quick View for Wilson&#x27;s Tree Service">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://wilsons-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Wilson&#x27;s Tree Service provides licensed tree removal, wildfire defensible space, tree pruning, stump grinding, and 24/7 emergency storm response in Olympic Valley, Tahoe City, Truckee, and North Lake Tahoe. CSLB Lic #1108893. Call (530) 412-2604.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://wilsons-tree-service.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Wilson&#x27;s Tree Service">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('wilsons-tree-service')" title="Quick View Summary" aria-label="Quick View for Wilson&#x27;s Tree Service">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 19: The Central Valley Services LLC -->
-    <div class="ar-portfolio-row" id="proj-the-central-valley-services" data-category="home-services">
-        <div class="ar-row-media">
-            <a href="https://the-central-valley-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="The Central Valley Services LLC">
-                <img src="/wp-content/uploads/portfolio/the-central-valley-services.webp" alt="The Central Valley Services LLC | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>The Central Valley Services LLC</text></svg>';" />
+    <!-- Card 19: The Central Valley Services LLC -->
+    <div class="ar-portfolio-card" id="proj-the-central-valley-services" data-category="home-services">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://the-central-valley-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="The Central Valley Services LLC">
+                <img src="/wp-content/uploads/portfolio/the-central-valley-services.webp" alt="The Central Valley Services LLC | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>The Central Valley Services LLC</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Legal &amp; Process Serving</span>
+            <h3 class="ar-card-title">
                 <a href="https://the-central-valley-services.vercel.app/" target="_blank" rel="noopener noreferrer">The Central Valley Services LLC</a>
             </h3>
-            <p class="ar-row-desc">The Central Valley Services LLC provides licensed, bonded legal process serving, subpoena service, rush delivery, and court filings in Winton, Merced County, and across the Central Valley. Rated 5.0 Stars.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Legal &amp; Process Serving</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('the-central-valley-services')" title="Quick View Summary" aria-label="Quick View for The Central Valley Services LLC">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://the-central-valley-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">The Central Valley Services LLC provides licensed, bonded legal process serving, subpoena service, rush delivery, and court filings in Winton, Merced County, and across the Central Valley. Rated 5.0 Stars.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://the-central-valley-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for The Central Valley Services LLC">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('the-central-valley-services')" title="Quick View Summary" aria-label="Quick View for The Central Valley Services LLC">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 20: County Process Services Inc -->
-    <div class="ar-portfolio-row" id="proj-county-process-services" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://county-process-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="County Process Services Inc">
-                <img src="/wp-content/uploads/portfolio/county-process-services.webp" alt="County Process Services Inc | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>County Process Services Inc</text></svg>';" />
+    <!-- Card 20: County Process Services Inc -->
+    <div class="ar-portfolio-card" id="proj-county-process-services" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://county-process-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="County Process Services Inc">
+                <img src="/wp-content/uploads/portfolio/county-process-services.webp" alt="County Process Services Inc | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>County Process Services Inc</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Legal &amp; Process Serving Platform</span>
+            <h3 class="ar-card-title">
                 <a href="https://county-process-services.vercel.app/" target="_blank" rel="noopener noreferrer">County Process Services Inc</a>
             </h3>
-            <p class="ar-row-desc">Reliable and fast legal document serving in San Jose, CA. Rated 4.5★ by clients. Call County Process Services Inc today for same-day process serving in Santa Clara County.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Legal &amp; Process Serving Platform</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('county-process-services')" title="Quick View Summary" aria-label="Quick View for County Process Services Inc">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://county-process-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Reliable and fast legal document serving in San Jose, CA. Rated 4.5★ by clients. Call County Process Services Inc today for same-day process serving in Santa Clara County.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://county-process-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for County Process Services Inc">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('county-process-services')" title="Quick View Summary" aria-label="Quick View for County Process Services Inc">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 21: John Wilks Process Serving -->
-    <div class="ar-portfolio-row" id="proj-john-wilks-process-serving" data-category="legal">
-        <div class="ar-row-media">
-            <a href="https://john-wilks-process-serving.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="John Wilks Process Serving">
-                <img src="/wp-content/uploads/portfolio/john-wilks-process-serving.webp" alt="John Wilks Process Serving | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>John Wilks Process Serving</text></svg>';" />
+    <!-- Card 21: John Wilks Process Serving -->
+    <div class="ar-portfolio-card" id="proj-john-wilks-process-serving" data-category="legal">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://john-wilks-process-serving.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="John Wilks Process Serving">
+                <img src="/wp-content/uploads/portfolio/john-wilks-process-serving.webp" alt="John Wilks Process Serving | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>John Wilks Process Serving</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Legal &amp; Court Services</span>
+            <h3 class="ar-card-title">
                 <a href="https://john-wilks-process-serving.vercel.app/" target="_blank" rel="noopener noreferrer">John Wilks Process Serving</a>
             </h3>
-            <p class="ar-row-desc">John Wilks Process Serving provides licensed, bonded legal process serving, subpoena service, rush delivery, and court filings in Las Vegas, Clark County, and across the Las Vegas Valley, NV.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Legal &amp; Court Services</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('john-wilks-process-serving')" title="Quick View Summary" aria-label="Quick View for John Wilks Process Serving">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://john-wilks-process-serving.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">John Wilks Process Serving provides licensed, bonded legal process serving, subpoena service, rush delivery, and court filings in Las Vegas, Clark County, and across the Las Vegas Valley, NV.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://john-wilks-process-serving.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for John Wilks Process Serving">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('john-wilks-process-serving')" title="Quick View Summary" aria-label="Quick View for John Wilks Process Serving">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 22: Medvst — Settlement Services -->
-    <div class="ar-portfolio-row" id="proj-medvst-settlement-services" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Medvst — Settlement Services">
-                <img src="/wp-content/uploads/portfolio/medvst-settlement-services.webp" alt="Medvst — Settlement Services | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Medvst</text></svg>';" />
+    <!-- Card 22: Medvst — Settlement Services -->
+    <div class="ar-portfolio-card" id="proj-medvst-settlement-services" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Medvst — Settlement Services">
+                <img src="/wp-content/uploads/portfolio/medvst-settlement-services.webp" alt="Medvst — Settlement Services | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Medvst</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Settlement &amp; Medicare Set-Aside</span>
+            <h3 class="ar-card-title">
                 <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener noreferrer">Medvst — Settlement Services</a>
             </h3>
-            <p class="ar-row-desc">Three decades of Medicare Set-Aside administration, lien resolution, and special needs trust services for injured workers and attorneys nationwide. $500M+ administered. 100% CMS compliance. Free consultation.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Settlement &amp; Medicare Set-Aside</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('medvst-settlement-services')" title="Quick View Summary" aria-label="Quick View for Medvst — Settlement Services">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Three decades of Medicare Set-Aside administration, lien resolution, and special needs trust services for injured workers and attorneys nationwide. $500M+ administered. 100% CMS compliance. Free consultation.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://medvst-settlement-services.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Medvst — Settlement Services">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('medvst-settlement-services')" title="Quick View Summary" aria-label="Quick View for Medvst — Settlement Services">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 23: Cheryl Williams Home Health Agency -->
-    <div class="ar-portfolio-row" id="proj-cheryl-williams-home-health" data-category="healthcare">
-        <div class="ar-row-media">
-            <a href="https://cheryl-williams-home-health.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Cheryl Williams Home Health Agency">
-                <img src="/wp-content/uploads/portfolio/cheryl-williams-home-health.webp" alt="Cheryl Williams Home Health Agency | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Cheryl Williams Home Health Agency</text></svg>';" />
+    <!-- Card 23: Cheryl Williams Home Health Agency -->
+    <div class="ar-portfolio-card" id="proj-cheryl-williams-home-health" data-category="healthcare">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://cheryl-williams-home-health.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Cheryl Williams Home Health Agency">
+                <img src="/wp-content/uploads/portfolio/cheryl-williams-home-health.webp" alt="Cheryl Williams Home Health Agency | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Cheryl Williams Home Health Agency</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Healthcare &amp; In-Home Health</span>
+            <h3 class="ar-card-title">
                 <a href="https://cheryl-williams-home-health.vercel.app/" target="_blank" rel="noopener noreferrer">Cheryl Williams Home Health Agency</a>
             </h3>
-            <p class="ar-row-desc">Compassionate, licensed in-home health care in Leesburg, FL by owner-operator Cheryl Williams. 24/7 senior support, medication oversight, and respite care. Call (352) 787-0307.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Healthcare &amp; In-Home Health</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('cheryl-williams-home-health')" title="Quick View Summary" aria-label="Quick View for Cheryl Williams Home Health Agency">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://cheryl-williams-home-health.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Compassionate, licensed in-home health care in Leesburg, FL by owner-operator Cheryl Williams. 24/7 senior support, medication oversight, and respite care. Call (352) 787-0307.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://cheryl-williams-home-health.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Cheryl Williams Home Health Agency">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('cheryl-williams-home-health')" title="Quick View Summary" aria-label="Quick View for Cheryl Williams Home Health Agency">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 24: Serene Meadows — Senior Living & Memory Care -->
-    <div class="ar-portfolio-row" id="proj-serene-meadows" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Serene Meadows — Senior Living &amp; Memory Care">
-                <img src="/wp-content/uploads/2024/05/serene-meadows-mockup.webp" alt="Serene Meadows — Senior Living &amp; Memory Care | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Serene Meadows</text></svg>';" />
+    <!-- Card 24: Serene Meadows — Senior Living & Memory Care -->
+    <div class="ar-portfolio-card" id="proj-serene-meadows" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Serene Meadows — Senior Living &amp; Memory Care">
+                <img src="/wp-content/uploads/2024/05/serene-meadows-mockup.webp" alt="Serene Meadows — Senior Living &amp; Memory Care | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Serene Meadows</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Senior Living &amp; Memory Care</span>
+            <h3 class="ar-card-title">
                 <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener noreferrer">Serene Meadows — Senior Living &amp; Memory Care</a>
             </h3>
-            <p class="ar-row-desc">Specialized residential and day-hab healthcare provider serving adults with intellectual and developmental disabilities across Bexar County, San Antonio.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Senior Living &amp; Memory Care</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('serene-meadows')" title="Quick View Summary" aria-label="Quick View for Serene Meadows — Senior Living &amp; Memory Care">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Specialized residential and day-hab healthcare provider serving adults with intellectual and developmental disabilities across Bexar County, San Antonio.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://serene-meadows-living.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Serene Meadows — Senior Living &amp; Memory Care">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('serene-meadows')" title="Quick View Summary" aria-label="Quick View for Serene Meadows — Senior Living &amp; Memory Care">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 25: Worcester Adult Day Care Center -->
-    <div class="ar-portfolio-row" id="proj-worcester-daycare-ma" data-category="education">
-        <div class="ar-row-media">
-            <a href="https://worcester-daycare-ma.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Worcester Adult Day Care Center">
-                <img src="/wp-content/uploads/portfolio/worcester-daycare-ma.webp" alt="Worcester Adult Day Care Center | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Worcester Adult Day Care Center</text></svg>';" />
+    <!-- Card 25: Worcester Adult Day Care Center -->
+    <div class="ar-portfolio-card" id="proj-worcester-daycare-ma" data-category="education">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://worcester-daycare-ma.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Worcester Adult Day Care Center">
+                <img src="/wp-content/uploads/portfolio/worcester-daycare-ma.webp" alt="Worcester Adult Day Care Center | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Worcester Adult Day Care Center</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Healthcare &amp; Adult Day Care</span>
+            <h3 class="ar-card-title">
                 <a href="https://worcester-daycare-ma.vercel.app/" target="_blank" rel="noopener noreferrer">Worcester Adult Day Care Center</a>
             </h3>
-            <p class="ar-row-desc">Worcester Adult Day Care Center at 81 Lafayette St #3&amp;4, Worcester, MA 01608. Compassionate daytime care, social activities, and health monitoring with 4.9-star Google rating. Call +1 (508) 831-7500.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Healthcare &amp; Adult Day Care</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('worcester-daycare-ma')" title="Quick View Summary" aria-label="Quick View for Worcester Adult Day Care Center">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://worcester-daycare-ma.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Worcester Adult Day Care Center at 81 Lafayette St #3&amp;4, Worcester, MA 01608. Compassionate daytime care, social activities, and health monitoring with 4.9-star Google rating. Call +1 (508) 831-7500.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://worcester-daycare-ma.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Worcester Adult Day Care Center">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('worcester-daycare-ma')" title="Quick View Summary" aria-label="Quick View for Worcester Adult Day Care Center">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 26: Humble Kings HVAC & Multi Services -->
-    <div class="ar-portfolio-row" id="proj-humble-kings-hvac" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://humble-kings-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Humble Kings HVAC &amp; Multi Services">
-                <img src="/wp-content/uploads/portfolio/humble-kings-hvac.webp" alt="Humble Kings HVAC &amp; Multi Services | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Humble Kings HVAC &amp; Multi Services</text></svg>';" />
+    <!-- Card 26: Humble Kings HVAC & Multi Services -->
+    <div class="ar-portfolio-card" id="proj-humble-kings-hvac" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://humble-kings-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Humble Kings HVAC &amp; Multi Services">
+                <img src="/wp-content/uploads/portfolio/humble-kings-hvac.webp" alt="Humble Kings HVAC &amp; Multi Services | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Humble Kings HVAC &amp; Multi Services</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">HVAC &amp; Mechanical Systems</span>
+            <h3 class="ar-card-title">
                 <a href="https://humble-kings-hvac.vercel.app/" target="_blank" rel="noopener noreferrer">Humble Kings HVAC &amp; Multi Services</a>
             </h3>
-            <p class="ar-row-desc">Humble Kings Hvac and Multi Services Inc LLC delivers air conditioning repair, maintenance, installation and multi-service handyman work. Call +1 (786) 520-9517.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">HVAC &amp; Mechanical Systems</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('humble-kings-hvac')" title="Quick View Summary" aria-label="Quick View for Humble Kings HVAC &amp; Multi Services">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://humble-kings-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Humble Kings Hvac and Multi Services Inc LLC delivers air conditioning repair, maintenance, installation and multi-service handyman work. Call +1 (786) 520-9517.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://humble-kings-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Humble Kings HVAC &amp; Multi Services">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('humble-kings-hvac')" title="Quick View Summary" aria-label="Quick View for Humble Kings HVAC &amp; Multi Services">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 27: Humble Kings Multi Services & Facility Care -->
-    <div class="ar-portfolio-row" id="proj-service-humblekings" data-category="home-services">
-        <div class="ar-row-media">
-            <a href="https://service-humblekings.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Humble Kings Multi Services &amp; Facility Care">
-                <img src="/wp-content/uploads/portfolio/service-humblekings.webp" alt="Humble Kings Multi Services &amp; Facility Care | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Humble Kings Multi Services &amp; Facility Care</text></svg>';" />
+    <!-- Card 27: Humble Kings Multi Services & Facility Care -->
+    <div class="ar-portfolio-card" id="proj-service-humblekings" data-category="home-services">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://service-humblekings.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Humble Kings Multi Services &amp; Facility Care">
+                <img src="/wp-content/uploads/portfolio/service-humblekings.webp" alt="Humble Kings Multi Services &amp; Facility Care | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Humble Kings Multi Services &amp; Facility Care</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Commercial Facility &amp; Multi Services</span>
+            <h3 class="ar-card-title">
                 <a href="https://service-humblekings.vercel.app/" target="_blank" rel="noopener noreferrer">Humble Kings Multi Services &amp; Facility Care</a>
             </h3>
-            <p class="ar-row-desc">Humble Kings HVAC and Multi Services Inc LLC — fast air conditioning repair, maintenance and new system installation for homes and businesses. Call (786) 520-9517.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Commercial Facility &amp; Multi Services</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('service-humblekings')" title="Quick View Summary" aria-label="Quick View for Humble Kings Multi Services &amp; Facility Care">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://service-humblekings.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Humble Kings HVAC and Multi Services Inc LLC — fast air conditioning repair, maintenance and new system installation for homes and businesses. Call (786) 520-9517.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://service-humblekings.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Humble Kings Multi Services &amp; Facility Care">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('service-humblekings')" title="Quick View Summary" aria-label="Quick View for Humble Kings Multi Services &amp; Facility Care">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 28: NorCal HVAC Pros -->
-    <div class="ar-portfolio-row" id="proj-norcal-hvac" data-category="home-services">
-        <div class="ar-row-media">
-            <a href="https://norcal-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="NorCal HVAC Pros">
-                <img src="/wp-content/uploads/portfolio/norcal-hvac.webp" alt="NorCal HVAC Pros | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>NorCal HVAC Pros</text></svg>';" />
+    <!-- Card 28: NorCal HVAC Pros -->
+    <div class="ar-portfolio-card" id="proj-norcal-hvac" data-category="home-services">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://norcal-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="NorCal HVAC Pros">
+                <img src="/wp-content/uploads/portfolio/norcal-hvac.webp" alt="NorCal HVAC Pros | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>NorCal HVAC Pros</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Heating &amp; Air Conditioning Services</span>
+            <h3 class="ar-card-title">
                 <a href="https://norcal-hvac.vercel.app/" target="_blank" rel="noopener noreferrer">NorCal HVAC Pros</a>
             </h3>
-            <p class="ar-row-desc">NorCal HVAC - Reliable Heating and Air Conditioning solutions in Cotati, Sonoma County &amp; North Bay, CA. Independent Owner-Operator Michael Anthony Digiacinto. Lic. #1136848 (Status: Open / Active, Expiration: 2027-04-30). Call (707) 338-7545.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Heating &amp; Air Conditioning Services</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('norcal-hvac')" title="Quick View Summary" aria-label="Quick View for NorCal HVAC Pros">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://norcal-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">NorCal HVAC - Reliable Heating and Air Conditioning solutions in Cotati, Sonoma County &amp; North Bay, CA. Independent Owner-Operator Michael Anthony Digiacinto. Lic. #1136848 (Status: Open / Active, Expiration: 2027-04-30). Call (707) 338-7545.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://norcal-hvac.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for NorCal HVAC Pros">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('norcal-hvac')" title="Quick View Summary" aria-label="Quick View for NorCal HVAC Pros">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 29: Dossie Heating & Air Conditioning -->
-    <div class="ar-portfolio-row" id="proj-hvac-eakw" data-category="home-services">
-        <div class="ar-row-media">
-            <a href="https://hvac-eakw.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Dossie Heating &amp; Air Conditioning">
-                <img src="/wp-content/uploads/portfolio/hvac-eakw.webp" alt="Dossie Heating &amp; Air Conditioning | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Dossie Heating &amp; Air Conditioning</text></svg>';" />
+    <!-- Card 29: Dossie Heating & Air Conditioning -->
+    <div class="ar-portfolio-card" id="proj-hvac-eakw" data-category="home-services">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://hvac-eakw.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Dossie Heating &amp; Air Conditioning">
+                <img src="/wp-content/uploads/portfolio/hvac-eakw.webp" alt="Dossie Heating &amp; Air Conditioning | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Dossie Heating &amp; Air Conditioning</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Commercial &amp; Residential HVAC</span>
+            <h3 class="ar-card-title">
                 <a href="https://hvac-eakw.vercel.app/" target="_blank" rel="noopener noreferrer">Dossie Heating &amp; Air Conditioning</a>
             </h3>
-            <p class="ar-row-desc">Dossie Heating And Air Conditioning is an independent, owner-operated licensed HVAC contractor (State License #1032964, Est. 2017) serving residential and commercial customers in Corning, CA and surrounding Tehama County areas.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Commercial &amp; Residential HVAC</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('hvac-eakw')" title="Quick View Summary" aria-label="Quick View for Dossie Heating &amp; Air Conditioning">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://hvac-eakw.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Dossie Heating And Air Conditioning is an independent, owner-operated licensed HVAC contractor (State License #1032964, Est. 2017) serving residential and commercial customers in Corning, CA and surrounding Tehama County areas.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://hvac-eakw.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Dossie Heating &amp; Air Conditioning">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('hvac-eakw')" title="Quick View Summary" aria-label="Quick View for Dossie Heating &amp; Air Conditioning">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 30: AAA Food Handler Training Platform -->
-    <div class="ar-portfolio-row" id="proj-aaa-food-handler" data-category="lms">
-        <div class="ar-row-media">
-            <a href="https://aaafoodhandler.com" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="AAA Food Handler Training Platform">
-                <img src="/wp-content/uploads/portfolio/aaa-food-handler.webp" alt="AAA Food Handler Training Platform | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>AAA Food Handler Training Platform</text></svg>';" />
+    <!-- Card 30: AAA Food Handler Training Platform -->
+    <div class="ar-portfolio-card" id="proj-aaa-food-handler" data-category="lms">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://aaafoodhandler.com" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="AAA Food Handler Training Platform">
+                <img src="/wp-content/uploads/portfolio/aaa-food-handler.webp" alt="AAA Food Handler Training Platform | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>AAA Food Handler Training Platform</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Accredited Food Safety Training Platform</span>
+            <h3 class="ar-card-title">
                 <a href="https://aaafoodhandler.com" target="_blank" rel="noopener noreferrer">AAA Food Handler Training Platform</a>
             </h3>
-            <p class="ar-row-desc">Automated state-compliant LearnDash learning management platform with instant PDF certificate issuance and high-volume student onboarding.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Accredited Food Safety Training Platform</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('aaa-food-handler')" title="Quick View Summary" aria-label="Quick View for AAA Food Handler Training Platform">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://aaafoodhandler.com" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Automated state-compliant LearnDash learning management platform with instant PDF certificate issuance and high-volume student onboarding.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://aaafoodhandler.com" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for AAA Food Handler Training Platform">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('aaa-food-handler')" title="Quick View Summary" aria-label="Quick View for AAA Food Handler Training Platform">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 31: Arbor & Bloom Landscape Design -->
-    <div class="ar-portfolio-row" id="proj-arbor-and-bloom-landscape-design" data-category="contractors">
-        <div class="ar-row-media">
-            <a href="https://arbor-and-bloom-landscape-design.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Arbor &amp; Bloom Landscape Design">
-                <img src="/wp-content/uploads/portfolio/arbor-and-bloom-landscape-design.webp" alt="Arbor &amp; Bloom Landscape Design | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Arbor &amp; Bloom Landscape Design</text></svg>';" />
+    <!-- Card 31: Arbor & Bloom Landscape Design -->
+    <div class="ar-portfolio-card" id="proj-arbor-and-bloom-landscape-design" data-category="contractors">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://arbor-and-bloom-landscape-design.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Arbor &amp; Bloom Landscape Design">
+                <img src="/wp-content/uploads/portfolio/arbor-and-bloom-landscape-design.webp" alt="Arbor &amp; Bloom Landscape Design | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Arbor &amp; Bloom Landscape Design</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Landscape Design &amp; Architecture</span>
+            <h3 class="ar-card-title">
                 <a href="https://arbor-and-bloom-landscape-design.vercel.app/" target="_blank" rel="noopener noreferrer">Arbor &amp; Bloom Landscape Design</a>
             </h3>
-            <p class="ar-row-desc">Design | Construction | Management - Arbor &amp; Bloom Landscape Design located in Indio, CA (Riverside County). Transforming outdoor spaces with passion and precision.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Landscape Design &amp; Architecture</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('arbor-and-bloom-landscape-design')" title="Quick View Summary" aria-label="Quick View for Arbor &amp; Bloom Landscape Design">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://arbor-and-bloom-landscape-design.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Design | Construction | Management - Arbor &amp; Bloom Landscape Design located in Indio, CA (Riverside County). Transforming outdoor spaces with passion and precision.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://arbor-and-bloom-landscape-design.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Arbor &amp; Bloom Landscape Design">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('arbor-and-bloom-landscape-design')" title="Quick View Summary" aria-label="Quick View for Arbor &amp; Bloom Landscape Design">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 32: Sierra Landscape / Clean Energy Systems -->
-    <div class="ar-portfolio-row" id="proj-rareearthsystems" data-category="technology">
-        <div class="ar-row-media">
-            <a href="https://rareearthsystems.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Sierra Landscape / Clean Energy Systems">
-                <img src="/wp-content/uploads/portfolio/rareearthsystems.webp" alt="Sierra Landscape / Clean Energy Systems | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Sierra Landscape / Clean Energy Systems</text></svg>';" />
+    <!-- Card 32: Sierra Landscape / Clean Energy Systems -->
+    <div class="ar-portfolio-card" id="proj-rareearthsystems" data-category="technology">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://rareearthsystems.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Sierra Landscape / Clean Energy Systems">
+                <img src="/wp-content/uploads/portfolio/rareearthsystems.webp" alt="Sierra Landscape / Clean Energy Systems | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Sierra Landscape / Clean Energy Systems</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Clean Energy &amp; Sustainable Landscape</span>
+            <h3 class="ar-card-title">
                 <a href="https://rareearthsystems.vercel.app/" target="_blank" rel="noopener noreferrer">Sierra Landscape / Clean Energy Systems</a>
             </h3>
-            <p class="ar-row-desc">Sierra Landscape Lsl, owned by Lionel Sierra. Precision landscape construction, custom hardscaping, smart irrigation, and outdoor transformations in Costa Mesa and Orange County. Call (949) 514-1430 for a free estimate.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Clean Energy &amp; Sustainable Landscape</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('rareearthsystems')" title="Quick View Summary" aria-label="Quick View for Sierra Landscape / Clean Energy Systems">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://rareearthsystems.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Sierra Landscape Lsl, owned by Lionel Sierra. Precision landscape construction, custom hardscaping, smart irrigation, and outdoor transformations in Costa Mesa and Orange County. Call (949) 514-1430 for a free estimate.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://rareearthsystems.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Sierra Landscape / Clean Energy Systems">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('rareearthsystems')" title="Quick View Summary" aria-label="Quick View for Sierra Landscape / Clean Energy Systems">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 33: Fenster & Projektbau GmbH -->
-    <div class="ar-portfolio-row" id="proj-fenster-projektbau" data-category="architecture">
-        <div class="ar-row-media">
-            <a href="https://fenster-projektbau.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Fenster &amp; Projektbau GmbH">
-                <img src="/wp-content/uploads/portfolio/fenster-projektbau.webp" alt="Fenster &amp; Projektbau GmbH | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Fenster &amp; Projektbau GmbH</text></svg>';" />
+    <!-- Card 33: Fenster & Projektbau GmbH -->
+    <div class="ar-portfolio-card" id="proj-fenster-projektbau" data-category="architecture">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://fenster-projektbau.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Fenster &amp; Projektbau GmbH">
+                <img src="/wp-content/uploads/portfolio/fenster-projektbau.webp" alt="Fenster &amp; Projektbau GmbH | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Fenster &amp; Projektbau GmbH</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Architectural Windows &amp; Facade Engineering</span>
+            <h3 class="ar-card-title">
                 <a href="https://fenster-projektbau.vercel.app/" target="_blank" rel="noopener noreferrer">Fenster &amp; Projektbau GmbH</a>
             </h3>
-            <p class="ar-row-desc">Ihr Meisterbetrieb für Fenster, Haustüren, Rollläden, Insektenschutz und Bodenbeläge in Dietenheim, Ulm &amp; Neu-Ulm. RAL-zertifizierte Montage, 3-fach Wärmeschutz &amp; GEG 2026 konform.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Architectural Windows &amp; Facade Engineering</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('fenster-projektbau')" title="Quick View Summary" aria-label="Quick View for Fenster &amp; Projektbau GmbH">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://fenster-projektbau.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Ihr Meisterbetrieb für Fenster, Haustüren, Rollläden, Insektenschutz und Bodenbeläge in Dietenheim, Ulm &amp; Neu-Ulm. RAL-zertifizierte Montage, 3-fach Wärmeschutz &amp; GEG 2026 konform.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://fenster-projektbau.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Fenster &amp; Projektbau GmbH">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('fenster-projektbau')" title="Quick View Summary" aria-label="Quick View for Fenster &amp; Projektbau GmbH">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 34: 1st Pain Management — Interventional Wellness -->
-    <div class="ar-portfolio-row" id="proj-1st-pain-management" data-category="healthcare">
-        <div class="ar-row-media">
-            <a href="https://1st-pain-management.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="1st Pain Management — Interventional Wellness">
-                <img src="/wp-content/uploads/portfolio/1st-pain-management.webp" alt="1st Pain Management — Interventional Wellness | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>1st Pain Management</text></svg>';" />
+    <!-- Card 34: 1st Pain Management — Interventional Wellness -->
+    <div class="ar-portfolio-card" id="proj-1st-pain-management" data-category="healthcare">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://1st-pain-management.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="1st Pain Management — Interventional Wellness">
+                <img src="/wp-content/uploads/portfolio/1st-pain-management.webp" alt="1st Pain Management — Interventional Wellness | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>1st Pain Management</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Healthcare &amp; Interventional Pain Relief</span>
+            <h3 class="ar-card-title">
                 <a href="https://1st-pain-management.vercel.app/" target="_blank" rel="noopener noreferrer">1st Pain Management — Interventional Wellness</a>
             </h3>
-            <p class="ar-row-desc">Interventional pain relief clinic, physical therapy protocols, and patient consultation booking portal.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Healthcare &amp; Interventional Pain Relief</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('1st-pain-management')" title="Quick View Summary" aria-label="Quick View for 1st Pain Management — Interventional Wellness">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://1st-pain-management.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Interventional pain relief clinic, physical therapy protocols, and patient consultation booking portal.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://1st-pain-management.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for 1st Pain Management — Interventional Wellness">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('1st-pain-management')" title="Quick View Summary" aria-label="Quick View for 1st Pain Management — Interventional Wellness">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Project 35: Smiling Faces Childcare & Early Learning Academy -->
-    <div class="ar-portfolio-row" id="proj-daycare-portal-dun" data-category="education">
-        <div class="ar-row-media">
-            <a href="https://daycare-portal-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-media-link" aria-label="Smiling Faces Childcare &amp; Early Learning Academy">
-                <img src="/wp-content/uploads/portfolio/daycare-portal-dun.webp" alt="Smiling Faces Childcare &amp; Early Learning Academy | AR Webcrafts" class="ar-media-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Smiling Faces Childcare &amp; Early Learning Academy</text></svg>';" />
+    <!-- Card 35: Smiling Faces Childcare & Early Learning Academy -->
+    <div class="ar-portfolio-card" id="proj-daycare-portal-dun" data-category="education">
+        <div class="ar-card-thumb-wrap">
+            <a href="https://daycare-portal-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-thumb-link" aria-label="Smiling Faces Childcare &amp; Early Learning Academy">
+                <img src="/wp-content/uploads/portfolio/daycare-portal-dun.webp" alt="Smiling Faces Childcare &amp; Early Learning Academy | AR Webcrafts" class="ar-card-img" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 500&quot;><rect width=&quot;800&quot; height=&quot;500&quot; fill=&quot;%230A192F&quot;/><text x=&quot;50%25&quot; y=&quot;50%25&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=&quot;%23BE8C33&quot; font-family=&quot;sans-serif&quot; font-size=&quot;26&quot; font-weight=&quot;bold&quot;>Smiling Faces Childcare &amp; Early Learning Academy</text></svg>';" />
             </a>
         </div>
-        <div class="ar-row-content">
-            <h3 class="ar-row-title">
+        <div class="ar-card-info-wrap">
+            <span class="ar-card-category">Childcare &amp; Early Learning Portal</span>
+            <h3 class="ar-card-title">
                 <a href="https://daycare-portal-dun.vercel.app/" target="_blank" rel="noopener noreferrer">Smiling Faces Childcare &amp; Early Learning Academy</a>
             </h3>
-            <p class="ar-row-desc">Safe, loving childcare in Johnstown, NY with 100% paperless digital enrollment, instant family &amp; emergency contact updates, and easy parent tools.</p>
-            <div class="ar-row-divider"></div>
-            <div class="ar-row-footer">
-                <span class="ar-row-category">Childcare &amp; Early Learning Portal</span>
-                <div class="ar-row-actions">
-                    <button type="button" class="ar-row-quick-btn" onclick="openCaseModal('daycare-portal-dun')" title="Quick View Summary" aria-label="Quick View for Smiling Faces Childcare &amp; Early Learning Academy">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <a href="https://daycare-portal-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-row-arrow-btn" aria-label="Visit Live Project" title="Visit Live Project">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
+            <p class="ar-card-subline">Safe, loving childcare in Johnstown, NY with 100% paperless digital enrollment, instant family &amp; emergency contact updates, and easy parent tools.</p>
+            <div class="ar-card-action-bar">
+                <a href="https://daycare-portal-dun.vercel.app/" target="_blank" rel="noopener noreferrer" class="ar-card-primary-cta" aria-label="Visit Live Demo for Smiling Faces Childcare &amp; Early Learning Academy">
+                    <span>Live Demo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="ar-card-quick-btn" onclick="openCaseModal('daycare-portal-dun')" title="Quick View Summary" aria-label="Quick View for Smiling Faces Childcare &amp; Early Learning Academy">
+                    <i class="fas fa-eye"></i> QUICK VIEW
+                </button>
             </div>
         </div>
     </div>
