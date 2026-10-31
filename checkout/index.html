@@ -1082,7 +1082,7 @@
 
         if (response.ok) {
           const session = await response.json();
-          if (session && session.url) {
+          if (session && session.mode === 'live_stripe' && session.url) {
             window.location.href = session.url;
             return;
           }
