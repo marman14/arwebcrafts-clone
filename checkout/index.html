@@ -855,18 +855,6 @@
           <span>Pay Securely Now ($99) →</span>
         </button>
 
-        <!-- Secondary Direct Stripe Link -->
-        <a href="https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j" target="_blank" rel="noopener noreferrer" class="ck-stripe-link-btn">
-          <i class="fab fa-stripe-s" style="font-weight: 900;"></i>
-          <span>Or Pay via Stripe Direct Hosted Link ↗</span>
-        </a>
-
-        <!-- WhatsApp Support Link -->
-        <a href="https://wa.me/13072784862?text=Hello%20Arman%2C%20I%20am%20at%20checkout%20and%20want%20to%20complete%20my%20order." target="_blank" rel="noopener noreferrer" class="ck-wa-btn">
-          <i class="fab fa-whatsapp" style="font-size: 15px;"></i>
-          <span>Need Help? Chat &amp; Pay via WhatsApp</span>
-        </a>
-
         <!-- Guarantees Footer -->
         <div class="ck-guarantees-grid">
           <div class="ck-guarantee-item">
@@ -1037,6 +1025,7 @@
       }
 
       const btn = document.getElementById('btnPaySubmit');
+      const originalBtnHtml = btn.innerHTML;
       btn.disabled = true;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting to Stripe Checkout...';
 
@@ -1062,17 +1051,16 @@
         }).catch(e => console.warn('Sync log notice', e));
       } catch (e) {}
 
-      // 2. Route directly to Stripe Checkout
-      // Direct Stripe custom link with customer prefill or dynamic checkout session
-      const stripePaymentUrl = 'https://buy.stripe.com/fZuaEY3hXgXRgs8bNB9R60j';
-
+      // 2. Route directly to live Stripe Checkout Session with Fixed Pricing
       try {
         const response = await fetch('/api/create-checkout-session', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            serviceName: planData.name + (selectedAddon !== 'none' ? ` (${selectedAddon})` : ''),
+            plan: currentPlan,
+            serviceName: planData.name,
             amount: planData.basePrice,
+            addon: selectedAddon,
             customerName: name,
             customerEmail: email,
             customerPhone: phone,
@@ -1082,17 +1070,19 @@
 
         if (response.ok) {
           const session = await response.json();
-          if (session && session.mode === 'live_stripe' && session.url) {
+          if (session && session.url) {
             window.location.href = session.url;
             return;
           }
         }
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || 'Failed to create Stripe checkout session');
       } catch (err) {
-        console.warn('Fallback to direct Stripe hosted payment link:', err);
+        console.error('Stripe Checkout Error:', err);
+        btn.disabled = false;
+        btn.innerHTML = originalBtnHtml;
+        alert('Payment Gateway Notice: ' + (err.message || 'Could not connect to Stripe. Please try again in a moment.'));
       }
-
-      // Seamless direct fallback to official Stripe link
-      window.location.href = stripePaymentUrl;
     }
   </script>
 

@@ -673,6 +673,10 @@
   }
 
   function initWhatsAppButton() {
+    var path = window.location.pathname.toLowerCase();
+    if (path.indexOf('/bf') !== -1 || path.indexOf('/blackfriday') !== -1 || path.indexOf('/checkout') !== -1) {
+      return;
+    }
     if (document.querySelector('.ar-whatsapp-floating-btn')) return;
     var btn = document.createElement('a');
     btn.className = 'ar-whatsapp-floating-btn';
