@@ -1071,7 +1071,12 @@
         if (response.ok) {
           const session = await response.json();
           if (session && session.url) {
-            window.location.href = session.url;
+            let targetUrl = session.url;
+            // Prevent accidental https:// redirects on local HTTP dev server
+            if (window.location.protocol === 'http:' && (targetUrl.includes('//localhost') || targetUrl.includes('//127.0.0.1'))) {
+              targetUrl = targetUrl.replace('https://', 'http://');
+            }
+            window.location.href = targetUrl;
             return;
           }
         }

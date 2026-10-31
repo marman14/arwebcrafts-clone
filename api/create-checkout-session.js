@@ -1,6 +1,32 @@
 // Vercel Serverless Function: api/create-checkout-session.js
 // Creates a secure Stripe Checkout Session with FIXED pricing & recurring add-ons
 
+// Auto-load local environment variables from .env or .env.local if present
+const fs = require('fs');
+const path = require('path');
+['.env', '.env.local'].forEach(file => {
+  try {
+    const fullPath = path.resolve(process.cwd(), file);
+    if (fs.existsSync(fullPath)) {
+      const content = fs.readFileSync(fullPath, 'utf8');
+      content.split(/\r?\n/).forEach(line => {
+        const trimmed = line.trim();
+        if (trimmed && !trimmed.startsWith('#') && trimmed.includes('=')) {
+          const idx = trimmed.indexOf('=');
+          const key = trimmed.slice(0, idx).trim();
+          let val = trimmed.slice(idx + 1).trim();
+          if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+            val = val.slice(1, -1);
+          }
+          if (!process.env[key]) {
+            process.env[key] = val;
+          }
+        }
+      });
+    }
+  } catch (e) {}
+});
+
 function getStripe(secretKey) {
   try {
     const Stripe = require('stripe');
@@ -74,8 +100,14 @@ module.exports = async (req, res) => {
     }
 
     const host = req.headers['x-forwarded-host'] || req.headers.host || 'www.arwebcrafts.com';
-    const proto = req.headers['x-forwarded-proto'] || 'https';
-    const origin = process.env.SITE_URL || `${proto}://${host}`;
+    const isLocalhost = host.includes('localhost') || host.includes('127.0.0.1') || host.includes(':3000');
+    let origin;
+    if (isLocalhost) {
+      origin = `http://${host}`;
+    } else {
+      const proto = req.headers['x-forwarded-proto'] || 'https';
+      origin = process.env.SITE_URL || (req.headers.origin && req.headers.origin.startsWith('https://') ? req.headers.origin : `${proto}://${host}`);
+    }
 
     const secretKey = process.env.STRIPE_SECRET_KEY;
 

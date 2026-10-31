@@ -78,7 +78,11 @@ function applySecurityHeaders(req, res) {
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+
+  const host = (req && req.headers && (req.headers['x-forwarded-host'] || req.headers.host)) || '';
+  if (!host.includes('localhost') && !host.includes('127.0.0.1')) {
+    res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+  }
 }
 
 function verifyCsrfAndOrigin(req) {

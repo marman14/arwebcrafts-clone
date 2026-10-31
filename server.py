@@ -31,7 +31,24 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
             headers_dict = {k.lower(): v for k, v in self.headers.items()}
             if 'origin' not in headers_dict and 'host' in headers_dict:
                 headers_dict['origin'] = f"http://{headers_dict['host']}"
+            headers_dict['x-forwarded-proto'] = 'http'
             headers_json = json.dumps(headers_dict)
+
+            # Auto-load .env or .env.local for local server testing
+            env_vars = os.environ.copy()
+            for env_name in ['.env', '.env.local']:
+                env_file = DIRECTORY / env_name
+                if env_file.exists():
+                    try:
+                        with open(env_file, 'r', encoding='utf-8') as ef:
+                            for line in ef:
+                                line = line.strip()
+                                if line and not line.startswith('#') and '=' in line:
+                                    k, v = line.split('=', 1)
+                                    env_vars[k.strip()] = v.strip().strip('"').strip("'")
+                    except Exception:
+                        pass
+
             runner_script = f"""
             const handler = require('./api/{api_name}.js');
             let body = {{}};
@@ -57,6 +74,7 @@ class CleanHandler(http.server.SimpleHTTPRequestHandler):
                     cwd=str(DIRECTORY),
                     capture_output=True,
                     text=True,
+                    env=env_vars,
                     timeout=10
                 )
                 output = proc.stdout.strip()
