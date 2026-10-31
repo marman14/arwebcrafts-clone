@@ -529,8 +529,8 @@ Staff Augmentation						</a></div></div></div></div></div></div></div><div class
   const params = new URLSearchParams(window.location.search);
   const sessionId = params.get('session_id') || params.get('payment_intent') || ('txn_' + Math.random().toString(36).substring(2, 10));
   const amount = params.get('amount');
-  const service = params.get('service');
-  const customer = params.get('customer');
+  const service = params.get('service') || params.get('plan');
+  const customer = params.get('customer') || params.get('name');
   const invoice = params.get('invoice');
 
   const idEl = document.getElementById('receipt-session-id');
