@@ -111,13 +111,24 @@ module.exports = async (req, res) => {
 
     const secretKey = process.env.STRIPE_SECRET_KEY;
 
-    // Check if live Stripe Secret Key is present in environment
-    if (secretKey && !secretKey.includes('your_actual') && !secretKey.includes('Demo000000')) {
-      const stripe = getStripe(secretKey);
-      if (stripe) {
-        let sessionPayload;
+    // Check if live Stripe Secret Key is present
+    if (!secretKey || secretKey.includes('your_actual') || secretKey.includes('Demo000000')) {
+      console.warn('[Stripe Notice] STRIPE_SECRET_KEY is missing from environment.');
+      return res.status(400).json({
+        error: 'STRIPE_SECRET_KEY is missing. It is configured in Vercel Production, but not present on your local machine. Add STRIPE_SECRET_KEY to a local .env.local file to test on localhost, or deploy to Vercel with "push".'
+      });
+    }
 
-        if (addonAmountCents > 0) {
+    const stripe = getStripe(secretKey);
+    if (!stripe) {
+      return res.status(500).json({
+        error: 'Could not initialize Stripe SDK. Please check your Stripe keys.'
+      });
+    }
+
+    let sessionPayload;
+
+    if (addonAmountCents > 0) {
           // Mixed cart: mode 'subscription' charges one-time build fee + recurring monthly add-on
           sessionPayload = {
             payment_method_types: ['card'],
@@ -202,31 +213,11 @@ module.exports = async (req, res) => {
           url: session.url,
           mode: 'live_stripe'
         });
-      }
-    }
-
-    // Graceful Fallback in Local / Test Mode (when STRIPE_SECRET_KEY is not in local env)
-    const testSessionId = 'cs_test_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
-    const testSuccessUrl = `${origin}/checkout/receipt/?session_id=${testSessionId}&amount=${baseAmount.toFixed(2)}&service=${encodeURIComponent(rawServiceName)}&customer=${encodeURIComponent(rawCustomerName)}&mode=test_simulated`;
-
-    console.log('[Stripe Session Simulation - Test Mode]', {
-      customer: maskPii(rawCustomerName),
-      email: maskPii(rawCustomerEmail, 'email'),
-      amount: baseAmount,
-      addon: addonName
-    });
-
-    return res.status(200).json({
-      id: testSessionId,
-      url: testSuccessUrl,
-      mode: 'test_sandbox_ready',
-      message: 'Running in local dev mode. On Vercel with STRIPE_SECRET_KEY, this generates a live fixed-price Stripe Checkout session.'
-    });
 
   } catch (error) {
     console.error('Create Checkout Session Error:', error.message);
     return res.status(500).json({
-      error: 'An error occurred while creating the checkout session. Please try again.'
+      error: error.message || 'An error occurred while creating the checkout session. Please try again.'
     });
   }
 };
